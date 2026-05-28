@@ -1,0 +1,31 @@
+{
+	"number": 37,
+	"chinese": "家人",
+	"pinyin": "jiā rén",
+	"lower": "li",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Родина",
+			"composition": "Вогонь під вітром.",
+			"reading": {
+				"scene": "Тепло виходить із дому й розходиться назовні.\n\nДім тримається тим, що кожен знає своє місце.",
+				"dynamics": "Тут важить те, як у домі ходить слово: хто говорить, хто відповідає, де двері, де вогнище, де місце за столом.\n\nДомашній лад не створюється загальними почуттями. Він тримається повторюваними діями і ясними місцями.\n\nНебезпека в прихованому безладі, який прикривають назвою сім’ї або команди. Тоді тепло стає димом.\n\nЦя гексаграма показує ближнє коло. Якщо біля вогнища плутаються місця, вітер винесе назовні саме цю плутанину.",
+				"vector": "Впорядкувати ближнє.\n\nНе вимагати ясності від дому, де слово не знає свого місця."
+			},
+			"judgment": "Родина. Сприятлива стійкість жінки.",
+			"image": "Вітер виходить із вогню: родина. Так шляхетна людина має зміст у словах і сталість у діях."
+		},
+		"en": {
+			"name": "The Family",
+			"composition": "Fire under wind.",
+			"reading": {
+				"scene": "Warmth leaves the house and moves outward.\n\nThe house is held by each one knowing their place.",
+				"dynamics": "What matters here is how speech moves through the house: who speaks, who answers, where the door is, where the hearth is, where the seat at the table stands.\n\nDomestic order is not made by general feeling. It is held by repeated actions and clear places.\n\nThe danger is hidden disorder covered by the name of family or team. Then warmth becomes smoke.\n\nThis hexagram shows the near circle. If places are confused by the hearth, the wind will carry that confusion outward.",
+				"vector": "Put the near field in order.\n\nDo not demand clarity from a house where speech does not know its place."
+			},
+			"judgment": "The Family. The constancy of the woman is favorable.",
+			"image": "Wind comes forth from fire: the family. Thus the noble person has substance in words and constancy in actions."
+		}
+	}
+}

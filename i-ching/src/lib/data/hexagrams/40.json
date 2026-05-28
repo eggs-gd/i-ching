@@ -1,0 +1,31 @@
+{
+	"number": 40,
+	"chinese": "解",
+	"pinyin": "xiě",
+	"lower": "kan",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Звільнення",
+			"composition": "Вода під громом.",
+			"reading": {
+				"scene": "Напруга розряджається, вузол послаблюється.\n\nТе, що було стиснуте, починає розходитися.",
+				"dynamics": "Тут настає звільнення після затримки або страху. Рух повертається, бо тиск уже не тримає все в одному вузлі.\n\nЗвільнення потребує швидкого простого кроку. Не варто тягти за собою все, що належало стану скутості.\n\nНебезпека в помсті до минулого вузла або в бажанні одразу охопити все. Обидва рухи знову створюють плутанину.\n\nЦя гексаграма показує момент розв'язання. Краще відпустити зайве і повернутися до прямого ходу.",
+				"vector": "Розпустити вузол і не носити його форму далі.\n\nПісля звільнення робити найпростіший потрібний рух."
+			},
+			"judgment": "Звільнення. Сприятливий захід. Якщо більше нема куди йти, повернення приносить щастя. Якщо ще є куди йти, ранній рух приносить щастя.",
+			"image": "Грім і дощ приходять: звільнення. Так шляхетна людина прощає помилки і відпускає провину."
+		},
+		"en": {
+			"name": "Release",
+			"composition": "Water under thunder.",
+			"reading": {
+				"scene": "Tension discharges; the knot loosens.\n\nWhat was compressed begins to separate.",
+				"dynamics": "Release arrives after delay or fear. Movement returns because pressure no longer holds everything in one knot.\n\nRelease needs a quick simple step. It is not worth carrying along everything that belonged to the constricted state.\n\nThe danger is revenge against the old knot, or the wish to seize everything at once. Both movements create confusion again.\n\nThis hexagram shows a moment of untying. It is better to let go of the excess and return to a direct course.",
+				"vector": "Loosen the knot and do not carry its shape forward.\n\nAfter release, make the simplest necessary movement."
+			},
+			"judgment": "Release. The southwest is favorable. If there is nowhere more to go, return brings good fortune. If there is still somewhere to go, early movement brings good fortune.",
+			"image": "Thunder and rain arrive: release. Thus the noble person forgives mistakes and lets fault go."
+		}
+	}
+}

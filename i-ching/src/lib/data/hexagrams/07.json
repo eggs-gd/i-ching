@@ -1,0 +1,31 @@
+{
+	"number": 7,
+	"chinese": "師",
+	"pinyin": "shī",
+	"lower": "kan",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Військо",
+			"composition": "Вода під землею.",
+			"reading": {
+				"scene": "Прихована маса збирається під знаком і наказом.\n\nБез строю вона лишається важкою водою в темному ґрунті.",
+				"dynamics": "Тут багато людей або засобів, але самі по собі вони ще не стають військом. Потрібен знак, за яким можна вишикуватись.\n\nКоманда має бути ясною: хто веде, що охороняють, де межа руху. Без цього натовп тисне в різні боки.\n\nКоли порядок стає лише примусом, лави тримаються страхом, а не справою. Такий стрій швидко ламається зсередини.\n\nЦя гексаграма показує зібрану масу під відповідальністю проводу. Тут важить не запал, а здатність тримати ряд.",
+				"vector": "Вишикувати розрізнене під одним знаком.\n\nНе віддавати наказ, доки не ясно, що саме має бути збережене або зрушене."
+			},
+			"judgment": "Військо. Потрібна стійкість і зріла людина. Тоді є успіх без помилки.",
+			"image": "У землі є вода: військо. Так шляхетна людина збільшує маси через широту до людей."
+		},
+		"en": {
+			"name": "The Army",
+			"composition": "Water under earth.",
+			"reading": {
+				"scene": "A hidden mass gathers under a sign and a command.\n\nWithout formation it remains heavy water in dark soil.",
+				"dynamics": "There are many people or means here, but by themselves they do not yet become an army. A sign is needed by which they can take rank.\n\nThe command must be clear: who leads, what is guarded, where the line of movement lies. Without this, a crowd presses in different directions.\n\nWhen order becomes only coercion, the ranks are held by fear, not by the matter. Such formation quickly breaks from within.\n\nThis hexagram shows a gathered mass under responsible command. What matters is not zeal, but the ability to hold the line.",
+				"vector": "Set what is scattered into rank under one sign.\n\nDo not give the command before it is clear what must be preserved or moved."
+			},
+			"judgment": "The Army. Constancy and a mature person are needed. Then there is success without fault.",
+			"image": "In the earth there is water: the army. Thus the noble person increases the people through breadth toward them."
+		}
+	}
+}

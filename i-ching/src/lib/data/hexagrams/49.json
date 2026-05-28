@@ -1,0 +1,31 @@
+{
+	"number": 49,
+	"chinese": "革",
+	"pinyin": "gé",
+	"lower": "li",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Зміна шкіри",
+			"composition": "Вогонь під озером.",
+			"reading": {
+				"scene": "Дві сили нагрівають одна одну, і стара шкіра більше не прилягає.\n\nНастає час скидання.",
+				"dynamics": "Тут зміна не є прикрасою старого порядку. Настає момент, коли оболонка має відійти.\n\nПотрібен правильний день. Ранній удар дає бунт без форми; запізнення залишає живе в мертвій шкірі.\n\nНебезпека в захваті самим переворотом. Якщо важливий тільки розрив, нова оболонка швидко стає такою ж порожньою.\n\nЦя гексаграма показує зміну мандата. Старе втрачає право тримати тіло, коли вже не відповідає живому.",
+				"vector": "Скидати шкіру тоді, коли вона справді відслужила.\n\nНе називати кожну втому переворотом."
+			},
+			"judgment": "Зміна шкіри. У свій день буде довіра. Первісний успіх; сприятлива стійкість. Каяття зникає.",
+			"image": "В озері є вогонь: зміна. Так шляхетна людина впорядковує календар і робить часи ясними."
+		},
+		"en": {
+			"name": "Revolution",
+			"composition": "Fire under lake.",
+			"reading": {
+				"scene": "Two forces heat one another, and the old skin no longer fits.\n\nThe time of shedding arrives.",
+				"dynamics": "Change here is not decoration of the old order. A moment arrives when the shell must come away.\n\nThe right day is needed. An early strike gives revolt without form; delay leaves the living inside dead skin.\n\nThe danger is fascination with overturning itself. If only rupture matters, the new shell quickly becomes just as empty.\n\nThis hexagram shows a change of mandate. The old loses the right to hold the body when it no longer matches the living.",
+				"vector": "Shed the skin when it has truly served out.\n\nDo not call every fatigue a revolution."
+			},
+			"judgment": "Revolution. On your own day, there will be trust. Original success; favorable through constancy. Regret disappears.",
+			"image": "In the lake there is fire: revolution. Thus the noble person orders the calendar and makes the seasons clear."
+		}
+	}
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+:root {
+	--bg: #0e0d0b;
+	--bg-elevated: #161411;
+	--bg-paper: #1a1814;
+	--text: #e8e2d6;
+	--text-muted: #8a8275;
+	--text-faint: #5c564c;
+	--accent: #c4a574;
+	--accent-dim: #8b7355;
+	--line-yang: #d4c4a0;
+	--line-yin: #6b6358;
+	--line-changing: #c9785a;
+	--border: rgba(196, 165, 116, 0.12);
+	--font-serif: 'Cormorant Garamond', Georgia, serif;
+	--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-sans);
+	font-weight: 300;
+	line-height: 1.6;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background:
+		radial-gradient(ellipse at 50% 0%, rgba(196, 165, 116, 0.04) 0%, transparent 60%),
+		url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+	pointer-events: none;
+	z-index: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-serif);
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+}
+
+button {
+	font-family: var(--font-sans);
+	cursor: pointer;
+	border: none;
+	background: none;
+	color: inherit;
+}
+
+input,
+textarea {
+	font-family: var(--font-sans);
+	font-weight: 300;
+	color: var(--text);
+	background: var(--bg-elevated);
+	border: 1px solid var(--border);
+	border-radius: 2px;
+	padding: 0.75rem 1rem;
+	width: 100%;
+	resize: none;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--accent-dim);
+}
+
+::selection {
+	background: rgba(196, 165, 116, 0.25);
+}

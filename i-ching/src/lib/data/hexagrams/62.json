@@ -1,0 +1,31 @@
+{
+	"number": 62,
+	"chinese": "小過",
+	"pinyin": "xiǎo guò",
+	"lower": "gen",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Мале перевищення",
+			"composition": "Гора під громом.",
+			"reading": {
+				"scene": "Малий птах летить низько, не беручи висоти.\n\nЧас належить дрібній точності.",
+				"dynamics": "Тут велика дія недоречна. Ситуація приймає мале, обережне, близьке до землі.\n\nПеревага в деталях: не піднімати голос, не розширювати жест, не брати більше простору, ніж дозволено.\n\nНебезпека в бажанні довести значність великим рухом. Саме він зараз швидше за все приведе до помилки.\n\nЦя гексаграма показує вагу малого переходу. Низький політ не є поразкою; це відповідність погоді.",
+				"vector": "Робити мале точно.\n\nНе летіти високо там, де правильний шлях проходить близько до землі."
+			},
+			"judgment": "Мале перевищення. Успіх. Сприятлива стійкість. Можна мале, не можна велике. Птах, що летить, лишає голос; не годиться йти вгору, годиться вниз.",
+			"image": "Над горою є грім: мале перевищення. Так шляхетна людина в поведінці переходить до пошани, у втраті — до жалоби, у витратах — до ощадності."
+		},
+		"en": {
+			"name": "Small Exceeding",
+			"composition": "Mountain under thunder.",
+			"reading": {
+				"scene": "A small bird flies low, not taking height.\n\nThe time belongs to small precision.",
+				"dynamics": "A large action is out of place here. The situation accepts the small, careful, close to the ground.\n\nThe advantage lies in details: do not raise the voice, do not widen the gesture, do not take more space than allowed.\n\nThe danger is wanting to prove significance through large movement. That movement is now most likely to cause error.\n\nThis hexagram shows the weight of a small crossing. Low flight is not defeat; it is accordance with the weather.",
+				"vector": "Do the small thing exactly.\n\nDo not fly high where the right way passes close to the ground."
+			},
+			"judgment": "Small Exceeding. Success. Favorable through constancy. The small may be done; the great may not. A flying bird leaves its call; it is not fitting to go upward, fitting to go downward.",
+			"image": "Above the mountain there is thunder: small exceeding. Thus the noble person in conduct goes toward respect, in loss toward mourning, in spending toward thrift."
+		}
+	}
+}

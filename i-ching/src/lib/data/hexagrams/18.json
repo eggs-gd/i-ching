@@ -1,0 +1,31 @@
+{
+	"number": 18,
+	"chinese": "蠱",
+	"pinyin": "gǔ",
+	"lower": "xun",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Відновлення",
+			"composition": "Вітер під горою.",
+			"reading": {
+				"scene": "Повітря не проходить вільно, старе накопичилось у закритому місці.\n\nПотрібна робота з пошкодженим коренем.",
+				"dynamics": "Тут проблема не з'явилась сьогодні. Вона лежала в основі, псувала форму і стала помітною через наслідки.\n\nРемонт починається не з прикрашання поверхні. Треба торкатися того, що давно не перевіряли або не хотіли відкривати.\n\nСтаре легко видає себе за природний порядок. Саме тому розклад може триматися довше, ніж живий рух.\n\nЦя гексаграма показує працю після занедбання. Вона не м'яка, але без неї нове стане на гнилу підлогу.",
+				"vector": "Повернутися до причини, а не до симптомів.\n\nВиносити зіпсоване на повітря без прикрас."
+			},
+			"judgment": "Робота над зіпсованим. Первісний успіх. Сприятливо перейти велику воду. Перед початком три дні, після початку три дні.",
+			"image": "Під горою є вітер: зіпсоване. Так шляхетна людина зрушує людей і відновлює їхню силу."
+		},
+		"en": {
+			"name": "Restoration",
+			"composition": "Wind under mountain.",
+			"reading": {
+				"scene": "Air cannot pass freely; the old has accumulated in a closed place.\n\nWork is needed at the damaged root.",
+				"dynamics": "The problem did not appear today. It lay in the base, spoiled the form, and became visible through its effects.\n\nRepair does not begin by decorating the surface. It must touch what has long gone unchecked or unopened.\n\nThe old easily presents itself as natural order. That is why decay may hold longer than living movement.\n\nThis hexagram shows work after neglect. It is not soft, but without it the new will stand on a rotten floor.",
+				"vector": "Return to the cause, not to the symptoms.\n\nBring the spoiled matter into the air without ornament."
+			},
+			"judgment": "Work on What Has Been Spoiled. Original success. It is favorable to cross the great water. Three days before the beginning, three days after the beginning.",
+			"image": "Under the mountain there is wind: what has been spoiled. Thus the noble person stirs the people and restores their force."
+		}
+	}
+}

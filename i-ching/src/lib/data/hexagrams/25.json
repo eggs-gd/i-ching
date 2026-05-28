@@ -1,0 +1,31 @@
+{
+	"number": 25,
+	"chinese": "無妄",
+	"pinyin": "wú wàng",
+	"lower": "zhen",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Невтручання",
+			"composition": "Грім під небом.",
+			"reading": {
+				"scene": "Рух виникає прямо, без прихованої схеми.\n\nСитуація не терпить штучного наміру.",
+				"dynamics": "Тут правильним є те, що не сконструйоване заради вигоди. Рух має бути простим і відповідним моменту.\n\nНевинність не означає незнання. Це відсутність зайвого втручання там, де порядок уже має власний хід.\n\nНебезпека в тому, щоб підкласти під чистий рух приватний розрахунок. Тоді випадок швидко стає пасткою.\n\nЦя гексаграма показує дію без надбудови. Те, що не належить ситуації, краще не додавати.",
+				"vector": "Діяти прямо, без підмішаної вигоди.\n\nНе чіпати механізм, який працює саме тому, що його не тягнуть убік."
+			},
+			"judgment": "Без хибного. Первісний успіх; сприятлива стійкість. Якщо дія не правильна, буде біда.",
+			"image": "Під небом рухається грім: без хибного. Так давні володарі узгоджували час і живили всі речі."
+		},
+		"en": {
+			"name": "Non-Interference",
+			"composition": "Thunder under heaven.",
+			"reading": {
+				"scene": "Movement arises directly, without a hidden scheme.\n\nThe situation does not tolerate artificial intention.",
+				"dynamics": "What is correct here is not constructed for advantage. Movement must be simple and matched to the moment.\n\nInnocence does not mean ignorance. It is the absence of needless interference where order already has its own course.\n\nThe danger is placing private calculation under a clean movement. Then chance quickly becomes a trap.\n\nThis hexagram shows action without an added layer. What does not belong to the situation is better left out.",
+				"vector": "Act directly, without mixed-in gain.\n\nDo not pull aside a mechanism that works because it is not being pulled."
+			},
+			"judgment": "Without Falsehood. Original success; favorable through constancy. If the action is not right, there will be misfortune.",
+			"image": "Under heaven thunder moves: without falsehood. Thus the ancient kings aligned with the seasons and nourished all things."
+		}
+	}
+}

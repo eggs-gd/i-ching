@@ -1,0 +1,31 @@
+{
+	"number": 63,
+	"chinese": "既濟",
+	"pinyin": "jì jì",
+	"lower": "li",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Після завершення",
+			"composition": "Вогонь під водою.",
+			"reading": {
+				"scene": "Кожна частина стоїть на своєму місці, і справа здається завершеною.\n\nПорядок уже створений.",
+				"dynamics": "Тут форма зібрана, елементи врівноважені, перехід ніби відбувся. Саме тому потрібна особлива уважність до дрібного.\n\nПісля завершення починається інший ризик: те, що зібране, може розійтися від недогляду.\n\nНебезпека в розслабленні після успіху. Завершена річ не перестає потребувати підтримки.\n\nЦя гексаграма показує кінець як початок догляду. Порядок не є мертвим предметом; він тримається точністю після досягнення.",
+				"vector": "Не кидати завершене без нагляду.\n\nПісля переходу берегти малі шви форми."
+			},
+			"judgment": "Після завершення. Успіх у малому. Сприятлива стійкість. На початку щастя, наприкінці безлад.",
+			"image": "Вода над вогнем: після завершення. Так шляхетна людина думає про біду і заздалегідь захищається від неї."
+		},
+		"en": {
+			"name": "After Completion",
+			"composition": "Fire under water.",
+			"reading": {
+				"scene": "Each part stands in its place, and the matter seems complete.\n\nOrder has already been made.",
+				"dynamics": "The form is assembled, the elements balanced, the crossing seemingly done. For that very reason, special attention to the small is needed.\n\nAfter completion another risk begins: what has been assembled may come apart through neglect.\n\nThe danger is relaxing after success. A completed thing does not stop needing care.\n\nThis hexagram shows the end as the beginning of maintenance. Order is not a dead object; it is held by precision after achievement.",
+				"vector": "Do not leave the completed thing unattended.\n\nAfter the crossing, keep the small seams of the form."
+			},
+			"judgment": "After Completion. Success in the small. Favorable through constancy. At the beginning good fortune, at the end disorder.",
+			"image": "Water over fire: after completion. Thus the noble person thinks of misfortune and guards against it beforehand."
+		}
+	}
+}

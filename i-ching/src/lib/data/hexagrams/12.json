@@ -1,0 +1,31 @@
+{
+	"number": 12,
+	"chinese": "否",
+	"pinyin": "pǐ",
+	"lower": "qian",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Відсутність гармонії",
+			"composition": "Небо відходить угору, земля осідає вниз.",
+			"reading": {
+				"scene": "Між рівнями немає проходу.\n\nФорма залишається, але обмін зупинений.",
+				"dynamics": "Тут зовнішній порядок може ще виглядати цілим, але всередині зв'язок уже не працює. Верх і низ розходяться так, що слово не доходить між ними.\n\nРух не варто витрачати на двері, які зараз не відчиняються. Натиск лише підтверджує закритість.\n\nЗастій спокушає удавати нормальність. Тоді порожня форма починає вимагати ще більше сил, ніж жива справа.\n\nЦя гексаграма показує час, коли мале тримається ближче до себе. Великий рух не проходить крізь мертву середину.",
+				"vector": "Не годувати порожній механізм власною присутністю.\n\nЗберігати те, що ще має живий зв'язок."
+			},
+			"judgment": "Застій. Нелюдське не сприяє стійкості шляхетної людини. Велике відходить, мале приходить.",
+			"image": "Небо і земля не з’єднуються: застій. Так шляхетна людина береже свою силу і не служить порожній славі."
+		},
+		"en": {
+			"name": "Disconnection",
+			"composition": "Heaven withdraws upward; earth settles downward.",
+			"reading": {
+				"scene": "There is no passage between levels.\n\nThe form remains, but exchange has stopped.",
+				"dynamics": "The outer order may still look whole, but inside, the connection no longer works. Above and below pull apart so that a word no longer passes between them.\n\nMovement should not be spent on doors that do not open now. Pressure only confirms their closure.\n\nStagnation tempts one to perform normality. Then an empty form begins to demand more force than a living matter would.\n\nThis hexagram shows a time when the small keeps close to itself. A large movement cannot pass through a dead middle.",
+				"vector": "Do not feed an empty mechanism with your presence.\n\nPreserve what still has a living connection."
+			},
+			"judgment": "Stagnation. What is not human does not favor the constancy of the noble person. The great departs, the small arrives.",
+			"image": "Heaven and earth do not unite: stagnation. Thus the noble person preserves their force and does not serve empty rank."
+		}
+	}
+}

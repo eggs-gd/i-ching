@@ -1,0 +1,31 @@
+{
+	"number": 4,
+	"chinese": "蒙",
+	"pinyin": "méng",
+	"lower": "kan",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Незрілість",
+			"composition": "Гора над водою.",
+			"reading": {
+				"scene": "Межа перед глибиною.\n\nПитання, яке ще не готове до остаточної відповіді.",
+				"dynamics": "Тут є цікавість, але ще немає цілісного бачення.\n\nЛюдина шукає форму, вчиться помічати зв'язки і поступово відрізняти справжнє знання від випадкового шуму.\n\nНезрілість не є проблемою сама по собі.\n\nПроблемою стає впевненість у тому, що все вже зрозуміло.\n\nЦя гексаграма не любить поспішних висновків і жорстких суджень.\n\nВона про повільне доростання до ясності.",
+				"vector": "Правильне питання іноді важливіше за швидку відповідь."
+			},
+			"judgment": "Незрілість. Не я шукаю юного невігласа; юний невіглас шукає мене. Перше запитання приймається.",
+			"image": "Біля підніжжя гори виходить джерело: незрілість. Так шляхетна людина виховує дію ясністю."
+		},
+		"en": {
+			"name": "Youthful Folly",
+			"composition": "Mountain above water.",
+			"reading": {
+				"scene": "A boundary before depth.\n\nA question not yet ready for a final answer.",
+				"dynamics": "There is curiosity here, but not yet a whole view.\n\nA person looks for form, learns to notice relations, and gradually separates real knowledge from incidental noise.\n\nImmaturity is not a problem by itself. The problem begins with certainty that everything is already clear.\n\nThis hexagram does not favor quick conclusions or hard judgments. It concerns slow ripening toward clarity.",
+				"vector": "The right question is sometimes more important than a quick answer."
+			},
+			"judgment": "Youthful Folly. I do not seek the young fool; the young fool seeks me. The first question is received.",
+			"image": "A spring comes forth at the foot of the mountain: youthful folly. Thus the noble person cultivates action through clarity."
+		}
+	}
+}

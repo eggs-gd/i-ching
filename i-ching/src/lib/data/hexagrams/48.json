@@ -1,0 +1,31 @@
+{
+	"number": 48,
+	"chinese": "井",
+	"pinyin": "jǐng",
+	"lower": "xun",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Колодязь",
+			"composition": "Вітер над водою.",
+			"reading": {
+				"scene": "Колодязь стоїть на місці, але до нього повертаються знову.\n\nДжерело не належить одному руху.",
+				"dynamics": "Тут ідеться про спільний ресурс, який має бути доступним і доглянутим. Його цінність не в новизні, а в постійній придатності.\n\nКолодязь може бути повний, але користі не буде, якщо відро зламане або підхід занедбаний.\n\nНебезпека в тому, щоб мати джерело й не вміти ним користуватися. Занедбаний доступ робить багатство недосяжним.\n\nЦя гексаграма показує основу живлення спільного життя. Її не треба переносити; її треба підтримувати.",
+				"vector": "Перевірити не тільки джерело, а й спосіб доступу до нього.\n\nНе міняти місце там, де потрібно відновити колодязь."
+			},
+			"judgment": "Колодязь. Місто можна змінити, але колодязь не змінюється. Ні втрати, ні набутку. До нього приходять і від нього відходять.",
+			"image": "Над водою є дерево: колодязь. Так шляхетна людина підтримує людей і заохочує взаємну працю."
+		},
+		"en": {
+			"name": "The Well",
+			"composition": "Wind over water.",
+			"reading": {
+				"scene": "The well stays in place, yet people return to it again.\n\nThe source does not belong to a single movement.",
+				"dynamics": "This concerns a shared resource that must be accessible and tended. Its value is not novelty, but lasting usefulness.\n\nThe well may be full, but there is no use if the bucket is broken or the approach neglected.\n\nThe danger is having a source and not being able to use it. Neglected access makes wealth unreachable.\n\nThis hexagram shows the basis of nourishment for common life. It need not be moved; it must be maintained.",
+				"vector": "Check not only the source, but the way to reach it.\n\nDo not change the place where the well itself needs repair."
+			},
+			"judgment": "The Well. The town may be changed, but the well is not changed. No loss, no gain. People come to it and go from it.",
+			"image": "Above water there is wood: the well. Thus the noble person supports the people and encourages mutual work."
+		}
+	}
+}

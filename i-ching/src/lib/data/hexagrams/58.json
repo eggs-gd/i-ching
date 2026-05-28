@@ -1,0 +1,31 @@
+{
+	"number": 58,
+	"chinese": "兌",
+	"pinyin": "duì",
+	"lower": "dui",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Радісне озеро",
+			"composition": "Озеро над озером.",
+			"reading": {
+				"scene": "Відкритість відгукується відкритості.\n\nРадість має поверхню, через яку люди зближуються.",
+				"dynamics": "Тут легкість виникає через обмін: слово, усмішка, спільний простір, здатність бути поруч без зайвого тиску.\n\nРадість працює, коли вона не приховує порожнечу. Вона має підкріплювати зв'язок, а не замінювати зміст.\n\nНебезпека в приємності за будь-яку ціну. Тоді озеро стає блиском на мілководді.\n\nЦя гексаграма показує відкритий обмін. Він живий, якщо за легкістю не стоїть примус усміхатися.",
+				"vector": "Залишити місце для легкого відгуку.\n\nНе робити приємність головним законом ситуації."
+			},
+			"judgment": "Радісне. Успіх. Сприятлива стійкість.",
+			"image": "Озера з’єднані одне з одним: радісне. Так шляхетна людина навчається з друзями і вправляється разом із ними."
+		},
+		"en": {
+			"name": "The Joyous Lake",
+			"composition": "Lake over lake.",
+			"reading": {
+				"scene": "Openness answers openness.\n\nJoy has a surface through which people draw near.",
+				"dynamics": "Lightness arises here through exchange: word, smile, shared space, the ability to be near without excess pressure.\n\nJoy works when it does not hide emptiness. It should support connection, not replace substance.\n\nThe danger is pleasantness at any price. Then the lake becomes shine over shallow water.\n\nThis hexagram shows open exchange. It is alive if there is no compulsion to smile behind the lightness.",
+				"vector": "Leave room for light response.\n\nDo not make pleasantness the chief law of the situation."
+			},
+			"judgment": "The Joyous. Success. Favorable through constancy.",
+			"image": "Lakes joined with one another: the joyous. Thus the noble person learns with friends and practices together with them."
+		}
+	}
+}

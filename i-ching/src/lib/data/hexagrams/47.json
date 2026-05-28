@@ -1,0 +1,31 @@
+{
+	"number": 47,
+	"chinese": "困",
+	"pinyin": "kùn",
+	"lower": "kan",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Виснаження",
+			"composition": "Вода під озером.",
+			"reading": {
+				"scene": "Ресурс іде вниз, поверхня лишається сухою.\n\nСтиснення оголює межу.",
+				"dynamics": "Тут обставини звужують поле. Те, що раніше підтримувало рух, тепер недоступне або виснажене.\n\nУ такому стані гучні слова швидко втрачають вагу. Справжнім лишається те, що тримається без зовнішнього підтвердження.\n\nНебезпека в скарзі, яка забирає останню форму дії. Стиснення не стає меншим від шуму навколо нього.\n\nЦя гексаграма показує обмеження як факт. Воно важке, але також відсікає все несправжнє.",
+				"vector": "Тримати ядро в умовах нестачі.\n\nНе витрачати залишок сили на доказ того, що тісно."
+			},
+			"judgment": "Виснаження. Успіх. Стійкість великої людини приносить щастя. Без помилки. Слова не мають довіри.",
+			"image": "В озері немає води: виснаження. Так шляхетна людина віддає життя, щоб здійснити свою волю."
+		},
+		"en": {
+			"name": "Oppression",
+			"composition": "Water under lake.",
+			"reading": {
+				"scene": "The resource sinks downward; the surface remains dry.\n\nConfinement exposes the limit.",
+				"dynamics": "Circumstances narrow the field. What once supported movement is now unavailable or exhausted.\n\nIn such a state, loud words quickly lose weight. What remains real is what holds without outer confirmation.\n\nThe danger is complaint that consumes the last form of action. Confinement does not become smaller because of noise around it.\n\nThis hexagram shows limitation as fact. It is heavy, but it also cuts away what is not real.",
+				"vector": "Hold the core under conditions of lack.\n\nDo not spend the remaining force proving that the space is tight."
+			},
+			"judgment": "Oppression. Success. The constancy of the great person brings good fortune. No fault. Words are not trusted.",
+			"image": "There is no water in the lake: oppression. Thus the noble person gives life in order to fulfill the will."
+		}
+	}
+}

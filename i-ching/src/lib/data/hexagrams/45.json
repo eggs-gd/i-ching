@@ -1,0 +1,31 @@
+{
+	"number": 45,
+	"chinese": "萃",
+	"pinyin": "cuì",
+	"lower": "kun",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Згуртування",
+			"composition": "Земля під озером.",
+			"reading": {
+				"scene": "Люди, сили або речі сходяться в одне місце.\n\nЗібрання потребує центру.",
+				"dynamics": "Тут розрізнене прагне стати збором. Сам факт присутності багатьох ще не створює ладу.\n\nПотрібна видима точка, навколо якої можна розмістити сили. Без неї зібрання стає скупченням.\n\nНебезпека в натовпі, що плутає кількість із підставою. Багато голосів не обов'язково дають напрям.\n\nЦя гексаграма показує концентрацію. Вона може бути сильною, якщо має ритуал, межу і відповідального носія центру.",
+				"vector": "Зібрати навколо справжнього центру.\n\nНе вважати скупчення вже готовою спільною формою."
+			},
+			"judgment": "Згуртування. Успіх. Володар наближається до храму. Сприятливо побачити велику людину.",
+			"image": "Озеро над землею: згуртування. Так шляхетна людина готує зброю і остерігається несподіваного."
+		},
+		"en": {
+			"name": "Gathering",
+			"composition": "Earth under lake.",
+			"reading": {
+				"scene": "People, forces, or things come together in one place.\n\nGathering needs a center.",
+				"dynamics": "What is scattered seeks to become an assembly. The mere presence of many does not yet create order.\n\nA visible point is needed around which forces can be placed. Without it, gathering becomes accumulation.\n\nThe danger is a crowd confusing number with ground. Many voices do not necessarily give direction.\n\nThis hexagram shows concentration. It can be strong if it has rite, boundary, and a responsible bearer of the center.",
+				"vector": "Gather around a real center.\n\nDo not treat accumulation as an already finished common form."
+			},
+			"judgment": "Gathering. Success. The ruler approaches the temple. It is favorable to see the great person.",
+			"image": "Lake above earth: gathering. Thus the noble person prepares weapons and guards against the unexpected."
+		}
+	}
+}

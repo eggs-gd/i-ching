@@ -1,0 +1,31 @@
+{
+	"number": 38,
+	"chinese": "睽",
+	"pinyin": "kuí",
+	"lower": "dui",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Суперечність",
+			"composition": "Озеро під вогнем.",
+			"reading": {
+				"scene": "Дві ясності дивляться в різні боки.\n\nРозходження не зникає від близькості.",
+				"dynamics": "Тут елементи поруч, але їхні напрямки не збігаються. Вони можуть бачити один одного саме через відмінність.\n\nВелика справа зараз важко складається. Малі точні дії можливі, бо не потребують повного злиття позицій.\n\nНебезпека в тому, щоб зробити з різниці ворога або, навпаки, замазати її заради зручного вигляду.\n\nЦя гексаграма показує розходження як реальний стан. Його можна враховувати, але не варто називати єдністю.",
+				"vector": "Працювати з малим і конкретним.\n\nНе вимагати спільної форми там, де напрямки справді різні."
+			},
+			"judgment": "Протилежність. У малих справах щастя.",
+			"image": "Вогонь над озером: протилежність. Так шляхетна людина зберігає відмінність у спільному."
+		},
+		"en": {
+			"name": "Contradiction",
+			"composition": "Lake under fire.",
+			"reading": {
+				"scene": "Two clarities look in different directions.\n\nDifference does not disappear through closeness.",
+				"dynamics": "The elements are near, but their directions do not match. They can see one another precisely through difference.\n\nA large matter is hard to compose now. Small exact actions are possible because they do not require full fusion of positions.\n\nThe danger is making difference into an enemy, or smearing it over for the sake of a convenient appearance.\n\nThis hexagram shows divergence as a real state. It can be accounted for, but should not be called unity.",
+				"vector": "Work with the small and concrete.\n\nDo not demand shared form where directions are truly different."
+			},
+			"judgment": "Opposition. In small matters, good fortune.",
+			"image": "Fire above the lake: opposition. Thus the noble person preserves difference within what is shared."
+		}
+	}
+}

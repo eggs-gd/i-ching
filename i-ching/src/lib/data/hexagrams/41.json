@@ -1,0 +1,31 @@
+{
+	"number": 41,
+	"chinese": "損",
+	"pinyin": "sǔn",
+	"lower": "dui",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Скорочення",
+			"composition": "Озеро під горою.",
+			"reading": {
+				"scene": "Верх бере на себе межу, низ віддає частину надлишку.\n\nЗменшення створює простір.",
+				"dynamics": "Тут потрібно прибрати частину, щоб ціле не розтікалося. Втрата може бути роботою форми, а не покаранням.\n\nЗменшення має бути точним. Якщо забрати живе, залишиться суха оболонка; якщо не забрати зайве, справа втратить вагу.\n\nНебезпека в жертві заради самої жертви. Порожнє скорочення лише робить нестачу красивішою.\n\nЦя гексаграма показує економію сили. Менше стає доречним тоді, коли воно повертає речам контур.",
+				"vector": "Відняти зайве, не чіпаючи ядра.\n\nНе називати кожну втрату очищенням."
+			},
+			"judgment": "Зменшення. Якщо є щирість, первісне щастя. Без помилки. Можлива стійкість. Сприятливо мати куди йти.",
+			"image": "Під горою є озеро: зменшення. Так шляхетна людина стримує гнів і обмежує бажання."
+		},
+		"en": {
+			"name": "Reduction",
+			"composition": "Lake under mountain.",
+			"reading": {
+				"scene": "The upper part takes on boundary; the lower gives up part of its excess.\n\nDecrease creates space.",
+				"dynamics": "Something must be removed so the whole does not spread without shape. Loss can be work of form, not punishment.\n\nDecrease must be exact. If the living part is taken, a dry shell remains; if the excess is not taken, the matter loses weight.\n\nThe danger is sacrifice for its own sake. Empty reduction only makes lack look better.\n\nThis hexagram shows economy of force. Less becomes fitting when it returns contour to things.",
+				"vector": "Subtract the excess without touching the core.\n\nDo not call every loss purification."
+			},
+			"judgment": "Decrease. If there is sincerity, original good fortune. No fault. Constancy is possible. It is favorable to have somewhere to go.",
+			"image": "Under the mountain there is a lake: decrease. Thus the noble person restrains anger and limits desire."
+		}
+	}
+}

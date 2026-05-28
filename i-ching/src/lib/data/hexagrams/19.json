@@ -1,0 +1,31 @@
+{
+	"number": 19,
+	"chinese": "臨",
+	"pinyin": "lín",
+	"lower": "dui",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Наближення",
+			"composition": "Озеро над землею.",
+			"reading": {
+				"scene": "Наближення приходить широко, без різкого удару.\n\nВелике спускається до малого.",
+				"dynamics": "Тут сила наближається і стає доступною. Вона ще не тисне, але її присутність уже змінює поле.\n\nНаближення потребує пильності, бо зростання має власний строк. Те, що розширюється, не лишається таким назавжди.\n\nНебезпека в самовпевненому розгортанні. Коли приплив здається нескінченним, люди забувають про відплив.\n\nЦя гексаграма показує сприятливий підхід сили. Її треба прийняти в роботу, поки вона ще свіжа й не стала надлишком.",
+				"vector": "Зустріти те, що наближається.\n\nНе спати в часі зростання, бо саме зростання теж має межу."
+			},
+			"judgment": "Наближення. Первісний успіх; сприятлива стійкість. Коли настає восьмий місяць, є втрата.",
+			"image": "Над землею є озеро: наближення. Так шляхетна людина навчає без виснаження і захищає людей без межі."
+		},
+		"en": {
+			"name": "Approach",
+			"composition": "Lake over earth.",
+			"reading": {
+				"scene": "Approach arrives broadly, without a sharp strike.\n\nThe great descends toward the small.",
+				"dynamics": "Force approaches and becomes available here. It does not yet press, but its presence already changes the field.\n\nApproach requires vigilance, because growth has its own term. What expands does not remain so forever.\n\nThe danger is self-assured unfolding. When the tide seems endless, people forget the ebb.\n\nThis hexagram shows the favorable approach of force. It should be taken into work while still fresh, before it becomes excess.",
+				"vector": "Meet what is approaching.\n\nDo not sleep through a time of growth, because growth itself also has a limit."
+			},
+			"judgment": "Approach. Original success; favorable through constancy. When the eighth month arrives, there is loss.",
+			"image": "Above the earth there is a lake: approach. Thus the noble person teaches without exhaustion and protects the people without limit."
+		}
+	}
+}

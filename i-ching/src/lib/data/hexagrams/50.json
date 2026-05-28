@@ -1,0 +1,31 @@
+{
+	"number": 50,
+	"chinese": "鼎",
+	"pinyin": "dǐng",
+	"lower": "xun",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Казан",
+			"composition": "Вітер під вогнем.",
+			"reading": {
+				"scene": "Казан стоїть на вогні, сире переходить у придатне.\n\nФорма служить перетворенню.",
+				"dynamics": "Тут важлива посудина: без неї вогонь тільки спалює, а матеріал не стає їжею.\n\nПеретворення потребує правильного вмісту, тепла і міри. Надто мало вогню не змінює, надто багато руйнує.\n\nНебезпека в недоглянутій формі. Якщо казан тріснув або перекинутий, навіть добрий матеріал пропадає.\n\nЦя гексаграма показує культурну роботу: зібрати, нагріти, довести до стану, в якому річ може живити інших.",
+				"vector": "Дбати про посудину не менше, ніж про вогонь.\n\nПеретворювати матеріал у форму, придатну для спільного вжитку."
+			},
+			"judgment": "Казан. Первісне щастя. Успіх.",
+			"image": "Над деревом є вогонь: казан. Так шляхетна людина встановлює правильне місце і зміцнює долю."
+		},
+		"en": {
+			"name": "The Cauldron",
+			"composition": "Wind under fire.",
+			"reading": {
+				"scene": "The vessel stands over flame; the raw turns usable.\n\nForm serves transformation.",
+				"dynamics": "The vessel matters here: without it, fire only burns, and the material does not become food.\n\nTransformation needs the right contents, heat, and measure. Too little fire does not change; too much destroys.\n\nThe danger is an untended form. If the vessel is cracked or overturned, even good material is lost.\n\nThis hexagram shows cultural work: gather, heat, and bring the matter to a state in which it can nourish others.",
+				"vector": "Care for the vessel as much as for the fire.\n\nTransform material into a form fit for common use."
+			},
+			"judgment": "The Cauldron. Original good fortune. Success.",
+			"image": "Above wood there is fire: the cauldron. Thus the noble person sets the proper place and strengthens destiny."
+		}
+	}
+}

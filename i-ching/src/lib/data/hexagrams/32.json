@@ -1,0 +1,31 @@
+{
+	"number": 32,
+	"chinese": "恆",
+	"pinyin": "héng",
+	"lower": "xun",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Тривала стабільність",
+			"composition": "Вітер під громом.",
+			"reading": {
+				"scene": "Рух і проникнення тримають один одного в тривалому ритмі.\n\nСтан живе через сталість.",
+				"dynamics": "Тут важлива не яскрава подія, а здатність не розривати лінію. Постійність створюється повторенням правильного руху.\n\nТривалість не означає нерухомість. Вона потребує малого оновлення, щоб форма не стала мертвою звичкою.\n\nНебезпека в механічному продовженні. Те, що триває лише за інерцією, поступово втрачає основу.\n\nЦя гексаграма показує стійкий хід. Він тримається там, де напрям не скасовується кожним настроєм.",
+				"vector": "Продовжувати те, що має вісь.\n\nВідрізняти сталість від повторення без життя."
+			},
+			"judgment": "Тривалість. Успіх. Без помилки. Сприятлива стійкість. Сприятливо мати куди йти.",
+			"image": "Грім і вітер: тривалість. Так шляхетна людина стоїть твердо і не змінює напряму."
+		},
+		"en": {
+			"name": "Enduring Stability",
+			"composition": "Wind under thunder.",
+			"reading": {
+				"scene": "Movement and penetration hold each other in a lasting rhythm.\n\nThe state lives through constancy.",
+				"dynamics": "What matters here is not a bright event, but the ability not to break the line. Constancy is made by repeating the right movement.\n\nDuration does not mean immobility. It needs small renewal so the form does not become dead habit.\n\nThe danger is mechanical continuation. What lasts only by inertia gradually loses its base.\n\nThis hexagram shows a steady course. It holds where direction is not canceled by every mood.",
+				"vector": "Continue what has an axis.\n\nDistinguish constancy from repetition without life."
+			},
+			"judgment": "Duration. Success. No fault. Favorable through constancy. It is favorable to have somewhere to go.",
+			"image": "Thunder and wind: duration. Thus the noble person stands firm and does not change direction."
+		}
+	}
+}

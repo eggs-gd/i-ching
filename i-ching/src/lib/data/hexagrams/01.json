@@ -1,0 +1,31 @@
+{
+	"number": 1,
+	"chinese": "乾",
+	"pinyin": "qián",
+	"lower": "qian",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Творчість",
+			"composition": "Небо над небом.",
+			"reading": {
+				"scene": "Рух без зовнішньої межі.\n\nСила, яка ще не має форми, але вже прагне проявитись.",
+				"dynamics": "Тут немає сумніву чи хитрості.\n\nЄ лише імпульс рухатись уперед, пробувати, створювати, входити у світ власною волею.\n\nЦя гексаграма не обіцяє спокою.\n\nВона про живу присутність і внутрішній вогонь, який не хоче залишатись прихованим.\n\nАле чиста сила легко стає надлишком.\n\nТе, що здатне створювати, здатне й спалювати, якщо не відчуває міри.",
+				"vector": "Не ховатися в аналізі.\n\nНе чекати ідеального моменту.\n\nРух народжує форму швидше, ніж довге спостереження."
+			},
+			"judgment": "Творче. Первісний успіх; сприятлива стійкість.",
+			"image": "Небо рухається невпинно; так шляхетна людина зміцнює себе без перерви."
+		},
+		"en": {
+			"name": "The Creative",
+			"composition": "Heaven over heaven.",
+			"reading": {
+				"scene": "Movement without an outer boundary.\n\nForce has not yet taken form, but already presses toward manifestation.",
+				"dynamics": "There is no doubt or cunning here.\n\nThere is only the impulse to move forward, to try, to create, to enter the world by one's own will.\n\nThis hexagram does not offer rest. It concerns living presence and an inner fire that does not want to remain hidden.\n\nBut pure force easily becomes excess. What can create can also burn if it does not sense measure.",
+				"vector": "Do not hide in analysis.\n\nDo not wait for the perfect moment.\n\nMovement gives birth to form faster than long observation."
+			},
+			"judgment": "The Creative. Original success; favorable through constancy.",
+			"image": "Heaven moves without rest; thus the noble person strengthens themself without ceasing."
+		}
+	}
+}

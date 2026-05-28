@@ -1,0 +1,31 @@
+{
+	"number": 55,
+	"chinese": "豐",
+	"pinyin": "fēng",
+	"lower": "li",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Розквіт",
+			"composition": "Грім під вогнем.",
+			"reading": {
+				"scene": "Світло і рух сходяться у повному розквіті.\n\nМомент великий, але тінь уже стоїть поруч.",
+				"dynamics": "Тут ситуація досягає піку. Багато видно, багато можливо, рух має широку силу.\n\nПовнота не є тривалою власністю. Сонце в зеніті уже починає шлях до схилу, навіть якщо світла ще багато.\n\nНебезпека в сп'янінні розквітом. Коли все велике, легко пропустити початок зменшення.\n\nЦя гексаграма показує максимум прояву. Його треба використовувати ясно, без спроби заморозити полудень.",
+				"vector": "Діяти в час повноти.\n\nНе будувати план так, ніби пік не має другої сторони."
+			},
+			"judgment": "Повнота. Успіх. Володар досягає її. Не сумувати; бути як сонце в полудень.",
+			"image": "Грім і блискавка приходять разом: повнота. Так шляхетна людина вирішує суди і виконує покарання."
+		},
+		"en": {
+			"name": "Abundance",
+			"composition": "Thunder under fire.",
+			"reading": {
+				"scene": "Light and movement meet in full abundance.\n\nThe moment is large, but shadow already stands nearby.",
+				"dynamics": "The situation reaches its peak. Much is visible, much is possible, movement has wide force.\n\nFullness is not lasting property. The sun at zenith has already begun its way toward decline, even while there is still much light.\n\nThe danger is intoxication with abundance. When everything is large, the beginning of decrease is easy to miss.\n\nThis hexagram shows maximum manifestation. It should be used clearly, without trying to freeze noon.",
+				"vector": "Act in the time of fullness.\n\nDo not build a plan as if the peak had no other side."
+			},
+			"judgment": "Abundance. Success. The ruler reaches it. Do not grieve; be like the sun at noon.",
+			"image": "Thunder and lightning come together: abundance. Thus the noble person decides judgments and carries out punishments."
+		}
+	}
+}

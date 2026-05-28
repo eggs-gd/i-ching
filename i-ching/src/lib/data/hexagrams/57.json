@@ -1,0 +1,31 @@
+{
+	"number": 57,
+	"chinese": "巽",
+	"pinyin": "xùn",
+	"lower": "xun",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Проникнення",
+			"composition": "Вітер над вітром.",
+			"reading": {
+				"scene": "М'який рух повторюється і входить у щілини.\n\nПроникнення діє без удару.",
+				"dynamics": "Тут дія не пряма, а настійна. Вона входить поступово, через дрібні проходи, через повторення і нахил.\n\nМ'якість має результат, коли не втрачає напряму. Якщо вона лише пристосовується, її розносить чужими потоками.\n\nНебезпека в безформній поступливості. Те, що всюди просочується, може ніде не мати власної лінії.\n\nЦя гексаграма показує тихий вплив. Він працює там, де різкий рух тільки закрив би двері.",
+				"vector": "Проникати малим і послідовним.\n\nНе розчиняти напрям у бажанні пройти всюди."
+			},
+			"judgment": "Проникне. Малий успіх. Сприятливо мати куди йти. Сприятливо побачити велику людину.",
+			"image": "Вітри йдуть один за одним: проникнення. Так шляхетна людина поширює накази і здійснює справи."
+		},
+		"en": {
+			"name": "The Gentle",
+			"composition": "Wind over wind.",
+			"reading": {
+				"scene": "A soft movement repeats and enters the cracks.\n\nPenetration works without a blow.",
+				"dynamics": "The action here is not direct, but persistent. It enters gradually, through small openings, through repetition and inclination.\n\nSoftness has a result when it does not lose direction. If it only adapts, it is carried by other currents.\n\nThe danger is formless compliance. What seeps everywhere may have its own line nowhere.\n\nThis hexagram shows quiet influence. It works where a sharp movement would only close the door.",
+				"vector": "Enter through the small and consistent.\n\nDo not dissolve direction in the wish to pass everywhere."
+			},
+			"judgment": "The Gentle. Small success. It is favorable to have somewhere to go. It is favorable to see the great person.",
+			"image": "Winds follow one another: penetration. Thus the noble person spreads commands and carries out affairs."
+		}
+	}
+}

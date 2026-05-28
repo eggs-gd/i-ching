@@ -1,0 +1,31 @@
+{
+	"number": 14,
+	"chinese": "大有",
+	"pinyin": "dà yǒu",
+	"lower": "qian",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Велике Маючи",
+			"composition": "Вогонь стоїть над небом.",
+			"reading": {
+				"scene": "Світло піднімається високо і робить видимим великий обсяг.\n\nНаявне більше, ніж потрібно для малого жесту.",
+				"dynamics": "Тут зібрано багато: майно, вплив або ясність, які вже не можна вважати дрібними. Ситуація має вагу і помітність.\n\nВелике володіння не дорівнює безмежному праву. Чим більше зібрано, тим точнішою має бути міра використання.\n\nНадлишок легко переходить у показ. Тоді світло служить не справі, а блиску навколо власної руки.\n\nЦя гексаграма показує силу, яка може тримати широкий простір. Вона залишається чистою лише там, де не втрачає стриманості.",
+				"vector": "Керувати тим, що вже є.\n\nНе роздувати володіння до демонстрації."
+			},
+			"judgment": "Велике володіння. Первісний успіх.",
+			"image": "Вогонь у небі: велике володіння. Так шляхетна людина стримує зло і підносить добро."
+		},
+		"en": {
+			"name": "Great Abundance",
+			"composition": "Fire stands above heaven.",
+			"reading": {
+				"scene": "Light rises high and makes a large scope visible.\n\nWhat is present is more than a small gesture needs.",
+				"dynamics": "Much is gathered here: possession, influence, or clarity that can no longer be treated as minor. The situation has weight and visibility.\n\nGreat possession is not unlimited right. The more that is gathered, the more exact the measure of use must be.\n\nExcess easily turns into display. Then light serves not the matter, but the shine around one's own hand.\n\nThis hexagram shows a force able to hold a wide space. It remains clean only where it does not lose restraint.",
+				"vector": "Govern what is already present.\n\nDo not inflate possession into demonstration."
+			},
+			"judgment": "Great Possession. Original success.",
+			"image": "Fire in heaven: great possession. Thus the noble person restrains what is harmful and raises what is good."
+		}
+	}
+}

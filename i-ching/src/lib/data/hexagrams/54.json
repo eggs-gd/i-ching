@@ -1,0 +1,31 @@
+{
+	"number": 54,
+	"chinese": "歸妹",
+	"pinyin": "guī mèi",
+	"lower": "dui",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Молодша наречена",
+			"composition": "Озеро під громом.",
+			"reading": {
+				"scene": "Молодша входить у дім не як головна.\n\nЗв'язок є, але місце нерівне.",
+				"dynamics": "Тут ситуація містить приєднання без повної влади над умовами. Людина входить у вже наявний порядок.\n\nМожливість існує, але вона обмежена роллю. Варто бачити, де можна діяти, а де структура вже визначила межу.\n\nНебезпека в претензії на місце, якого ситуація не дає. Тоді зв'язок стає джерелом приниження і плутанини.\n\nЦя гексаграма показує нерівний союз. Він може мати користь, якщо не приховувати його справжню будову.",
+				"vector": "Бачити своє місце в наявній формі.\n\nНе вимагати від нерівного входу прав головного входу."
+			},
+			"judgment": "Молодша наречена. Похід приносить нещастя. Ніщо не сприятливе.",
+			"image": "Грім над озером: молодша наречена. Так шляхетна людина через кінець розпізнає те, що минає."
+		},
+		"en": {
+			"name": "The Marrying Maiden",
+			"composition": "Lake under thunder.",
+			"reading": {
+				"scene": "The younger one enters the house, but not as the principal one.\n\nThere is connection, but the place is unequal.",
+				"dynamics": "The situation contains joining without full command of the terms. One enters an order already present.\n\nPossibility exists, but it is limited by role. It is worth seeing where action is possible and where the structure has already set the line.\n\nThe danger is claiming a place the situation does not give. Then connection becomes a source of humiliation and confusion.\n\nThis hexagram shows an unequal union. It may have use if its real structure is not concealed.",
+				"vector": "See your place in the existing form.\n\nDo not demand from an unequal entry the rights of the main entrance."
+			},
+			"judgment": "The Marrying Maiden. Going forward brings misfortune. Nothing is favorable.",
+			"image": "Thunder over lake: the marrying maiden. Thus the noble person recognizes what passes by looking at the end."
+		}
+	}
+}

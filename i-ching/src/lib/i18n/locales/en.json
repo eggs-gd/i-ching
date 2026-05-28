@@ -1,0 +1,63 @@
+{
+	"app": {
+		"title": "I Ching",
+		"tagline": "What is happening already has a shape",
+		"description": "Symbolic I Ching reading — scene, dynamics, vector"
+	},
+	"flow": {
+		"contextLabel": "What draws your attention?",
+		"contextPlaceholder": "Work, conflict, decision, return…",
+		"castingLabel": "Cast a hexagram",
+		"castSingle": "Coin by coin",
+		"castLine": "Line by line",
+		"castFull": "All at once",
+		"tossing": "Tossing…",
+		"building": "Building the hexagram…",
+		"newCast": "Ask again",
+		"tossSingle": "Toss coin",
+		"tossLine": "Toss line",
+		"explanationTitle": "Explanation",
+		"explanationPaidBody": "A personalized cast explanation is a paid feature."
+	},
+	"coins": {
+		"gridLabel": "Cast coins",
+		"yang": "Yang — heads",
+		"yin": "Yin — tails",
+		"pending": "Coin not yet tossed"
+	},
+	"reading": {
+		"entryHexagramLabel": "Entry hexagram",
+		"stateHexagramLabel": "State hexagram",
+		"relatingLabel": "Exit hexagram",
+		"changingLinesTitle": "Changing lines: {lines}",
+		"changingLinesHelpTitle": "Changing lines",
+		"changingLinesHelpBody": "Changing lines show where the structure of the situation has already lost stability.\n\nThey do not mark individual events, but places of tension, transition, or excess, through which one form gradually changes into another.\n\nEach changing line points to a phase of the process where movement can no longer remain unchanged.",
+		"primaryHexagramHelpTitle": "Entry hexagram",
+		"primaryHexagramHelpBody": "The entry hexagram shows the form from which movement begins.\n\nIt describes the initial state of the situation: where tension arises, what has already lost stability, and which process begins to change direction.",
+		"stateHexagramHelpTitle": "State hexagram",
+		"stateHexagramHelpBody": "The state hexagram shows the current form of the situation.\n\nIt describes the tension of the moment, its boundaries, inner order, and the way the situation holds itself right now.",
+		"relatingHexagramHelpTitle": "Exit hexagram",
+		"relatingHexagramHelpBody": "The exit hexagram shows the form toward which the situation gradually transitions.\n\nIt does not give a final result or forecast, but shows the new state of equilibrium that begins to take shape after the change.",
+		"helpClose": "Close"
+	},
+	"journal": {
+		"title": "Archive",
+		"motifs": "Echoes",
+		"openEntry": "Open cast reading"
+	},
+	"trigrams": {
+		"qian": "Heaven",
+		"kun": "Earth",
+		"zhen": "Thunder",
+		"kan": "Water",
+		"gen": "Mountain",
+		"xun": "Wind",
+		"li": "Fire",
+		"dui": "Lake"
+	},
+	"locale": {
+		"label": "Language",
+		"uk": "Українська",
+		"en": "English"
+	}
+}

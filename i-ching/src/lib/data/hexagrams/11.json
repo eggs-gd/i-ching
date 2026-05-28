@@ -1,0 +1,31 @@
+{
+	"number": 11,
+	"chinese": "泰",
+	"pinyin": "tài",
+	"lower": "kun",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Мир",
+			"composition": "Небо під землею.",
+			"reading": {
+				"scene": "Високе входить у нижнє, нижнє відкриває простір високому.\n\nРечі на мить сходяться.",
+				"dynamics": "Тут протилежні рухи не розходяться, а проходять один крізь одного. Завдяки цьому з'являється прохід.\n\nСтан сприятливий не тому, що все стало легким. Просто між рівнями є обмін, і застій поки не встигає замкнути форму.\n\nНадлишок зручності робить з цього стану сон. Те, що вільно рухається сьогодні, завтра може знову затвердіти.\n\nЦя гексаграма показує відкриту циркуляцію. Вона цінна саме як жива рівновага, а не як гарантія тривалого миру.",
+				"vector": "Користуватися відкритим проходом, поки він справді відкритий.\n\nНе привласнювати собі стан, який тримається взаємним рухом."
+			},
+			"judgment": "Мир. Мале відходить, велике приходить. Успіх і проходження.",
+			"image": "Небо і земля з’єднуються: мир. Так володар упорядковує шлях неба і землі та підтримує людей."
+		},
+		"en": {
+			"name": "Peace",
+			"composition": "Heaven under earth.",
+			"reading": {
+				"scene": "The high enters the low; the low opens space for the high.\n\nFor a moment, things meet.",
+				"dynamics": "Opposite movements do not separate here; they pass through one another. Because of this, a passage opens.\n\nThe state is favorable not because everything has become easy. There is exchange between levels, and stagnation has not yet sealed the form.\n\nToo much ease turns this state into sleep. What moves freely today may harden again tomorrow.\n\nThis hexagram shows open circulation. Its value is in living balance, not in a guarantee of lasting peace.",
+				"vector": "Use the open passage while it is truly open.\n\nDo not claim ownership of a state held by mutual movement."
+			},
+			"judgment": "Peace. The small departs, the great arrives. Success and passage.",
+			"image": "Heaven and earth unite: peace. Thus the ruler orders the way of heaven and earth and supports the people."
+		}
+	}
+}

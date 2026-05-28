@@ -1,0 +1,31 @@
+{
+	"number": 21,
+	"chinese": "噬嗑",
+	"pinyin": "shì kè",
+	"lower": "zhen",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Прокушування",
+			"composition": "Грім під вогнем.",
+			"reading": {
+				"scene": "Між частинами є тверда перешкода, яку треба прокусити.\n\nСвітло показує місце розриву.",
+				"dynamics": "Тут справа не проходить через м'яке обходження. Щось стоїть між частинами і блокує з'єднання.\n\nПотрібна ясна дія: назвати, розрізати, відділити зайве. Без цього напруга лише переходить із місця на місце.\n\nЖорсткість стає помилкою, коли кара важливіша за відновлення ладу. Тоді зуби ламають більше, ніж перешкоду.\n\nЦя гексаграма показує необхідність точного розсічення. Воно не прикрашає ситуацію, але відкриває прохід.",
+				"vector": "Не обтікати те, що застрягло посередині.\n\nРізати тільки там, де справді є вузол."
+			},
+			"judgment": "Прокушування. Успіх. Сприятливо застосувати суд.",
+			"image": "Грім і блискавка: прокушування. Так давні володарі встановлювали закони і ясні покарання."
+		},
+		"en": {
+			"name": "Biting Through",
+			"composition": "Thunder under fire.",
+			"reading": {
+				"scene": "A hard obstruction stands between the parts and must be bitten through.\n\nLight shows the place of the break.",
+				"dynamics": "The matter cannot pass through gentle avoidance. Something stands between the parts and blocks connection.\n\nA clear action is needed: name, cut, separate what is excess. Without this, tension only moves from place to place.\n\nHardness becomes error when punishment matters more than restoring order. Then the teeth break more than the obstruction.\n\nThis hexagram shows the need for exact severing. It does not beautify the situation, but it opens a passage.",
+				"vector": "Do not flow around what is stuck in the middle.\n\nCut only where there is truly a knot."
+			},
+			"judgment": "Biting Through. Success. It is favorable to apply judgment.",
+			"image": "Thunder and lightning: biting through. Thus the ancient kings established laws and clear punishments."
+		}
+	}
+}

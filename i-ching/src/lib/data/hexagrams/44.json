@@ -1,0 +1,31 @@
+{
+	"number": 44,
+	"chinese": "姤",
+	"pinyin": "gòu",
+	"lower": "xun",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Зустріч",
+			"composition": "Вітер під небом.",
+			"reading": {
+				"scene": "Мале входить раптово і торкається великого.\n\nЗустріч має силу, але не має кореня.",
+				"dynamics": "Тут щось з'являється несподівано і швидко набирає впливу. Воно приваблює саме тим, що не було вписане в план.\n\nЗустріч не варто одразу перетворювати на союз. Раптовий контакт ще не показує, що може витримати тривалість.\n\nНебезпека в зачаруванні. Мале, впущене без межі, здатне змінити весь порядок сильніше, ніж здається.\n\nЦя гексаграма показує контакт з тим, що не можна просто привласнити. Важлива межа входу.",
+				"vector": "Помітити силу раптової появи.\n\nНе давати випадковому гостю право господаря."
+			},
+			"judgment": "Зустріч. Жінка сильна. Не брати таку жінку за дружину.",
+			"image": "Під небом є вітер: зустріч. Так володар оголошує накази в усі сторони."
+		},
+		"en": {
+			"name": "Coming to Meet",
+			"composition": "Wind under heaven.",
+			"reading": {
+				"scene": "The small enters suddenly and touches the great.\n\nThe encounter has force, but no root.",
+				"dynamics": "Something appears unexpectedly and quickly gains influence. It attracts precisely because it was not written into the plan.\n\nThe encounter should not be turned into alliance at once. Sudden contact has not yet shown what can endure.\n\nThe danger is fascination. The small, admitted without boundary, can alter the whole order more than it seems.\n\nThis hexagram shows contact with what cannot simply be possessed. The boundary of entry matters.",
+				"vector": "Notice the force of sudden appearance.\n\nDo not give the accidental guest the right of the host."
+			},
+			"judgment": "Coming to Meet. The woman is strong. Do not take such a woman as wife.",
+			"image": "Under heaven there is wind: coming to meet. Thus the ruler proclaims commands to the four directions."
+		}
+	}
+}

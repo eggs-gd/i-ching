@@ -1,0 +1,31 @@
+{
+	"number": 5,
+	"chinese": "需",
+	"pinyin": "xū",
+	"lower": "qian",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Очікування",
+			"composition": "Вода високо в небі.",
+			"reading": {
+				"scene": "Дощ ще не впав на землю, але повітря вже насичене ним.\n\nНапруга перед зміною.",
+				"dynamics": "Тут усе ще не готове до прямої дії.\n\nПодії накопичуються повільно, і спроба форсувати їх лише створює зайву тривогу.\n\nОчікування в цій гексаграмі — не бездіяльність.\n\nЦе здатність залишатись живим і уважним, поки процес дозріває.\n\nНайбільша помилка тут — почати метушитись лише тому, що тиша здається нестерпною.",
+				"vector": "Не кожен рух наближає результат.\n\nІноді сила проявляється в умінні не розсипати себе раніше часу."
+			},
+			"judgment": "Очікування. Якщо є щирість, буде світло і проходження. Сприятливо перейти велику воду.",
+			"image": "Хмари підіймаються до неба: очікування. Так шляхетна людина їсть, п’є і залишається спокійною."
+		},
+		"en": {
+			"name": "Waiting",
+			"composition": "Water high in heaven.",
+			"reading": {
+				"scene": "The rain has not yet fallen to earth, but the air is already filled with it.\n\nTension before change.",
+				"dynamics": "Everything is not yet ready for direct action.\n\nEvents gather slowly, and forcing them only creates needless agitation.\n\nWaiting in this hexagram is not inaction. It is the ability to remain alive and attentive while the process ripens.\n\nThe main error here is to start rushing only because the quiet feels unbearable.",
+				"vector": "Not every movement brings the result closer.\n\nSometimes force appears in the ability not to spend oneself too early."
+			},
+			"judgment": "Waiting. If there is sincerity, there is light and passage. It is favorable to cross the great water.",
+			"image": "Clouds rise to heaven: waiting. Thus the noble person eats, drinks, and remains at ease."
+		}
+	}
+}

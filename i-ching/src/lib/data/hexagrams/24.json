@@ -1,0 +1,31 @@
+{
+	"number": 24,
+	"chinese": "復",
+	"pinyin": "fù",
+	"lower": "zhen",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Повернення",
+			"composition": "Грім повертається під землю.",
+			"reading": {
+				"scene": "Рух ще малий, майже невидимий, але напрям уже змінився.\n\nНовий цикл входить тихо.",
+				"dynamics": "Тут після спаду з'являється перший поворот. Він не схожий на перемогу; радше на тонкий знак, що життя знову торкнулося кореня.\n\nПовернення не терпить поспіху. Малий рух легко пошкодити, якщо одразу вимагати від нього повної сили.\n\nНебезпека в тому, щоб розігнати початок до старої швидкості. Тоді нове повторить виснаження попереднього циклу.\n\nЦя гексаграма показує момент відновленого напряму. Він простий, але ще потребує чистого простору.",
+				"vector": "Помітити малий поворот.\n\nНе навантажувати перший рух вагою всього майбутнього."
+			},
+			"judgment": "Повернення. Успіх. Вихід і вхід без хвороби; друзі приходять без помилки. На сьомий день повернення.",
+			"image": "Грім усередині землі: повернення. Так давні володарі зачиняли проходи в день сонцестояння."
+		},
+		"en": {
+			"name": "Return",
+			"composition": "Thunder returns beneath earth.",
+			"reading": {
+				"scene": "The movement is still small, almost invisible, but the direction has already changed.\n\nA new cycle enters quietly.",
+				"dynamics": "After decline, the first turn appears. It does not look like victory, but like a fine sign that life has touched the root again.\n\nReturn does not tolerate haste. A small movement is easily damaged if full force is demanded from it at once.\n\nThe danger is accelerating the beginning to the old speed. Then the new repeats the exhaustion of the previous cycle.\n\nThis hexagram shows a moment of restored direction. It is simple, but still needs clear space.",
+				"vector": "Notice the small turn.\n\nDo not load the first movement with the weight of the whole future."
+			},
+			"judgment": "Return. Success. Going out and coming in without harm; friends arrive without fault. On the seventh day, return.",
+			"image": "Thunder within the earth: return. Thus the ancient kings closed the passes on the day of the solstice."
+		}
+	}
+}

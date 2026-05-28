@@ -1,0 +1,31 @@
+{
+	"number": 39,
+	"chinese": "蹇",
+	"pinyin": "jiǎn",
+	"lower": "gen",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Перешкода",
+			"composition": "Гора стоїть перед водою.",
+			"reading": {
+				"scene": "Шлях упирається в перешкоду і не проходить прямо.\n\nРух потребує обходу.",
+				"dynamics": "Тут перешкода не уявна. Вона має форму, місце і здатність зупиняти прямий хід.\n\nСила лоба не допомагає там, де дорога перекрита самою місцевістю. Потрібен інший кут, інший союз або повернення до опори.\n\nНебезпека в застряганні біля стіни. Повторення одного й того ж удару не робить шлях відкритим.\n\nЦя гексаграма показує утруднення як частину карти. Не кожна затримка є поразкою; іноді вона просто показує, де дороги немає.",
+				"vector": "Шукати прохід збоку.\n\nНе витрачати силу на напрям, який уже показав свою закритість."
+			},
+			"judgment": "Перешкода. Сприятливий захід, несприятливий схід. Сприятливо побачити велику людину. Стійкість приносить щастя.",
+			"image": "На горі є вода: перешкода. Так шляхетна людина повертається до себе і вдосконалює силу."
+		},
+		"en": {
+			"name": "Obstacle",
+			"composition": "Mountain stands before water.",
+			"reading": {
+				"scene": "The road meets an obstruction and does not pass directly.\n\nMovement needs a detour.",
+				"dynamics": "The obstruction is not imagined. It has form, location, and the ability to stop a direct course.\n\nHead-on force does not help where the road is blocked by the terrain itself. Another angle, another alliance, or a return to support is needed.\n\nThe danger is getting stuck at the wall. Repeating the same strike does not make the way open.\n\nThis hexagram shows difficulty as part of the map. Not every delay is defeat; sometimes it simply shows where there is no road.",
+				"vector": "Look for a passage from the side.\n\nDo not spend force on a direction that has already shown its closure."
+			},
+			"judgment": "Obstruction. The southwest is favorable, the northeast unfavorable. It is favorable to see the great person. Constancy brings good fortune.",
+			"image": "On the mountain there is water: obstruction. Thus the noble person turns back toward themself and refines force."
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"number": 33,
+	"chinese": "遁",
+	"pinyin": "dùn",
+	"lower": "gen",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Втеча",
+			"composition": "Гора під небом.",
+			"reading": {
+				"scene": "Високе відходить, не вступаючи в зайвий бій.\n\nВідступ зберігає форму.",
+				"dynamics": "Тут сила не зникає, а змінює відстань. Пряме зіткнення зараз віддало б більше, ніж могло б здобути.\n\nВідхід потребує точності. Це не втеча від справи, а виведення себе з поля, де перевага вже не на твоєму боці.\n\nНебезпека в гордості, яка лишається на місці тільки заради вигляду. Така стійкість швидко стає здобиччю.\n\nЦя гексаграма показує мудрий відступ як дію. Простір між сторонами стає захистом.",
+				"vector": "Відійти до того, що можна втримати.\n\nНе плутати втрату позиції з втратою суті."
+			},
+			"judgment": "Відступ. Успіх. У малому сприятлива стійкість.",
+			"image": "Під небом є гора: відступ. Так шляхетна людина тримає мале на відстані без гніву."
+		},
+		"en": {
+			"name": "Retreat",
+			"composition": "Mountain under heaven.",
+			"reading": {
+				"scene": "The high withdraws without entering a needless fight.\n\nRetreat preserves the form.",
+				"dynamics": "Force does not vanish here; it changes distance. Direct collision would now give away more than it could gain.\n\nWithdrawal requires precision. It is not escape from the matter, but removal from a field where advantage is no longer yours.\n\nThe danger is pride that stays in place for appearance alone. Such firmness quickly becomes prey.\n\nThis hexagram shows wise retreat as action. The space between sides becomes protection.",
+				"vector": "Withdraw to what can be held.\n\nDo not confuse loss of position with loss of substance."
+			},
+			"judgment": "Retreat. Success. In the small, constancy is favorable.",
+			"image": "Under heaven there is a mountain: retreat. Thus the noble person keeps the small at a distance without anger."
+		}
+	}
+}

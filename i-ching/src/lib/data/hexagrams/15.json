@@ -1,0 +1,31 @@
+{
+	"number": 15,
+	"chinese": "謙",
+	"pinyin": "qiān",
+	"lower": "gen",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Скромність",
+			"composition": "Гора захована в землі.",
+			"reading": {
+				"scene": "Високе не виставляє себе назовні.\n\nФорма має вагу, але не потребує показу.",
+				"dynamics": "Тут сила не піднімає себе над іншими. Вона входить у рівень землі й тому не створює зайвого тертя.\n\nСкромність не означає применшення. Це точне розміщення власної ваги там, де вона не перекриває рух цілого.\n\nФальшива скромність також є виставою. Вона ховає гордість під низьким голосом і все одно вимагає уваги.\n\nЦя гексаграма показує міру. Те, що справді має форму, не потребує постійного піднесення над поверхнею.",
+				"vector": "Зменшити виставлене, не зменшуючи суті.\n\nДати речам зайняти правильну висоту."
+			},
+			"judgment": "Скромність. Успіх. Шляхетна людина доводить справу до кінця.",
+			"image": "У землі є гора: скромність. Так шляхетна людина зменшує надмірне і додає недостатньому."
+		},
+		"en": {
+			"name": "Humility",
+			"composition": "A mountain hidden in earth.",
+			"reading": {
+				"scene": "The high does not display itself outwardly.\n\nThe form has weight, but does not need show.",
+				"dynamics": "Force does not raise itself above others here. It enters the level of the earth and therefore creates no needless friction.\n\nHumility does not mean self-erasure. It is the exact placement of one's weight where it does not block the movement of the whole.\n\nFalse humility is also performance. It hides pride under a lowered voice and still demands attention.\n\nThis hexagram shows measure. What truly has form does not need constant elevation above the surface.",
+				"vector": "Reduce what is displayed without reducing the substance.\n\nLet things occupy their proper height."
+			},
+			"judgment": "Modesty. Success. The noble person brings the matter to completion.",
+			"image": "Within the earth there is a mountain: modesty. Thus the noble person reduces what is excessive and adds to what is lacking."
+		}
+	}
+}

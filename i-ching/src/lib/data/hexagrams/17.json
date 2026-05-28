@@ -1,0 +1,31 @@
+{
+	"number": 17,
+	"chinese": "隨",
+	"pinyin": "suí",
+	"lower": "zhen",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Слідування",
+			"composition": "Грім під озером.",
+			"reading": {
+				"scene": "Рух входить у відгук і змінює напрям за тим, що його приймає.\n\nСлідування починається з контакту.",
+				"dynamics": "Тут не перемагає той, хто штовхає першим. Важливіше відчути, за чим ситуація вже рухається.\n\nСлідування не є покорою. Це здатність не тягнути все до власного плану, коли інший напрям уже має силу.\n\nНебезпека в тому, щоб втратити центр і назвати будь-який зовнішній рух знаком. Тоді людина йде не за процесом, а за випадковим шумом.\n\nЦя гексаграма показує рух через налаштування. Правильний крок з'являється після того, як почуто ритм.",
+				"vector": "Йти за тим, що справді веде.\n\nНе плутати відгук із розчиненням у чужому русі."
+			},
+			"judgment": "Слідування. Первісний успіх; сприятлива стійкість. Без помилки.",
+			"image": "Грім у середині озера: слідування. Так шляхетна людина входить у відпочинок, коли день схиляється."
+		},
+		"en": {
+			"name": "Following",
+			"composition": "Thunder under lake.",
+			"reading": {
+				"scene": "Movement enters response and changes direction according to what receives it.\n\nFollowing begins with contact.",
+				"dynamics": "The one who pushes first does not prevail here. It matters more to sense what the situation is already moving after.\n\nFollowing is not submission. It is the ability not to drag everything toward one's own plan when another direction already has force.\n\nThe danger is losing the center and treating any external movement as a sign. Then one follows noise, not process.\n\nThis hexagram shows movement through attunement. The right step appears after the rhythm has been heard.",
+				"vector": "Follow what actually leads.\n\nDo not confuse response with dissolving into another movement."
+			},
+			"judgment": "Following. Original success; favorable through constancy. No fault.",
+			"image": "Thunder in the middle of the lake: following. Thus the noble person enters rest when the day declines."
+		}
+	}
+}

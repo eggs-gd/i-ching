@@ -1,0 +1,31 @@
+{
+	"number": 34,
+	"chinese": "大壯",
+	"pinyin": "dà zhuàng",
+	"lower": "qian",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Велика сила",
+			"composition": "Небо під громом.",
+			"reading": {
+				"scene": "Великий звук піднімається різко і широко.\n\nМіць уже помітна, але ще потребує межі.",
+				"dynamics": "Тут можливий великий крок. Грім уже не прихований і легко змінює розклад довкола.\n\nАле розмах має право тільки там, де він стоїть на належному місці. Інакше удар повертається в основу.\n\nНебезпека в надмірі. Коли можливо багато, особливо легко перейти межу лише тому, що вона не позначена.\n\nЦя гексаграма показує міць у момент підйому. Її якість визначає не гучність, а те, чи не порушена лінія.",
+				"vector": "Діяти там, де розмах має право.\n\nНе переходити межу тільки тому, що рука може дотягнутися."
+			},
+			"judgment": "Велика сила. Сприятлива стійкість.",
+			"image": "Грім у небі: велика сила. Так шляхетна людина не ступає туди, де немає належного порядку."
+		},
+		"en": {
+			"name": "Great Power",
+			"composition": "Heaven under thunder.",
+			"reading": {
+				"scene": "A great sound rises sharply and widely.\n\nMight is already visible, but still needs a boundary.",
+				"dynamics": "A large step is possible here. Thunder is no longer hidden and easily changes the arrangement around it.\n\nBut scope has right only where it stands in its proper place. Otherwise the strike returns into the base.\n\nThe danger is excess. When much is possible, it is especially easy to cross the line simply because it is not marked.\n\nThis hexagram shows might at the moment of ascent. Its quality is determined not by loudness, but by whether the line remains unbroken.",
+				"vector": "Act where scope has right.\n\nDo not cross the boundary only because the hand can reach."
+			},
+			"judgment": "Great Power. Favorable through constancy.",
+			"image": "Thunder in heaven: great power. Thus the noble person does not step where there is no proper order."
+		}
+	}
+}

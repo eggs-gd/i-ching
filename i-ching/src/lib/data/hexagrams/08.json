@@ -1,0 +1,31 @@
+{
+	"number": 8,
+	"chinese": "比",
+	"pinyin": "bǐ",
+	"lower": "kun",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Зближення",
+			"composition": "Вода лежить на землі.",
+			"reading": {
+				"scene": "Окремі частини шукають спільне місце.\n\nЗв'язок з'являється раніше за форму союзу.",
+				"dynamics": "Тут ідеться не про злиття, а про наближення. Різні елементи перевіряють, чи можуть триматися поруч.\n\nПотрібна вісь збору, але її не створюють вимогою. Вона стає помітною, коли рухи самі сходяться до одного місця.\n\nЗапізніле приєднання має інший смак. Той, хто довго вагався, входить уже не в початок, а в наявний порядок.\n\nЦя гексаграма показує зв'язок як факт ситуації. Питання лише в тому, чи є в ньому стійка основа.",
+				"vector": "Дивитися, до чого справді тяжіють речі.\n\nНе називати єдністю те, що тримається лише на страху лишитися осторонь."
+			},
+			"judgment": "Зближення. Сприятливо перевірити початок. Хто приходить пізно, зустрічає втрату.",
+			"image": "На землі є вода: зближення. Так давні володарі встановлювали держави і зближувалися з правителями."
+		},
+		"en": {
+			"name": "Holding Together",
+			"composition": "Water lies upon earth.",
+			"reading": {
+				"scene": "Separate parts look for a shared place.\n\nConnection appears before the form of alliance.",
+				"dynamics": "This is not fusion, but approach. Different elements test whether they can remain beside one another.\n\nAn axis of gathering is needed, but it is not made by demand. It becomes visible when movements gather toward one place by themselves.\n\nLate joining has a different weight. The one who hesitated enters not the beginning, but an order already present.\n\nThis hexagram shows connection as a fact of the situation. The question is whether it has a stable base.",
+				"vector": "Look at what things actually gravitate toward.\n\nDo not call it unity when it is held only by fear of being left outside."
+			},
+			"judgment": "Holding Together. It is favorable to examine the beginning. Whoever comes late meets loss.",
+			"image": "On the earth there is water: holding together. Thus the ancient kings established states and drew near to the rulers."
+		}
+	}
+}

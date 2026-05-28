@@ -1,0 +1,31 @@
+{
+	"number": 43,
+	"chinese": "夬",
+	"pinyin": "guài",
+	"lower": "qian",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Прорив",
+			"composition": "Озеро під небом.",
+			"reading": {
+				"scene": "Вода піднялася високо і має бути проголошена.\n\nНапруження доходить до відкритого рішення.",
+				"dynamics": "Тут приховане більше не може лишатися прихованим. Рішення потребує ясного слова і виходу назовні.\n\nПрорив не означає грубої атаки. Його сила в точному оголошенні межі і в тому, що більше не підтримують хибну форму.\n\nНебезпека в люті переможця. Якщо прорив стає помстою, він створює нову кривизну.\n\nЦя гексаграма показує момент рішучого відділення. М'яке замовчування тут уже не тримає ладу.",
+				"vector": "Сказати межу відкрито.\n\nНе робити з прориву зайвого руйнування."
+			},
+			"judgment": "Прорив. Треба проголосити при дворі правителя. Правдивий виклик небезпечний. Не братися за зброю. Сприятливо мати куди йти.",
+			"image": "Озеро підіймається до неба: прорив. Так шляхетна людина роздає багатство вниз і не тримається власної сили."
+		},
+		"en": {
+			"name": "Breakthrough",
+			"composition": "Lake under heaven.",
+			"reading": {
+				"scene": "Water has risen high and must be declared.\n\nTension reaches an open decision.",
+				"dynamics": "What is hidden can no longer remain hidden. The decision needs a clear word and a way out into the open.\n\nBreakthrough does not mean crude attack. Its force lies in naming the boundary exactly and no longer supporting the false form.\n\nThe danger is the fury of the victor. If breakthrough becomes revenge, it creates a new distortion.\n\nThis hexagram shows a moment of decisive separation. Soft silence no longer maintains order here.",
+				"vector": "State the boundary openly.\n\nDo not turn breakthrough into needless destruction."
+			},
+			"judgment": "Breakthrough. It must be declared at the ruler’s court. A truthful call is dangerous. Do not take up arms. It is favorable to have somewhere to go.",
+			"image": "The lake rises to heaven: breakthrough. Thus the noble person distributes wealth downward and does not cling to personal force."
+		}
+	}
+}

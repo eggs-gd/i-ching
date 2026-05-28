@@ -1,0 +1,31 @@
+{
+	"number": 31,
+	"chinese": "咸",
+	"pinyin": "xián",
+	"lower": "gen",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Вплив",
+			"composition": "Гора під озером.",
+			"reading": {
+				"scene": "Нерухоме приймає легкий дотик згори.\n\nВідгук проходить без наказу.",
+				"dynamics": "Тут одна річ торкається іншої так, що та не ламається і не відступає, а відповідає власною вагою.\n\nДотик має силу, поки він точний. Груба рука одразу робить із відгуку тиск.\n\nНебезпека в тому, щоб прийняти перше зворушення за міцний союз. Вода здригнулась, але берег ще не змінився.\n\nЦя гексаграма показує початок взаємного відгуку. Він справжній, але ще тонкий.",
+				"vector": "Дати дотику сказати більше, ніж натиск.\n\nНе будувати остаточну форму з першої хвилі на воді."
+			},
+			"judgment": "Вплив. Успіх. Сприятлива стійкість. Взяти дівчину за дружину — щастя.",
+			"image": "На горі є озеро: вплив. Так шляхетна людина приймає людей через порожнє місце в собі."
+		},
+		"en": {
+			"name": "Influence",
+			"composition": "Mountain under lake.",
+			"reading": {
+				"scene": "The still receives a light touch from above.\n\nResponse passes without command.",
+				"dynamics": "One thing touches another here so that it does not break or withdraw, but answers with its own weight.\n\nTouch has force while it is exact. A rough hand at once turns response into pressure.\n\nThe danger is taking the first stirring for a firm union. The water has trembled, but the bank has not yet changed.\n\nThis hexagram shows the beginning of mutual response. It is real, but still thin.",
+				"vector": "Let touch say more than pressure.\n\nDo not build a final form from the first wave on the water."
+			},
+			"judgment": "Influence. Success. Favorable through constancy. Taking a maiden as wife brings good fortune.",
+			"image": "On the mountain there is a lake: influence. Thus the noble person receives people through an empty place within."
+		}
+	}
+}

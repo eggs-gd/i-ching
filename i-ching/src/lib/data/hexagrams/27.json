@@ -1,0 +1,31 @@
+{
+	"number": 27,
+	"chinese": "頤",
+	"pinyin": "yí",
+	"lower": "zhen",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Живлення",
+			"composition": "Грім під горою.",
+			"reading": {
+				"scene": "Рот відкривається і закривається, приймаючи те, що підтримує життя.\n\nЖивлення має форму вибору.",
+				"dynamics": "Тут важливо, що входить усередину: їжа, слова, впливи, звички. Те, чим живлять форму, поступово стає її будовою.\n\nПотреба не є випадковою. Вона показує, де тіло або справа залежать від підживлення і чим тримають себе.\n\nНебезпека в тому, щоб годувати порожнечу або говорити більше, ніж може витримати зміст. Надлишок теж виснажує.\n\nЦя гексаграма показує обмін через рот. Приймати і вимовляти треба з мірою.",
+				"vector": "Дивитися, чим саме підтримується життя справи.\n\nНе давати входу тому, що потім стане формою."
+			},
+			"judgment": "Живлення. Сприятлива стійкість. Дивись на живлення і на те, чим людина наповнює свій рот.",
+			"image": "Біля підніжжя гори є грім: живлення. Так шляхетна людина обережна в словах і помірна в їжі та питті."
+		},
+		"en": {
+			"name": "Nourishment",
+			"composition": "Thunder under mountain.",
+			"reading": {
+				"scene": "The mouth opens and closes, receiving what sustains life.\n\nNourishment takes the form of choice.",
+				"dynamics": "What enters matters here: food, words, influences, habits. What feeds the form gradually becomes its structure.\n\nNeed is not accidental. It shows where a body or matter depends on nourishment and by what it keeps itself standing.\n\nThe danger is feeding emptiness or speaking more than the content can bear. Excess also exhausts.\n\nThis hexagram shows exchange through the mouth. Receiving and speaking both require measure.",
+				"vector": "Look at what exactly sustains the life of the matter.\n\nDo not give entry to what will later become form."
+			},
+			"judgment": "Nourishment. Favorable through constancy. Look at the nourishment and at what a person fills their mouth with.",
+			"image": "At the foot of the mountain there is thunder: nourishment. Thus the noble person is careful in speech and moderate in food and drink."
+		}
+	}
+}

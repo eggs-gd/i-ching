@@ -1,0 +1,31 @@
+{
+	"number": 29,
+	"chinese": "坎",
+	"pinyin": "kǎn",
+	"lower": "kan",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Повторна вода",
+			"composition": "Вода над водою.",
+			"reading": {
+				"scene": "Одна глибина повторює іншу.\n\nНебезпека не одноразова, вона має власний ритм.",
+				"dynamics": "Тут ситуація входить у повторювану пастку: канал вузький, дно невидиме, кожен рух потребує тверезої точності.\n\nВода не перемагає прірву силою. Вона проходить через неї, тримаючи напрям і не втрачаючи власної природи.\n\nПаніка робить глибину ширшою. Самовпевненість робить її непомітною до першого падіння.\n\nЦя гексаграма показує небезпеку як середовище. Тут важить не героїзм, а здатність не втратити лінію проходу.",
+				"vector": "Тримати курс усередині складного каналу.\n\nНе прикрашати небезпеку, але й не давати їй забрати весь рух."
+			},
+			"judgment": "Повторна вода. Якщо є щирість, серцевина має проходження; дія має цінність.",
+			"image": "Вода тече безперервно і доходить до мети: повторна небезпека. Так шляхетна людина тримає сталість у діях і навчає повторенням."
+		},
+		"en": {
+			"name": "Repeated Water",
+			"composition": "Water over water.",
+			"reading": {
+				"scene": "One depth repeats another.\n\nDanger is not a single event; it has its own rhythm.",
+				"dynamics": "The situation enters a repeating pit: the channel is narrow, the bottom unseen, every movement requiring sober precision.\n\nWater does not defeat the abyss by force. It passes through it, holding direction and not losing its own nature.\n\nPanic makes the depth wider. Self-assurance makes it invisible until the first fall.\n\nThis hexagram shows danger as an environment. What matters is not heroism, but the ability not to lose the line of passage.",
+				"vector": "Hold course inside a difficult channel.\n\nDo not decorate the danger, but do not let it take all movement."
+			},
+			"judgment": "Repeated Water. If there is sincerity, the center has passage; action has value.",
+			"image": "Water flows on without ceasing and reaches its aim: repeated danger. Thus the noble person keeps constancy in action and teaches through repetition."
+		}
+	}
+}

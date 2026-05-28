@@ -1,0 +1,31 @@
+{
+	"number": 9,
+	"chinese": "小畜",
+	"pinyin": "xiǎo xù",
+	"lower": "qian",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Невеликий вплив",
+			"composition": "Вітер рухається під небом.",
+			"reading": {
+				"scene": "Велика сила стримана малим дотиком.\n\nХмари збираються, але дощ ще не падає.",
+				"dynamics": "Тут немає можливості прямого прориву. Ситуацію тримає тонка дія, майже непомітна, але послідовна.\n\nМале не перемагає велике. Воно змінює напрям, затримує надлишок і не дає силі розсипатися завчасно.\n\nНебезпека в тому, щоб переплутати стримування з владою. Те, що можна тільки спрямувати, не варто вважати підкореним.\n\nЦей стан живе завдяки дрібній точності. Один грубий рух руйнує те, що трималося на легкому натиску.",
+				"vector": "Працювати малими змінами.\n\nНе вимагати від тонкого впливу результатів, які належать великому перелому."
+			},
+			"judgment": "Мале накопичення. Успіх. Густі хмари, але дощу ще немає з нашого заходу.",
+			"image": "Вітер ходить небом: мале накопичення. Так шляхетна людина очищує зовнішню форму справ."
+		},
+		"en": {
+			"name": "Gentle Influence",
+			"composition": "Wind moves beneath heaven.",
+			"reading": {
+				"scene": "A great force is restrained by a small touch.\n\nClouds gather, but rain has not yet fallen.",
+				"dynamics": "A direct breakthrough is not available here. The situation is held by a subtle action, almost invisible, but consistent.\n\nThe small does not defeat the great. It changes direction, delays excess, and keeps force from spilling out too early.\n\nThe danger is mistaking restraint for command. What can only be guided should not be treated as conquered.\n\nThis state lives through small precision. One crude movement breaks what was held by light pressure.",
+				"vector": "Work through small changes.\n\nDo not demand from subtle influence the results that belong to a major break."
+			},
+			"judgment": "The Taming Power of the Small. Success. Dense clouds, but no rain yet from our western field.",
+			"image": "Wind moves across heaven: small accumulation. Thus the noble person refines the outer form of things."
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"number": 35,
+	"chinese": "晉",
+	"pinyin": "jìn",
+	"lower": "kun",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Просування",
+			"composition": "Сонце виходить над землею.",
+			"reading": {
+				"scene": "Те, що було нижче краю, стає видимим.\n\nПросування входить у день.",
+				"dynamics": "Тут справа підіймається з прихованого місця і потрапляє в поле погляду. Її можуть прийняти, назвати, поставити ближче до двору.\n\nПідйом потребує ясного обличчя. Те, що виходить назовні, має показати не блиск, а придатну форму.\n\nНебезпека в гонитві за прийомом. Коли важливо тільки бути побаченим, день швидко стає сценою.\n\nЦя гексаграма показує схід, а не тріумф. Рух добрий, якщо не відривається від землі, з якої вийшов.",
+				"vector": "Виходити на видиме місце з тим, що справді готове.\n\nНе міняти справу на сам факт прийому."
+			},
+			"judgment": "Просування. Могутнього князя вшановують кіньми у великій кількості; за день його приймають тричі.",
+			"image": "Світло виходить над землею: просування. Так шляхетна людина сама робить свою ясність світлою."
+		},
+		"en": {
+			"name": "Progress",
+			"composition": "The sun comes out over earth.",
+			"reading": {
+				"scene": "What was below the edge becomes visible.\n\nProgress enters the day.",
+				"dynamics": "The matter rises from a hidden place and enters the field of sight. It can be received, named, brought nearer to the court.\n\nAscent needs a clear face. What comes outward must show not shine, but a usable form.\n\nThe danger is chasing reception. When only being seen matters, the day quickly becomes a stage.\n\nThis hexagram shows sunrise, not triumph. The movement is good if it does not leave the earth from which it came.",
+				"vector": "Come into visible place with what is actually ready.\n\nDo not trade the matter for the mere fact of being received."
+			},
+			"judgment": "Progress. The powerful prince is honored with many horses; in one day he is received three times.",
+			"image": "Light comes out over the earth: progress. Thus the noble person makes their own clarity bright."
+		}
+	}
+}

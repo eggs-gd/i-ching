@@ -1,0 +1,31 @@
+{
+	"number": 23,
+	"chinese": "剝",
+	"pinyin": "bō",
+	"lower": "kun",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Розщеплення",
+			"composition": "Гора стоїть на землі, але низ підточений.",
+			"reading": {
+				"scene": "Форма ще висока, проте основа відходить шар за шаром.\n\nНастає час розпаду.",
+				"dynamics": "Тут не йдеться про раптову катастрофу. Руйнування вже працює знизу, і верх тримається радше звичкою, ніж силою.\n\nСпроба діяти широко лише збільшує втрати. Коли опора кришиться, великий крок робить провал більшим.\n\nНебезпека в запереченні очевидного. Те, що відпадає, не варто приклеювати словами.\n\nЦя гексаграма показує зняття старої форми. Можна берегти ядро, але не всю оболонку.",
+				"vector": "Не будувати на основі, яка вже сходить нанівець.\n\nДати відпасти тому, що більше не тримає ваги."
+			},
+			"judgment": "Розщеплення. Несприятливо мати куди йти.",
+			"image": "Гора спирається на землю: розщеплення. Так верхні зміцнюють нижніх, щоб зберегти своє місце."
+		},
+		"en": {
+			"name": "Splitting Apart",
+			"composition": "A mountain stands on earth, but the base is being stripped away.",
+			"reading": {
+				"scene": "The form is still high, yet support leaves layer by layer.\n\nA time of splitting arrives.",
+				"dynamics": "This is not sudden catastrophe. Ruin is already working from below, and the upper part is held more by habit than by force.\n\nTrying to act broadly only increases loss. When the support crumbles, a large step makes the fall larger.\n\nThe danger is denying what is plain. What is peeling away should not be glued back with words.\n\nThis hexagram shows the removal of an old form. The core may be protected, but not the entire shell.",
+				"vector": "Do not build on a base already coming apart.\n\nLet fall what no longer carries weight."
+			},
+			"judgment": "Splitting Apart. It is not favorable to have somewhere to go.",
+			"image": "The mountain rests on the earth: splitting apart. Thus those above strengthen those below in order to keep their place."
+		}
+	}
+}

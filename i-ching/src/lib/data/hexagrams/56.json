@@ -1,0 +1,31 @@
+{
+	"number": 56,
+	"chinese": "旅",
+	"pinyin": "lǚ",
+	"lower": "gen",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Мандрівник",
+			"composition": "Гора під вогнем.",
+			"reading": {
+				"scene": "Полум'я не має дому на схилі, воно проходить далі.\n\nМандрівник лишається тимчасовим.",
+				"dynamics": "Тут людина або справа перебуває не на своїй землі. Можна рухатися, але не варто поводитися як власник місця.\n\nТимчасовість вимагає легкого багажу і точних правил. Дрібна обережність тут важливіша за великий намір.\n\nНебезпека в самовільності. На чужій території навіть малий надлишок жесту швидко стає проблемою.\n\nЦя гексаграма показує проходження. Воно може бути ясним, якщо не прив'язуватися до того, що не належить цьому шляху.",
+				"vector": "Йти легко і точно.\n\nНе будувати постійний дім із тимчасового вогню."
+			},
+			"judgment": "Мандрівник. У малому успіх. Стійкість мандрівника приносить щастя.",
+			"image": "На горі є вогонь: мандрівник. Так шляхетна людина ясна й обережна в покараннях і не затягує судів."
+		},
+		"en": {
+			"name": "The Wanderer",
+			"composition": "Mountain under fire.",
+			"reading": {
+				"scene": "Flame has no home on the slope; it passes on.\n\nThe traveler remains temporary.",
+				"dynamics": "A person or matter is not on its own ground here. Movement is possible, but one should not behave as owner of the place.\n\nTemporariness requires light baggage and exact rules. Small caution matters more here than a large intention.\n\nThe danger is self-will. On foreign ground, even a small excess of gesture quickly becomes a problem.\n\nThis hexagram shows passage. It can be clear if one does not attach to what does not belong to this road.",
+				"vector": "Move lightly and precisely.\n\nDo not build a permanent house out of temporary fire."
+			},
+			"judgment": "The Wanderer. Success in the small. The traveler’s constancy brings good fortune.",
+			"image": "On the mountain there is fire: the wanderer. Thus the noble person is clear and careful in punishments and does not prolong judgments."
+		}
+	}
+}

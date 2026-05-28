@@ -1,0 +1,31 @@
+{
+	"number": 20,
+	"chinese": "觀",
+	"pinyin": "guān",
+	"lower": "kun",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Спостереження",
+			"composition": "Вітер над землею.",
+			"reading": {
+				"scene": "Погляд проходить широко і не втручається відразу.\n\nВидиме стає важливішим за швидку дію.",
+				"dynamics": "Тут ситуація розкривається через спостереження. Не все потребує негайного торкання; іноді форма сама починає показувати свої межі.\n\nВисота погляду важлива, але вона не повинна ставати віддаленістю. Надто далекий погляд перестає бачити дрібні рухи.\n\nЄ небезпека перетворити спостереження на позу. Тоді людина дивиться, щоб не входити в справу.\n\nЦя гексаграма показує момент огляду. Рух ще не головний; головне, що саме стає видимим з правильного місця.",
+				"vector": "Підняти погляд, але не втратити предмет.\n\nДіяти після того, як форма справді проявилась."
+			},
+			"judgment": "Споглядання. Омивання зроблено, але жертву ще не принесено. Є щирість і піднесений погляд.",
+			"image": "Вітер ходить над землею: споглядання. Так давні володарі оглядали сторони світу і навчали людей."
+		},
+		"en": {
+			"name": "Observation",
+			"composition": "Wind over earth.",
+			"reading": {
+				"scene": "The gaze moves widely and does not interfere at once.\n\nWhat is visible becomes more important than quick action.",
+				"dynamics": "The situation opens through observation. Not everything needs immediate contact; sometimes the form begins to show its own edges.\n\nThe height of the gaze matters, but it must not become distance. A gaze too far away stops seeing small movements.\n\nThere is a danger of turning observation into a pose. Then one looks in order not to enter the matter.\n\nThis hexagram shows a moment of viewing. Movement is not yet central; what matters is what becomes visible from the right place.",
+				"vector": "Raise the gaze without losing the object.\n\nAct after the form has actually appeared."
+			},
+			"judgment": "Contemplation. The washing is done, but the offering has not yet been made. There is sincerity and an uplifted gaze.",
+			"image": "Wind moves over the earth: contemplation. Thus the ancient kings viewed the regions and taught the people."
+		}
+	}
+}

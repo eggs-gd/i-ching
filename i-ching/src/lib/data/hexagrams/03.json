@@ -1,0 +1,31 @@
+{
+	"number": 3,
+	"chinese": "屯",
+	"pinyin": "zhūn",
+	"lower": "zhen",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Початкова складність",
+			"composition": "Грім під водою.",
+			"reading": {
+				"scene": "Рух, який уже народився, але ще не знає власної форми.\n\nПерший хаос нового життя.",
+				"dynamics": "Початок майже ніколи не буває чистим і впорядкованим.\n\nТе, що росте по-справжньому, проходить через плутанину, помилки і нестабільність.\n\nТут легко захотіти все кинути або, навпаки, почати силою пришвидшувати процес.\n\nАле надмірний контроль робить хаос лише густішим.\n\nУ цій гексаграмі важливі не великі перемоги, а здатність не зупинятись через першу невизначеність.",
+				"vector": "Не вимагати від нового життя миттєвої ясності.\n\nДеякий лад спочатку чути тільки як шум."
+			},
+			"judgment": "Початкова складність. Первісний успіх; сприятлива стійкість. Не поспішати з великим рухом.",
+			"image": "Хмари і грім: початкова складність. Так шляхетна людина впорядковує плутанину."
+		},
+		"en": {
+			"name": "Difficulty at the Beginning",
+			"composition": "Thunder under water.",
+			"reading": {
+				"scene": "Movement has already been born, but does not yet know its own form.\n\nThe first disorder of new life.",
+				"dynamics": "A beginning is almost never clean and ordered.\n\nWhat truly grows passes through confusion, error, and instability.\n\nHere it is easy to abandon the matter, or to start forcing the process to move faster. But excessive control only thickens the disorder.\n\nIn this hexagram, the important thing is not a large victory, but the ability not to stop because of the first uncertainty.",
+				"vector": "Do not demand immediate clarity from new life.\n\nSome order is first heard only as noise."
+			},
+			"judgment": "Difficulty at the Beginning. Original success; favorable through constancy. Do not hurry into a great movement.",
+			"image": "Clouds and thunder: difficulty at the beginning. Thus the noble person brings order to confusion."
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"number": 53,
+	"chinese": "漸",
+	"pinyin": "jiàn",
+	"lower": "gen",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Поступове зростання",
+			"composition": "Гора під вітром.",
+			"reading": {
+				"scene": "Дерево повільно росте на схилі.\n\nФорма з'являється через тривалий поступ.",
+				"dynamics": "Тут розвиток не терпить стрибка. Він нагадує ріст, де кожен етап має зайняти своє місце.\n\nПоступовість дає міцність. Те, що входить у форму по черзі, краще витримує час.\n\nНебезпека в бажанні мати плід без кореня. Прискорене дозрівання часто дає лише слабку оболонку.\n\nЦя гексаграма показує природну послідовність. Вона повільна не через слабкість, а через потребу в справжньому закріпленні.",
+				"vector": "Рухатися етапами.\n\nНе виривати ріст із часу, який робить його стійким."
+			},
+			"judgment": "Поступ. Дівчину видають заміж. Щастя. Сприятлива стійкість.",
+			"image": "На горі є дерево: поступ. Так шляхетна людина перебуває в гідності і поліпшує звичаї."
+		},
+		"en": {
+			"name": "Gradual Growth",
+			"composition": "Mountain under wind.",
+			"reading": {
+				"scene": "A tree grows slowly on the slope.\n\nForm appears through long progression.",
+				"dynamics": "Development here does not tolerate a jump. It resembles growth, where each stage must take its place.\n\nGradual progress gives firmness. What enters form in sequence is better able to withstand time.\n\nThe danger is wanting fruit without root. Accelerated ripening often gives only a weak shell.\n\nThis hexagram shows natural sequence. It is slow not from weakness, but from the need for real anchoring.",
+				"vector": "Move by stages.\n\nDo not tear growth out of the time that makes it steady."
+			},
+			"judgment": "Gradual Progress. The maiden is given in marriage. Good fortune. Favorable through constancy.",
+			"image": "On the mountain there is a tree: gradual progress. Thus the noble person dwells in dignity and improves customs."
+		}
+	}
+}

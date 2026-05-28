@@ -1,0 +1,31 @@
+{
+	"number": 2,
+	"chinese": "坤",
+	"pinyin": "kūn",
+	"lower": "kun",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Прийняття",
+			"composition": "Земля під відкритим небом.",
+			"reading": {
+				"scene": "Тиша, яка не сперечається зі світом.\n\nМісце, здатне прийняти насіння.",
+				"dynamics": "Це не слабкість і не пасивність.\n\nСкоріше здатність не ламати процес власною напругою.\n\nТут сила проявляється не через натиск, а через витримку і простір.\n\nТе, що росте природно, не потребує постійного примусу.\n\nАле надмірна поступливість теж виснажує.\n\nТой, хто завжди приймає форму інших, поступово втрачає власну.",
+				"vector": "Іноді правильний рух — не штовхати події вперед, а створити умови, в яких вони самі можуть проявитись."
+			},
+			"judgment": "Приймальне. Первісний успіх; сприятлива стійкість кобили.",
+			"image": "Земля тримає всі речі; так шляхетна людина несе світ широкою мірою."
+		},
+		"en": {
+			"name": "The Receptive",
+			"composition": "Earth under open sky.",
+			"reading": {
+				"scene": "A stillness that does not argue with the world.\n\nA place able to receive seed.",
+				"dynamics": "This is not weakness and not passivity.\n\nIt is the ability not to tighten around the process until it breaks.\n\nHere force appears not through pressure, but through endurance and space. What grows naturally does not need constant compulsion.\n\nBut excessive yielding also exhausts. The one who always takes the form of others gradually loses their own.",
+				"vector": "Sometimes the right movement is not to push events forward, but to create the conditions in which they can appear by themselves."
+			},
+			"judgment": "The Receptive. Original success; favorable through the constancy of a mare.",
+			"image": "The earth carries all things; thus the noble person bears the world with broad capacity."
+		}
+	}
+}

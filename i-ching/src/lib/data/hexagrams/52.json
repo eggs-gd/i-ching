@@ -1,0 +1,31 @@
+{
+	"number": 52,
+	"chinese": "艮",
+	"pinyin": "gèn",
+	"lower": "gen",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Зупинка",
+			"composition": "Гора над горою.",
+			"reading": {
+				"scene": "Рух зупинений у власній межі.\n\nНерухомість стає формою присутності.",
+				"dynamics": "Тут дія полягає в зупинці. Не кожен імпульс має перейти в рух, не кожна думка має тягнути тіло за собою.\n\nСтійкість можлива, коли кожна частина лишається на своєму місці. Спина нерухома, погляд не женеться за двором.\n\nНебезпека в закам'янінні. Зупинка, яка втратила живу міру, стає блоком, а не опорою.\n\nЦя гексаграма показує межу руху. Вона потрібна, щоб не розсипатися на кожен зовнішній поклик.",
+				"vector": "Зупинити те, що не має йти далі.\n\nНе тримати зупинку довше, ніж вона зберігає міру."
+			},
+			"judgment": "Зупинка. Зупинити спину так, що не відчуваєш тіла. Увійти у двір і не бачити людей. Без помилки.",
+			"image": "Гори стоять разом: зупинка. Так шляхетна людина не виходить думками за межі свого місця."
+		},
+		"en": {
+			"name": "Keeping Still",
+			"composition": "Mountain over mountain.",
+			"reading": {
+				"scene": "Movement is stopped within its own boundary.\n\nStillness becomes a form of presence.",
+				"dynamics": "Action here consists in stopping. Not every impulse must become movement; not every thought must pull the body along.\n\nSteadiness is possible when each part remains in its place. The back is still; the gaze does not chase the yard.\n\nThe danger is petrification. A stop that has lost living measure becomes a block, not support.\n\nThis hexagram shows the boundary of movement. It is needed so one does not scatter toward every outer call.",
+				"vector": "Stop what should not go farther.\n\nDo not hold the stop longer than it keeps measure."
+			},
+			"judgment": "Keeping Still. Keeping the back still so the body is not felt. Entering the courtyard and not seeing the people. No fault.",
+			"image": "Mountains stand together: keeping still. Thus the noble person does not let thoughts go beyond their place."
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"number": 64,
+	"chinese": "未濟",
+	"pinyin": "wèi jì",
+	"lower": "kan",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Перед завершенням",
+			"composition": "Вода під вогнем.",
+			"reading": {
+				"scene": "Частини майже на місці, але ще не з'єднані правильно.\n\nПерехід стоїть перед останнім кроком.",
+				"dynamics": "Тут справа ще не завершена. Видно напрям, видно протилежний берег, але порядок поки не став фактом.\n\nНайбільша небезпека приходить наприкінці, коли майже готове здається вже готовим. Один необережний рух мочить хвіст.\n\nПоспіх руйнує саме те, що довго наближалось. Незавершене вимагає більше точності, ніж початок.\n\nЦя гексаграма показує стан перед переходом. Можливість реальна, але вона ще не дорівнює здійсненню.",
+				"vector": "Довести перехід до кінця без останньої самовпевненості.\n\nНе святкувати берег, на який ще не ступили."
+			},
+			"judgment": "Перед завершенням. Успіх. Малий лис майже перейшов, але намочив хвіст. Ніщо не сприятливе.",
+			"image": "Вогонь над водою: перед завершенням. Так шляхетна людина обережно розрізняє речі і ставить їх на місця."
+		},
+		"en": {
+			"name": "Before Completion",
+			"composition": "Water under fire.",
+			"reading": {
+				"scene": "The parts are almost in place, but not yet joined correctly.\n\nThe crossing stands before the final step.",
+				"dynamics": "The matter is not yet complete. The direction is visible, the opposite bank is visible, but order has not become fact.\n\nThe greatest danger comes near the end, when almost ready seems already ready. One careless movement wets the tail.\n\nHaste ruins precisely what has long been approaching. The unfinished requires more precision than the beginning.\n\nThis hexagram shows the state before crossing. The possibility is real, but it is not yet fulfillment.",
+				"vector": "Bring the crossing to its end without the last self-assurance.\n\nDo not celebrate a bank you have not yet stepped on."
+			},
+			"judgment": "Before Completion. Success. The young fox has almost crossed, but wets its tail. Nothing is favorable.",
+			"image": "Fire over water: before completion. Thus the noble person carefully distinguishes things and sets them in their places."
+		}
+	}
+}

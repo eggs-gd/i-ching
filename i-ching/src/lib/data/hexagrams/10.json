@@ -1,0 +1,31 @@
+{
+	"number": 10,
+	"chinese": "履",
+	"pinyin": "lǚ",
+	"lower": "dui",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Хода",
+			"composition": "Озеро під небом.",
+			"reading": {
+				"scene": "Легка поверхня стоїть під сильною висотою.\n\nКрок проходить поруч із небезпекою.",
+				"dynamics": "Тут рух можливий, але не вільний від ризику. Ситуація вимагає точного кроку, бо поруч є сила, значно більша за того, хто рухається.\n\nПоступ не залежить від сміливості сам по собі. Важливо, як саме поставлена нога і чи не зачіпає вона те, що не можна дратувати.\n\nКоли легкість стає самовпевненістю, вона швидко опиняється під тиском. Коли обережність стає страхом, рух зникає.\n\nЦя гексаграма показує поведінку на межі. Небезпека реальна, але вона не обов'язково кусає того, хто бачить її форму.",
+				"vector": "Йти точно, без зайвого жесту.\n\nНе робити з ризику драму, але й не вдавати, що його немає."
+			},
+			"judgment": "Хода. Наступити на хвіст тигра; він не кусає. Успіх.",
+			"image": "Небо вгорі, озеро внизу: хода. Так шляхетна людина розрізняє високе і низьке та встановлює місця."
+		},
+		"en": {
+			"name": "Treading",
+			"composition": "Lake beneath heaven.",
+			"reading": {
+				"scene": "A light surface stands under a strong height.\n\nThe step passes close to danger.",
+				"dynamics": "Movement is possible here, but not free of risk. The situation requires an exact step, because a force much larger than the mover is nearby.\n\nProgress does not depend on courage alone. What matters is how the foot is placed, and whether it touches what must not be provoked.\n\nWhen lightness becomes self-assurance, it quickly comes under pressure. When caution becomes fear, movement disappears.\n\nThis hexagram shows conduct at the edge. The danger is real, but it does not necessarily bite the one who sees its shape.",
+				"vector": "Move precisely, without an unnecessary gesture.\n\nDo not dramatize the risk, but do not pretend it is absent."
+			},
+			"judgment": "Treading. Stepping on the tiger’s tail; it does not bite. Success.",
+			"image": "Heaven above, lake below: treading. Thus the noble person distinguishes high and low and sets the places."
+		}
+	}
+}

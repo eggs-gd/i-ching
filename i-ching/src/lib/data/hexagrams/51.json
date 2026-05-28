@@ -1,0 +1,31 @@
+{
+	"number": 51,
+	"chinese": "震",
+	"pinyin": "zhèn",
+	"lower": "zhen",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Раптовий спалах",
+			"composition": "Грім над громом.",
+			"reading": {
+				"scene": "Удар повторюється, простір здригається.\n\nРаптовість виводить приховане назовні.",
+				"dynamics": "Тут подія приходить як шок. Вона не питає, чи все готове, і різко перевіряє, що справді тримається.\n\nПерший рух може бути переляком. Але після удару видно, де є центр, а де була лише звичка.\n\nНебезпека в тому, щоб жити самим здриганням. Тоді грім не будить, а розриває увагу на шматки.\n\nЦя гексаграма показує силу несподіваного. Вона ламає сон, але не повинна керувати всім після того, як звук минув.",
+				"vector": "Після удару знайти те, що не впало.\n\nНе перетворювати раптовість на постійний спосіб руху."
+			},
+			"judgment": "Грім. Успіх. Грім приходить — вигук страху; після нього сміх. Грім лякає на сто лі, але жертовну ложку і чашу не гублять.",
+			"image": "Грім повторюється: потрясіння. Так шляхетна людина зі страхом упорядковує себе і перевіряє себе."
+		},
+		"en": {
+			"name": "Sudden Awakening",
+			"composition": "Thunder over thunder.",
+			"reading": {
+				"scene": "The strike repeats; the space shakes.\n\nSuddenness brings the hidden outward.",
+				"dynamics": "The event arrives as shock. It does not ask whether everything is ready, and sharply tests what truly holds.\n\nThe first movement may be fright. But after the strike, it is visible where there is a center and where there was only habit.\n\nThe danger is living by the tremor itself. Then thunder does not wake; it tears attention into pieces.\n\nThis hexagram shows the force of the unexpected. It breaks sleep, but should not govern everything after the sound has passed.",
+				"vector": "After the strike, find what did not fall.\n\nDo not make suddenness into a permanent way of moving."
+			},
+			"judgment": "Shock. Success. Thunder comes: a cry of fear; afterward, laughter. Thunder terrifies for a hundred li, but the sacrificial spoon and cup are not dropped.",
+			"image": "Thunder repeats: shock. Thus the noble person sets themself in order with fear and examines themself."
+		}
+	}
+}

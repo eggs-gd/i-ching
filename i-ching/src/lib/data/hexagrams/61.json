@@ -1,0 +1,31 @@
+{
+	"number": 61,
+	"chinese": "中孚",
+	"pinyin": "zhōng fú",
+	"lower": "dui",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Внутрішня правда",
+			"composition": "Озеро над вітром.",
+			"reading": {
+				"scene": "У середині лишено порожнину, і звук проходить чисто.\n\nПравда діє без натиску.",
+				"dynamics": "Тут переконливість не кричить. Вона звучить так, як звучить порожня посудина, якщо в неї вдарити правильно.\n\nПорожнина важлива. Якщо все забите наміром, звук глухне і не має де відгукнутися.\n\nНебезпека в красивій щирості, яку беруть як знаряддя впливу. Тоді чистий звук стає маскою.\n\nЦя гексаграма показує відповідність між тим, що всередині, і тим, що виходить назовні. Фальшива стінка одразу змінює тон.",
+				"vector": "Лишити середину придатною для чистого звуку.\n\nНе доводити правду до крику."
+			},
+			"judgment": "Внутрішня правда. Свині й риби — щастя. Сприятливо перейти велику воду. Сприятлива стійкість.",
+			"image": "Над озером є вітер: внутрішня правда. Так шляхетна людина розглядає суди і відкладає смерть."
+		},
+		"en": {
+			"name": "Inner Truth",
+			"composition": "Lake over wind.",
+			"reading": {
+				"scene": "A hollow is left in the middle, and sound passes cleanly.\n\nTruth acts without pressure.",
+				"dynamics": "Persuasiveness does not shout here. It sounds like an empty vessel when it is struck correctly.\n\nThe hollow matters. If everything is packed with intention, the sound dulls and has nowhere to answer.\n\nThe danger is beautiful sincerity taken up as a tool of influence. Then the clean sound becomes a mask.\n\nThis hexagram shows correspondence between what is inside and what comes outward. A false wall changes the tone at once.",
+				"vector": "Leave the middle fit for a clean sound.\n\nDo not drive truth into shouting."
+			},
+			"judgment": "Inner Truth. Pigs and fishes: good fortune. It is favorable to cross the great water. Favorable through constancy.",
+			"image": "Above the lake there is wind: inner truth. Thus the noble person examines judgments and delays death."
+		}
+	}
+}

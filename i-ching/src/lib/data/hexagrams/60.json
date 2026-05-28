@@ -1,0 +1,31 @@
+{
+	"number": 60,
+	"chinese": "節",
+	"pinyin": "jié",
+	"lower": "dui",
+	"upper": "kan",
+	"locales": {
+		"uk": {
+			"name": "Обмеження",
+			"composition": "Озеро над водою.",
+			"reading": {
+				"scene": "Плин отримує берег і міру.\n\nОбмеження робить рух придатним.",
+				"dynamics": "Тут межа не є ворогом руху. Вона надає воді форму, щоб та не розтікалася без користі.\n\nДобра міра має бути прийнятною. Надто жорстке правило перекриває потік і перетворює лад на гіркоту.\n\nНебезпека в любові до заборони. Коли межа існує тільки заради себе, вона висушує те, що мала берегти.\n\nЦя гексаграма показує необхідність рамки. Вона працює, якщо служить руху, а не замінює його.",
+				"vector": "Поставити межу, яка веде рух.\n\nНе робити з обмеження окрему владу."
+			},
+			"judgment": "Обмеження. Успіх. Гірке обмеження не може бути стійким.",
+			"image": "Над озером є вода: обмеження. Так шляхетна людина встановлює число і міру та розглядає силу і дію."
+		},
+		"en": {
+			"name": "Limitation",
+			"composition": "Lake over water.",
+			"reading": {
+				"scene": "The current receives a shore and measure.\n\nLimitation makes movement usable.",
+				"dynamics": "The boundary is not an enemy of movement here. It gives water form so it does not spread without use.\n\nGood measure must be bearable. A rule too hard blocks the current and turns order bitter.\n\nThe danger is love of prohibition. When the boundary exists only for itself, it dries what it was meant to keep.\n\nThis hexagram shows the need for a bank and measure. They work if they serve movement rather than replacing it.",
+				"vector": "Set a boundary that guides movement.\n\nDo not turn limitation into a separate authority."
+			},
+			"judgment": "Limitation. Success. Bitter limitation cannot be constant.",
+			"image": "Above the lake there is water: limitation. Thus the noble person establishes number and measure and examines force and action."
+		}
+	}
+}

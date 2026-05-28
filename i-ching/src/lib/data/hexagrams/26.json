@@ -1,0 +1,31 @@
+{
+	"number": 26,
+	"chinese": "大畜",
+	"pinyin": "dà xù",
+	"lower": "qian",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Велике накопичення",
+			"composition": "Небо всередині гори.",
+			"reading": {
+				"scene": "Великий рух замкнений у твердій оболонці.\n\nЗапас ще не став виходом.",
+				"dynamics": "Тут ніщо не розсипане. Воно зібране, як зерно в коморі або кінь, якого тримають за вузду.\n\nМежа має зберігати, а не душити. Гора повинна бути посудиною, не кам’яною кришкою.\n\nНебезпека в тому, щоб пишатися повною коморою і нічого не випускати в справу. Так запас старіє без користі.\n\nЦя гексаграма показує підготовлену вагу. Вона ще всередині, але вже здатна витримати великий рух.",
+				"vector": "Тримати запас у міцній посудині.\n\nНе випускати рано, але й не замикати комору заради самої комори."
+			},
+			"judgment": "Велике накопичення. Сприятлива стійкість. Не їсти вдома — щастя. Сприятливо перейти велику воду.",
+			"image": "Небо всередині гори: велике накопичення. Так шляхетна людина знає давні слова і давні вчинки, щоб зміцнити себе."
+		},
+		"en": {
+			"name": "Great Accumulation",
+			"composition": "Heaven inside mountain.",
+			"reading": {
+				"scene": "A great movement is enclosed in a firm shell.\n\nThe reserve has not yet become release.",
+				"dynamics": "Nothing is scattered here. It is gathered like grain in a storehouse, or a horse held by the reins.\n\nThe boundary must preserve, not suffocate. The mountain should be a vessel, not a stone lid.\n\nThe danger is taking pride in a full storehouse and letting nothing enter the work. Then the reserve grows old without use.\n\nThis hexagram shows prepared weight. It is still inside, but already able to bear a large movement.",
+				"vector": "Keep the reserve in a strong vessel.\n\nDo not release too early, but do not lock the storehouse for its own sake."
+			},
+			"judgment": "Great Accumulation. Favorable through constancy. Not eating at home brings good fortune. It is favorable to cross the great water.",
+			"image": "Heaven within the mountain: great accumulation. Thus the noble person knows ancient words and ancient deeds in order to strengthen themself."
+		}
+	}
+}

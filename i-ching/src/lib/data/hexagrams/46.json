@@ -1,0 +1,31 @@
+{
+	"number": 46,
+	"chinese": "升",
+	"pinyin": "shēng",
+	"lower": "xun",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Піднімання",
+			"composition": "Вітер росте крізь землю.",
+			"reading": {
+				"scene": "Мале піднімається поступово, без різкого прориву.\n\nПіднесення відбувається сходинка за сходинкою.",
+				"dynamics": "Тут рух угору можливий через наполегливе проникнення. Він не ламає поверхню одним ударом, а проростає крізь неї.\n\nПотрібна послідовність і правильна опора. Підніматися можна там, де є за що вчепитися і куди ставити наступний крок.\n\nНебезпека в нетерпкому стрибку. Те, що росте поступово, легко пошкодити вимогою негайної висоти.\n\nЦя гексаграма показує зростання через малий сталий рух. Його сила в напрямі, не в швидкості.",
+				"vector": "Підніматися через доступні сходинки.\n\nНе знецінювати повільний рух лише тому, що він не схожий на прорив."
+			},
+			"judgment": "Піднімання. Первісний успіх. Сприятливо побачити велику людину. Не сумувати. Рух на південь приносить щастя.",
+			"image": "У землі росте дерево: піднімання. Так шляхетна людина накопичує мале, щоб досягти високого і великого."
+		},
+		"en": {
+			"name": "Pushing Upward",
+			"composition": "Wind grows through earth.",
+			"reading": {
+				"scene": "The small rises gradually, without a sharp breakthrough.\n\nAscent happens step by step.",
+				"dynamics": "Upward movement is possible through persistent penetration. It does not break the surface with one blow, but grows through it.\n\nSequence and proper support are needed. One can rise where there is something to hold and somewhere to place the next step.\n\nThe danger is an impatient leap. What grows gradually is easily damaged by the demand for immediate height.\n\nThis hexagram shows growth through small steady movement. Its force is in direction, not speed.",
+				"vector": "Rise through the available steps.\n\nDo not dismiss slow movement because it does not look like breakthrough."
+			},
+			"judgment": "Pushing Upward. Original success. It is favorable to see the great person. Do not grieve. Movement south brings good fortune.",
+			"image": "Within the earth a tree grows: pushing upward. Thus the noble person accumulates the small in order to reach the high and great."
+		}
+	}
+}

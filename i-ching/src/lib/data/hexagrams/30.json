@@ -1,0 +1,31 @@
+{
+	"number": 30,
+	"chinese": "離",
+	"pinyin": "lí",
+	"lower": "li",
+	"upper": "li",
+	"locales": {
+		"uk": {
+			"name": "Зчеплення",
+			"composition": "Вогонь над вогнем.",
+			"reading": {
+				"scene": "Світло тримається за те, до чого прикріплене.\n\nЯсність потребує опори.",
+				"dynamics": "Тут видимість посилюється. Речі стають окресленими, але саме світло не існує без пального.\n\nЗалежність не є слабкістю, якщо видно, на чому вона тримається. Вогонь має знати, що його живить і що він спалює.\n\nНебезпека в блиску без основи. Тоді ясність стає паланням, яке швидко з'їдає власний матеріал.\n\nЦя гексаграма показує світло, прикріплене до форми. Воно може вести, якщо не забуває про свою залежність.",
+				"vector": "Тримати ясність на реальній опорі.\n\nНе палити більше, ніж потрібно для світла."
+			},
+			"judgment": "Зчеплення. Сприятлива стійкість. Успіх. Догляд за коровою приносить щастя.",
+			"image": "Світло постає двічі: зчеплення. Так велика людина продовжує світло і освітлює чотири сторони."
+		},
+		"en": {
+			"name": "The Clinging",
+			"composition": "Fire over fire.",
+			"reading": {
+				"scene": "Light holds to what it is attached to.\n\nClarity needs support.",
+				"dynamics": "Visibility intensifies here. Things become outlined, but light itself does not exist without fuel.\n\nDependence is not weakness when its support is visible. Fire must know what feeds it and what it burns.\n\nThe danger is brilliance without a base. Then clarity becomes a blaze that quickly consumes its own material.\n\nThis hexagram shows light attached to form. It can guide if it does not forget its dependence.",
+				"vector": "Keep clarity on a real support.\n\nDo not burn more than the light requires."
+			},
+			"judgment": "The Clinging. Favorable through constancy. Success. Care of the cow brings good fortune.",
+			"image": "Light appears twice: the clinging. Thus the great person continues the light and illuminates the four quarters."
+		}
+	}
+}

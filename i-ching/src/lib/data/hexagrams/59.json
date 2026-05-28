@@ -1,0 +1,31 @@
+{
+	"number": 59,
+	"chinese": "渙",
+	"pinyin": "huàn",
+	"lower": "kan",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Розсіювання",
+			"composition": "Вода під вітром.",
+			"reading": {
+				"scene": "Те, що було зібране в грудку, розноситься і розм'якшується.\n\nМежі втрачають жорсткість.",
+				"dynamics": "Тут напружене скупчення починає розходитися. Вітер проходить над водою і знімає застиглу форму.\n\nРозсіювання може звільнити заблокований рух. Але воно потребує місця збору, інакше все просто розпливеться.\n\nНебезпека в тому, щоб плутати розпускання вузла з втратою будь-якої форми. Без опори вода не збирається назад.\n\nЦя гексаграма показує розм'якшення твердого. Воно потрібне там, де стиск уже шкодить проходу.",
+				"vector": "Розсіювати затверділе, не втрачаючи місця збору.\n\nНе ламати межі там, де достатньо їх розм'якшити."
+			},
+			"judgment": "Розсіювання. Успіх. Володар наближається до храму. Сприятливо перейти велику воду. Сприятлива стійкість.",
+			"image": "Вітер ходить над водою: розсіювання. Так давні володарі приносили жертви і будували храми."
+		},
+		"en": {
+			"name": "Dispersion",
+			"composition": "Water under wind.",
+			"reading": {
+				"scene": "What was gathered into a lump is carried apart and softened.\n\nBoundaries lose their hardness.",
+				"dynamics": "A tense concentration begins to disperse. Wind passes over water and removes the frozen shape.\n\nDispersion can release blocked movement. But it needs a place of gathering; otherwise everything merely spreads out.\n\nThe danger is confusing the loosening of a knot with the loss of all form. Without support, water does not gather back.\n\nThis hexagram shows the softening of what has hardened. It is needed where compression already harms passage.",
+				"vector": "Disperse what has hardened without losing the place of gathering.\n\nDo not break boundaries where softening them is enough."
+			},
+			"judgment": "Dispersion. Success. The ruler approaches the temple. It is favorable to cross the great water. Favorable through constancy.",
+			"image": "Wind moves over water: dispersion. Thus the ancient kings made offerings and built temples."
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"number": 36,
+	"chinese": "明夷",
+	"pinyin": "míng yí",
+	"lower": "li",
+	"upper": "kun",
+	"locales": {
+		"uk": {
+			"name": "Тінь вогню",
+			"composition": "Вогонь захований під землею.",
+			"reading": {
+				"scene": "Світло є, але його не можна виставити назовні.\n\nЧас вимагає прикриття.",
+				"dynamics": "Тут ясність опинилася в середовищі, яке її пошкоджує. Відкритий прояв тільки збільшив би небезпеку.\n\nПотрібно зберігати внутрішнє світло без показу. Не все правдиве має бути сказане вголос саме зараз.\n\nНебезпека в двох крайностях: згаснути від тиску або викричати світло в місці, де його одразу затопчуть.\n\nЦя гексаграма показує приховану ясність. Вона живе завдяки стриманості, а не завдяки видимій перемозі.",
+				"vector": "Тримати світло під захистом.\n\nНе віддавати ясність середовищу, яке зараз здатне тільки її поранити."
+			},
+			"judgment": "Затемнення світла. У труднощах сприятлива стійкість.",
+			"image": "Світло входить у землю: затемнення світла. Так шляхетна людина перебуває з багатьма, приховуючи світло і залишаючись ясною."
+		},
+		"en": {
+			"name": "Shadow of Fire",
+			"composition": "Fire hidden under earth.",
+			"reading": {
+				"scene": "There is light, but it cannot be shown outwardly.\n\nThe time requires cover.",
+				"dynamics": "Clarity has entered an environment that damages it. Open display would only increase the danger.\n\nThe inner light must be kept without exhibition. Not everything true should be said aloud right now.\n\nThe danger lies in two extremes: going out under pressure, or shouting the light in a place where it will be trampled.\n\nThis hexagram shows hidden clarity. It lives through restraint, not through visible victory.",
+				"vector": "Keep the light under protection.\n\nDo not give clarity to an environment that can only wound it now."
+			},
+			"judgment": "Darkening of the Light. In hardship, constancy is favorable.",
+			"image": "Light enters the earth: darkening of the light. Thus the noble person stays among the many, concealing the light and remaining clear."
+		}
+	}
+}

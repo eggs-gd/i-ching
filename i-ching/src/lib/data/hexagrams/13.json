@@ -1,0 +1,31 @@
+{
+	"number": 13,
+	"chinese": "同人",
+	"pinyin": "tóng rén",
+	"lower": "li",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Спільнота",
+			"composition": "Вогонь під небом.",
+			"reading": {
+				"scene": "Світло видно здалеку, і люди можуть зібратися навколо нього.\n\nСпільність виходить за межі дому.",
+				"dynamics": "Тут зв'язок виникає не з близькості, а з відкритого простору. Різні люди бачать один знак і можуть діяти в одному напрямі.\n\nПотрібна ясність, бо без неї спільнота стає натовпом або приватною змовою. Те, що має бути спільним, не тримається в темряві.\n\nНебезпека в тому, щоб назвати єдністю лише тих, хто зручний. Тоді широке поле стискається до гуртка.\n\nЦя гексаграма показує спільну справу, яка потребує відкритості. Особисте тут не зникає, але не повинно затуляти знак.",
+				"vector": "Виносити справу на світло.\n\nНе будувати спільність на прихованому винятку."
+			},
+			"judgment": "Спільнота з людьми на відкритому полі. Успіх. Сприятливо перейти велику воду.",
+			"image": "Небо разом з вогнем: спільнота. Так шляхетна людина розрізняє роди і впорядковує речі."
+		},
+		"en": {
+			"name": "Fellowship",
+			"composition": "Fire under heaven.",
+			"reading": {
+				"scene": "The light is visible from afar, and people can gather around it.\n\nFellowship moves beyond the house.",
+				"dynamics": "Connection arises here not from closeness, but from open space. Different people see one sign and can move in one direction.\n\nClarity is needed, because without it a fellowship becomes a crowd or a private arrangement. What is meant to be shared does not hold in darkness.\n\nThe danger is calling only the convenient ones a unity. Then the wide field shrinks into a circle.\n\nThis hexagram shows a common matter that needs openness. The personal does not vanish here, but it must not cover the sign.",
+				"vector": "Bring the matter into the light.\n\nDo not build fellowship on a hidden exception."
+			},
+			"judgment": "Fellowship with people in the open field. Success. It is favorable to cross the great water.",
+			"image": "Heaven together with fire: fellowship. Thus the noble person distinguishes kinds and orders things."
+		}
+	}
+}

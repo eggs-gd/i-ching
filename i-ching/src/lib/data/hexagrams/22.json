@@ -1,0 +1,31 @@
+{
+	"number": 22,
+	"chinese": "賁",
+	"pinyin": "bì",
+	"lower": "li",
+	"upper": "gen",
+	"locales": {
+		"uk": {
+			"name": "Краса в простоті",
+			"composition": "Вогонь біля підніжжя гори.",
+			"reading": {
+				"scene": "Форма освітлена, але не змінена в самій основі.\n\nКраса торкається поверхні.",
+				"dynamics": "Тут важлива видимість, порядок знаків, зовнішня міра. Річ потребує оформлення, щоб її можна було побачити.\n\nПрикраса має межу. Вона підкреслює форму, але не замінює її внутрішньої ваги.\n\nНебезпека в тому, щоб прийняти блиск за зміст. Тоді поверхня починає керувати тим, що повинна лише показувати.\n\nЦя гексаграма показує доречну красу: небагато світла, достатньо лінії, без спроби зробити зовнішнє головним.",
+				"vector": "Оформити, але не прикривати.\n\nЗалишити поверхні рівно стільки значення, скільки вона може нести."
+			},
+			"judgment": "Прикраса. Успіх. Малому сприятливо мати куди йти.",
+			"image": "Вогонь біля підніжжя гори: прикраса. Так шляхетна людина прояснює справи, але не вирішує великих судів лише зовнішнім."
+		},
+		"en": {
+			"name": "Beauty in Simplicity",
+			"composition": "Fire at the foot of the mountain.",
+			"reading": {
+				"scene": "The form is lit, but not changed at its base.\n\nBeauty touches the surface.",
+				"dynamics": "Visibility, order of signs, and outer measure matter here. A thing needs shaping so it can be seen.\n\nAdornment has a limit. It emphasizes form, but does not replace its inner weight.\n\nThe danger is taking shine for substance. Then the surface begins to govern what it should only reveal.\n\nThis hexagram shows fitting beauty: a little light, enough line, no attempt to make the outer layer central.",
+				"vector": "Give form, but do not cover.\n\nLeave the surface exactly as much meaning as it can carry."
+			},
+			"judgment": "Grace. Success. It is favorable for the small to have somewhere to go.",
+			"image": "Fire at the foot of the mountain: grace. Thus the noble person clarifies affairs, but does not decide great judgments by appearance alone."
+		}
+	}
+}

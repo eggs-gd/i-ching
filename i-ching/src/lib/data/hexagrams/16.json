@@ -1,0 +1,31 @@
+{
+	"number": 16,
+	"chinese": "豫",
+	"pinyin": "yù",
+	"lower": "kun",
+	"upper": "zhen",
+	"locales": {
+		"uk": {
+			"name": "Радість в русі",
+			"composition": "Грім виходить із землі.",
+			"reading": {
+				"scene": "Рух піднімається знизу і захоплює простір.\n\nНастрій стає силою дії.",
+				"dynamics": "Тут імпульс уже не прихований. Він проходить крізь людей, ритм, підготовку, спільний жест.\n\nПіднесення потребує напрямку. Без нього воно швидко стає шумом, що витрачає запас раніше за справу.\n\nНайлегше тут переплутати живий рух із самозбудженням. Тоді грім звучить, але не відкриває дороги.\n\nЦя гексаграма показує момент перед дією, коли гурт може стати строєм. Важлива не гучність, а готовність до виходу.",
+				"vector": "Дати руху ритм.\n\nНе підміняти дію настроєм, навіть коли настрій сильний."
+			},
+			"judgment": "Піднесення. Сприятливо поставити помічників і рушити військо.",
+			"image": "Грім виходить із землі: піднесення. Так давні володарі складали музику і вшановували силу."
+		},
+		"en": {
+			"name": "Joy in Motion",
+			"composition": "Thunder comes out of earth.",
+			"reading": {
+				"scene": "Movement rises from below and takes the space.\n\nMood becomes a force of action.",
+				"dynamics": "The impulse is no longer hidden. It passes through people, rhythm, preparation, and shared gesture.\n\nElevation needs direction. Without it, it quickly becomes noise that spends the reserve before the work begins.\n\nIt is easy here to confuse living movement with self-excitation. Then thunder sounds, but opens no road.\n\nThis hexagram shows the moment before action, when a group can become a formation. What matters is not loudness, but readiness to move out.",
+				"vector": "Give movement a rhythm.\n\nDo not replace action with mood, even when the mood is strong."
+			},
+			"judgment": "Enthusiasm. It is favorable to appoint helpers and set the army in motion.",
+			"image": "Thunder comes out of the earth: enthusiasm. Thus the ancient kings made music and honored force."
+		}
+	}
+}

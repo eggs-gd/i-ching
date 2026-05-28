@@ -1,0 +1,31 @@
+{
+	"number": 42,
+	"chinese": "益",
+	"pinyin": "yì",
+	"lower": "zhen",
+	"upper": "xun",
+	"locales": {
+		"uk": {
+			"name": "Збагачення",
+			"composition": "Грім під вітром.",
+			"reading": {
+				"scene": "Рух підсилюється проникненням і розходиться далі.\n\nДодавання проходить через дію.",
+				"dynamics": "Тут зростання приходить не як запас у коморі, а як пожвавлення руху. Одне підхоплює інше і збільшує можливість.\n\nЗбагачення має сенс, коли воно йде туди, де може працювати. Те, що лише накопичують, швидко стає тягарем.\n\nНебезпека в жадібному додаванні. Більше не завжди означає живіше; іноді воно тільки розмиває форму.\n\nЦя гексаграма показує приріст, який треба пустити в обіг. Справжня користь видно в русі, не в числі.",
+				"vector": "Додати там, де це збільшує живу дію.\n\nНе збирати надлишок заради самого надлишку."
+			},
+			"judgment": "Збільшення. Сприятливо мати куди йти. Сприятливо перейти велику воду.",
+			"image": "Вітер і грім: збільшення. Так шляхетна людина бачить добро і переходить до нього; бачить помилку і виправляє її."
+		},
+		"en": {
+			"name": "Enhancement",
+			"composition": "Thunder under wind.",
+			"reading": {
+				"scene": "Movement is strengthened by penetration and spreads farther.\n\nIncrease passes through action.",
+				"dynamics": "Growth comes here not as a reserve in storage, but as enlivened movement. One thing catches another and increases possibility.\n\nIncrease has meaning when it goes where it can work. What is only accumulated quickly becomes weight.\n\nThe danger is greedy addition. More does not always mean more alive; sometimes it only blurs the form.\n\nThis hexagram shows increase that should enter circulation. Real benefit is visible in movement, not in number.",
+				"vector": "Add where it increases living action.\n\nDo not gather surplus for the sake of surplus."
+			},
+			"judgment": "Increase. It is favorable to have somewhere to go. It is favorable to cross the great water.",
+			"image": "Wind and thunder: increase. Thus the noble person sees good and moves toward it; sees error and corrects it."
+		}
+	}
+}

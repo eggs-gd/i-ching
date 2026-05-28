@@ -1,0 +1,31 @@
+{
+	"number": 28,
+	"chinese": "大過",
+	"pinyin": "dà guò",
+	"lower": "xun",
+	"upper": "dui",
+	"locales": {
+		"uk": {
+			"name": "Велика перевага",
+			"composition": "Вітер під озером.",
+			"reading": {
+				"scene": "Балка прогинається під надмірною вагою.\n\nФорма ще тримається, але межа вже перевищена.",
+				"dynamics": "Тут велике навантаження лягло на конструкцію, яка не розрахована на таку вагу. Звичний порядок більше не врівноважує ситуацію.\n\nПотрібен не малий ремонт, а перехід через край. Те, що стало надмірним, не можна просто прикрасити або трохи посунути.\n\nНебезпека в тому, щоб чекати, поки прогин сам випрямиться. Надлишок має власну механіку падіння.\n\nЦя гексаграма показує критичну вагу. Рух можливий, але тільки як свідомий перехід, не як продовження старої норми.",
+				"vector": "Визнати перевантаження.\n\nНе вимагати від слабкої балки, щоб вона й далі тримала велике."
+			},
+			"judgment": "Велика перевага. Балка прогинається. Сприятливо мати куди йти. Успіх.",
+			"image": "Озеро підіймається над деревом: велика перевага. Так шляхетна людина стоїть самотньо без страху і відходить від світу без смутку."
+		},
+		"en": {
+			"name": "Great Exceeding",
+			"composition": "Wind under lake.",
+			"reading": {
+				"scene": "The ridgepole bends under excessive weight.\n\nThe form still holds, but the limit has already been exceeded.",
+				"dynamics": "A large load has settled on a structure not made for such weight. The usual order no longer balances the situation.\n\nWhat is needed is not a small repair, but a crossing of the edge. What has become excessive cannot be decorated or shifted a little.\n\nThe danger is waiting for the bend to straighten by itself. Excess has its own mechanics of collapse.\n\nThis hexagram shows critical weight. Movement is possible, but only as a deliberate crossing, not as continuation of the old norm.",
+				"vector": "Acknowledge the overload.\n\nDo not ask a weak beam to keep carrying the great."
+			},
+			"judgment": "Great Exceeding. The ridgepole bends. It is favorable to have somewhere to go. Success.",
+			"image": "The lake rises above the tree: great exceeding. Thus the noble person stands alone without fear and withdraws from the world without grief."
+		}
+	}
+}

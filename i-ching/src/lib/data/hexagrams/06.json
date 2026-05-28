@@ -1,0 +1,31 @@
+{
+	"number": 6,
+	"chinese": "訟",
+	"pinyin": "sòng",
+	"lower": "kan",
+	"upper": "qian",
+	"locales": {
+		"uk": {
+			"name": "Конфлікт",
+			"composition": "Вода під небом.",
+			"reading": {
+				"scene": "Рух унизу не збігається з рухом угорі.\n\nСитуація входить у форму суперечки.",
+				"dynamics": "Тут є намір і є перешкода, але вони не стоять на одному рівні.\n\nСлова вже не просто називають речі. Вони стають важелями, якими кожен намагається втримати власну позицію.\n\nКонфлікт загострюється там, де рух подають як правоту. Чим сильніше натиск, тим твердішою стає межа.\n\nЦя гексаграма не веде до повної перемоги. Вона показує місце, де краще зупинити розгін до того, як справа стане незворотною.",
+				"vector": "Не тягнути суперечку до кінця лише тому, що вона вже почалась.\n\nІноді достатньо побачити межу, за якою рух перестає щось вирішувати."
+			},
+			"judgment": "Конфлікт. Є щирість, але є перешкода. Обережність посередині приносить успіх; доведення до кінця приносить втрату.",
+			"image": "Небо і вода рухаються в різні боки: конфлікт. Так шляхетна людина на початку справи розрізняє межі."
+		},
+		"en": {
+			"name": "Conflict",
+			"composition": "Water beneath heaven.",
+			"reading": {
+				"scene": "The movement below does not match the movement above.\n\nThe situation takes the shape of dispute.",
+				"dynamics": "There is intention here, and there is obstruction, but they do not stand on the same level.\n\nWords no longer simply name the matter. They become levers by which each side tries to hold its position.\n\nConflict sharpens when movement is presented as rightness. The harder the pressure, the harder the boundary becomes.\n\nThis hexagram does not lead to total victory. It marks the place where acceleration should stop before the matter becomes irreversible.",
+				"vector": "Do not drag the dispute to its end only because it has already begun.\n\nSometimes it is enough to see the line beyond which movement stops resolving anything."
+			},
+			"judgment": "Conflict. There is sincerity, but there is obstruction. Caution in the middle brings success; carrying it to the end brings loss.",
+			"image": "Heaven and water move in different directions: conflict. Thus the noble person distinguishes the boundaries at the beginning of the matter."
+		}
+	}
+}
