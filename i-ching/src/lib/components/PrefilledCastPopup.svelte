@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { useI18n } from '$lib/i18n';
+	import AppPopup from './AppPopup.svelte';
 	import HexagramPicker from './HexagramPicker.svelte';
-	import HexagramPickerOverlay from './HexagramPickerOverlay.svelte';
+	import HexagramPickerDialog from './HexagramPickerDialog.svelte';
 
 	type PickerTarget = 'primary' | 'relating';
 
@@ -21,21 +22,11 @@
 
 	const i18n = useI18n();
 
-	let dialog = $state<HTMLDialogElement | null>(null);
 	let primaryNumber = $state<number | null>(null);
 	let relatingNumber = $state<number | null>(null);
 	let activePicker = $state<PickerTarget | null>(null);
 	let error = $state<string | null>(null);
 	let submitting = $state(false);
-
-	const pickerMode = $derived(activePicker !== null);
-
-	function blurActiveElement(): void {
-		const active = document.activeElement;
-		if (active instanceof HTMLElement) {
-			active.blur();
-		}
-	}
 
 	function closePopup(): void {
 		error = null;
@@ -43,10 +34,6 @@
 		primaryNumber = null;
 		relatingNumber = null;
 		onClose();
-		if (dialog?.open) {
-			dialog.close();
-		}
-		requestAnimationFrame(blurActiveElement);
 	}
 
 	function openPicker(target: PickerTarget): void {
@@ -102,51 +89,23 @@
 	}
 
 	$effect(() => {
-		if (!dialog) return;
-		if (open && !dialog.open) {
+		if (open) {
 			error = null;
 			activePicker = null;
-			dialog.showModal();
-			requestAnimationFrame(blurActiveElement);
-		} else if (!open && dialog.open) {
-			dialog.close();
-			requestAnimationFrame(blurActiveElement);
 		}
-	});
-
-	$effect(() => {
-		document.documentElement.classList.toggle('hex-picker-open', pickerMode);
-		return () => document.documentElement.classList.remove('hex-picker-open');
 	});
 </script>
 
-<dialog
-	bind:this={dialog}
-	class="popup"
-	class:popup--picker={pickerMode}
-	tabindex="-1"
-	onclose={closePopup}
-	onclick={(event) => {
-		if (pickerMode) return;
-		if (event.target === dialog) closePopup();
-	}}
+<AppPopup
+	{open}
+	title={i18n.t('flow.formReady')}
+	titleId="prefilled-cast-popup"
+	size="wide"
+	onClose={closePopup}
 >
-	{#if activePicker === 'primary'}
-		<HexagramPickerOverlay
-			title={i18n.t('reading.entryHexagramLabel')}
-			value={primaryNumber}
-			onSelect={selectHexagram}
-			onBack={closePicker}
-		/>
-	{:else if activePicker === 'relating'}
-		<HexagramPickerOverlay
-			title={i18n.t('reading.relatingLabel')}
-			value={relatingNumber}
-			onSelect={selectHexagram}
-			onBack={closePicker}
-		/>
-	{:else}
+	{#snippet children()}
 		<form
+			id="prefilled-cast-form"
 			class="form"
 			onsubmit={(event) => {
 				event.preventDefault();
@@ -184,58 +143,39 @@
 			{#if error}
 				<p class="error" role="alert">{error}</p>
 			{/if}
-
-			<div class="actions">
-				<button type="button" class="secondary-btn" onclick={closePopup}>
-					{i18n.t('reading.helpClose')}
-				</button>
-				<button type="submit" class="primary-btn" disabled={submitting}>
-					{i18n.t('flow.manualSubmit')}
-				</button>
-			</div>
 		</form>
-	{/if}
-</dialog>
+	{/snippet}
+
+	{#snippet footer()}
+		<button
+			type="submit"
+			form="prefilled-cast-form"
+			class="popup-action popup-action--primary"
+			disabled={submitting}
+		>
+			{i18n.t('flow.manualSubmit')}
+		</button>
+	{/snippet}
+</AppPopup>
+
+<HexagramPickerDialog
+	open={activePicker === 'primary'}
+	title={i18n.t('reading.entryHexagramLabel')}
+	titleId="hex-picker-primary"
+	value={primaryNumber}
+	onSelect={selectHexagram}
+	onClose={closePicker}
+/>
+<HexagramPickerDialog
+	open={activePicker === 'relating'}
+	title={i18n.t('reading.relatingLabel')}
+	titleId="hex-picker-relating"
+	value={relatingNumber}
+	onSelect={selectHexagram}
+	onClose={closePicker}
+/>
 
 <style>
-	.popup {
-		width: min(24rem, calc(100% - 2.5rem));
-		max-width: calc(100dvw - 2.5rem);
-		padding: 1.25rem 1.25rem 1rem;
-		border: 1px solid var(--border);
-		border-radius: 2px;
-		background: var(--bg-paper);
-		color: var(--text);
-		outline: none;
-	}
-
-	.popup--picker {
-		width: 100%;
-		max-width: 100%;
-		height: 100dvh;
-		max-height: 100dvh;
-		margin: 0;
-		padding: calc(1rem + env(safe-area-inset-top, 0px))
-			calc(1rem + env(safe-area-inset-right, 0px))
-			calc(1rem + env(safe-area-inset-bottom, 0px))
-			calc(1rem + env(safe-area-inset-left, 0px));
-		border: none;
-		border-radius: 0;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		background: var(--bg);
-	}
-
-	.popup--picker :global(.select-view) {
-		flex: 1;
-		min-height: 0;
-	}
-
-	.popup::backdrop {
-		background: rgba(8, 7, 6, 0.72);
-	}
-
 	.form {
 		display: flex;
 		flex-direction: column;
@@ -279,54 +219,4 @@
 		color: var(--line-changing);
 	}
 
-	.actions {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.5rem;
-	}
-
-	.primary-btn,
-	.secondary-btn {
-		padding: 0.75rem 0.5rem;
-		border-radius: 2px;
-		font: inherit;
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		-webkit-tap-highlight-color: transparent;
-	}
-
-	.primary-btn {
-		border: 1px solid var(--accent-dim);
-		background: var(--accent-dim);
-		color: var(--bg);
-	}
-
-	.primary-btn:hover:not(:disabled) {
-		background: var(--accent);
-		border-color: var(--accent);
-	}
-
-	.primary-btn:disabled {
-		opacity: 0.4;
-		cursor: not-allowed;
-	}
-
-	.secondary-btn {
-		border: 1px solid var(--border);
-		background: none;
-		color: var(--text-muted);
-	}
-
-	.secondary-btn:hover {
-		border-color: var(--accent-dim);
-		color: var(--text);
-	}
-
-	.primary-btn:focus,
-	.secondary-btn:focus {
-		outline: none;
-	}
 </style>

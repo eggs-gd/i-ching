@@ -8,6 +8,7 @@
 	import { createCastingFlow } from '$lib/i-ching/casting-flow.svelte';
 	import type { Casting } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
+	import { journalBridge } from '$lib/state/journal-bridge.svelte';
 
 	const i18n = useI18n();
 	const flow = createCastingFlow();
@@ -95,8 +96,13 @@
 	});
 
 	onMount(() => {
+		journalBridge.registerDelete((ids) => flow.deleteJournalEntries(ids));
 		void flow.loadJournal();
 		return () => document.documentElement.classList.remove('immersive-cast');
+	});
+
+	$effect(() => {
+		journalBridge.setJournal(flow.journal);
 	});
 
 	async function viewJournalEntry(entry: Casting) {
@@ -215,7 +221,7 @@
 
 	.main {
 		width: 100%;
-		max-width: 32rem;
+		max-width: var(--content-max-width);
 		margin: 0 auto;
 		overflow-x: hidden;
 		padding: calc(3.25rem + env(safe-area-inset-top, 0px))

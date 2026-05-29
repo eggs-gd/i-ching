@@ -28,3 +28,8 @@ export async function saveJournalEntry(casting: Casting): Promise<void> {
 	await ensureJournalReady();
 	await getRepository().save(casting);
 }
+
+export async function deleteJournalEntries(ids: string[]): Promise<void> {
+	await ensureJournalReady();
+	await getRepository().deleteByIds(ids);
+}

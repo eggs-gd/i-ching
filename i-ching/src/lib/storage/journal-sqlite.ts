@@ -137,4 +137,12 @@ export class SqliteJournalRepository implements JournalRepository {
 		const database = await getDatabase();
 		await insertCasting(database, casting);
 	}
+
+	async deleteByIds(ids: string[]): Promise<void> {
+		if (ids.length === 0) return;
+
+		const database = await getDatabase();
+		const placeholders = ids.map(() => '?').join(', ');
+		await database.run(`DELETE FROM readings WHERE id IN (${placeholders})`, ids);
+	}
 }

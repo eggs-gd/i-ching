@@ -7,7 +7,13 @@ import {
 	linesForHexagramPair,
 	staticLinesForHexagram
 } from './hexagram';
-import { createCastingId, getCastingCoinRows, loadJournal, saveCasting } from './journal';
+import {
+	createCastingId,
+	deleteJournalEntries as removeJournalEntries,
+	getCastingCoinRows,
+	loadJournal,
+	saveCasting
+} from './journal';
 import { hapticToss } from '$lib/platform/native';
 import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
 
@@ -71,6 +77,16 @@ export class CastingFlow {
 
 	async loadJournal(): Promise<void> {
 		this.journal = await loadJournal();
+	}
+
+	async deleteJournalEntries(ids: string[]): Promise<void> {
+		if (ids.length === 0) return;
+
+		await removeJournalEntries(ids);
+		if (this.casting && ids.includes(this.casting.id)) {
+			this.reset();
+		}
+		await this.loadJournal();
 	}
 
 	setQuestion(question: string): void {

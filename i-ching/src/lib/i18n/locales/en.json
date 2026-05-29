@@ -5,6 +5,15 @@
 		"description": "Symbolic I Ching reading — scene, dynamics, vector",
 		"scrollToTop": "Back to top"
 	},
+	"profile": {
+		"open": "Profile",
+		"title": "Profile",
+		"clearArchive": "Clear archive",
+		"archiveTitle": "Archive",
+		"archiveEmpty": "No entries",
+		"selectAll": "All",
+		"deleteSelected": "Delete ({count})"
+	},
 	"flow": {
 		"contextLabel": "What draws your attention?",
 		"contextPlaceholder": "Work, conflict, decision, question…",

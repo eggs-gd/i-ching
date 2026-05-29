@@ -17,6 +17,7 @@
 	--font-serif: 'Cormorant Garamond', Georgia, serif;
 	--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
 	--font-hexagram: 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', 'Hiragino Sans', sans-serif;
+	--content-max-width: 32rem;
 }
 
 *,
@@ -57,11 +58,21 @@ body::before {
 	z-index: 0;
 }
 
-html.immersive-cast .locale-bar,
-html.immersive-cast .scroll-top-bar,
-html.hex-picker-open .locale-bar,
-html.hex-picker-open .scroll-top-bar {
+html.immersive-cast .profile-bar,
+html.immersive-cast .scroll-top-bar {
 	display: none;
+}
+
+.profile-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 150;
+	display: flex;
+	justify-content: flex-start;
+	padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 0 0
+		calc(0.75rem + env(safe-area-inset-left, 0px));
+	pointer-events: auto;
 }
 
 h1,

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import LocaleSwitcher from '$lib/components/LocaleSwitcher.svelte';
+	import ProfileMenu from '$lib/components/ProfileMenu.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 	import { initI18n, useI18n } from '$lib/i18n';
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
@@ -31,13 +31,13 @@
 </svelte:head>
 
 <div class="app">
-	<div class="locale-bar">
-		<LocaleSwitcher />
-	</div>
 	<div class="scroll-top-bar">
 		<ScrollToTop />
 	</div>
 	{@render children()}
+	<div class="profile-bar">
+		<ProfileMenu />
+	</div>
 </div>
 
 <style>
@@ -48,22 +48,6 @@
 		width: 100%;
 		max-width: 100%;
 		overflow-x: hidden;
-	}
-
-	.locale-bar {
-		position: fixed;
-		top: 0;
-		right: 0;
-		z-index: 100;
-		display: flex;
-		justify-content: flex-end;
-		padding: calc(0.75rem + env(safe-area-inset-top, 0px))
-			calc(0.75rem + env(safe-area-inset-right, 0px)) 0 0;
-		pointer-events: none;
-	}
-
-	.locale-bar :global(.switcher) {
-		pointer-events: auto;
 	}
 
 	.scroll-top-bar {

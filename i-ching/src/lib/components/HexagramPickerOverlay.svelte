@@ -11,9 +11,11 @@
 		value?: number | null;
 		onSelect: (number: number) => void;
 		onBack: () => void;
+		/** Standard modal dialog (not fullscreen) */
+		dialog?: boolean;
 	}
 
-	let { title, value = null, onSelect, onBack }: Props = $props();
+	let { title, value = null, onSelect, onBack, dialog = false }: Props = $props();
 
 	const i18n = useI18n();
 	let mode = $state<PickerMode>(SHOW_HEXAGRAM_LIST_PICKER ? 'list' : 'trigram');
@@ -23,14 +25,18 @@
 	}
 </script>
 
-<div class="overlay">
-	<header class="header">
-		<button type="button" class="back-btn" onclick={onBack}>
-			{i18n.t('flow.back')}
-		</button>
-		<h2 class="title">{title}</h2>
+<div class="overlay" class:dialog>
+	{#if !dialog}
+		<header class="header">
+			<button type="button" class="back-btn" onclick={onBack}>
+				{i18n.t('flow.back')}
+			</button>
+			<h2 class="title">{title}</h2>
+		</header>
+	{/if}
 
-		{#if SHOW_HEXAGRAM_LIST_PICKER}
+	{#if SHOW_HEXAGRAM_LIST_PICKER}
+		<header class="header mode-header">
 			<div class="mode-switch" role="tablist" aria-label={title}>
 				<button
 					type="button"
@@ -53,8 +59,8 @@
 					{i18n.t('flow.pickerTrigram')}
 				</button>
 			</div>
-		{/if}
-	</header>
+		</header>
+	{/if}
 
 	{#if SHOW_HEXAGRAM_LIST_PICKER && mode === 'list'}
 		<HexagramSelectView {title} {value} {onSelect} onBack={onBack} embedded />
@@ -67,8 +73,11 @@
 	.overlay {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
 		min-height: 0;
+	}
+
+	.overlay.dialog {
+		gap: 0.5rem;
 	}
 
 	.header {
@@ -106,8 +115,8 @@
 		color: var(--text);
 	}
 
-	.header:has(.mode-switch) .title {
-		margin-bottom: 0.65rem;
+	.mode-header {
+		margin-bottom: 0.5rem;
 	}
 
 	.mode-switch {
@@ -140,9 +149,17 @@
 		outline: none;
 	}
 
-	.overlay > :global(.select-view.embedded),
-	.overlay > :global(.trigram-view) {
+	.overlay:not(.dialog) > :global(.select-view.embedded),
+	.overlay:not(.dialog) > :global(.trigram-view) {
 		flex: 1;
 		min-height: 0;
+	}
+
+	.overlay.dialog > :global(.trigram-view .rows) {
+		justify-content: flex-start;
+	}
+
+	.overlay.dialog :global(.symbol) {
+		font-size: clamp(1.2rem, 4vw, 1.65rem);
 	}
 </style>

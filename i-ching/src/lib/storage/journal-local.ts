@@ -49,4 +49,12 @@ export class LocalJournalRepository implements JournalRepository {
 		journal.unshift(casting);
 		localStorage.setItem(JOURNAL_STORAGE_KEY, JSON.stringify(journal));
 	}
+
+	async deleteByIds(ids: string[]): Promise<void> {
+		if (typeof localStorage === 'undefined' || ids.length === 0) return;
+
+		const remove = new Set(ids);
+		const journal = (await this.loadAll()).filter((entry) => !remove.has(entry.id));
+		localStorage.setItem(JOURNAL_STORAGE_KEY, JSON.stringify(journal));
+	}
 }

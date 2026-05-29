@@ -3,6 +3,13 @@
 	import { LOCALES } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
 
+	interface Props {
+		/** id of external label when the switcher has no visible group title */
+		labelledBy?: string;
+	}
+
+	let { labelledBy }: Props = $props();
+
 	const i18n = useI18n();
 
 	const localeMeta: Record<Locale, { flag: string; labelKey: string }> = {
@@ -15,16 +22,22 @@
 	}
 </script>
 
-<div class="switcher" role="group" aria-label={i18n.t('locale.label')}>
+<div
+	class="switcher"
+	role="group"
+	aria-label={labelledBy ? undefined : i18n.t('locale.label')}
+	aria-labelledby={labelledBy}
+>
 	{#each LOCALES as locale}
 		{@const meta = localeMeta[locale]}
+		{@const label = i18n.t(meta.labelKey)}
 		<button
 			type="button"
 			class="locale-btn"
 			class:active={i18n.locale === locale}
-			aria-label={i18n.t(meta.labelKey)}
+			aria-label={label}
 			aria-pressed={i18n.locale === locale}
-			title={i18n.t(meta.labelKey)}
+			title={label}
 			onclick={() => selectLocale(locale)}
 		>
 			<span class="flag" aria-hidden="true">{meta.flag}</span>
@@ -72,4 +85,5 @@
 		font-size: 1.15rem;
 		line-height: 1;
 	}
+
 </style>

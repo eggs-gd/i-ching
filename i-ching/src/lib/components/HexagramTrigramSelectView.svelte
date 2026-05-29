@@ -160,7 +160,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		gap: 1.25rem;
+		gap: 1rem;
 	}
 
 	.row {

@@ -5,6 +5,15 @@
 		"description": "Символічне читання І-Цзин — образ, динаміка, вектор",
 		"scrollToTop": "На початок"
 	},
+	"profile": {
+		"open": "Профіль",
+		"title": "Профіль",
+		"clearArchive": "Очистити архів",
+		"archiveTitle": "Архів",
+		"archiveEmpty": "Записів немає",
+		"selectAll": "Усі",
+		"deleteSelected": "Видалити ({count})"
+	},
 	"flow": {
 		"contextLabel": "Що привертає вашу увагу?",
 		"contextPlaceholder": "Робота, конфлікт, рішення, питання…",
