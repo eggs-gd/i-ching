@@ -7,6 +7,7 @@
 	import HexagramExtendedPopup from './HexagramExtendedPopup.svelte';
 	import HelpPopup from './HelpPopup.svelte';
 	import { InfoButton, MoreTextButton } from '$lib/components/ui';
+	import { splitParagraphs } from '$lib/utils/text';
 
 	interface Props {
 		hexagram: Hexagram;
@@ -28,13 +29,6 @@
 
 	const helpTitle = $derived(helpTitleKey ? i18n.t(helpTitleKey) : '');
 	const helpBody = $derived(helpBodyKey ? i18n.t(helpBodyKey) : '');
-
-	function paragraphs(text: string): string[] {
-		return text
-			.split(/\n\s*\n/)
-			.map((part) => part.trim())
-			.filter(Boolean);
-	}
 
 	const readingLayers = $derived([
 		hexagram.reading.scene,
@@ -105,7 +99,7 @@
 	{#if classicalTexts.length > 0}
 		<blockquote class="classical">
 			{#each classicalTexts as text}
-				{#each paragraphs(text) as paragraph}
+				{#each splitParagraphs(text) as paragraph}
 					<p>{paragraph}</p>
 				{/each}
 			{/each}
@@ -116,7 +110,7 @@
 		{#each readingLayers as layerText, layerIndex}
 			<div class="layer" class:vector={layerIndex === 2}>
 				<div class="layer-body">
-					{#each paragraphs(layerText) as paragraph, index}
+					{#each splitParagraphs(layerText) as paragraph, index}
 						<p>
 							{#if index === 0}
 								<span class="layer-mark" aria-hidden="true">¶</span>

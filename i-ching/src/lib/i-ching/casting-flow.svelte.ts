@@ -6,13 +6,8 @@ import {
 	linesForHexagramPair,
 	staticLinesForHexagram
 } from './hexagram';
-import {
-	createCastingId,
-	deleteJournalEntries as removeJournalEntries,
-	getCastingCoinRows,
-	loadJournal,
-	saveCasting
-} from './journal';
+import { createCastingId, getCastingCoinRows } from './journal';
+import { journalStore } from '$lib/state/journal.svelte';
 import { hapticHexagramComplete, hapticToss } from '$lib/platform/native';
 import { COIN_SPIN_MS } from './cast-timing';
 import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
@@ -45,7 +40,6 @@ export class CastingFlow {
 	lines = $state<Line[]>([]);
 	revealedLines = $state(0);
 	casting = $state<Casting | null>(null);
-	journal = $state<Casting[]>([]);
 	tossing = $state(false);
 	coinRows = $state<(CoinValue | undefined)[][]>([]);
 	currentLineCoins = $state<CoinValue[]>([]);
@@ -88,20 +82,6 @@ export class CastingFlow {
 
 	setLocale(locale: Locale): void {
 		this.locale = locale;
-	}
-
-	async loadJournal(): Promise<void> {
-		this.journal = await loadJournal();
-	}
-
-	async deleteJournalEntries(ids: string[]): Promise<void> {
-		if (ids.length === 0) return;
-
-		await removeJournalEntries(ids);
-		if (this.casting && ids.includes(this.casting.id)) {
-			this.reset();
-		}
-		await this.loadJournal();
 	}
 
 	setQuestion(question: string): void {
@@ -147,8 +127,7 @@ export class CastingFlow {
 					: undefined;
 
 		const id = createCastingId();
-
-		this.casting = {
+		const casting: Casting = {
 			id,
 			createdAt: new Date().toISOString(),
 			question: trimmed,
@@ -162,11 +141,11 @@ export class CastingFlow {
 
 		this.lines = lines;
 		this.revealedLines = 6;
-		this.coinRows = getCastingCoinRows(this.casting);
+		this.coinRows = getCastingCoinRows(casting);
 		this.currentLineCoins = [];
 
-		await saveCasting(this.casting);
-		this.journal = await loadJournal();
+		await journalStore.save(casting);
+		this.casting = casting;
 		this.step = 'reading';
 		return true;
 	}
@@ -387,7 +366,7 @@ export class CastingFlow {
 		const relatingNumber = getRelatingHexagramNumber(result);
 		const changingLines = getChangingLines(result);
 
-		this.casting = {
+		const casting: Casting = {
 			id: createCastingId(),
 			createdAt: new Date().toISOString(),
 			question: this.question.trim(),
@@ -400,8 +379,8 @@ export class CastingFlow {
 			method: this.tossMode
 		};
 
-		await saveCasting(this.casting);
-		this.journal = await loadJournal();
+		await journalStore.save(casting);
+		this.casting = casting;
 		this.step = 'reading';
 	}
 }

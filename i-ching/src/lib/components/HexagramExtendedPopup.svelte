@@ -3,6 +3,7 @@
 	import type { HexagramExtendedContent } from '$lib/i-ching/catalog/extended';
 	import { HexagramFontIcon } from '$lib/components/primitives';
 	import { AppFullscreen } from '$lib/components/ui';
+	import { splitParagraphs } from '$lib/utils/text';
 
 	interface Props {
 		open: boolean;
@@ -15,16 +16,9 @@
 
 	const titleId = 'hex-extended-title';
 
-	function paragraphs(text: string): string[] {
-		return text
-			.split(/\n\s*\n/)
-			.map((part) => part.trim())
-			.filter(Boolean);
-	}
-
-	const symbolicParagraphs = $derived(paragraphs(extended.wilhelm_symbolic));
-	const judgmentComments = $derived(paragraphs(extended.wilhelm_judgment.comments));
-	const imageComments = $derived(paragraphs(extended.wilhelm_image.comments));
+	const symbolicParagraphs = $derived(splitParagraphs(extended.wilhelm_symbolic));
+	const judgmentComments = $derived(splitParagraphs(extended.wilhelm_judgment.comments));
+	const imageComments = $derived(splitParagraphs(extended.wilhelm_image.comments));
 </script>
 
 <AppFullscreen {open} title={hexagram.name} {titleId} {onClose}>

@@ -1,10 +1,5 @@
 import type { Casting, CoinValue } from './types';
 import { coinRowsFromLines } from './coins';
-import {
-	deleteJournalEntries as deleteStoredEntries,
-	loadJournalEntries,
-	saveJournalEntry
-} from '$lib/storage';
 
 export function getCastingCoinRows(casting: Casting): CoinValue[][] {
 	if (casting.coinRows?.length) {
@@ -12,18 +7,6 @@ export function getCastingCoinRows(casting: Casting): CoinValue[][] {
 	}
 
 	return coinRowsFromLines(casting.lines, casting.id);
-}
-
-export async function loadJournal(): Promise<Casting[]> {
-	return loadJournalEntries();
-}
-
-export async function saveCasting(casting: Casting): Promise<void> {
-	await saveJournalEntry(casting);
-}
-
-export async function deleteJournalEntries(ids: string[]): Promise<void> {
-	await deleteStoredEntries(ids);
 }
 
 export function getRecurringMotifs(journal: Casting[]): Map<number, number> {

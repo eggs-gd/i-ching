@@ -4,6 +4,7 @@
 	import { portalToBody } from '$lib/actions/portal-to-body';
 	import { useI18n } from '$lib/i18n';
 	import AppButton from './AppButton.svelte';
+	import { useDialog } from './use-dialog.svelte';
 
 	interface Props {
 		open: boolean;
@@ -26,46 +27,11 @@
 
 	let dialog = $state<HTMLDialogElement | null>(null);
 	let scrollLockY = 0;
-
-	function blurActiveElement(): void {
-		const active = document.activeElement;
-		if (active instanceof HTMLElement) {
-			active.blur();
-		}
-	}
-
-	function notifyClosed(): void {
-		if (!open) return;
-		onClose();
-		requestAnimationFrame(blurActiveElement);
-	}
-
-	function handleDialogClose(): void {
-		notifyClosed();
-	}
-
-	function dismiss(): void {
-		if (dialog?.open) {
-			dialog.close();
-			return;
-		}
-		notifyClosed();
-	}
-
-	function handleCancel(event: Event): void {
-		event.preventDefault();
-		dismiss();
-	}
-
-	$effect(() => {
-		if (!dialog) return;
-		if (open && !dialog.open) {
-			dialog.showModal();
-			requestAnimationFrame(blurActiveElement);
-		} else if (!open && dialog.open) {
-			dialog.close();
-		}
-	});
+	const { dismiss, handleDialogClose, handleCancel } = useDialog(
+		() => open,
+		() => onClose,
+		() => dialog
+	);
 
 	$effect(() => {
 		if (!browser) return;

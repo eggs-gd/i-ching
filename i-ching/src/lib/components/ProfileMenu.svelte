@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { useI18n } from '$lib/i18n';
-	import { journalBridge } from '$lib/state/journal-bridge.svelte';
+	import { journalStore } from '$lib/state/journal.svelte';
 	import { AppButton, AppPopup, FieldLabel, IconButton } from '$lib/components/ui';
 	import JournalArchivePopup from './JournalArchivePopup.svelte';
 	import LocaleSwitcher from './LocaleSwitcher.svelte';
 
 	const i18n = useI18n();
-	const journal = $derived(journalBridge.journal);
+	const journal = $derived(journalStore.entries);
 
 	let profileOpen = $state(false);
 	let archiveOpen = $state(false);
@@ -64,7 +64,7 @@
 	open={archiveOpen}
 	{journal}
 	onClose={closeArchive}
-	onDelete={(ids) => journalBridge.deleteEntries(ids)}
+	onDelete={(ids) => journalStore.deleteByIds(ids)}
 />
 
 <style>

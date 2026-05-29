@@ -8,7 +8,7 @@
 	import { createCastingFlow } from '$lib/i-ching/casting-flow.svelte';
 	import type { Casting } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
-	import { journalBridge } from '$lib/state/journal-bridge.svelte';
+	import { journalStore } from '$lib/state/journal.svelte';
 
 	const i18n = useI18n();
 	const flow = createCastingFlow();
@@ -95,14 +95,17 @@
 		return () => clearTimeout(timer);
 	});
 
-	onMount(() => {
-		journalBridge.registerDelete((ids) => flow.deleteJournalEntries(ids));
-		void flow.loadJournal();
-		return () => document.documentElement.classList.remove('immersive-cast');
+	$effect(() => {
+		const c = flow.casting;
+		if (!c || c.method === 'motif') return;
+		if (!journalStore.entries.some((e) => e.id === c.id)) {
+			flow.reset();
+		}
 	});
 
-	$effect(() => {
-		journalBridge.setJournal(flow.journal);
+	onMount(() => {
+		void journalStore.load();
+		return () => document.documentElement.classList.remove('immersive-cast');
 	});
 
 	async function viewJournalEntry(entry: Casting) {
@@ -179,7 +182,7 @@
 	{/if}
 
 	<JournalPanel
-		journal={flow.journal}
+		journal={journalStore.entries}
 		activeCastingId={flow.step === 'reading' && flow.casting?.method !== 'motif'
 			? flow.casting?.id
 			: null}

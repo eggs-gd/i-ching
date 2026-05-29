@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { AppPopup } from '$lib/components/ui';
+	import { splitParagraphs } from '$lib/utils/text';
 
 	interface Props {
 		open: boolean;
@@ -11,12 +12,7 @@
 
 	let { open, title, body, closeLabel, onClose }: Props = $props();
 
-	const paragraphs = $derived(
-		body
-			.split(/\n\s*\n/)
-			.map((part) => part.trim())
-			.filter(Boolean)
-	);
+	const paragraphs = $derived(splitParagraphs(body));
 </script>
 
 <AppPopup {open} {title} {onClose} {closeLabel}>
