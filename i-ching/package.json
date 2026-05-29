@@ -21,6 +21,7 @@
 		"android": "npx cap open android"
 	},
 	"devDependencies": {
+		"@capacitor/assets": "^3.0.5",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
