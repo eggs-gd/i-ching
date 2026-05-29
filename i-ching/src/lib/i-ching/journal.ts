@@ -1,51 +1,21 @@
-import type { Casting, CoinValue, LegacyCasting } from './types';
+import type { Casting, CoinValue } from './types';
 import { coinRowsFromLines } from './coins';
-
-const STORAGE_KEY = 'i-ching-journal';
-
-function normalizeCasting(raw: LegacyCasting): Casting {
-	if ('primaryNumber' in raw && typeof raw.primaryNumber === 'number') {
-		return {
-			...(raw as Casting),
-			relatingNumber: (raw as Casting).relatingNumber ?? raw.relating?.number
-		};
-	}
-
-	return {
-		id: raw.id,
-		createdAt: raw.createdAt,
-		question: raw.question,
-		primaryNumber: raw.primary?.number ?? 1,
-		relatingNumber: raw.relating?.number,
-		changingLines: raw.changingLines,
-		lines: raw.lines,
-		coinRows: raw.coinRows
-	};
-}
+import { loadJournalEntries, saveJournalEntry } from '$lib/storage';
 
 export function getCastingCoinRows(casting: Casting): CoinValue[][] {
-	return casting.coinRows ?? coinRowsFromLines(casting.lines, casting.id);
-}
-
-export function loadJournal(): Casting[] {
-	if (typeof localStorage === 'undefined') return [];
-
-	try {
-		const raw = localStorage.getItem(STORAGE_KEY);
-		if (!raw) return [];
-		const parsed = JSON.parse(raw) as LegacyCasting[];
-		return parsed.map(normalizeCasting);
-	} catch {
-		return [];
+	if (casting.coinRows?.length) {
+		return casting.coinRows.map((row) => [...row]);
 	}
+
+	return coinRowsFromLines(casting.lines, casting.id);
 }
 
-export function saveCasting(casting: Casting): void {
-	if (typeof localStorage === 'undefined') return;
+export async function loadJournal(): Promise<Casting[]> {
+	return loadJournalEntries();
+}
 
-	const journal = loadJournal();
-	journal.unshift(casting);
-	localStorage.setItem(STORAGE_KEY, JSON.stringify(journal.slice(0, 200)));
+export async function saveCasting(casting: Casting): Promise<void> {
+	await saveJournalEntry(casting);
 }
 
 export function getRecurringMotifs(journal: Casting[]): Map<number, number> {

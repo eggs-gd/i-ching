@@ -32,7 +32,7 @@
 		justify-content: center;
 		width: 2.75rem;
 		height: 2.75rem;
-		gap: 0.35rem;
+		gap: 0.8rem;
 	}
 
 	.bar {

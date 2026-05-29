@@ -14,10 +14,13 @@
 		"format": "prettier --write .",
 		"generate:hexagram": "node scripts/generate-hexagram-readings.mjs",
 		"generate:hexagram:all": "node scripts/generate-hexagram-readings.mjs --all",
-		"apply:reference-readings": "node scripts/apply-reference-readings.mjs"
+		"apply:reference-readings": "node scripts/apply-reference-readings.mjs",
+		"build:mobile": "yarn build && npx cap sync",
+		"ios": "npx cap open ios",
+		"android": "npx cap open android"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@types/node": "^25.9.1",
@@ -27,5 +30,17 @@
 		"svelte-check": "^4.4.6",
 		"typescript": "^6.0.2",
 		"vite": "^8.0.7"
+	},
+	"dependencies": {
+		"@capacitor-community/sqlite": "^8.1.0",
+		"@capacitor/android": "^8.3.4",
+		"@capacitor/app": "^8.1.0",
+		"@capacitor/cli": "^8.3.4",
+		"@capacitor/core": "^8.3.4",
+		"@capacitor/haptics": "^8.0.2",
+		"@capacitor/ios": "^8.3.4",
+		"@capacitor/preferences": "^8.0.1",
+		"@capacitor/status-bar": "^8.0.2",
+		"@capacitor/text-zoom": "^8.0.1"
 	}
 }

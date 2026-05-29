@@ -2,22 +2,38 @@
 	"app": {
 		"title": "І-Цзин",
 		"tagline": "Те, що відбувається, вже має форму",
-		"description": "Символічне читання І-Цзин — образ, динаміка, вектор"
+		"description": "Символічне читання І-Цзин — образ, динаміка, вектор",
+		"scrollToTop": "На початок"
 	},
 	"flow": {
 		"contextLabel": "Що привертає вашу увагу?",
-		"contextPlaceholder": "Робота, конфлікт, рішення, повернення…",
+		"contextPlaceholder": "Робота, конфлікт, рішення, питання…",
 		"castingLabel": "Скласти гексаграму",
 		"castSingle": "По одній монеті",
 		"castLine": "Лінія за лінією",
 		"castFull": "Всі разом",
 		"tossing": "Кидок…",
 		"building": "Побудова гексаграми…",
-		"newCast": "Запитати ще раз",
+		"newCast": "Інше питання",
 		"tossSingle": "Кинути монету",
 		"tossLine": "Кинути лінію",
-		"explanationTitle": "Пояснення",
-		"explanationPaidBody": "Персоналізоване пояснення кидка — платна функція."
+		"explain": "Пояснити",
+		"explanationPaidBody": "Персоналізоване пояснення кидка — платна функція.",
+		"formReady": "Гексаграма вже складена",
+		"back": "Назад",
+		"pickerList": "Список",
+		"pickerTrigram": "Триграми",
+		"lowerTrigram": "Нижня триграма",
+		"upperTrigram": "Верхня триграма",
+		"yourQuestion": "Ваше питання:",
+		"ichingAnswer": "Відповідь І-Цзина",
+		"manualSubmit": "Показати",
+		"selectHexagram": "Оберіть гексаграму",
+		"clearHexagram": "Очистити вибір",
+		"manualQuestionRequired": "Додайте питання.",
+		"manualPrimaryInvalid": "Оберіть гексаграму входу.",
+		"manualRelatingInvalid": "Вкажіть номер гексаграми виходу від 1 до 64.",
+		"manualSubmitFailed": "Не вдалося зберегти кидок. Перевірте номери гексаграм."
 	},
 	"coins": {
 		"gridLabel": "Монети кидка",
@@ -43,7 +59,10 @@
 	"journal": {
 		"title": "Архів",
 		"motifs": "Відлуння",
-		"openEntry": "Відкрити пояснення кидка"
+		"trackForm": "Простежити мотиви",
+		"trackFormPaidBody": "Простеження мотивів — платна функція.",
+		"openEntry": "Відкрити пояснення кидка",
+		"openMotif": "Відкрити гексаграму: {name}"
 	},
 	"trigrams": {
 		"qian": "Небо",

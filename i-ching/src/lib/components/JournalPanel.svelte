@@ -2,18 +2,65 @@
 	import { resolveHexagram } from '$lib/data/hexagram-db';
 	import { getRecurringMotifs } from '$lib/i-ching/journal';
 	import type { Casting, Hexagram } from '$lib/i-ching/types';
+	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { getLocaleDateFormat, useI18n } from '$lib/i18n';
 	import DisclosurePanel from './DisclosurePanel.svelte';
+	import PaidFeaturePopup from './PaidFeaturePopup.svelte';
+
+	const PAGE_SIZE = 20;
 
 	interface Props {
 		journal: Casting[];
 		activeCastingId?: string | null;
+		activeMotifNumber?: number | null;
 		onEntrySelect: (entry: Casting) => void;
+		onMotifSelect: (hexagramNumber: number) => void;
 	}
 
-	let { journal, activeCastingId = null, onEntrySelect }: Props = $props();
+	let {
+		journal,
+		activeCastingId = null,
+		activeMotifNumber = null,
+		onEntrySelect,
+		onMotifSelect
+	}: Props = $props();
 
 	const i18n = useI18n();
+	let visibleCount = $state(PAGE_SIZE);
+	let loadMoreEl = $state<HTMLElement | null>(null);
+
+	const visibleEntries = $derived(journal.slice(0, visibleCount));
+	const hasMore = $derived(visibleCount < journal.length);
+
+	$effect(() => {
+		const len = journal.length;
+		if (visibleCount > len) {
+			visibleCount = len;
+		} else if (len > 0 && visibleCount === 0) {
+			visibleCount = Math.min(PAGE_SIZE, len);
+		}
+	});
+
+	function loadMoreEntries(): void {
+		visibleCount = Math.min(visibleCount + PAGE_SIZE, journal.length);
+	}
+
+	$effect(() => {
+		if (!loadMoreEl || !hasMore) return;
+
+		const sentinel = loadMoreEl;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0]?.isIntersecting) {
+					loadMoreEntries();
+				}
+			},
+			{ rootMargin: '240px' }
+		);
+
+		observer.observe(sentinel);
+		return () => observer.disconnect();
+	});
 	const motifs = $derived(getRecurringMotifs(journal));
 	const topMotifs = $derived(
 		[...motifs.entries()]
@@ -37,11 +84,24 @@
 	function hexagramLabel(hexagram: Hexagram) {
 		return `${hexagram.number} ${hexagram.name}`;
 	}
+
+
 </script>
 
 {#if journal.length > 0}
 	<aside class="journal">
 		<h2>{i18n.t('journal.title')}</h2>
+
+		{#if SHOW_PAID_FEATURE_STUBS}
+			<div class="track-form-action">
+				<PaidFeaturePopup
+					triggerLabel={i18n.t('journal.trackForm')}
+					popupTitle={i18n.t('journal.trackForm')}
+					body={i18n.t('journal.trackFormPaidBody')}
+					closeLabel={i18n.t('reading.helpClose')}
+				/>
+			</div>
+		{/if}
 
 		{#if topMotifs.length > 1}
 			<div class="motifs">
@@ -49,9 +109,17 @@
 					<ul class="motifs-list">
 						{#each topMotifs as { hexagram, count }}
 							<li>
-								<span class="motif-num">{hexagram.number}</span>
-								{hexagram.name}
-								<span class="motif-count">×{count}</span>
+								<button
+									type="button"
+									class="motif-btn"
+									class:active={activeMotifNumber === hexagram.number}
+									aria-label={i18n.t('journal.openMotif', { name: hexagram.name })}
+									onclick={() => onMotifSelect(hexagram.number)}
+								>
+									<span class="motif-num">{hexagram.number}</span>
+									<span class="motif-name">{hexagram.name}</span>
+									<span class="motif-count">×{count}</span>
+								</button>
 							</li>
 						{/each}
 					</ul>
@@ -60,7 +128,7 @@
 		{/if}
 
 		<ul class="entries">
-			{#each journal.slice(0, 10) as entry}
+			{#each visibleEntries as entry}
 				{@const primary = resolveHexagram(entry.primaryNumber, i18n.locale)}
 				{@const relating = entry.relatingNumber ? resolveHexagram(entry.relatingNumber, i18n.locale) : null}
 				<li>
@@ -84,6 +152,10 @@
 				</li>
 			{/each}
 		</ul>
+
+		{#if hasMore}
+			<div class="load-more" bind:this={loadMoreEl} aria-hidden="true"></div>
+		{/if}
 	</aside>
 {/if}
 
@@ -95,10 +167,14 @@
 	}
 
 	.journal h2 {
-		font-size: 1rem;
+		font-size: 1.2rem;
 		text-transform: uppercase;
 		letter-spacing: 0.15em;
 		color: var(--text-muted);
+		margin-bottom: 0.75rem;
+	}
+
+	.track-form-action {
 		margin-bottom: 1.5rem;
 	}
 
@@ -114,24 +190,61 @@
 	}
 
 	.motifs-list li {
+		border-bottom: 1px solid var(--border);
+	}
+
+	.motifs-list li:last-child {
+		border-bottom: none;
+	}
+
+	.motif-btn {
+		width: 100%;
 		display: flex;
 		align-items: baseline;
 		gap: 0.5rem;
-		font-size: 0.85rem;
+		padding: 0.5rem 0;
+		border: none;
+		background: none;
 		color: var(--text-muted);
-		padding: 0.35rem 0;
+		font: inherit;
+		font-size: 0.85rem;
+		text-align: left;
+		cursor: pointer;
+		transition: color 0.2s ease;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.motif-btn:hover,
+	.motif-btn.active {
+		color: var(--text);
+	}
+
+	.motif-btn.active .motif-num,
+	.motif-btn.active .motif-name {
+		color: var(--accent);
+	}
+
+	.motif-btn:focus {
+		outline: none;
 	}
 
 	.motif-num {
 		font-family: var(--font-serif);
 		color: var(--accent-dim);
 		min-width: 1.5rem;
+		flex-shrink: 0;
+	}
+
+	.motif-name {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.motif-count {
 		margin-left: auto;
 		font-size: 0.75rem;
 		color: var(--text-faint);
+		flex-shrink: 0;
 	}
 
 	.entries li {
@@ -167,7 +280,7 @@
 
 	.entry-hex {
 		font-family: var(--font-serif);
-		font-size: 0.95rem;
+		font-size: 0.9rem;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: baseline;
@@ -176,14 +289,19 @@
 
 	.entry-arrow {
 		color: var(--text-faint);
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 	}
 
 	.entry-q {
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		color: var(--text-muted);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.load-more {
+		height: 1px;
+		margin-top: 0.5rem;
 	}
 </style>

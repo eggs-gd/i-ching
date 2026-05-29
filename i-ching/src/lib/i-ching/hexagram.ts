@@ -8,6 +8,29 @@ const BINARY_TO_KING_WEN = [
 	42, 59, 61, 53, 37, 57, 9, 11, 25, 6, 10, 33, 13, 44, 1
 ] as const;
 
+/** Display order for trigram picker columns */
+export const TRIGRAM_ORDER: readonly TrigramId[] = [
+	'qian',
+	'kun',
+	'zhen',
+	'xun',
+	'kan',
+	'li',
+	'gen',
+	'dui'
+] as const;
+
+const TRIGRAM_YANG_BITS: Record<TrigramId, readonly [number, number, number]> = {
+	kun: [0, 0, 0],
+	zhen: [1, 0, 0],
+	xun: [0, 1, 1],
+	kan: [0, 1, 0],
+	li: [1, 0, 1],
+	gen: [0, 0, 1],
+	dui: [1, 1, 0],
+	qian: [1, 1, 1]
+};
+
 export const trigramSymbols: Record<TrigramId, string> = {
 	qian: '☰',
 	kun: '☷',
@@ -74,6 +97,24 @@ export function binaryIndexToTrigrams(binary: number): { lower: TrigramId; upper
 	};
 }
 
+export function hexagramNumberFromTrigrams(lower: TrigramId, upper: TrigramId): number {
+	const l = TRIGRAM_YANG_BITS[lower];
+	const u = TRIGRAM_YANG_BITS[upper];
+	const binary =
+		(l[0] << 0) |
+		(l[1] << 1) |
+		(l[2] << 2) |
+		(u[0] << 3) |
+		(u[1] << 4) |
+		(u[2] << 5);
+
+	return BINARY_TO_KING_WEN[binary];
+}
+
+export function trigramsForHexagramNumber(number: number): { lower: TrigramId; upper: TrigramId } {
+	return binaryIndexToTrigrams(binaryForHexagramNumber(number));
+}
+
 export function getHexagramNumber(lines: Line[]): number {
 	return BINARY_TO_KING_WEN[linesToBinaryIndex(lines)];
 }
@@ -97,6 +138,26 @@ export function staticLinesForHexagram(number: number): Line[] {
 		value,
 		kind: 'young',
 		changing: false
+	}));
+}
+
+export function isValidHexagramNumber(number: number): boolean {
+	return Number.isInteger(number) && number >= 1 && number <= 64;
+}
+
+export function linesForHexagramPair(primaryNumber: number, relatingNumber?: number): Line[] {
+	const base = staticLinesForHexagram(primaryNumber);
+
+	if (!relatingNumber || relatingNumber === primaryNumber) {
+		return base;
+	}
+
+	const targetValues = lineValuesFromBinary(binaryForHexagramNumber(relatingNumber));
+
+	return base.map((line, index) => ({
+		value: line.value,
+		kind: line.kind,
+		changing: line.value !== targetValues[index]
 	}));
 }
 

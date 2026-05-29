@@ -11,10 +11,15 @@
 	type="button"
 	class="info-btn"
 	aria-label={label}
+	onmousedown={(event) => {
+		// Keep focus from sticking on the trigger (esp. inside <summary>)
+		event.preventDefault();
+	}}
 	onclick={(event) => {
 		event.preventDefault();
 		event.stopPropagation();
 		onclick();
+		(event.currentTarget as HTMLButtonElement).blur();
 	}}
 >
 	i
@@ -22,15 +27,17 @@
 
 <style>
 	.info-btn {
-		width: 1.1rem;
-		height: 1.1rem;
+		width: 1.2rem;
+		height: 1.2rem;
 		padding: 0;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
 		border: 1px solid var(--border);
 		border-radius: 50%;
 		background: transparent;
 		color: var(--text-muted);
 		font-family: var(--font-serif);
-		font-size: 0.62rem;
+		font-size: 0.85rem;
 		font-style: italic;
 		line-height: 1;
 		cursor: pointer;
@@ -40,5 +47,9 @@
 	.info-btn:hover {
 		color: var(--text);
 		border-color: var(--accent-dim);
+	}
+
+	.info-btn:focus {
+		outline: none;
 	}
 </style>

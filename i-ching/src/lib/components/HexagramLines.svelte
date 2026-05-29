@@ -60,7 +60,7 @@
 	}
 
 	.line-num {
-		font-size: 0.65rem;
+		font-size: 0.85rem;
 		color: var(--text-faint);
 		width: 1rem;
 		text-align: right;

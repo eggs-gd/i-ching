@@ -12,7 +12,13 @@
 	const i18n = useI18n();
 	const flow = createCastingFlow();
 
+	const IMMERSIVE_FADE_MS = 1500;
+
 	let readingSection = $state<HTMLElement | null>(null);
+	let questionForm = $state<{ focusInput: () => void } | null>(null);
+	let overlayActive = $state(false);
+	let overlayVisible = $state(false);
+	let mainFaded = $state(false);
 
 	const primaryHexagram = $derived(
 		flow.casting ? resolveHexagram(flow.casting.primaryNumber, i18n.locale) : null
@@ -22,8 +28,75 @@
 		flow.casting?.relatingNumber ? resolveHexagram(flow.casting.relatingNumber, i18n.locale) : null
 	);
 
+	const castingStageProps = {
+		get step() {
+			return flow.step;
+		},
+		get tossMode() {
+			return flow.tossMode;
+		},
+		get lineCoins() {
+			return flow.lineCoins;
+		},
+		get lines() {
+			return flow.lines;
+		},
+		get spinningLine() {
+			return flow.spinningLine;
+		},
+		get spinningCoin() {
+			return flow.spinningCoin;
+		},
+		get revealedLines() {
+			return flow.revealedLines;
+		},
+		get coinGridRevealed() {
+			return flow.coinGridRevealed;
+		},
+		get activeLine() {
+			return flow.activeLine;
+		},
+		get tossing() {
+			return flow.tossing;
+		},
+		onTossNext: () => flow.tossNext()
+	};
+
+	$effect(() => {
+		flow.setLocale(i18n.locale);
+	});
+
+	$effect(() => {
+		if (flow.step === 'toss') {
+			overlayActive = true;
+			document.documentElement.classList.add('immersive-cast');
+
+			const frame = requestAnimationFrame(() => {
+				requestAnimationFrame(() => {
+					overlayVisible = true;
+					mainFaded = true;
+				});
+			});
+
+			return () => cancelAnimationFrame(frame);
+		}
+
+		if (!overlayActive) return;
+
+		overlayVisible = false;
+		mainFaded = false;
+
+		const timer = setTimeout(() => {
+			overlayActive = false;
+			document.documentElement.classList.remove('immersive-cast');
+		}, IMMERSIVE_FADE_MS);
+
+		return () => clearTimeout(timer);
+	});
+
 	onMount(() => {
-		flow.loadJournal();
+		void flow.loadJournal();
+		return () => document.documentElement.classList.remove('immersive-cast');
 	});
 
 	async function viewJournalEntry(entry: Casting) {
@@ -31,9 +104,48 @@
 		await tick();
 		readingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
+
+	async function viewMotifHexagram(hexagramNumber: number) {
+		flow.viewHexagram(hexagramNumber);
+		await tick();
+		readingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	async function resetToQuestion() {
+		flow.reset();
+		await tick();
+		questionForm?.focusInput();
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	}
+
+	async function handleManualCast(params: {
+		question: string;
+		primaryNumber: number;
+		relatingNumber?: number;
+	}): Promise<boolean> {
+		const ok = await flow.startManualCast(
+			params.question,
+			params.primaryNumber,
+			params.relatingNumber
+		);
+		if (!ok) return false;
+		await tick();
+		readingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		return true;
+	}
 </script>
 
-<main class="main">
+{#if overlayActive}
+	<div class="cast-overlay" class:cast-overlay--visible={overlayVisible}>
+		<CastingStage
+			{...castingStageProps}
+			step={overlayVisible ? flow.step : 'toss'}
+			immersive
+		/>
+	</div>
+{/if}
+
+<main class="main" class:main--faded={mainFaded}>
 	<header class="site-header">
 		<h1 class="logo">易經</h1>
 		<p class="tagline">{i18n.t('app.tagline')}</p>
@@ -41,26 +153,16 @@
 
 	{#if flow.step === 'question'}
 		<QuestionForm
+			bind:this={questionForm}
 			question={flow.question}
 			onQuestionInput={(value) => flow.setQuestion(value)}
 			onStartCast={(mode) => flow.startCast(mode)}
+			onManualCast={handleManualCast}
 		/>
 	{/if}
 
-	{#if flow.step === 'toss' || flow.step === 'building' || flow.step === 'reading'}
-		<CastingStage
-			step={flow.step}
-			tossMode={flow.tossMode}
-			lineCoins={flow.lineCoins}
-			lines={flow.lines}
-			spinningLine={flow.spinningLine}
-			spinningCoin={flow.spinningCoin}
-			revealedLines={flow.revealedLines}
-			coinGridRevealed={flow.coinGridRevealed}
-			activeLine={flow.activeLine}
-			tossing={flow.tossing}
-			onTossNext={() => flow.tossNext()}
-		/>
+	{#if flow.step === 'building' || (flow.step === 'reading' && flow.casting?.method !== 'motif')}
+		<CastingStage {...castingStageProps} />
 	{/if}
 
 	{#if flow.step === 'reading' && flow.casting && primaryHexagram}
@@ -69,23 +171,70 @@
 				casting={flow.casting}
 				{primaryHexagram}
 				{relatingHexagram}
-				onReset={() => flow.reset()}
+				onReset={resetToQuestion}
 			/>
 		</div>
 	{/if}
 
 	<JournalPanel
 		journal={flow.journal}
-		activeCastingId={flow.step === 'reading' ? flow.casting?.id : null}
+		activeCastingId={flow.step === 'reading' && flow.casting?.method !== 'motif'
+			? flow.casting?.id
+			: null}
+		activeMotifNumber={flow.step === 'reading' && flow.casting?.method === 'motif'
+			? flow.casting.primaryNumber
+			: null}
 		onEntrySelect={viewJournalEntry}
+		onMotifSelect={viewMotifHexagram}
 	/>
 </main>
 
 <style>
+	.cast-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 200;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: calc(1rem + env(safe-area-inset-top, 0px))
+			calc(1rem + env(safe-area-inset-right, 0px))
+			calc(1rem + env(safe-area-inset-bottom, 0px))
+			calc(1rem + env(safe-area-inset-left, 0px));
+		background: var(--bg);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.5s ease;
+	}
+
+	.cast-overlay--visible {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
 	.main {
+		width: 100%;
 		max-width: 32rem;
 		margin: 0 auto;
-		padding: 2rem 1.25rem 5rem;
+		overflow-x: hidden;
+		padding: calc(3.25rem + env(safe-area-inset-top, 0px))
+			calc(1.25rem + env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px))
+			calc(1.25rem + env(safe-area-inset-left, 0px));
+		opacity: 1;
+		transition: opacity 0.5s ease;
+	}
+
+	.main--faded {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cast-overlay,
+		.main {
+			transition-duration: 0.01ms;
+		}
 	}
 
 	.site-header {

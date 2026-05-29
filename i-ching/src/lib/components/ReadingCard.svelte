@@ -198,12 +198,12 @@
 	}
 
 	h2 {
-		font-size: 1.75rem;
+		font-size: 1.55rem;
 	}
 
 	.meta {
 		margin: 0;
-		font-size: 0.85rem;
+		font-size: 1rem;
 		color: var(--text-muted);
 		display: flex;
 		gap: 0.75rem;
@@ -229,12 +229,12 @@
 	.layer-body {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 1rem;
 	}
 
 	.layer-body p {
 		margin: 0;
-		font-size: 0.95rem;
+		font-size: 1rem;
 		color: var(--text);
 		line-height: 1.55;
 	}
@@ -242,17 +242,17 @@
 	.layer-mark {
 		margin-right: 0.35rem;
 		font-family: var(--font-serif);
-		font-size: 0.9rem;
+		font-size: 1rem;
 		color: var(--accent-dim);
 		font-style: normal;
 	}
 
 	.layer.vector .layer-body p {
-		font-size: 0.9rem;
+		font-size: 1rem;
 		font-weight: 500;
 	}
 
 	.layer.vector .layer-mark {
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 </style>

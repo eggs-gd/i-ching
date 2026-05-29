@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Casting, Hexagram } from '$lib/i-ching/types';
 	import { getTransformedLines } from '$lib/i-ching/hexagram';
+	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { useI18n } from '$lib/i18n';
 	import CastExplanationPanel from './CastExplanationPanel.svelte';
 	import ChangingLinesPanel from './ChangingLinesPanel.svelte';
@@ -16,11 +17,14 @@
 	let { casting, primaryHexagram, relatingHexagram = null, onReset }: Props = $props();
 
 	const i18n = useI18n();
-	const hasChangingLines = $derived(casting.changingLines.length > 0);
+	const hexagramOnly = $derived(casting.method === 'motif');
+	const hasChangingLines = $derived(!hexagramOnly && casting.changingLines.length > 0);
 </script>
 
 <section class="step reading-step">
-	<p class="question-echo">«{casting.question}»</p>
+	{#if !hexagramOnly && casting.question.trim()}
+		<p class="question-echo">«{casting.question}»</p>
+	{/if}
 
 	{#if hasChangingLines}
 		<ChangingLinesPanel changingLines={casting.changingLines} lines={casting.lines} />
@@ -48,7 +52,9 @@
 		/>
 	{/if}
 
-	<CastExplanationPanel />
+	{#if SHOW_PAID_FEATURE_STUBS}
+		<CastExplanationPanel />
+	{/if}
 
 	<button class="secondary-btn" onclick={onReset}>{i18n.t('flow.newCast')}</button>
 </section>

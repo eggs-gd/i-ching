@@ -2,22 +2,38 @@
 	"app": {
 		"title": "I Ching",
 		"tagline": "What is happening already has a shape",
-		"description": "Symbolic I Ching reading — scene, dynamics, vector"
+		"description": "Symbolic I Ching reading — scene, dynamics, vector",
+		"scrollToTop": "Back to top"
 	},
 	"flow": {
 		"contextLabel": "What draws your attention?",
-		"contextPlaceholder": "Work, conflict, decision, return…",
+		"contextPlaceholder": "Work, conflict, decision, question…",
 		"castingLabel": "Cast a hexagram",
 		"castSingle": "Coin by coin",
 		"castLine": "Line by line",
 		"castFull": "All at once",
 		"tossing": "Tossing…",
 		"building": "Building the hexagram…",
-		"newCast": "Ask again",
+		"newCast": "Another question",
 		"tossSingle": "Toss coin",
 		"tossLine": "Toss line",
-		"explanationTitle": "Explanation",
-		"explanationPaidBody": "A personalized cast explanation is a paid feature."
+		"explain": "Explain",
+		"explanationPaidBody": "A personalized cast explanation is a paid feature.",
+		"formReady": "Hexagram already cast",
+		"back": "Back",
+		"pickerList": "List",
+		"pickerTrigram": "Trigrams",
+		"lowerTrigram": "Lower trigram",
+		"upperTrigram": "Upper trigram",
+		"yourQuestion": "Your question:",
+		"ichingAnswer": "I Ching answer",
+		"manualSubmit": "Show",
+		"selectHexagram": "Choose hexagram",
+		"clearHexagram": "Clear selection",
+		"manualQuestionRequired": "Add your question.",
+		"manualPrimaryInvalid": "Choose an entry hexagram.",
+		"manualRelatingInvalid": "Enter an exit hexagram number from 1 to 64.",
+		"manualSubmitFailed": "Could not save the cast. Check the hexagram numbers."
 	},
 	"coins": {
 		"gridLabel": "Cast coins",
@@ -43,7 +59,10 @@
 	"journal": {
 		"title": "Archive",
 		"motifs": "Echoes",
-		"openEntry": "Open cast reading"
+		"trackForm": "Track the motifs",
+		"trackFormPaidBody": "Tracking the situation's form is a paid feature.",
+		"openEntry": "Open cast reading",
+		"openMotif": "Open hexagram: {name}"
 	},
 	"trigrams": {
 		"qian": "Heaven",

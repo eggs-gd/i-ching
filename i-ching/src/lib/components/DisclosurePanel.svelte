@@ -23,7 +23,10 @@
 		<span class="summary-title" class:faint={titleColor === 'faint'} class:muted={titleColor === 'muted'}>
 			{title}
 		</span>
-		{@render summaryEnd?.()}
+		<span class="summary-end">
+			{@render summaryEnd?.()}
+			<span class="chevron" aria-hidden="true"></span>
+		</span>
 	</summary>
 	<div class="body">
 		{@render children?.()}
@@ -52,6 +55,12 @@
 		padding: 0.55rem 0.75rem;
 		cursor: pointer;
 		list-style: none;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
+	}
+
+	.summary:focus {
+		outline: none;
 	}
 
 	.summary::-webkit-details-marker {
@@ -59,10 +68,33 @@
 	}
 
 	.summary-title {
+		flex: 1;
+		min-width: 0;
 		font-size: 0.72rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		color: var(--line-changing);
+	}
+
+	.summary-end {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.chevron {
+		display: block;
+		width: 0.45rem;
+		height: 0.45rem;
+		border-right: 1.5px solid var(--text-faint);
+		border-bottom: 1.5px solid var(--text-faint);
+		transform: rotate(45deg);
+		transition: transform 0.2s ease;
+	}
+
+	.panel[open] .chevron {
+		transform: rotate(-135deg);
 	}
 
 	.summary-title.faint {

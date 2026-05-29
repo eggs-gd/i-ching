@@ -1,5 +1,7 @@
 import { getContext, setContext } from 'svelte';
 import { browser } from '$app/environment';
+import { Capacitor } from '@capacitor/core';
+import { Preferences } from '@capacitor/preferences';
 import type { Locale } from '$lib/i-ching/types';
 import {
 	detectLocale,
@@ -19,10 +21,22 @@ export class I18nStore {
 			localStorage.setItem(LOCALE_STORAGE_KEY, next);
 			document.documentElement.lang = next;
 		}
+		if (Capacitor.isNativePlatform()) {
+			void Preferences.set({ key: LOCALE_STORAGE_KEY, value: next });
+		}
 	}
 
 	t(key: string, params?: TranslationParams): string {
 		return translate(this.locale, key, params);
+	}
+}
+
+export async function hydrateLocaleFromPreferences(store: I18nStore): Promise<void> {
+	if (!Capacitor.isNativePlatform()) return;
+
+	const { value } = await Preferences.get({ key: LOCALE_STORAGE_KEY });
+	if (value === 'uk' || value === 'en') {
+		store.setLocale(value);
 	}
 }
 
@@ -32,6 +46,7 @@ export function initI18n(): I18nStore {
 	if (browser) {
 		document.documentElement.lang = store.locale;
 	}
+	void hydrateLocaleFromPreferences(store);
 	return store;
 }
 

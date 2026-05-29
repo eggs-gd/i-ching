@@ -1,21 +1,15 @@
-import {
-	lineFromCoins,
-	tossHexagramWithCoins,
-	tossOneCoin,
-	tossThreeCoins
-} from './coins';
+import { lineFromCoins, tossHexagramWithCoins, tossOneCoin, tossThreeCoins } from './coins';
 import {
 	getChangingLines,
 	getHexagramNumber,
-	getRelatingHexagramNumber
+	getRelatingHexagramNumber,
+	isValidHexagramNumber,
+	linesForHexagramPair,
+	staticLinesForHexagram
 } from './hexagram';
-import {
-	createCastingId,
-	getCastingCoinRows,
-	loadJournal,
-	saveCasting
-} from './journal';
-import type { Casting, CoinValue, FlowStep, Line, TossMode } from './types';
+import { createCastingId, getCastingCoinRows, loadJournal, saveCasting } from './journal';
+import { hapticToss } from '$lib/platform/native';
+import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
 
 function pause(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -25,6 +19,7 @@ export class CastingFlow {
 	step = $state<FlowStep>('question');
 	question = $state('');
 	tossMode = $state<TossMode>('line');
+	locale = $state<Locale>('uk');
 	lines = $state<Line[]>([]);
 	revealedLines = $state(0);
 	casting = $state<Casting | null>(null);
@@ -70,8 +65,12 @@ export class CastingFlow {
 		);
 	}
 
-	loadJournal(): void {
-		this.journal = loadJournal();
+	setLocale(locale: Locale): void {
+		this.locale = locale;
+	}
+
+	async loadJournal(): Promise<void> {
+		this.journal = await loadJournal();
 	}
 
 	setQuestion(question: string): void {
@@ -92,6 +91,53 @@ export class CastingFlow {
 
 		if (!this.isCurrentRun(runId)) return;
 		this.step = 'toss';
+	}
+
+	async startManualCast(
+		question: string,
+		primaryNumber: number,
+		relatingNumber?: number
+	): Promise<boolean> {
+		const trimmed = question.trim();
+		if (!trimmed || !isValidHexagramNumber(primaryNumber)) return false;
+		if (relatingNumber !== undefined && !isValidHexagramNumber(relatingNumber)) return false;
+
+		this.startRun();
+		this.clearCurrentCast();
+		this.question = trimmed;
+
+		const lines = linesForHexagramPair(primaryNumber, relatingNumber);
+		const changingLines = getChangingLines(lines);
+		const resolvedRelating =
+			relatingNumber !== undefined && relatingNumber !== primaryNumber
+				? relatingNumber
+				: changingLines.length > 0
+					? getRelatingHexagramNumber(lines)
+					: undefined;
+
+		const id = createCastingId();
+
+		this.casting = {
+			id,
+			createdAt: new Date().toISOString(),
+			question: trimmed,
+			primaryNumber,
+			relatingNumber: resolvedRelating,
+			changingLines,
+			lines,
+			locale: this.locale,
+			method: 'manual'
+		};
+
+		this.lines = lines;
+		this.revealedLines = 6;
+		this.coinRows = getCastingCoinRows(this.casting);
+		this.currentLineCoins = [];
+
+		await saveCasting(this.casting);
+		this.journal = await loadJournal();
+		this.step = 'reading';
+		return true;
 	}
 
 	async tossNext(): Promise<void> {
@@ -115,12 +161,40 @@ export class CastingFlow {
 		this.question = entry.question;
 		this.lines = entry.lines;
 		this.revealedLines = 6;
-		this.coinRows = getCastingCoinRows(entry).map((row) => [...row]);
+		this.coinRows = getCastingCoinRows(entry);
 		this.currentLineCoins = [];
 		this.spinningLine = null;
 		this.spinningCoin = null;
 		this.tossing = false;
 		this.casting = entry;
+		this.step = 'reading';
+	}
+
+	viewHexagram(hexagramNumber: number): void {
+		if (!isValidHexagramNumber(hexagramNumber)) return;
+
+		this.runId++;
+		const lines = staticLinesForHexagram(hexagramNumber);
+
+		this.casting = {
+			id: `motif-${hexagramNumber}`,
+			createdAt: new Date().toISOString(),
+			question: '',
+			primaryNumber: hexagramNumber,
+			changingLines: [],
+			lines,
+			locale: this.locale,
+			method: 'motif'
+		};
+
+		this.question = '';
+		this.lines = lines;
+		this.revealedLines = 6;
+		this.coinRows = getCastingCoinRows(this.casting);
+		this.currentLineCoins = [];
+		this.spinningLine = null;
+		this.spinningCoin = null;
+		this.tossing = false;
 		this.step = 'reading';
 	}
 
@@ -151,6 +225,7 @@ export class CastingFlow {
 		await pause(800);
 		if (!this.isCurrentRun(runId)) return;
 
+		await hapticToss();
 		const { lines: result, coinRows } = tossHexagramWithCoins();
 		this.coinRows = coinRows;
 		this.lines = result;
@@ -181,6 +256,7 @@ export class CastingFlow {
 		await pause(600);
 		if (!this.isCurrentRun(runId)) return;
 
+		await hapticToss();
 		const toss = tossThreeCoins();
 		this.tossing = false;
 		this.spinningLine = null;
@@ -209,6 +285,7 @@ export class CastingFlow {
 		await pause(400);
 		if (!this.isCurrentRun(runId)) return;
 
+		await hapticToss();
 		this.tossing = false;
 		this.spinningLine = null;
 		this.spinningCoin = null;
@@ -231,7 +308,7 @@ export class CastingFlow {
 		}
 	}
 
-	private finishCasting(result: Line[]): void {
+	private async finishCasting(result: Line[]): Promise<void> {
 		const primaryNumber = getHexagramNumber(result);
 		const relatingNumber = getRelatingHexagramNumber(result);
 		const changingLines = getChangingLines(result);
@@ -244,11 +321,13 @@ export class CastingFlow {
 			relatingNumber,
 			changingLines,
 			lines: result,
-			coinRows: this.coinRows.map((row) => [...row])
+			coinRows: this.coinRows.map((row) => [...row]),
+			locale: this.locale,
+			method: this.tossMode
 		};
 
-		saveCasting(this.casting);
-		this.journal = loadJournal();
+		await saveCasting(this.casting);
+		this.journal = await loadJournal();
 		this.step = 'reading';
 	}
 }

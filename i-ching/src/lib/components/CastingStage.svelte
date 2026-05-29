@@ -15,6 +15,7 @@
 		activeLine: number | null;
 		tossing: boolean;
 		onTossNext: () => void;
+		immersive?: boolean;
 	}
 
 	let {
@@ -28,7 +29,8 @@
 		coinGridRevealed,
 		activeLine,
 		tossing,
-		onTossNext
+		onTossNext,
+		immersive = false
 	}: Props = $props();
 
 	const i18n = useI18n();
@@ -37,7 +39,7 @@
 	);
 </script>
 
-<section class="step cast-step">
+<section class="step cast-step" class:cast-step--immersive={immersive}>
 	<CoinGrid
 		{lineCoins}
 		{lines}
@@ -101,5 +103,57 @@
 		font-variant-numeric: tabular-nums;
 		letter-spacing: 0.04em;
 		margin: 1rem 0 0;
+	}
+
+	.cast-step--immersive {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	.cast-step--immersive :global(.coin-grid) {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		max-width: 28rem;
+		gap: clamp(0.45rem, 2.8vh, 1.1rem);
+		margin: 0;
+	}
+
+	.cast-step--immersive :global(.coin-row) {
+		grid-template-columns: 1.5rem 1fr 3.25rem;
+		gap: clamp(0.5rem, 2vw, 1rem);
+	}
+
+	.cast-step--immersive :global(.coins) {
+		gap: clamp(0.5rem, 3vw, 1.1rem);
+	}
+
+	.cast-step--immersive :global(.coin-face),
+	.cast-step--immersive :global(.glyph-placeholder),
+	.cast-step--immersive :global(.glyph) {
+		width: clamp(2.75rem, 14vw, 4.25rem);
+		height: clamp(2.75rem, 14vw, 4.25rem);
+	}
+
+	.cast-step--immersive .toss-action {
+		flex-shrink: 0;
+		width: 100%;
+		max-width: 28rem;
+		margin-top: clamp(1rem, 4vh, 2rem);
+	}
+
+	.cast-step--immersive .status {
+		flex-shrink: 0;
+		margin-top: clamp(1rem, 4vh, 2rem);
 	}
 </style>

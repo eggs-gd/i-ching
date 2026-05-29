@@ -68,15 +68,7 @@ export interface Trigram {
 	name: string;
 }
 
-export type TrigramId =
-	| 'qian'
-	| 'kun'
-	| 'zhen'
-	| 'kan'
-	| 'gen'
-	| 'xun'
-	| 'li'
-	| 'dui';
+export type TrigramId = 'qian' | 'kun' | 'zhen' | 'kan' | 'gen' | 'xun' | 'li' | 'dui';
 
 export interface Casting {
 	id: string;
@@ -87,11 +79,16 @@ export interface Casting {
 	changingLines: number[];
 	lines: Line[];
 	coinRows?: CoinValue[][];
+	locale?: Locale;
+	method?: CastMethod;
+	note?: string;
 }
 
 export type FlowStep = 'question' | 'toss' | 'building' | 'reading';
 
 export type TossMode = 'single' | 'line' | 'all';
+
+export type CastMethod = TossMode | 'manual' | 'motif';
 
 /** @deprecated legacy journal shape */
 export interface LegacyCasting extends Omit<Casting, 'primaryNumber'> {

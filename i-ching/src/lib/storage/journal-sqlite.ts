@@ -1,0 +1,140 @@
+import {
+	CapacitorSQLite,
+	SQLiteConnection,
+	type SQLiteDBConnection
+} from '@capacitor-community/sqlite';
+import { Preferences } from '@capacitor/preferences';
+import type { Casting } from '$lib/i-ching/types';
+import { LocalJournalRepository } from './journal-local';
+import { JOURNAL_MIGRATED_KEY, JOURNAL_STORAGE_KEY, type JournalRepository } from './journal-repository';
+
+const DB_NAME = 'i-ching';
+
+const CREATE_READINGS_TABLE = `
+CREATE TABLE IF NOT EXISTS readings (
+	id TEXT PRIMARY KEY NOT NULL,
+	created_at TEXT NOT NULL,
+	locale TEXT NOT NULL,
+	question TEXT NOT NULL,
+	primary_hexagram INTEGER NOT NULL,
+	changed_hexagram INTEGER,
+	moving_lines TEXT NOT NULL,
+	method TEXT,
+	lines_json TEXT NOT NULL,
+	coin_rows_json TEXT,
+	note TEXT
+);
+`;
+
+type ReadingRow = {
+	id: string;
+	created_at: string;
+	locale: string;
+	question: string;
+	primary_hexagram: number;
+	changed_hexagram: number | null;
+	moving_lines: string;
+	method: string | null;
+	lines_json: string;
+	coin_rows_json: string | null;
+	note: string | null;
+};
+
+let db: SQLiteDBConnection | null = null;
+
+function rowToCasting(row: ReadingRow): Casting {
+	return {
+		id: row.id,
+		createdAt: row.created_at,
+		locale: row.locale as Casting['locale'],
+		question: row.question,
+		primaryNumber: row.primary_hexagram,
+		relatingNumber: row.changed_hexagram ?? undefined,
+		changingLines: JSON.parse(row.moving_lines) as Casting['changingLines'],
+		method: (row.method as Casting['method']) ?? undefined,
+		lines: JSON.parse(row.lines_json) as Casting['lines'],
+		coinRows: row.coin_rows_json
+			? (JSON.parse(row.coin_rows_json) as Casting['coinRows'])
+			: undefined,
+		note: row.note ?? undefined
+	};
+}
+
+async function getDatabase(): Promise<SQLiteDBConnection> {
+	if (db) return db;
+
+	const connection = new SQLiteConnection(CapacitorSQLite);
+	db = await connection.createConnection(DB_NAME, false, 'no-encryption', 1, false);
+	await db.open();
+	await db.execute(CREATE_READINGS_TABLE);
+	return db;
+}
+
+async function migrateFromLocalStorage(database: SQLiteDBConnection): Promise<void> {
+	const { value } = await Preferences.get({ key: JOURNAL_MIGRATED_KEY });
+	if (value === 'true') return;
+
+	const local = new LocalJournalRepository();
+	const entries = await local.loadAll();
+	if (entries.length === 0) {
+		await Preferences.set({ key: JOURNAL_MIGRATED_KEY, value: 'true' });
+		return;
+	}
+
+	for (const casting of entries.reverse()) {
+		await insertCasting(database, casting);
+	}
+
+	if (typeof localStorage !== 'undefined') {
+		localStorage.removeItem(JOURNAL_STORAGE_KEY);
+	}
+
+	await Preferences.set({ key: JOURNAL_MIGRATED_KEY, value: 'true' });
+}
+
+async function insertCasting(database: SQLiteDBConnection, casting: Casting): Promise<void> {
+	await database.run(
+		`INSERT OR REPLACE INTO readings (
+			id, created_at, locale, question, primary_hexagram, changed_hexagram,
+			moving_lines, method, lines_json, coin_rows_json, note
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		[
+			casting.id,
+			casting.createdAt,
+			casting.locale ?? 'uk',
+			casting.question,
+			casting.primaryNumber,
+			casting.relatingNumber ?? null,
+			JSON.stringify(casting.changingLines),
+			casting.method ?? null,
+			JSON.stringify(casting.lines),
+			casting.coinRows ? JSON.stringify(casting.coinRows) : null,
+			casting.note ?? null
+		]
+	);
+}
+
+export class SqliteJournalRepository implements JournalRepository {
+	async ensureReady(): Promise<void> {
+		const database = await getDatabase();
+		await migrateFromLocalStorage(database);
+	}
+
+	async loadAll(): Promise<Casting[]> {
+		const database = await getDatabase();
+		const result = await database.query(
+			`SELECT id, created_at, locale, question, primary_hexagram, changed_hexagram,
+				moving_lines, method, lines_json, coin_rows_json, note
+			FROM readings
+			ORDER BY created_at DESC`
+		);
+
+		const rows = (result.values ?? []) as ReadingRow[];
+		return rows.map(rowToCasting);
+	}
+
+	async save(casting: Casting): Promise<void> {
+		const database = await getDatabase();
+		await insertCasting(database, casting);
+	}
+}
