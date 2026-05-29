@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { resolveHexagram } from '$lib/data/hexagram-db';
+	import { resolveHexagram } from '$lib/i-ching/catalog';
 	import type { Casting } from '$lib/i-ching/types';
 	import { getLocaleDateFormat, useI18n } from '$lib/i18n';
-	import AppPopup from './AppPopup.svelte';
+	import { AppButton, AppPopup } from '$lib/components/ui';
 
 	interface Props {
 		open: boolean;
@@ -95,15 +95,15 @@
 		{#if journal.length === 0}
 			<p class="journal-archive__empty">{i18n.t('profile.archiveEmpty')}</p>
 		{:else}
-			<button
-				type="button"
+			<AppButton
+				variant="text"
+				fullWidth
+				pressed={allSelected}
 				class="journal-archive__select-all"
-				class:active={allSelected}
-				aria-pressed={allSelected}
 				onclick={toggleAll}
 			>
 				{i18n.t('profile.selectAll')}
-			</button>
+			</AppButton>
 
 			<ul class="journal-archive__list">
 				{#each journal as entry (entry.id)}
@@ -135,14 +135,13 @@
 	{/snippet}
 
 	{#snippet footer()}
-		<button
-			type="button"
-			class="popup-action popup-action--danger"
+		<AppButton
+			variant="danger"
 			disabled={selectedCount === 0 || deleting || journal.length === 0}
 			onclick={() => void deleteSelected()}
 		>
 			{i18n.t('profile.deleteSelected', { count: selectedCount })}
-		</button>
+		</AppButton>
 	{/snippet}
 </AppPopup>
 
@@ -153,41 +152,13 @@
 
 	:global(.journal-archive__empty) {
 		margin: 0;
-		font-size: 0.9rem;
+		font-size: var(--text-lg);
 		color: var(--text-muted);
 	}
 
 	:global(.journal-archive__select-all) {
-		display: block;
-		width: 100%;
-		margin-bottom: 0.5rem;
-		padding: 0.5rem 0;
-		border: none;
+		margin-bottom: var(--space-2);
 		border-bottom: 1px solid var(--border);
-		background: none;
-		font: inherit;
-		font-size: 0.75rem;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		text-align: left;
-		color: var(--text-faint);
-		cursor: pointer;
-		transition: color 0.2s ease;
-		-webkit-tap-highlight-color: transparent;
-	}
-
-	:global(.journal-archive__select-all:hover),
-	:global(.journal-archive__select-all.active) {
-		color: var(--text);
-	}
-
-	:global(.journal-archive__select-all.active) {
-		color: var(--accent);
-	}
-
-	:global(.journal-archive__select-all:focus) {
-		outline: none;
 	}
 
 	:global(.journal-archive__list) {
@@ -206,15 +177,15 @@
 
 	:global(.journal-archive__entry) {
 		width: 100%;
-		padding: 0.75rem 0;
+		padding: var(--space-3) 0;
 		border: none;
 		background: none;
 		color: inherit;
 		cursor: pointer;
 		display: grid;
-		gap: 0.35rem;
+		gap: var(--space-2);
 		text-align: left;
-		transition: color 0.2s ease;
+		transition: var(--transition);
 		-webkit-tap-highlight-color: transparent;
 	}
 
@@ -235,15 +206,15 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	:global(.journal-archive__q) {
 		flex: 1;
 		min-width: 0;
-		font-size: 0.85rem;
+		font-size: var(--text-base);
 		color: var(--text-soft);
-		line-height: 1.35;
+		line-height: var(--leading-tight);
 	}
 
 	:global(.journal-archive__q--empty) {
@@ -256,14 +227,14 @@
 
 	:global(.journal-archive__time) {
 		flex-shrink: 0;
-		font-size: 0.7rem;
+		font-size: var(--text-sm);
 		color: var(--text-faint);
 		white-space: nowrap;
 	}
 
 	:global(.journal-archive__hex) {
 		font-family: var(--font-serif);
-		font-size: 0.8rem;
+		font-size: var(--text-sm);
 		color: var(--text-muted);
 		line-height: 1.3;
 	}

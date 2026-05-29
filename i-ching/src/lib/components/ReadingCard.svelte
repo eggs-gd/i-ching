@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { Hexagram } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
-	import HexagramFontIcon from './HexagramFontIcon.svelte';
+	import { HexagramFontIcon } from '$lib/components/primitives';
 	import HelpPopup from './HelpPopup.svelte';
-	import InfoButton from './InfoButton.svelte';
+	import { InfoButton } from '$lib/components/ui';
 
 	interface Props {
 		hexagram: Hexagram;
@@ -106,22 +106,22 @@
 	.reading {
 		background: var(--bg-paper);
 		border: 1px solid var(--border);
-		border-radius: 2px;
-		padding: 1.5rem;
+		border-radius: var(--radius);
+		padding: var(--space-5);
 	}
 
 	.label-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem;
+		gap: var(--space-3);
 		margin: 0 0 1rem;
 	}
 
 	.label {
-		font-size: 0.7rem;
+		font-size: var(--text-sm);
 		text-transform: uppercase;
-		letter-spacing: 0.15em;
+		letter-spacing: var(--tracking-wide);
 		color: var(--text-muted);
 		margin: 0;
 	}
@@ -130,7 +130,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem;
+		gap: var(--space-3);
 		margin-bottom: 0.25rem;
 	}
 
@@ -143,9 +143,9 @@
 		padding: 0.65rem 0 0.65rem 0.85rem;
 		border: none;
 		border-left: 2px solid var(--border);
-		background: rgba(196, 165, 116, 0.04);
+		background: var(--fill-subtle);
 		font-family: var(--font-serif);
-		font-size: 0.95rem;
+		font-size: var(--text-lg);
 		font-style: italic;
 		color: var(--text-muted);
 		line-height: 1.5;
@@ -162,74 +162,74 @@
 	.header {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
-		gap: 1rem;
+		gap: var(--space-4);
 		align-items: start;
-		margin-bottom: 1.25rem;
+		margin-bottom: var(--space-5);
 	}
 
 	.composition {
 		margin: 0 0 1rem;
 		font-family: var(--font-serif);
-		font-size: 1.25rem;
+		font-size: var(--text-xl);
 		color: var(--text-muted);
 	}
 
 	.number {
 		font-family: var(--font-serif);
-		font-size: 2.5rem;
+		font-size: var(--text-hero);
 		color: var(--accent-dim);
 		line-height: 1.5;
 	}
 
 	h2 {
-		font-size: 1.55rem;
+		font-size: var(--text-xl);
 	}
 
 	.meta {
 		margin: 0;
-		font-size: 1rem;
+		font-size: var(--text-lg);
 		color: var(--text-muted);
 		display: flex;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.chinese {
-		font-size: 1rem;
+		font-size: var(--text-lg);
 	}
 
 	.layers {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: var(--space-4);
 	}
 
 	.layer-body {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: var(--space-4);
 	}
 
 	.layer-body p {
 		margin: 0;
-		font-size: 1rem;
+		font-size: var(--text-lg);
 		color: var(--text);
-		line-height: 1.55;
+		line-height: var(--leading-normal);
 	}
 
 	.layer-mark {
 		margin-right: 0.35rem;
 		font-family: var(--font-serif);
-		font-size: 1rem;
+		font-size: var(--text-lg);
 		color: var(--accent-dim);
 		font-style: normal;
 	}
 
 	.layer.vector .layer-body p {
-		font-size: 1rem;
+		font-size: var(--text-lg);
 		font-weight: 500;
 	}
 
 	.layer.vector .layer-mark {
-		font-size: 1rem;
+		font-size: var(--text-lg);
 	}
 </style>

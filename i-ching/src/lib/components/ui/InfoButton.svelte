@@ -33,11 +33,11 @@
 		-webkit-tap-highlight-color: transparent;
 		user-select: none;
 		border: 1px solid var(--border);
-		border-radius: 50%;
+		border-radius: var(--radius-full);
 		background: transparent;
 		color: var(--text-muted);
 		font-family: var(--font-serif);
-		font-size: 0.85rem;
+		font-size: var(--text-base);
 		font-style: italic;
 		line-height: 1;
 		cursor: pointer;

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Casting, Hexagram } from '$lib/i-ching/types';
 	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
+	import { AppButton } from '$lib/components/ui';
 	import { useI18n } from '$lib/i18n';
 	import CastExplanationPanel from './CastExplanationPanel.svelte';
 	import ChangingLinesPanel from './ChangingLinesPanel.svelte';
@@ -53,7 +54,9 @@
 		<CastExplanationPanel />
 	{/if}
 
-	<button class="secondary-btn" onclick={onReset}>{i18n.t('flow.newCast')}</button>
+	<AppButton variant="secondary" fullWidth class="new-cast" onclick={onReset}>
+		{i18n.t('flow.newCast')}
+	</AppButton>
 </section>
 
 <style>
@@ -64,7 +67,7 @@
 	.reading-step {
 		display: flex;
 		flex-direction: column;
-		gap: 1.25rem;
+		gap: var(--space-5);
 	}
 
 	.question-echo {
@@ -73,24 +76,14 @@
 		color: var(--text-muted);
 		text-align: center;
 		margin: 0;
-		font-size: 1.1rem;
+		font-size: var(--text-lg);
 	}
 
-	.secondary-btn {
-		width: 100%;
-		margin-top: 1.5rem;
-		padding: 0.9rem 1.5rem;
-		border: 1px solid var(--border);
-		border-radius: 2px;
-		color: var(--text-muted);
-		font-size: 0.85rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		transition: all 0.2s ease;
-	}
-
-	.secondary-btn:hover {
-		border-color: var(--accent-dim);
-		color: var(--text);
+	:global(.new-cast) {
+		margin-top: var(--space-5);
+		padding: var(--space-5) var(--space-6);
+		font-size: var(--text-base);
+		letter-spacing: var(--tracking-wide);
+		text-align: center;
 	}
 </style>

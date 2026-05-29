@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CoinValue, FlowStep, Line, TossMode } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
-	import CoinGrid from './CoinGrid.svelte';
+	import { CoinGrid } from '$lib/components/primitives';
 
 	interface Props {
 		step: FlowStep;
@@ -74,14 +74,14 @@
 
 	.primary-btn {
 		width: 100%;
-		padding: 0.9rem 1.5rem;
-		border-radius: 2px;
+		padding: var(--space-5) var(--space-6);
+		border-radius: var(--radius);
 		background: var(--accent-dim);
 		color: var(--bg);
-		font-size: 0.85rem;
+		font-size: var(--text-base);
 		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		transition: all 0.2s ease;
+		letter-spacing: var(--tracking-wide);
+		transition: var(--transition-all);
 	}
 
 	.primary-btn:hover:not(:disabled) {
@@ -94,14 +94,14 @@
 	}
 
 	.toss-action {
-		margin-top: 1.5rem;
+		margin-top: var(--space-5);
 	}
 
 	.status {
-		font-size: 0.75rem;
+		font-size: var(--text-sm);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
-		letter-spacing: 0.04em;
+		letter-spacing: var(--tracking-caps);
 		margin: 1rem 0 0;
 	}
 
@@ -130,7 +130,7 @@
 	}
 
 	.cast-step--immersive :global(.coin-row) {
-		grid-template-columns: 1.5rem 1fr 3.25rem;
+		grid-template-columns: var(--text-xl) 1fr var(--size-hex);
 		gap: clamp(0.5rem, 2vw, 1rem);
 	}
 

@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { resolveHexagram } from '$lib/data/hexagram-db';
 	import {
 		TRIGRAM_ORDER,
 		hexagramNumberFromTrigrams,
-		trigramSymbols,
+		resolveHexagram,
+		trigramGlyph,
 		trigramsForHexagramNumber
-	} from '$lib/i-ching/hexagram';
+	} from '$lib/i-ching/catalog';
 	import type { TrigramId } from '$lib/i-ching/types';
+	import { FieldLabel } from '$lib/components/ui';
+	import { HexagramFontIcon } from '$lib/components/primitives';
 	import { useI18n } from '$lib/i18n';
-	import HexagramIcon from './HexagramIcon.svelte';
 
 	interface Props {
 		value?: number | null;
@@ -67,7 +68,7 @@
 <div class="trigram-view">
 	{#if previewHexagram}
 		<div class="preview">
-			<HexagramIcon number={previewHexagram.number} />
+			<HexagramFontIcon number={previewHexagram.number} label={previewHexagram.name} compact />
 			<div class="preview-text">
 				<span class="preview-num">{previewHexagram.number}</span>
 				<span class="preview-name">{previewHexagram.name}</span>
@@ -77,7 +78,7 @@
 
 	<div class="rows">
 		<div class="row" role="group" aria-label={i18n.t('flow.upperTrigram')}>
-			<h3 class="row-title">{i18n.t('flow.upperTrigram')}</h3>
+			<FieldLabel size="row">{i18n.t('flow.upperTrigram')}</FieldLabel>
 			<ul class="trigram-list">
 				{#each TRIGRAM_ORDER as id}
 					<li>
@@ -88,7 +89,7 @@
 							aria-pressed={selectedUpper === id}
 							onclick={() => pickUpper(id)}
 						>
-							<span class="symbol" aria-hidden="true">{trigramSymbols[id]}</span>
+							<span class="symbol" aria-hidden="true">{trigramGlyph(id)}</span>
 							<span class="name">{trigramName(id)}</span>
 						</button>
 					</li>
@@ -97,7 +98,7 @@
 		</div>
 
 		<div class="row" role="group" aria-label={i18n.t('flow.lowerTrigram')}>
-			<h3 class="row-title">{i18n.t('flow.lowerTrigram')}</h3>
+			<FieldLabel size="row">{i18n.t('flow.lowerTrigram')}</FieldLabel>
 			<ul class="trigram-list">
 				{#each TRIGRAM_ORDER as id}
 					<li>
@@ -108,7 +109,7 @@
 							aria-pressed={selectedLower === id}
 							onclick={() => pickLower(id)}
 						>
-							<span class="symbol" aria-hidden="true">{trigramSymbols[id]}</span>
+							<span class="symbol" aria-hidden="true">{trigramGlyph(id)}</span>
 							<span class="name">{trigramName(id)}</span>
 						</button>
 					</li>
@@ -124,33 +125,33 @@
 		flex-direction: column;
 		flex: 1;
 		min-height: 0;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.preview {
 		flex-shrink: 0;
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
-		padding: 0.65rem 0;
+		gap: var(--space-3);
+		padding: var(--space-3) 0;
 		border-bottom: 1px solid var(--border);
 	}
 
 	.preview-text {
 		display: flex;
 		align-items: baseline;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		min-width: 0;
 	}
 
 	.preview-num {
 		font-family: var(--font-serif);
-		font-size: 1rem;
+		font-size: var(--text-base);
 		color: var(--accent-dim);
 	}
 
 	.preview-name {
-		font-size: 0.9rem;
+		font-size: var(--text-sm);
 		color: var(--text);
 	}
 
@@ -160,31 +161,20 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		gap: 1rem;
+		gap: var(--space-4);
 	}
 
 	.row {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		min-width: 0;
-	}
-
-	.row-title {
-		flex-shrink: 0;
-		margin: 0;
-		font-size: 0.65rem;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--text-muted);
-		text-align: center;
 	}
 
 	.trigram-list {
 		display: grid;
 		grid-template-columns: repeat(8, minmax(0, 1fr));
-		gap: 0.35rem;
+		gap: var(--space-2);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -200,8 +190,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 0.3rem;
-		padding: 0.5rem 0.15rem;
+		gap: var(--space-2);
+		padding: var(--space-2) var(--space-1);
 		border: 1px solid transparent;
 		border-radius: 2px;
 		background: none;
@@ -209,17 +199,18 @@
 		font: inherit;
 		cursor: pointer;
 		-webkit-tap-highlight-color: transparent;
+		transition: var(--transition-interactive);
 	}
 
 	.trigram-btn:hover,
 	.trigram-btn.selected {
-		background: rgba(196, 165, 116, 0.1);
-		border-color: rgba(196, 165, 116, 0.25);
+		background: var(--fill-muted);
+		border-color: var(--border);
 	}
 
 	.trigram-btn:focus {
 		outline: none;
-		background: rgba(196, 165, 116, 0.14);
+		background: var(--fill-strong);
 	}
 
 	.symbol {

@@ -35,23 +35,23 @@
 	.hexagram {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		align-items: center;
 	}
 
 	.hexagram.compact {
-		gap: 0.25rem;
+		gap: var(--space-1);
 	}
 
 	.line-row {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: var(--space-4);
 		opacity: 0;
 		transform: translateY(8px);
 		transition:
-			opacity 0.6s ease var(--delay),
-			transform 0.6s ease var(--delay);
+			opacity var(--duration-slow) var(--ease) var(--delay),
+			transform var(--duration-slow) var(--ease) var(--delay);
 	}
 
 	.line-row.visible {
@@ -60,7 +60,7 @@
 	}
 
 	.line-num {
-		font-size: 0.85rem;
+		font-size: var(--text-base);
 		color: var(--text-faint);
 		width: 1rem;
 		text-align: right;
@@ -69,15 +69,15 @@
 
 	.line-glyph {
 		font-family: var(--font-serif);
-		font-size: 1.5rem;
-		letter-spacing: 0.15em;
+		font-size: var(--text-xl);
+		letter-spacing: var(--tracking-wide);
 		color: var(--line-yang);
 		min-width: 5rem;
 		text-align: center;
 	}
 
 	.compact .line-glyph {
-		font-size: 1.1rem;
+		font-size: var(--text-lg);
 	}
 
 	.line-row.changing .line-glyph {

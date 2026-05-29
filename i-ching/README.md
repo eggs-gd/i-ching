@@ -78,9 +78,10 @@ src/
 │   └── +page.svelte        # оркестрація flow
 ├── lib/
 │   ├── i-ching/
+│   │   ├── catalog/                 # гліфи, біти, триграми, resolveHexagram
 │   │   ├── casting-flow.svelte.ts   # стан кидка (CastingFlow)
 │   │   ├── coins.ts                 # три монети, суми 6–9
-│   │   ├── hexagram.ts              # lookup, зміни, relating
+│   │   ├── hexagram.ts              # лінії кидка, changing, relating
 │   │   ├── journal.ts               # facade → storage
 │   │   └── types.ts
 │   ├── storage/                     # local + SQLite repositories
@@ -95,7 +96,6 @@ src/
 │   │   ├── JournalPanel.svelte
 │   │   └── …
 │   ├── data/
-│   │   ├── hexagram-db.ts
 │   │   └── hexagrams/01.json … 64.json
 │   └── i18n/
 │       ├── locales/uk.json, en.json

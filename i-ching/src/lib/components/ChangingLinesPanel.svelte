@@ -2,10 +2,9 @@
 	import type { Line } from '$lib/i-ching/types';
 	import { getLinePositionText, LINE_ORDER } from '$lib/i18n/line-positions';
 	import { useI18n } from '$lib/i18n';
-	import DisclosurePanel from './DisclosurePanel.svelte';
 	import HelpPopup from './HelpPopup.svelte';
-	import InfoButton from './InfoButton.svelte';
-	import LineGlyph from './LineGlyph.svelte';
+	import { DisclosurePanel, InfoButton } from '$lib/components/ui';
+	import { LineGlyph } from '$lib/components/primitives';
 
 	interface Props {
 		changingLines: number[];
@@ -57,15 +56,15 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: var(--space-2);
 	}
 
 	.line-item {
 		display: grid;
 		grid-template-columns: 1.1rem 1fr auto;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		align-items: center;
-		transition: opacity 0.2s ease;
+		transition: var(--transition);
 	}
 
 	.line-item.inactive {
@@ -77,15 +76,15 @@
 	}
 
 	.line-num {
-		font-size: 0.65rem;
+		font-size: var(--text-xs);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
 		text-align: center;
 	}
 
 	.line-text {
-		font-size: 0.75rem;
-		line-height: 1.35;
+		font-size: var(--text-sm);
+		line-height: var(--leading-tight);
 		color: var(--text-muted);
 	}
 

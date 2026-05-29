@@ -30,8 +30,6 @@
 		"explanationPaidBody": "Персоналізоване пояснення кидка — платна функція.",
 		"formReady": "Гексаграма вже складена",
 		"back": "Назад",
-		"pickerList": "Список",
-		"pickerTrigram": "Триграми",
 		"lowerTrigram": "Нижня триграма",
 		"upperTrigram": "Верхня триграма",
 		"yourQuestion": "Ваше питання:",
@@ -41,7 +39,6 @@
 		"clearHexagram": "Очистити вибір",
 		"manualQuestionRequired": "Додайте питання.",
 		"manualPrimaryInvalid": "Оберіть гексаграму входу.",
-		"manualRelatingInvalid": "Вкажіть номер гексаграми виходу від 1 до 64.",
 		"manualSubmitFailed": "Не вдалося зберегти кидок. Перевірте номери гексаграм."
 	},
 	"coins": {

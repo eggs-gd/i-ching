@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import Chevron from './Chevron.svelte';
 
 	interface Props {
 		title: string;
@@ -25,7 +26,7 @@
 		</span>
 		<span class="summary-end">
 			{@render summaryEnd?.()}
-			<span class="chevron" aria-hidden="true"></span>
+			<Chevron />
 		</span>
 	</summary>
 	<div class="body">
@@ -37,22 +38,22 @@
 	.panel {
 		margin: 0;
 		border: 1px solid var(--border);
-		border-radius: 2px;
-		background: rgba(196, 165, 116, 0.03);
+		border-radius: var(--radius);
+		background: var(--fill-subtle);
 		text-align: left;
 	}
 
 	.panel.warning {
-		border-color: rgba(201, 120, 90, 0.4);
-		background: rgba(201, 120, 90, 0.12);
+		border-color: var(--border-warning);
+		background: var(--fill-warning);
 	}
 
 	.summary {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem;
-		padding: 0.55rem 0.75rem;
+		gap: var(--space-3);
+		padding: var(--space-3) var(--space-3);
 		cursor: pointer;
 		list-style: none;
 		-webkit-tap-highlight-color: transparent;
@@ -70,30 +71,20 @@
 	.summary-title {
 		flex: 1;
 		min-width: 0;
-		font-size: 0.72rem;
+		font-size: var(--text-xs);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: var(--tracking-caps);
 		color: var(--line-changing);
 	}
 
 	.summary-end {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		flex-shrink: 0;
 	}
 
-	.chevron {
-		display: block;
-		width: 0.45rem;
-		height: 0.45rem;
-		border-right: 1.5px solid var(--text-faint);
-		border-bottom: 1.5px solid var(--text-faint);
-		transform: rotate(45deg);
-		transition: transform 0.2s ease;
-	}
-
-	.panel[open] .chevron {
+	.panel[open] :global(.chevron) {
 		transform: rotate(-135deg);
 	}
 

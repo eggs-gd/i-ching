@@ -48,26 +48,23 @@
 <style>
 	.switcher {
 		display: flex;
-		gap: 0.35rem;
+		gap: var(--space-2);
 		align-items: center;
 	}
 
 	.locale-btn {
 		display: grid;
 		place-items: center;
-		width: 2.25rem;
-		height: 2.25rem;
+		width: var(--size-touch);
+		height: var(--size-touch);
 		padding: 0;
 		-webkit-tap-highlight-color: transparent;
 		user-select: none;
 		border: 1px solid var(--border);
-		border-radius: 50%;
-		background: rgba(22, 20, 17, 0.72);
+		border-radius: var(--radius-full);
+		background: var(--overlay-elevated);
 		backdrop-filter: blur(6px);
-		transition:
-			border-color 0.2s ease,
-			background 0.2s ease,
-			transform 0.15s ease;
+		transition: var(--transition-fade);
 	}
 
 	.locale-btn:hover {
@@ -77,12 +74,12 @@
 
 	.locale-btn.active {
 		border-color: var(--accent);
-		background: rgba(196, 165, 116, 0.14);
-		box-shadow: 0 0 0 1px rgba(196, 165, 116, 0.2);
+		background: var(--fill-muted);
+		box-shadow: 0 0 0 1px var(--fill-muted);
 	}
 
 	.flag {
-		font-size: 1.15rem;
+		font-size: var(--text-lg);
 		line-height: 1;
 	}
 

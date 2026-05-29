@@ -30,15 +30,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.75rem;
-		height: 2.75rem;
+		width: var(--size-glyph);
+		height: var(--size-glyph);
 		gap: 0.8rem;
 	}
 
 	.bar {
 		display: block;
 		height: 0.28rem;
-		border-radius: 1px;
+		border-radius: var(--radius);
 		background: var(--line-yang);
 	}
 
@@ -57,7 +57,7 @@
 	.compact {
 		width: 1.65rem;
 		height: 1rem;
-		gap: 0.25rem;
+		gap: var(--space-1);
 	}
 
 	.compact .bar {

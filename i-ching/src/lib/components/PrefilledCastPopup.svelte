@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { useI18n } from '$lib/i18n';
-	import AppPopup from './AppPopup.svelte';
+	import { AppButton, AppPopup, FieldLabel } from '$lib/components/ui';
 	import HexagramPicker from './HexagramPicker.svelte';
 	import HexagramPickerDialog from './HexagramPickerDialog.svelte';
 
@@ -113,7 +113,7 @@
 			}}
 		>
 			<label class="field">
-				<span class="field-label">{i18n.t('flow.yourQuestion')}</span>
+				<FieldLabel>{i18n.t('flow.yourQuestion')}</FieldLabel>
 				<textarea
 					value={question}
 					placeholder={i18n.t('flow.contextPlaceholder')}
@@ -123,7 +123,7 @@
 			</label>
 
 			<fieldset class="answer-group">
-				<legend class="field-label">{i18n.t('flow.ichingAnswer')}</legend>
+				<FieldLabel asLegend>{i18n.t('flow.ichingAnswer')}</FieldLabel>
 				<div class="hex-fields">
 					<HexagramPicker
 						label={i18n.t('reading.entryHexagramLabel')}
@@ -147,14 +147,14 @@
 	{/snippet}
 
 	{#snippet footer()}
-		<button
+		<AppButton
+			variant="primary"
 			type="submit"
 			form="prefilled-cast-form"
-			class="popup-action popup-action--primary"
 			disabled={submitting}
 		>
 			{i18n.t('flow.manualSubmit')}
-		</button>
+		</AppButton>
 	{/snippet}
 </AppPopup>
 
@@ -179,20 +179,11 @@
 	.form {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: var(--space-4);
 	}
 
 	.field {
 		display: block;
-	}
-
-	.field-label {
-		display: block;
-		margin-bottom: 0.5rem;
-		font-size: 0.85rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--text-muted);
 	}
 
 	.answer-group {
@@ -202,21 +193,15 @@
 		min-width: 0;
 	}
 
-	.answer-group .field-label {
-		margin-bottom: 0.75rem;
-		padding: 0;
-	}
-
 	.hex-fields {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.error {
 		margin: 0;
-		font-size: 0.8rem;
+		font-size: var(--text-sm);
 		color: var(--line-changing);
 	}
-
 </style>

@@ -4,7 +4,7 @@
 	import JournalPanel from '$lib/components/JournalPanel.svelte';
 	import QuestionForm from '$lib/components/QuestionForm.svelte';
 	import ReadingResult from '$lib/components/ReadingResult.svelte';
-	import { resolveHexagram } from '$lib/data/hexagram-db';
+	import { resolveHexagram } from '$lib/i-ching/catalog';
 	import { createCastingFlow } from '$lib/i-ching/casting-flow.svelte';
 	import type { Casting } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
@@ -211,7 +211,7 @@
 		background: var(--bg);
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.5s ease;
+		transition: var(--transition-fade);
 	}
 
 	.cast-overlay--visible {
@@ -224,11 +224,12 @@
 		max-width: var(--content-max-width);
 		margin: 0 auto;
 		overflow-x: hidden;
-		padding: calc(3.25rem + env(safe-area-inset-top, 0px))
-			calc(1.25rem + env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px))
-			calc(1.25rem + env(safe-area-inset-left, 0px));
+		padding: calc(var(--size-hex) + env(safe-area-inset-top, 0px))
+			calc(var(--space-5) + env(safe-area-inset-right, 0px))
+			calc(var(--space-6) + env(safe-area-inset-bottom, 0px))
+			calc(var(--space-5) + env(safe-area-inset-left, 0px));
 		opacity: 1;
-		transition: opacity 0.5s ease;
+		transition: var(--transition-fade);
 	}
 
 	.main--faded {
@@ -245,21 +246,21 @@
 
 	.site-header {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: var(--space-7);
 	}
 
 	.logo {
 		font-family: var(--font-serif);
-		font-size: 2.5rem;
+		font-size: var(--text-hero);
 		color: var(--accent);
-		letter-spacing: 0.2em;
+		letter-spacing: var(--tracking-hero);
 	}
 
 	.tagline {
-		font-size: 0.7rem;
+		font-size: var(--text-sm);
 		text-transform: uppercase;
-		letter-spacing: 0.2em;
+		letter-spacing: var(--tracking-hero);
 		color: var(--text-faint);
-		margin: 0.5rem 0 0;
+		margin: var(--space-2) 0 0;
 	}
 </style>

@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { getHexagramList } from '$lib/data/hexagram-db';
+	import { getHexagramList } from '$lib/i-ching/catalog';
+	import { Chevron, FieldLabel } from '$lib/components/ui';
+	import { HexagramFontIcon } from '$lib/components/primitives';
 	import { useI18n } from '$lib/i18n';
-	import HexagramIcon from './HexagramIcon.svelte';
 
 	interface Props {
 		label: string;
@@ -28,12 +29,12 @@
 </script>
 
 <div class="picker">
-	<span class="picker-label">{label}</span>
+	<FieldLabel size="compact">{label}</FieldLabel>
 
 	<div class="picker-row">
 		<button type="button" class="trigger" onclick={onOpen}>
 			{#if selected}
-				<HexagramIcon number={selected.number} />
+				<HexagramFontIcon number={selected.number} label={selected.name} compact />
 				<span class="trigger-text">
 					<span class="trigger-num">{selected.number}</span>
 					<span class="trigger-name">{selected.name}</span>
@@ -41,11 +42,16 @@
 			{:else}
 				<span class="placeholder">{placeholderText}</span>
 			{/if}
-			<span class="chevron" aria-hidden="true"></span>
+			<Chevron direction="forward" />
 		</button>
 
 		{#if selected}
-			<button type="button" class="clear-btn" aria-label={i18n.t('flow.clearHexagram')} onclick={clearSelection}>
+			<button
+				type="button"
+				class="clear-btn"
+				aria-label={i18n.t('flow.clearHexagram')}
+				onclick={clearSelection}
+			>
 				×
 			</button>
 		{/if}
@@ -57,19 +63,10 @@
 		min-width: 0;
 	}
 
-	.picker-label {
-		display: block;
-		margin-bottom: 0.35rem;
-		font-size: 0.65rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--text-muted);
-	}
-
 	.picker-row {
 		display: flex;
 		align-items: stretch;
-		gap: 0.35rem;
+		gap: var(--space-2);
 	}
 
 	.trigger {
@@ -77,8 +74,8 @@
 		min-width: 0;
 		display: flex;
 		align-items: center;
-		gap: 0.65rem;
-		padding: 0.55rem 0.65rem;
+		gap: var(--space-3);
+		padding: var(--space-3);
 		border: 1px solid var(--border);
 		border-radius: 2px;
 		background: var(--bg-elevated);
@@ -99,7 +96,7 @@
 		min-width: 0;
 		display: flex;
 		align-items: baseline;
-		gap: 0.45rem;
+		gap: var(--space-2);
 	}
 
 	.trigger-num {
@@ -107,7 +104,7 @@
 		color: var(--accent-dim);
 		font-variant-numeric: tabular-nums;
 		flex-shrink: 0;
-		font-size: 0.95rem;
+		font-size: var(--text-sm);
 	}
 
 	.trigger-name {
@@ -116,13 +113,13 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-size: 0.85rem;
+		font-size: var(--text-sm);
 		color: var(--text);
 	}
 
 	.placeholder {
 		flex: 1;
-		font-size: 0.85rem;
+		font-size: var(--text-sm);
 		color: var(--text-faint);
 	}
 
@@ -146,14 +143,5 @@
 
 	.clear-btn:focus {
 		outline: none;
-	}
-
-	.chevron {
-		flex-shrink: 0;
-		width: 0.45rem;
-		height: 0.45rem;
-		border-right: 1.5px solid var(--text-faint);
-		border-bottom: 1.5px solid var(--text-faint);
-		transform: rotate(-45deg);
 	}
 </style>

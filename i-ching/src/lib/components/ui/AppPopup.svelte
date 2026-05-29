@@ -2,6 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import { portalToBody } from '$lib/actions/portal-to-body';
 	import { useI18n } from '$lib/i18n';
+	import AppButton from './AppButton.svelte';
 
 	type PopupSize = 'default' | 'wide';
 	type PopupVariant = 'default' | 'paid';
@@ -105,7 +106,7 @@
 	</div>
 
 	<footer class="popup-footer" class:has-actions={!!footer}>
-		<button type="button" class="close-btn" onclick={dismiss}>{resolvedCloseLabel}</button>
+		<AppButton variant="popup-close" onclick={dismiss}>{resolvedCloseLabel}</AppButton>
 		{#if footer}
 			<div class="popup-footer-actions">
 				{@render footer()}
@@ -122,9 +123,9 @@
 		);
 		max-width: calc(100dvw - 2.5rem);
 		margin: auto;
-		padding: 1.25rem 1.25rem 1rem;
+		padding: var(--space-5) var(--space-5) var(--space-4);
 		border: 1px solid var(--border);
-		border-radius: 2px;
+		border-radius: var(--radius);
 		background: var(--bg-paper);
 		color: var(--text);
 		outline: none;
@@ -138,24 +139,24 @@
 	.popup.scrollable[open] {
 		display: flex;
 		flex-direction: column;
-		max-height: min(90dvh, 40rem);
+		max-height: var(--popup-max-height);
 		overflow: hidden;
 	}
 
 	.popup::backdrop {
-		background: rgba(8, 7, 6, 0.72);
+		background: var(--overlay-scrim);
 	}
 
 	.popup.paid {
-		padding: 0.75rem;
-		border-color: rgba(201, 120, 90, 0.4);
-		background: rgba(201, 120, 90, 0.25);
+		padding: var(--space-3);
+		border-color: var(--border-warning);
+		background: var(--fill-warning-strong);
 	}
 
 	.popup-title {
-		margin: 0 0 0.75rem;
+		margin: 0 0 var(--space-3);
 		font-family: var(--font-serif);
-		font-size: 1.15rem;
+		font-size: var(--text-lg);
 		font-weight: 500;
 		color: var(--text);
 		flex-shrink: 0;
@@ -163,10 +164,10 @@
 
 	.popup.paid .popup-title {
 		font-family: var(--font-sans);
-		font-size: 0.72rem;
+		font-size: var(--text-xs);
 		font-weight: 500;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: var(--tracking-caps);
 		color: var(--line-changing);
 	}
 
@@ -175,13 +176,13 @@
 	}
 
 	.popup-body:not(:last-child) {
-		margin-bottom: 1rem;
+		margin-bottom: var(--space-4);
 	}
 
 	.popup.scrollable[open] .popup-body {
 		flex: 1 1 auto;
 		min-height: 3rem;
-		max-height: calc(min(90dvh, 40rem) - 7.5rem);
+		max-height: calc(var(--popup-max-height) - 7.5rem);
 		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -191,7 +192,7 @@
 	.popup-footer {
 		flex-shrink: 0;
 		display: grid;
-		gap: 0.5rem;
+		gap: var(--space-2);
 	}
 
 	.popup-footer.has-actions {
@@ -203,94 +204,30 @@
 		grid-template-columns: 1fr;
 	}
 
-	.popup-footer-actions {
-		display: flex;
-		min-width: 0;
-		gap: 0.5rem;
-	}
-
-	.popup-footer-actions :global(.popup-action) {
-		flex: 1;
-		min-width: 0;
-		padding: 0.55rem 0.5rem;
-		border-radius: 2px;
-		font: inherit;
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		cursor: pointer;
-		-webkit-tap-highlight-color: transparent;
-	}
-
-	.popup-footer-actions :global(.popup-action:disabled) {
-		opacity: 0.45;
-		cursor: not-allowed;
-	}
-
-	.popup-footer-actions :global(.popup-action--primary) {
-		border: 1px solid var(--accent-dim);
-		background: var(--accent-dim);
-		color: var(--bg);
-	}
-
-	.popup-footer-actions :global(.popup-action--primary:hover:not(:disabled)) {
-		background: var(--accent);
-		border-color: var(--accent);
-	}
-
-	.popup-footer-actions :global(.popup-action--danger) {
-		border: 1px solid rgba(201, 120, 90, 0.5);
-		background: rgba(201, 120, 90, 0.15);
-		color: var(--line-changing);
-	}
-
-	.popup-footer-actions :global(.popup-action--danger:hover:not(:disabled)) {
-		border-color: var(--line-changing);
-		background: rgba(201, 120, 90, 0.25);
-		color: var(--text);
-	}
-
-	.popup-footer-actions :global(.popup-action:focus) {
-		outline: none;
-	}
-
-	.close-btn {
-		font: inherit;
-		font-size: 0.85rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--text-muted);
-		background: none;
-		border: 1px solid var(--border);
-		border-radius: 2px;
-		padding: 0.55rem 0.75rem;
-		cursor: pointer;
-		-webkit-tap-highlight-color: transparent;
-		white-space: nowrap;
-	}
-
-	.popup-footer:not(.has-actions) .close-btn {
+	.popup-footer:not(.has-actions) :global(.btn.popup-close) {
 		width: 100%;
 	}
 
-	.close-btn:hover {
-		color: var(--text);
-		border-color: var(--accent-dim);
+	.popup-footer-actions {
+		display: flex;
+		min-width: 0;
+		gap: var(--space-2);
 	}
 
-	.close-btn:focus {
-		outline: none;
+	.popup-footer-actions :global(.btn) {
+		flex: 1;
+		min-width: 0;
 	}
 
-	.popup.paid .close-btn {
-		font-size: 0.72rem;
-		letter-spacing: 0.1em;
+	.popup.paid :global(.btn.popup-close) {
+		font-size: var(--text-xs);
+		letter-spacing: var(--tracking-caps);
 		color: var(--line-changing);
-		border-color: rgba(201, 120, 90, 0.4);
+		border-color: var(--border-warning);
 	}
 
-	.popup.paid .close-btn:hover {
-		border-color: rgba(201, 120, 90, 0.65);
+	.popup.paid :global(.btn.popup-close:not(:disabled):hover) {
+		border-color: var(--border-warning-strong);
 		color: var(--text);
 	}
 </style>

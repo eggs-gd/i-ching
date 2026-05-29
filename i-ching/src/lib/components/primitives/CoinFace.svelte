@@ -32,33 +32,51 @@
 	role="img"
 	aria-label={label}
 >
-	<svg viewBox="0 0 48 48" aria-hidden="true">
-		<circle cx="24" cy="24" r="21" class="ring" />
-		<rect x="18.5" y="18.5" width="11" height="11" class="hole" rx="0.5" />
-		{#if side === 'yang'}
-			<line x1="11" y1="24" x2="37" y2="24" class="mark" />
-		{:else if side === 'yin'}
-			<line x1="11" y1="22" x2="19" y2="22" class="mark" />
-			<line x1="29" y1="26" x2="37" y2="26" class="mark" />
-		{/if}
-	</svg>
+	<div class="coin-spin-inner">
+		<svg viewBox="0 0 48 48" aria-hidden="true">
+			<circle cx="24" cy="24" r="21" class="ring" />
+			<rect x="18.5" y="18.5" width="11" height="11" class="hole" rx="0.5" />
+			{#if side === 'yang'}
+				<line x1="11" y1="24" x2="37" y2="24" class="mark" />
+			{:else if side === 'yin'}
+				<line x1="11" y1="22" x2="19" y2="22" class="mark" />
+				<line x1="29" y1="26" x2="37" y2="26" class="mark" />
+			{/if}
+		</svg>
+	</div>
 </div>
 
 <style>
 	.coin-face {
-		width: 2.75rem;
-		height: 2.75rem;
-		transition:
-			transform 0.35s ease,
-			opacity 0.35s ease;
+		flex-shrink: 0;
+		width: var(--size-glyph);
+		height: var(--size-glyph);
+		overflow: hidden;
+		isolation: isolate;
+	}
+
+	.coin-spin-inner {
+		width: 100%;
+		height: 100%;
+		transform-origin: center center;
+		backface-visibility: hidden;
+	}
+
+	.coin-face:not(.spinning) {
+		transition: opacity var(--coin-fade-duration) var(--ease);
+	}
+
+	.coin-face.empty:not(.spinning) {
+		opacity: var(--coin-dim-opacity);
 	}
 
 	.coin-face.spinning {
-		animation: coin-toss 0.55s ease-in-out infinite;
+		perspective: 14rem;
+		animation: coin-toss-fade var(--coin-spin-duration) linear infinite;
 	}
 
-	.coin-face.empty {
-		opacity: 0.22;
+	.coin-face.spinning .coin-spin-inner {
+		animation: coin-toss-spin var(--coin-spin-duration) ease-in-out infinite;
 	}
 
 	svg {
@@ -86,13 +104,13 @@
 	}
 
 	.yang {
-		--coin-fill: rgba(196, 165, 116, 0.22);
+		--coin-fill: var(--fill-strong);
 		--coin-stroke: var(--accent);
 		--coin-mark: var(--line-yang);
 	}
 
 	.yin {
-		--coin-fill: rgba(90, 84, 76, 0.35);
+		--coin-fill: var(--coin-yin);
 		--coin-stroke: var(--line-yin);
 		--coin-mark: var(--text-muted);
 	}
@@ -103,13 +121,21 @@
 		--coin-mark: transparent;
 	}
 
-	@keyframes coin-toss {
-		0%,
-		100% {
-			transform: translateY(0) rotateY(0deg);
+	@keyframes coin-toss-spin {
+		from {
+			transform: rotateY(0deg);
 		}
-		50% {
-			transform: translateY(-6px) rotateY(180deg);
+		to {
+			transform: rotateY(540deg);
+		}
+	}
+
+	@keyframes coin-toss-fade {
+		from {
+			opacity: var(--coin-spin-start-opacity);
+		}
+		to {
+			opacity: 1;
 		}
 	}
 </style>

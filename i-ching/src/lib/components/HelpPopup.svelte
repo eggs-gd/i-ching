@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AppPopup from './AppPopup.svelte';
+	import { AppPopup } from '$lib/components/ui';
 
 	interface Props {
 		open: boolean;
@@ -37,13 +37,13 @@
 	.help-body {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.help-body p {
 		margin: 0;
-		font-size: 1rem;
-		line-height: 1.55;
+		font-size: var(--text-lg);
+		line-height: var(--leading-normal);
 		color: var(--text-muted);
 	}
 </style>

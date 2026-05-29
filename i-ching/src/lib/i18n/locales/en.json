@@ -30,8 +30,6 @@
 		"explanationPaidBody": "A personalized cast explanation is a paid feature.",
 		"formReady": "Hexagram already cast",
 		"back": "Back",
-		"pickerList": "List",
-		"pickerTrigram": "Trigrams",
 		"lowerTrigram": "Lower trigram",
 		"upperTrigram": "Upper trigram",
 		"yourQuestion": "Your question:",
@@ -41,7 +39,6 @@
 		"clearHexagram": "Clear selection",
 		"manualQuestionRequired": "Add your question.",
 		"manualPrimaryInvalid": "Choose an entry hexagram.",
-		"manualRelatingInvalid": "Enter an exit hexagram number from 1 to 64.",
 		"manualSubmitFailed": "Could not save the cast. Check the hexagram numbers."
 	},
 	"coins": {

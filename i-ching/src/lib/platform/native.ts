@@ -1,6 +1,6 @@
 import { Capacitor } from '@capacitor/core';
 import { App } from '@capacitor/app';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { ensureJournalReady } from '$lib/storage';
 import { applySystemTextZoom, initSystemTextZoom, teardownSystemTextZoom } from './text-scale';
@@ -51,6 +51,18 @@ export async function hapticToss(): Promise<void> {
 
 	try {
 		await Haptics.impact({ style: ImpactStyle.Light });
+	} catch {
+		// ignore
+	}
+}
+
+/** Full hexagram composed (6 lines) — stronger than per-coin toss. */
+export async function hapticHexagramComplete(): Promise<void> {
+	if (!Capacitor.isNativePlatform()) return;
+
+	try {
+		await Haptics.impact({ style: ImpactStyle.Heavy });
+		await Haptics.notification({ type: NotificationType.Success });
 	} catch {
 		// ignore
 	}

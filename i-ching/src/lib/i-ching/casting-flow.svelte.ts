@@ -1,9 +1,8 @@
 import { lineFromCoins, tossHexagramWithCoins, tossOneCoin, tossThreeCoins } from './coins';
+import { kingWenNumberFromLines, isValidHexagramNumber } from './catalog';
 import {
 	getChangingLines,
-	getHexagramNumber,
 	getRelatingHexagramNumber,
-	isValidHexagramNumber,
 	linesForHexagramPair,
 	staticLinesForHexagram
 } from './hexagram';
@@ -14,11 +13,28 @@ import {
 	loadJournal,
 	saveCasting
 } from './journal';
-import { hapticToss } from '$lib/platform/native';
+import { hapticHexagramComplete, hapticToss } from '$lib/platform/native';
+import { COIN_SPIN_MS } from './cast-timing';
 import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
 
 function pause(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function coinSpinSlots(line: number): { line: number; coin: number }[] {
+	return [
+		{ line, coin: 1 },
+		{ line, coin: 2 },
+		{ line, coin: 3 }
+	];
+}
+
+function fullStackSpinSlots(): { line: number; coin: number }[] {
+	const slots: { line: number; coin: number }[] = [];
+	for (let line = 1; line <= 6; line++) {
+		slots.push(...coinSpinSlots(line));
+	}
+	return slots;
 }
 
 export class CastingFlow {
@@ -31,7 +47,7 @@ export class CastingFlow {
 	casting = $state<Casting | null>(null);
 	journal = $state<Casting[]>([]);
 	tossing = $state(false);
-	coinRows = $state<CoinValue[][]>([]);
+	coinRows = $state<(CoinValue | undefined)[][]>([]);
 	currentLineCoins = $state<CoinValue[]>([]);
 	spinningLine = $state<number | null>(null);
 	spinningCoin = $state<number | null>(null);
@@ -66,7 +82,6 @@ export class CastingFlow {
 	get coinGridRevealed(): number {
 		return Math.max(
 			this.revealedLines,
-			this.spinningLine ?? 0,
 			this.lines.length + (this.currentLineCoins.length > 0 ? 1 : 0)
 		);
 	}
@@ -223,6 +238,47 @@ export class CastingFlow {
 		return runId === this.runId;
 	}
 
+	private ensureCoinRow(lineNum: number): void {
+		while (this.coinRows.length < lineNum) {
+			this.coinRows = [...this.coinRows, [undefined, undefined, undefined]];
+		}
+	}
+
+	private setCoinValue(lineNum: number, coinNum: number, value: CoinValue): void {
+		this.ensureCoinRow(lineNum);
+		const row = [...this.coinRows[lineNum - 1]];
+		row[coinNum - 1] = value;
+		this.coinRows = this.coinRows.map((existing, index) =>
+			index === lineNum - 1 ? row : existing
+		);
+	}
+
+	/** Spin one coin, haptic, then call `onLand` so the face shows immediately. */
+	private async spinRevealCoin(
+		runId: number,
+		lineNum: number,
+		coinNum: number,
+		onLand: () => void
+	): Promise<boolean> {
+		if (!this.isCurrentRun(runId)) return false;
+
+		this.tossing = true;
+		this.spinningLine = lineNum;
+		this.spinningCoin = coinNum;
+		await pause(COIN_SPIN_MS);
+		if (!this.isCurrentRun(runId)) return false;
+
+		await hapticToss();
+		onLand();
+		this.spinningCoin = null;
+
+		return this.isCurrentRun(runId);
+	}
+
+	private resolvedCoinRows(): CoinValue[][] {
+		return this.coinRows.map((row) => row as CoinValue[]);
+	}
+
 	private clearCurrentCast(): void {
 		this.lines = [];
 		this.revealedLines = 0;
@@ -235,30 +291,28 @@ export class CastingFlow {
 
 	private async runAllToss(runId: number): Promise<void> {
 		this.step = 'toss';
-		this.tossing = true;
-		this.spinningLine = 1;
-		this.spinningCoin = null;
-		await pause(800);
-		if (!this.isCurrentRun(runId)) return;
+		this.coinRows = [];
+		this.lines = [];
+		this.revealedLines = 0;
+		const { lines: result, coinRows: fullRows } = tossHexagramWithCoins();
 
-		await hapticToss();
-		const { lines: result, coinRows } = tossHexagramWithCoins();
-		this.coinRows = coinRows;
-		this.lines = result;
-		this.tossing = false;
-		this.spinningLine = null;
-		this.spinningCoin = null;
-		this.step = 'building';
-
-		for (let i = 0; i < 6; i++) {
-			await pause(600);
-			if (!this.isCurrentRun(runId)) return;
-			this.revealedLines = i + 1;
+		for (const { line, coin } of fullStackSpinSlots()) {
+			const value = fullRows[line - 1][coin - 1];
+			const lineResult = result[line - 1];
+			const ok = await this.spinRevealCoin(runId, line, coin, () => {
+				this.setCoinValue(line, coin, value);
+				if (coin === 3) {
+					this.lines = [...this.lines, lineResult];
+					this.revealedLines = line;
+				}
+			});
+			if (!ok) return;
 		}
 
-		await pause(400);
+		this.tossing = false;
+		this.spinningLine = null;
 		if (!this.isCurrentRun(runId)) return;
-		this.finishCasting(result);
+		await this.finishCasting(result);
 	}
 
 	private async tossNextLine(): Promise<void> {
@@ -266,18 +320,23 @@ export class CastingFlow {
 
 		const runId = this.runId;
 		const lineNum = this.lines.length + 1;
-		this.spinningLine = lineNum;
-		this.spinningCoin = null;
-		this.tossing = true;
-		await pause(600);
-		if (!this.isCurrentRun(runId)) return;
-
-		await hapticToss();
 		const toss = tossThreeCoins();
+
+		this.currentLineCoins = [];
+
+		for (let coin = 1; coin <= 3; coin++) {
+			const value = toss.coins[coin - 1];
+			const ok = await this.spinRevealCoin(runId, lineNum, coin, () => {
+				this.currentLineCoins = [...this.currentLineCoins, value];
+			});
+			if (!ok) return;
+		}
+
 		this.tossing = false;
 		this.spinningLine = null;
 
 		this.coinRows = [...this.coinRows, [...toss.coins]];
+		this.currentLineCoins = [];
 		const result = [...this.lines, toss.lines[0]];
 		this.lines = result;
 		this.revealedLines = result.length;
@@ -295,20 +354,17 @@ export class CastingFlow {
 		const runId = this.runId;
 		const lineNum = this.lines.length + 1;
 		const coinNum = this.currentLineCoins.length + 1;
-		this.spinningLine = lineNum;
-		this.spinningCoin = coinNum;
-		this.tossing = true;
-		await pause(400);
-		if (!this.isCurrentRun(runId)) return;
+		const value = tossOneCoin();
 
-		await hapticToss();
+		const ok = await this.spinRevealCoin(runId, lineNum, coinNum, () => {
+			this.currentLineCoins = [...this.currentLineCoins, value];
+		});
+		if (!ok) return;
+
 		this.tossing = false;
 		this.spinningLine = null;
-		this.spinningCoin = null;
 
-		const coins = [...this.currentLineCoins, tossOneCoin()] as CoinValue[];
-		this.currentLineCoins = coins;
-
+		const coins = this.currentLineCoins;
 		if (coins.length < 3) return;
 
 		this.coinRows = [...this.coinRows, coins];
@@ -325,7 +381,9 @@ export class CastingFlow {
 	}
 
 	private async finishCasting(result: Line[]): Promise<void> {
-		const primaryNumber = getHexagramNumber(result);
+		await hapticHexagramComplete();
+
+		const primaryNumber = kingWenNumberFromLines(result);
 		const relatingNumber = getRelatingHexagramNumber(result);
 		const changingLines = getChangingLines(result);
 
@@ -337,7 +395,7 @@ export class CastingFlow {
 			relatingNumber,
 			changingLines,
 			lines: result,
-			coinRows: this.coinRows.map((row) => [...row]),
+			coinRows: this.resolvedCoinRows(),
 			locale: this.locale,
 			method: this.tossMode
 		};

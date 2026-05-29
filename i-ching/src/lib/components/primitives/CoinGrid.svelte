@@ -40,7 +40,8 @@
 	{#each lineOrder as lineNum}
 		{@const row = lineCoins[lineNum - 1]}
 		{@const line = lines[lineNum - 1]}
-		{@const rowVisible = lineNum <= revealedLines}
+		{@const rowVisible =
+			lineNum <= revealedLines || (spinningLine !== null && lineNum === spinningLine)}
 		<div class="coin-row" class:visible={rowVisible}>
 			<span
 				class="line-label"
@@ -53,8 +54,7 @@
 				{#each [0, 1, 2] as coinIndex}
 					{@const value = row?.[coinIndex]}
 					{@const isSpinning =
-						spinningLine === lineNum &&
-						(spinningCoin === null || spinningCoin === coinIndex + 1)}
+						spinningLine === lineNum && spinningCoin === coinIndex + 1}
 					<CoinFace
 						value={value}
 						empty={value === undefined}
@@ -75,17 +75,17 @@
 	.coin-grid {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
-		margin-bottom: 1.5rem;
+		gap: var(--space-2);
+		margin-bottom: var(--space-5);
 	}
 
 	.coin-row {
 		display: grid;
-		grid-template-columns: 1.25rem 1fr 2.75rem;
+		grid-template-columns: var(--space-5) 1fr var(--size-glyph);
 		align-items: center;
-		gap: 0.75rem;
+		gap: var(--space-3);
 		opacity: 0.35;
-		transition: opacity 0.4s ease;
+		transition: opacity var(--duration) var(--ease);
 	}
 
 	.coin-row.visible {
@@ -93,11 +93,11 @@
 	}
 
 	.line-label {
-		font-size: 0.6rem;
+		font-size: var(--text-xs);
 		color: var(--text-faint);
 		text-align: right;
 		font-variant-numeric: tabular-nums;
-		transition: color 0.3s ease;
+		transition: color 0.3s var(--ease);
 	}
 
 	.line-label.complete {
@@ -111,11 +111,13 @@
 	.coins {
 		display: flex;
 		justify-content: center;
-		gap: 0.65rem;
+		align-items: center;
+		gap: var(--space-3);
+		min-height: var(--size-glyph);
 	}
 
 	.glyph-placeholder {
-		width: 2.75rem;
-		height: 2.75rem;
+		width: var(--size-glyph);
+		height: var(--size-glyph);
 	}
 </style>

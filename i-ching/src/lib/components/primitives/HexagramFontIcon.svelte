@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { hexFontGlyph } from '$lib/data/hex-font';
+	import { hexGlyph } from '$lib/i-ching/catalog';
 
 	interface Props {
 		number: number;
@@ -11,7 +11,7 @@
 
 	let { number, label, compact = false }: Props = $props();
 
-	const glyph = $derived(hexFontGlyph(number));
+	const glyph = $derived(hexGlyph(number));
 </script>
 
 <span
@@ -28,7 +28,7 @@
 	.hex-font-icon:not(.compact) {
 		display: block;
 		font-family: var(--font-hexagram);
-		font-size: 3.25rem;
+		font-size: var(--size-hex);
 		line-height: 2;
 		color: var(--line-yang);
 		font-variant-emoji: text;
@@ -47,7 +47,7 @@
 		justify-content: center;
 		width: 1em;
 		height: 1em;
-		font-size: 1rem;
+		font-size: var(--text-lg);
 		line-height: 0;
 		vertical-align: middle;
 		flex-shrink: 0;
