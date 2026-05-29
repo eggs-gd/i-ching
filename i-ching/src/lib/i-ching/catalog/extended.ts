@@ -29,45 +29,47 @@ export interface HexagramExtendedContent {
 	wilhelm_lines: Record<string, WilhelmTextBlock>;
 }
 
+type ExtendedLoader = () => Promise<HexagramExtendedContent>;
+
 const extendedModules = {
 	en: import.meta.glob('../../data/hexagrams_ext/en/*.json', {
-		eager: true,
 		import: 'default'
-	}) as Record<string, HexagramExtendedContent>,
+	}) as Record<string, ExtendedLoader>,
 	uk: import.meta.glob('../../data/hexagrams_ext/uk/*.json', {
-		eager: true,
 		import: 'default'
-	}) as Record<string, HexagramExtendedContent>
+	}) as Record<string, ExtendedLoader>
 };
 
-const extendedByLocale: Record<Locale, Record<number, HexagramExtendedContent>> = {
+const loadersByLocale: Record<Locale, Record<number, ExtendedLoader>> = {
+	en: {},
+	uk: {}
+};
+
+const extendedCache: Record<Locale, Record<number, HexagramExtendedContent>> = {
 	en: {},
 	uk: {}
 };
 
 for (const locale of ['en', 'uk'] as const) {
-	for (const record of Object.values(extendedModules[locale])) {
-		extendedByLocale[locale][record.number] = record;
+	for (const [filePath, loader] of Object.entries(extendedModules[locale])) {
+		const match = filePath.match(/\/(\d{2})\.json$/);
+		if (!match) continue;
+		loadersByLocale[locale][Number(match[1])] = loader;
 	}
 }
 
-export function getHexagramExtended(
+export async function getHexagramExtended(
 	number: number,
 	locale: Locale
-): HexagramExtendedContent | null {
-	return extendedByLocale[locale][number] ?? extendedByLocale.uk[number] ?? null;
-}
+): Promise<HexagramExtendedContent | null> {
+	const resolvedLocale = loadersByLocale[locale][number] ? locale : 'uk';
+	const loader = loadersByLocale[resolvedLocale][number];
+	if (!loader) return null;
 
-function hasWilhelmBlock(block: WilhelmTextBlock): boolean {
-	return Boolean(block.comments.trim());
+	extendedCache[resolvedLocale][number] ??= await loader();
+	return extendedCache[resolvedLocale][number];
 }
 
 export function hasHexagramExtended(number: number, locale: Locale): boolean {
-	const record = getHexagramExtended(number, locale);
-	if (!record) return false;
-	return Boolean(
-		record.wilhelm_symbolic.trim() ||
-			hasWilhelmBlock(record.wilhelm_judgment) ||
-			hasWilhelmBlock(record.wilhelm_image)
-	);
+	return Boolean(loadersByLocale[locale][number] ?? loadersByLocale.uk[number]);
 }

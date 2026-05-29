@@ -36,9 +36,7 @@
 	});
 
 	const previewNumber = $derived(
-		selectedLower && selectedUpper
-			? hexagramNumberFromTrigrams(selectedLower, selectedUpper)
-			: null
+		selectedLower && selectedUpper ? hexagramNumberFromTrigrams(selectedLower, selectedUpper) : null
 	);
 
 	const previewHexagram = $derived(

@@ -1,21 +1,14 @@
 #!/usr/bin/env node
 /** Apply curated reference-readings-uk.json to hexagram JSON files (uk locale reading + name). */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, 'data');
 const hexDir = join(__dirname, '../src/lib/data/hexagrams');
-const ukReadingsPath = join(dataDir, 'uk-readings.json');
-const reference = JSON.parse(
-	readFileSync(join(dataDir, 'reference-readings-uk.json'), 'utf8')
-);
-
-const ukReadings = existsSync(ukReadingsPath)
-	? JSON.parse(readFileSync(ukReadingsPath, 'utf8'))
-	: {};
+const reference = JSON.parse(readFileSync(join(dataDir, 'reference-readings-uk.json'), 'utf8'));
 
 let applied = 0;
 
@@ -33,19 +26,7 @@ for (const file of readdirSync(hexDir).filter((f) => /^\d{2}\.json$/.test(f))) {
 
 	writeFileSync(path, JSON.stringify(record, null, '\t') + '\n');
 
-	if (ukReadings[String(record.number)]) {
-		ukReadings[String(record.number)] = {
-			...ukReadings[String(record.number)],
-			name: ref.name,
-			reading: ref.reading
-		};
-	}
-
 	applied++;
-}
-
-if (applied > 0 && existsSync(ukReadingsPath)) {
-	writeFileSync(ukReadingsPath, JSON.stringify(ukReadings, null, '\t') + '\n');
 }
 
 console.log(`Applied ${applied} reference readings to hexagram files`);

@@ -20,9 +20,7 @@
 	let deleting = $state(false);
 
 	const selectedCount = $derived(selected.size);
-	const allSelected = $derived(
-		journal.length > 0 && selectedCount === journal.length
-	);
+	const allSelected = $derived(journal.length > 0 && selectedCount === journal.length);
 
 	function closeArchive(): void {
 		selected = new Set();

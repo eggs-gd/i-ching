@@ -82,5 +82,4 @@
 		font-size: var(--text-lg);
 		line-height: 1;
 	}
-
 </style>

@@ -38,7 +38,7 @@
 	/>
 
 	{#if hasChangingLines}
-	<ChangingLinesPanel changingLines={casting.changingLines} lines={casting.lines} />
+		<ChangingLinesPanel changingLines={casting.changingLines} lines={casting.lines} />
 	{/if}
 
 	{#if relatingHexagram}

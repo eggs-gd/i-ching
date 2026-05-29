@@ -143,11 +143,7 @@
 
 {#if overlayActive}
 	<div class="cast-overlay" class:cast-overlay--visible={overlayVisible}>
-		<CastingStage
-			{...castingStageProps}
-			step={overlayVisible ? flow.step : 'toss'}
-			immersive
-		/>
+		<CastingStage {...castingStageProps} step={overlayVisible ? flow.step : 'toss'} immersive />
 	</div>
 {/if}
 
@@ -204,10 +200,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: calc(1rem + env(safe-area-inset-top, 0px))
-			calc(1rem + env(safe-area-inset-right, 0px))
-			calc(1rem + env(safe-area-inset-bottom, 0px))
-			calc(1rem + env(safe-area-inset-left, 0px));
+		padding: calc(1rem + env(safe-area-inset-top, 0px)) calc(1rem + env(safe-area-inset-right, 0px))
+			calc(1rem + env(safe-area-inset-bottom, 0px)) calc(1rem + env(safe-area-inset-left, 0px));
 		background: var(--bg);
 		opacity: 0;
 		pointer-events: none;

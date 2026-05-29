@@ -295,11 +295,7 @@ export function assertNoForbiddenPhrases(text, label, phrases) {
 }
 
 function collectLocaleText(locale) {
-	return [
-		locale.name,
-		locale.composition,
-		...READING_KEYS.map((key) => locale.reading?.[key])
-	]
+	return [locale.name, locale.composition, ...READING_KEYS.map((key) => locale.reading?.[key])]
 		.filter(Boolean)
 		.join('\n');
 }

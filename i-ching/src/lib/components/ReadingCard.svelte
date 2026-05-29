@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Hexagram } from '$lib/i-ching/types';
 	import { getHexagramExtended, hasHexagramExtended } from '$lib/i-ching/catalog';
+	import type { HexagramExtendedContent } from '$lib/i-ching/catalog';
 	import { useI18n } from '$lib/i18n';
 	import { HexagramFontIcon } from '$lib/components/primitives';
 	import HexagramExtendedPopup from './HexagramExtendedPopup.svelte';
@@ -19,8 +20,10 @@
 	const i18n = useI18n();
 	let helpOpen = $state(false);
 	let extendedOpen = $state(false);
+	let extendedLoading = $state(false);
+	let extended = $state<HexagramExtendedContent | null>(null);
+	let extendedRequest = 0;
 
-	const extended = $derived(getHexagramExtended(hexagram.number, i18n.locale));
 	const showExtended = $derived(hasHexagramExtended(hexagram.number, i18n.locale));
 
 	const helpTitle = $derived(helpTitleKey ? i18n.t(helpTitleKey) : '');
@@ -40,6 +43,35 @@
 	]);
 
 	const classicalTexts = $derived([hexagram.judgment, hexagram.image].filter(Boolean));
+
+	$effect(() => {
+		hexagram.number;
+		i18n.locale;
+		extendedRequest++;
+		extended = null;
+		extendedOpen = false;
+		extendedLoading = false;
+	});
+
+	async function openExtended(): Promise<void> {
+		if (!showExtended || extendedLoading) return;
+
+		if (extended) {
+			extendedOpen = true;
+			return;
+		}
+
+		const request = ++extendedRequest;
+		extendedLoading = true;
+		const loaded = await getHexagramExtended(hexagram.number, i18n.locale);
+		if (request !== extendedRequest) return;
+
+		extended = loaded;
+		extendedLoading = false;
+		if (loaded) {
+			extendedOpen = true;
+		}
+	}
 </script>
 
 <article class="reading">
@@ -97,12 +129,9 @@
 		{/each}
 	</section>
 
-	{#if showExtended && extended}
+	{#if showExtended}
 		<footer class="extended-footer">
-			<MoreTextButton
-				label={i18n.t('reading.extendedOpen')}
-				onclick={() => (extendedOpen = true)}
-			/>
+			<MoreTextButton label={i18n.t('reading.extendedOpen')} onclick={openExtended} />
 		</footer>
 	{/if}
 </article>

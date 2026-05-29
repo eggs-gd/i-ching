@@ -32,10 +32,7 @@ export const TRIGRAMS: Record<TrigramId, TrigramCatalogEntry> = {
 };
 
 const PATTERN_TO_TRIGRAM = Object.fromEntries(
-	(Object.values(TRIGRAMS) as TrigramCatalogEntry[]).map((t) => [
-		t.yangBits.join(''),
-		t.id
-	])
+	(Object.values(TRIGRAMS) as TrigramCatalogEntry[]).map((t) => [t.yangBits.join(''), t.id])
 ) as Record<string, TrigramId>;
 
 export function trigramGlyph(id: TrigramId): string {

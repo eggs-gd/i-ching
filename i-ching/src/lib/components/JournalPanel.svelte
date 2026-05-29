@@ -92,17 +92,9 @@
 			</div>
 		{/if}
 
-		<JournalMotifsPanel
-			motifs={topMotifs}
-			{activeMotifNumber}
-			onMotifSelect={onMotifSelect}
-		/>
+		<JournalMotifsPanel motifs={topMotifs} {activeMotifNumber} {onMotifSelect} />
 
-		<JournalEntriesGrouped
-			grouped={groupedEntries}
-			{activeCastingId}
-			onEntrySelect={onEntrySelect}
-		/>
+		<JournalEntriesGrouped grouped={groupedEntries} {activeCastingId} {onEntrySelect} />
 
 		{#if hasMore}
 			<div class="load-more" bind:this={loadMoreEl} aria-hidden="true"></div>

@@ -29,7 +29,6 @@
 		"explain": "Пояснити",
 		"explanationPaidBody": "Персоналізоване пояснення кидка — платна функція.",
 		"formReady": "Гексаграма вже складена",
-		"back": "Назад",
 		"lowerTrigram": "Нижня триграма",
 		"upperTrigram": "Верхня триграма",
 		"yourQuestion": "Ваше питання:",
@@ -61,9 +60,7 @@
 		"relatingHexagramHelpTitle": "Гексаграма виходу",
 		"relatingHexagramHelpBody": "Гексаграма виходу показує форму, у яку поступово переходить ситуація.\n\nВона не дає фінального результату чи прогнозу, а показує новий стан рівноваги, який починає складатися після зміни.",
 		"helpClose": "Закрити",
-		"extendedOpen": "Розширено",
-		"extendedJudgment": "Судження",
-		"extendedImage": "Образ"
+		"extendedOpen": "Розширено"
 	},
 	"journal": {
 		"title": "Архів",

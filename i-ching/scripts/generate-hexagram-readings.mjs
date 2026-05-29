@@ -87,9 +87,9 @@ function hasLocaleContent(record) {
 	const en = record.locales?.en;
 	return Boolean(
 		uk?.composition?.trim() &&
-			uk?.reading?.scene?.trim() &&
-			en?.composition?.trim() &&
-			en?.reading?.scene?.trim()
+		uk?.reading?.scene?.trim() &&
+		en?.composition?.trim() &&
+		en?.reading?.scene?.trim()
 	);
 }
 
@@ -285,8 +285,7 @@ async function generateValidatedPayload(record) {
 function applyLocales(record, payload) {
 	record.locales ??= {};
 
-	const keepUkReading =
-		CURATED_HEXAGRAM_NUMBERS.includes(record.number) && !opts.includeCurated;
+	const keepUkReading = CURATED_HEXAGRAM_NUMBERS.includes(record.number) && !opts.includeCurated;
 
 	record.locales.en = payload.en;
 
@@ -312,7 +311,9 @@ function sleep(ms) {
 async function processHexagram(number, state) {
 	const { file, record } = loadHexRecord(number);
 
-	console.log(`\n→ Hexagram ${number} ${record.chinese} (${record.pinyin}) — ${record.upper}/${record.lower}`);
+	console.log(
+		`\n→ Hexagram ${number} ${record.chinese} (${record.pinyin}) — ${record.upper}/${record.lower}`
+	);
 
 	if (!opts.force && !opts.dryRun && hasLocaleContent(record)) {
 		console.log('  skip: locale content already present (use --force)');

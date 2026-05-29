@@ -1,6 +1,10 @@
 import type { Casting, CoinValue } from './types';
 import { coinRowsFromLines } from './coins';
-import { deleteJournalEntries as deleteStoredEntries, loadJournalEntries, saveJournalEntry } from '$lib/storage';
+import {
+	deleteJournalEntries as deleteStoredEntries,
+	loadJournalEntries,
+	saveJournalEntry
+} from '$lib/storage';
 
 export function getCastingCoinRows(casting: Casting): CoinValue[][] {
 	if (casting.coinRows?.length) {
@@ -63,10 +67,7 @@ function localDateKey(iso: string): string {
 }
 
 /** Groups entries in display order (newest first), preserving journal list order. */
-export function groupJournalEntries(
-	entries: Casting[],
-	locale: string
-): JournalYearGroup[] {
+export function groupJournalEntries(entries: Casting[], locale: string): JournalYearGroup[] {
 	const years: JournalYearGroup[] = [];
 	const yearIndex = new Map<string, JournalYearGroup>();
 	const monthIndex = new Map<string, JournalMonthGroup>();

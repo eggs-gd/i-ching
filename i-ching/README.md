@@ -92,7 +92,6 @@ src/
 │   │   ├── ReadingResult.svelte     # результат читання
 │   │   ├── ReadingCard.svelte
 │   │   ├── ChangingLinesPanel.svelte
-│   │   ├── CastExplanationPanel.svelte
 │   │   ├── JournalPanel.svelte
 │   │   └── …
 │   ├── data/

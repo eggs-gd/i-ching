@@ -30,7 +30,8 @@
 	/* Typography */
 	--font-serif: 'Cormorant Garamond', Georgia, serif;
 	--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
-	--font-hexagram: 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', 'Hiragino Sans', sans-serif;
+	--font-hexagram:
+		'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', 'Hiragino Sans', sans-serif;
 
 	--text-xs: 0.65rem;
 	--text-sm: 0.75rem;

@@ -5,7 +5,16 @@ const root = path.resolve(import.meta.dirname, '..');
 const shortDir = path.join(root, 'src/lib/data/hexagrams');
 const extDir = path.join(root, 'src/lib/data/hexagrams_ext/en');
 
-const copyKeys = new Set(['hex', 'hex_font', 'trad_chinese', 'pinyin', 'binary', 'od', 'number', 'chinese']);
+const copyKeys = new Set([
+	'hex',
+	'hex_font',
+	'trad_chinese',
+	'pinyin',
+	'binary',
+	'od',
+	'number',
+	'chinese'
+]);
 
 const trigramNames = new Map([
 	['THE CREATIVE,', 'The Creative'],
@@ -141,7 +150,10 @@ const textualFixes = [
 	[/\.Thus/g, '.\nThus'],
 	[/Thus the noble person\n\nSpreads/g, 'Thus the noble person\nSpreads'],
 	[/\. The superior man carries things through\./g, 'The superior man carries things through.'],
-	[/When the eighth month comes,\n\n\. There will be misfortune\./g, 'When the eighth month comes,\nThere will be misfortune.']
+	[
+		/When the eighth month comes,\n\n\. There will be misfortune\./g,
+		'When the eighth month comes,\nThere will be misfortune.'
+	]
 ];
 
 const roleTerms = [
@@ -247,7 +259,8 @@ for (const file of files) {
 
 	for (const trigram of [data.wilhelm_above, data.wilhelm_below]) {
 		if (trigramNames.has(trigram.symbolic)) trigram.symbolic = trigramNames.get(trigram.symbolic);
-		if (elementNames.has(trigram.alchemical)) trigram.alchemical = elementNames.get(trigram.alchemical);
+		if (elementNames.has(trigram.alchemical))
+			trigram.alchemical = elementNames.get(trigram.alchemical);
 	}
 
 	walk(data, (value, pathParts) => {

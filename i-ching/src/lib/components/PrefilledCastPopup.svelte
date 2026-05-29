@@ -147,12 +147,7 @@
 	{/snippet}
 
 	{#snippet footer()}
-		<AppButton
-			variant="primary"
-			type="submit"
-			form="prefilled-cast-form"
-			disabled={submitting}
-		>
+		<AppButton variant="primary" type="submit" form="prefilled-cast-form" disabled={submitting}>
 			{i18n.t('flow.manualSubmit')}
 		</AppButton>
 	{/snippet}

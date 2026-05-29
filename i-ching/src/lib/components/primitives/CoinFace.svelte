@@ -15,11 +15,7 @@
 
 	const side = $derived(value ? coinToSide(value) : null);
 	const label = $derived(
-		empty
-			? i18n.t('coins.pending')
-			: side === 'yang'
-				? i18n.t('coins.yang')
-				: i18n.t('coins.yin')
+		empty ? i18n.t('coins.pending') : side === 'yang' ? i18n.t('coins.yang') : i18n.t('coins.yin')
 	);
 </script>
 
@@ -27,8 +23,8 @@
 	class="coin-face"
 	class:yang={side === 'yang'}
 	class:yin={side === 'yin'}
-	class:empty={empty}
-	class:spinning={spinning}
+	class:empty
+	class:spinning
 	role="img"
 	aria-label={label}
 >

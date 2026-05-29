@@ -6,7 +6,11 @@ import {
 import { Preferences } from '@capacitor/preferences';
 import type { Casting } from '$lib/i-ching/types';
 import { LocalJournalRepository } from './journal-local';
-import { JOURNAL_MIGRATED_KEY, JOURNAL_STORAGE_KEY, type JournalRepository } from './journal-repository';
+import {
+	JOURNAL_MIGRATED_KEY,
+	JOURNAL_STORAGE_KEY,
+	type JournalRepository
+} from './journal-repository';
 
 const DB_NAME = 'i-ching';
 

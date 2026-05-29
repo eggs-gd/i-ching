@@ -27,16 +27,11 @@
 	const imageComments = $derived(paragraphs(extended.wilhelm_image.comments));
 </script>
 
-<AppFullscreen
-	{open}
-	title={hexagram.name}
-	{titleId}
-	{onClose}
->
+<AppFullscreen {open} title={hexagram.name} {titleId} {onClose}>
 	{#snippet titleContent()}
 		<span class="title-row">
 			<span class="title-num">{hexagram.number}</span>
-			<HexagramFontIcon number={hexagram.number} label={hexagram.name} compact />
+			<HexagramFontIcon number={hexagram.number} compact />
 			<span class="title-name">{hexagram.name}</span>
 		</span>
 	{/snippet}

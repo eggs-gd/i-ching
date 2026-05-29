@@ -7,3 +7,10 @@ bun.lockb
 
 # Miscellaneous
 /static/
+/build/
+/.svelte-kit/
+/android/app/src/main/assets/public/
+/ios/App/App/public/
+/ios/App/App/Assets.xcassets/
+/docs/
+scripts/data/iching_wilhelm_translation.js

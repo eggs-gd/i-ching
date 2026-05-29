@@ -24,7 +24,7 @@
 	}
 </script>
 
-<IconButton label={i18n.t('app.scrollToTop')} visible={visible} onclick={scrollToTop}>
+<IconButton label={i18n.t('app.scrollToTop')} {visible} onclick={scrollToTop}>
 	{#snippet children()}
 		<svg viewBox="0 0 24 24" aria-hidden="true">
 			<path d="M12 6.5 6 14h4.5v3.5h3V14H18L12 6.5z" />

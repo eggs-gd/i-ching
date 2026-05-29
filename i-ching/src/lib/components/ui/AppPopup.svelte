@@ -117,10 +117,7 @@
 
 <style>
 	.popup {
-		width: min(
-			calc(var(--content-max-width) * 0.9),
-			calc((100dvw - 2.5rem) * 0.9)
-		);
+		width: min(calc(var(--content-max-width) * 0.9), calc((100dvw - 2.5rem) * 0.9));
 		max-width: calc(100dvw - 2.5rem);
 		margin: auto;
 		padding: var(--space-5) var(--space-5) var(--space-4);

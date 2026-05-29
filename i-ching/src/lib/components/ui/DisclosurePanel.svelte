@@ -10,18 +10,16 @@
 		summaryEnd?: Snippet;
 	}
 
-	let {
-		title,
-		tone = 'neutral',
-		titleColor = 'changing',
-		children,
-		summaryEnd
-	}: Props = $props();
+	let { title, tone = 'neutral', titleColor = 'changing', children, summaryEnd }: Props = $props();
 </script>
 
 <details class="panel" class:warning={tone === 'warning'}>
 	<summary class="summary">
-		<span class="summary-title" class:faint={titleColor === 'faint'} class:muted={titleColor === 'muted'}>
+		<span
+			class="summary-title"
+			class:faint={titleColor === 'faint'}
+			class:muted={titleColor === 'muted'}
+		>
 			{title}
 		</span>
 		<span class="summary-end">

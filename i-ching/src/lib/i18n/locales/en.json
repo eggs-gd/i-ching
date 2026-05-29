@@ -29,7 +29,6 @@
 		"explain": "Explain",
 		"explanationPaidBody": "A personalized cast explanation is a paid feature.",
 		"formReady": "Hexagram already cast",
-		"back": "Back",
 		"lowerTrigram": "Lower trigram",
 		"upperTrigram": "Upper trigram",
 		"yourQuestion": "Your question:",
@@ -61,9 +60,7 @@
 		"relatingHexagramHelpTitle": "Exit hexagram",
 		"relatingHexagramHelpBody": "The exit hexagram shows the form toward which the situation gradually transitions.\n\nIt does not give a final result or forecast, but shows the new state of equilibrium that begins to take shape after the change.",
 		"helpClose": "Close",
-		"extendedOpen": "Extended",
-		"extendedJudgment": "Judgment",
-		"extendedImage": "Image"
+		"extendedOpen": "Extended"
 	},
 	"journal": {
 		"title": "Archive",

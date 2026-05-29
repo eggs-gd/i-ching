@@ -14,7 +14,6 @@
 		"format": "prettier --write .",
 		"generate:hexagram": "node scripts/generate-hexagram-readings.mjs",
 		"generate:hexagram:all": "node scripts/generate-hexagram-readings.mjs --all",
-		"build:hexagrams-ext": "node scripts/build-hexagrams-ext.mjs",
 		"translate:hexagrams-ext": "node scripts/translate-hexagrams-ext.mjs",
 		"apply:reference-readings": "node scripts/apply-reference-readings.mjs",
 		"build:mobile": "yarn build && npx cap sync",

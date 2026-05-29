@@ -15,7 +15,9 @@ const args = parseArgs(process.argv.slice(2));
 const lang = args.lang;
 
 if (!lang) {
-	console.error('Usage: node scripts/translate-hexagrams-ext.mjs --lang <locale> [--force] [--sync-only]');
+	console.error(
+		'Usage: node scripts/translate-hexagrams-ext.mjs --lang <locale> [--force] [--sync-only]'
+	);
 	process.exit(1);
 }
 
@@ -262,7 +264,10 @@ async function loadGlossary(catalog) {
 		}
 
 		if (anchor.enComposition && anchor.composition) {
-			glossary.push([anchor.enComposition.replace(/\.$/, ''), anchor.composition.replace(/\.$/, '')]);
+			glossary.push([
+				anchor.enComposition.replace(/\.$/, ''),
+				anchor.composition.replace(/\.$/, '')
+			]);
 		}
 
 		const extended = await readJson(path.join(sourceDir, file));
@@ -292,7 +297,10 @@ function applyCatalogAnchors(data, anchor) {
 
 function applyGlossary(node, glossary) {
 	if (typeof node === 'string') {
-		return glossary.reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), node);
+		return glossary.reduce(
+			(value, [pattern, replacement]) => value.replace(pattern, replacement),
+			node
+		);
 	}
 
 	if (Array.isArray(node)) {
@@ -316,7 +324,9 @@ const catalog = await loadCatalog();
 const glossary = await loadGlossary(catalog);
 
 if (catalog.size === 0) {
-	console.warn(`No short hexagram locale found for "${lang}". Extended texts will use machine translation only.`);
+	console.warn(
+		`No short hexagram locale found for "${lang}". Extended texts will use machine translation only.`
+	);
 }
 
 for (const file of files) {

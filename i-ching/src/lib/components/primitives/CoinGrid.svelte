@@ -53,13 +53,8 @@
 			<div class="coins">
 				{#each [0, 1, 2] as coinIndex}
 					{@const value = row?.[coinIndex]}
-					{@const isSpinning =
-						spinningLine === lineNum && spinningCoin === coinIndex + 1}
-					<CoinFace
-						value={value}
-						empty={value === undefined}
-						spinning={isSpinning && rowVisible}
-					/>
+					{@const isSpinning = spinningLine === lineNum && spinningCoin === coinIndex + 1}
+					<CoinFace {value} empty={value === undefined} spinning={isSpinning && rowVisible} />
 				{/each}
 			</div>
 			{#if line && lineNum <= revealedLines}

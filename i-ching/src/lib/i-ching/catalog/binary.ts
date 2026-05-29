@@ -42,8 +42,7 @@ export function trigramsFromLines(lines: Line[]): { lower: TrigramId; upper: Tri
 export function hexagramNumberFromTrigrams(lower: TrigramId, upper: TrigramId): number {
 	const l = trigramYangBits(lower);
 	const u = trigramYangBits(upper);
-	const binary =
-		(l[0] << 0) | (l[1] << 1) | (l[2] << 2) | (u[0] << 3) | (u[1] << 4) | (u[2] << 5);
+	const binary = (l[0] << 0) | (l[1] << 1) | (l[2] << 2) | (u[0] << 3) | (u[1] << 4) | (u[2] << 5);
 
 	return BINARY_TO_KING_WEN[binary];
 }

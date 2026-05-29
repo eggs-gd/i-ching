@@ -1,4 +1,4 @@
-/** King Wen hexagram pictograms (Unicode U+4DC0–U+4DFF). Source: scripts/data/i-ching-basic.js */
+/** King Wen hexagram pictograms (Unicode U+4DC0-U+4DFF). */
 const HEX_GLYPHS: readonly string[] = [
 	'', // 0 — unused
 	'䷀',
