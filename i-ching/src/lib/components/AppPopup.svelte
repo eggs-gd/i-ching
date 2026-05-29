@@ -130,11 +130,16 @@
 		outline: none;
 	}
 
-	.popup.scrollable {
-		max-height: min(90dvh, 40rem);
-		overflow: hidden;
+	/* Closed <dialog> is inert in DOM (portaled to body); must stay hidden */
+	.popup:not([open]) {
+		display: none;
+	}
+
+	.popup.scrollable[open] {
 		display: flex;
 		flex-direction: column;
+		max-height: min(90dvh, 40rem);
+		overflow: hidden;
 	}
 
 	.popup::backdrop {
@@ -173,11 +178,14 @@
 		margin-bottom: 1rem;
 	}
 
-	.popup.scrollable .popup-body {
-		flex: 1;
-		min-height: 0;
+	.popup.scrollable[open] .popup-body {
+		flex: 1 1 auto;
+		min-height: 3rem;
+		max-height: calc(min(90dvh, 40rem) - 7.5rem);
+		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
+		overscroll-behavior: contain;
 	}
 
 	.popup-footer {

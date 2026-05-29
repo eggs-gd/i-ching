@@ -149,7 +149,6 @@
 <style>
 	:global(.journal-archive) {
 		display: block;
-		min-height: 0;
 	}
 
 	:global(.journal-archive__empty) {
