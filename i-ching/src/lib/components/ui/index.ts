@@ -6,3 +6,4 @@ export { default as DisclosurePanel } from './DisclosurePanel.svelte';
 export { default as FieldLabel } from './FieldLabel.svelte';
 export { default as IconButton } from './IconButton.svelte';
 export { default as InfoButton } from './InfoButton.svelte';
+export { default as MoreTextButton } from './MoreTextButton.svelte';

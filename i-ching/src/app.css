@@ -129,6 +129,12 @@ html.immersive-cast .scroll-top-bar {
 	display: none;
 }
 
+html.scroll-locked,
+html.scroll-locked body {
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+
 .profile-bar {
 	position: fixed;
 	top: 0;

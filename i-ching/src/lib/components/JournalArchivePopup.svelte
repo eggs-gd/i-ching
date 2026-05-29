@@ -76,7 +76,7 @@
 		deleting = true;
 		try {
 			await onDelete([...selected]);
-			closeArchive();
+			selected = new Set();
 		} finally {
 			deleting = false;
 		}

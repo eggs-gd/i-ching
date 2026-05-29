@@ -24,6 +24,8 @@ export {
 export { HEX_FONT_GLYPHS, hexGlyph } from './hex-glyphs';
 
 export { getHexagramList, resolveHexagram } from './resolve';
+export { getHexagramExtended, hasHexagramExtended } from './extended';
+export type { HexagramExtendedContent, WilhelmTextBlock, WilhelmTrigramRef } from './extended';
 export { getHexagramRecord, hexagramRecords } from './records';
 
 export type { TrigramCatalogEntry } from './trigrams';

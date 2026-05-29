@@ -1,9 +1,11 @@
 <script lang="ts">
 	import type { Hexagram } from '$lib/i-ching/types';
+	import { getHexagramExtended, hasHexagramExtended } from '$lib/i-ching/catalog';
 	import { useI18n } from '$lib/i18n';
 	import { HexagramFontIcon } from '$lib/components/primitives';
+	import HexagramExtendedPopup from './HexagramExtendedPopup.svelte';
 	import HelpPopup from './HelpPopup.svelte';
-	import { InfoButton } from '$lib/components/ui';
+	import { InfoButton, MoreTextButton } from '$lib/components/ui';
 
 	interface Props {
 		hexagram: Hexagram;
@@ -16,6 +18,10 @@
 
 	const i18n = useI18n();
 	let helpOpen = $state(false);
+	let extendedOpen = $state(false);
+
+	const extended = $derived(getHexagramExtended(hexagram.number, i18n.locale));
+	const showExtended = $derived(hasHexagramExtended(hexagram.number, i18n.locale));
 
 	const helpTitle = $derived(helpTitleKey ? i18n.t(helpTitleKey) : '');
 	const helpBody = $derived(helpBodyKey ? i18n.t(helpBodyKey) : '');
@@ -90,7 +96,25 @@
 			</div>
 		{/each}
 	</section>
+
+	{#if showExtended && extended}
+		<footer class="extended-footer">
+			<MoreTextButton
+				label={i18n.t('reading.extendedOpen')}
+				onclick={() => (extendedOpen = true)}
+			/>
+		</footer>
+	{/if}
 </article>
+
+{#if showExtended && extended}
+	<HexagramExtendedPopup
+		open={extendedOpen}
+		{hexagram}
+		{extended}
+		onClose={() => (extendedOpen = false)}
+	/>
+{/if}
 
 {#if helpTitleKey}
 	<HelpPopup
@@ -231,5 +255,13 @@
 
 	.layer.vector .layer-mark {
 		font-size: var(--text-lg);
+	}
+
+	.extended-footer {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: var(--space-4);
+		padding-top: var(--space-3);
+		border-top: 1px solid var(--border);
 	}
 </style>

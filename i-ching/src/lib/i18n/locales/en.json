@@ -60,7 +60,10 @@
 		"stateHexagramHelpBody": "The state hexagram shows the current form of the situation.\n\nIt describes the tension of the moment, its boundaries, inner order, and the way the situation holds itself right now.",
 		"relatingHexagramHelpTitle": "Exit hexagram",
 		"relatingHexagramHelpBody": "The exit hexagram shows the form toward which the situation gradually transitions.\n\nIt does not give a final result or forecast, but shows the new state of equilibrium that begins to take shape after the change.",
-		"helpClose": "Close"
+		"helpClose": "Close",
+		"extendedOpen": "Extended",
+		"extendedJudgment": "Judgment",
+		"extendedImage": "Image"
 	},
 	"journal": {
 		"title": "Archive",
