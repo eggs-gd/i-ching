@@ -8,6 +8,7 @@ import {
 } from './hexagram';
 import { createCastingId, getCastingCoinRows } from './journal';
 import { journalStore } from '$lib/state/journal.svelte';
+import { track } from '$lib/analytics';
 import { hapticHexagramComplete, hapticToss } from '$lib/platform/native';
 import { COIN_SPIN_MS } from './cast-timing';
 import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
@@ -145,6 +146,7 @@ export class CastingFlow {
 		this.currentLineCoins = [];
 
 		await journalStore.save(casting);
+		track('casting_completed', { hexagram_number: primaryNumber, method: 'manual' });
 		this.casting = casting;
 		this.step = 'reading';
 		return true;
@@ -380,6 +382,7 @@ export class CastingFlow {
 		};
 
 		await journalStore.save(casting);
+		track('casting_completed', { hexagram_number: primaryNumber, method: this.tossMode });
 		this.casting = casting;
 		this.step = 'reading';
 	}

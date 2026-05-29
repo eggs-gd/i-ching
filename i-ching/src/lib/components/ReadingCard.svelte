@@ -8,6 +8,7 @@
 	import HelpPopup from './HelpPopup.svelte';
 	import { InfoButton, MoreTextButton } from '$lib/components/ui';
 	import { splitParagraphs } from '$lib/utils/text';
+	import { track, trackVisible } from '$lib/analytics';
 
 	interface Props {
 		hexagram: Hexagram;
@@ -49,6 +50,7 @@
 
 	async function openExtended(): Promise<void> {
 		if (!showExtended || extendedLoading) return;
+		track('extended_reading_opened', { hexagram_number: hexagram.number });
 
 		if (extended) {
 			extendedOpen = true;
@@ -68,12 +70,15 @@
 	}
 </script>
 
-<article class="reading">
+<article
+	class="reading"
+	use:trackVisible={{ event: 'hexagram_viewed', params: { hexagram_number: hexagram.number, hexagram_name: hexagram.name }, key: hexagram.number }}
+>
 	{#if label}
 		<div class="label-row">
 			<p class="label">{label}</p>
 			{#if helpTitleKey}
-				<InfoButton label={helpTitle} onclick={() => (helpOpen = true)} />
+				<InfoButton label={helpTitle} onclick={() => { track('help_opened', { key: helpTitleKey ?? '' }); helpOpen = true; }} />
 			{/if}
 		</div>
 	{/if}
@@ -84,7 +89,7 @@
 			<div class="title-row">
 				<h2>{hexagram.name}</h2>
 				{#if !label && helpTitleKey}
-					<InfoButton label={helpTitle} onclick={() => (helpOpen = true)} />
+					<InfoButton label={helpTitle} onclick={() => { track('help_opened', { key: helpTitleKey ?? '' }); helpOpen = true; }} />
 				{/if}
 			</div>
 			<p class="meta">

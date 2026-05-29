@@ -7,6 +7,7 @@
 	import { initI18n, useI18n } from '$lib/i18n';
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
 	import { applySystemTextZoom } from '$lib/platform/text-scale';
+	import { track } from '$lib/analytics';
 
 	let { children } = $props();
 
@@ -14,6 +15,7 @@
 	const i18n = useI18n();
 
 	onMount(() => {
+		track('app_open');
 		void applySystemTextZoom();
 		void initNativePlatform(() => {
 			if (typeof history !== 'undefined' && history.length > 1) {

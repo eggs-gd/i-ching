@@ -3,6 +3,7 @@
 	import type { TossMode } from '$lib/i-ching/types';
 	import { AppButton, FieldLabel } from '$lib/components/ui';
 	import { useI18n } from '$lib/i18n';
+	import { track } from '$lib/analytics';
 	import PrefilledCastPopup from './PrefilledCastPopup.svelte';
 
 	interface Props {
@@ -58,7 +59,7 @@
 					variant="primary"
 					primaryTone="soft"
 					disabled={!question.trim()}
-					onclick={() => onStartCast(mode)}
+					onclick={() => { track('cast_started', { method: mode }); onStartCast(mode); }}
 				>
 					{i18n.t(castModeLabels[mode])}
 				</AppButton>

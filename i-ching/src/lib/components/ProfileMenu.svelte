@@ -2,6 +2,7 @@
 	import { useI18n } from '$lib/i18n';
 	import { journalStore } from '$lib/state/journal.svelte';
 	import { AppButton, AppPopup, FieldLabel, IconButton } from '$lib/components/ui';
+	import { track } from '$lib/analytics';
 	import JournalArchivePopup from './JournalArchivePopup.svelte';
 	import LocaleSwitcher from './LocaleSwitcher.svelte';
 
@@ -17,6 +18,7 @@
 	}
 
 	function openArchive(): void {
+		track('archive_opened');
 		archiveOpen = true;
 	}
 
@@ -64,7 +66,7 @@
 	open={archiveOpen}
 	{journal}
 	onClose={closeArchive}
-	onDelete={(ids) => journalStore.deleteByIds(ids)}
+	onDelete={async (ids) => { track('archive_entries_deleted', { count: ids.length }); await journalStore.deleteByIds(ids); }}
 />
 
 <style>

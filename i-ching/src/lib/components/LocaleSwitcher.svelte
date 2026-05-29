@@ -2,6 +2,7 @@
 	import type { Locale } from '$lib/i-ching/types';
 	import { LOCALES } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
+	import { track } from '$lib/analytics';
 
 	interface Props {
 		/** id of external label when the switcher has no visible group title */
@@ -18,6 +19,7 @@
 	};
 
 	function selectLocale(locale: Locale) {
+		track('locale_changed', { locale });
 		i18n.setLocale(locale);
 	}
 </script>

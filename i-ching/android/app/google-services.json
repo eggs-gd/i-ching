@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "353777145779",
+    "project_id": "aiching-9bbf6",
+    "storage_bucket": "aiching-9bbf6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353777145779:android:02fd43a630ea3593b9ddc6",
+        "android_client_info": {
+          "package_name": "gd.eggs.aiching"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD-BZPCslr5G5zj1SDszFKv8cYgBrwH0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

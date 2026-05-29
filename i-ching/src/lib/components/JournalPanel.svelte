@@ -4,6 +4,7 @@
 	import type { Casting } from '$lib/i-ching/types';
 	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { getLocaleDateFormat, useI18n } from '$lib/i18n';
+	import { trackVisible } from '$lib/analytics';
 	import JournalEntriesGrouped from './journal/JournalEntriesGrouped.svelte';
 	import JournalMotifsPanel from './journal/JournalMotifsPanel.svelte';
 	import PaidFeaturePopup from './PaidFeaturePopup.svelte';
@@ -78,7 +79,7 @@
 </script>
 
 {#if journal.length > 0}
-	<aside class="journal">
+	<aside class="journal" use:trackVisible={{ event: 'journal_panel_viewed', threshold: 0.3 }}>
 		<h2>{i18n.t('journal.title')}</h2>
 
 		{#if SHOW_PAID_FEATURE_STUBS}

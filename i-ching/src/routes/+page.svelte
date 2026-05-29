@@ -9,6 +9,7 @@
 	import type { Casting } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
 	import { journalStore } from '$lib/state/journal.svelte';
+	import { track } from '$lib/analytics';
 
 	const i18n = useI18n();
 	const flow = createCastingFlow();
@@ -109,12 +110,14 @@
 	});
 
 	async function viewJournalEntry(entry: Casting) {
+		track('journal_entry_opened', { hexagram_number: entry.primaryNumber });
 		flow.viewJournalEntry(entry);
 		await tick();
 		readingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
 
 	async function viewMotifHexagram(hexagramNumber: number) {
+		track('motif_viewed', { hexagram_number: hexagramNumber });
 		flow.viewHexagram(hexagramNumber);
 		await tick();
 		readingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
