@@ -46,7 +46,7 @@
 		spinningLine={step === 'reading' ? null : spinningLine}
 		spinningCoin={step === 'reading' ? null : spinningCoin}
 		revealedLines={step === 'reading' ? 6 : coinGridRevealed}
-		activeLine={step === 'reading' || step === 'building' ? null : activeLine}
+		activeLine={step === 'reading' ? null : activeLine}
 	/>
 
 	{#if step === 'toss' && tossMode !== 'all'}
@@ -57,8 +57,6 @@
 		{/if}
 	{:else if step === 'toss'}
 		<p class="status">{i18n.t('flow.tossing')}</p>
-	{:else if step === 'building'}
-		<p class="status">{i18n.t('flow.building')}</p>
 	{/if}
 </section>
 

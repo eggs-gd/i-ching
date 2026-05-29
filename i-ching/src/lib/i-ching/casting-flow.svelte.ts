@@ -344,7 +344,7 @@ export class CastingFlow {
 		if (result.length === 6) {
 			await pause(400);
 			if (!this.isCurrentRun(runId)) return;
-			this.finishCasting(result);
+			await this.finishCasting(result);
 		}
 	}
 
@@ -376,7 +376,7 @@ export class CastingFlow {
 		if (result.length === 6) {
 			await pause(400);
 			if (!this.isCurrentRun(runId)) return;
-			this.finishCasting(result);
+			await this.finishCasting(result);
 		}
 	}
 

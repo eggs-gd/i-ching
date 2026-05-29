@@ -163,7 +163,7 @@
 		/>
 	{/if}
 
-	{#if flow.step === 'building' || (flow.step === 'reading' && flow.casting?.method !== 'motif')}
+	{#if flow.step === 'reading' && flow.casting?.method !== 'motif'}
 		<CastingStage {...castingStageProps} />
 	{/if}
 

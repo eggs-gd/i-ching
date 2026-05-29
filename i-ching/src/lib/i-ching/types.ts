@@ -84,7 +84,7 @@ export interface Casting {
 	note?: string;
 }
 
-export type FlowStep = 'question' | 'toss' | 'building' | 'reading';
+export type FlowStep = 'question' | 'toss' | 'reading';
 
 export type TossMode = 'single' | 'line' | 'all';
 

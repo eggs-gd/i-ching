@@ -2,7 +2,7 @@
 
 Символічне читання І-Цзин у браузері. Не прогноз і не порада — образ поточної ситуації, її внутрішня динаміка і напрям зміни.
 
-**Етап 1 завершено** (PWA у браузері). **Етап 2** — mobile shell через Capacitor (див. [docs/mobile-roadmap.md](docs/mobile-roadmap.md)).
+**Етапи 1–2 завершено** (PWA + Capacitor mobile shell для iOS/Android). Наступне — монетизація (RevenueCat, AI «Пояснення»).
 
 ---
 
@@ -134,7 +134,7 @@ interface Casting {
 	lines: Line[];
 	coinRows?: CoinValue[][];
 	locale?: 'uk' | 'en';
-	method?: 'single' | 'line' | 'all';
+	method?: 'single' | 'line' | 'all' | 'manual' | 'motif';
 	note?: string;
 }
 ```

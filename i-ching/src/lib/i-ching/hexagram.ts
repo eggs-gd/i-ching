@@ -1,10 +1,5 @@
-import {
-	binaryForHexagramNumber,
-	kingWenNumberFromLines,
-	lineValuesFromBinary,
-	resolveHexagram
-} from './catalog';
-import type { Hexagram, Line, Locale } from './types';
+import { binaryForHexagramNumber, kingWenNumberFromLines, lineValuesFromBinary } from './catalog';
+import type { Line } from './types';
 
 export function staticLinesForHexagram(number: number): Line[] {
 	return lineValuesFromBinary(binaryForHexagramNumber(number)).map((value) => ({
@@ -42,10 +37,6 @@ export function getTransformedLines(lines: Line[]): Line[] {
 	);
 }
 
-export function getHexagram(lines: Line[], locale: Locale): Hexagram {
-	return resolveHexagram(kingWenNumberFromLines(lines), locale);
-}
-
 export function getChangingLines(lines: Line[]): number[] {
 	return lines
 		.map((line, index) => (line.changing ? index + 1 : null))
@@ -62,14 +53,3 @@ export function getRelatingHexagramNumber(lines: Line[]): number | undefined {
 	return kingWenNumberFromLines(getTransformedLines(lines));
 }
 
-export function getRelatingHexagram(lines: Line[], locale: Locale): Hexagram | undefined {
-	const number = getRelatingHexagramNumber(lines);
-	return number ? resolveHexagram(number, locale) : undefined;
-}
-
-export function lineDisplay(line: Line): string {
-	if (line.value === 'yang') {
-		return line.changing ? '—○—' : '———';
-	}
-	return line.changing ? '— × —' : '—   —';
-}

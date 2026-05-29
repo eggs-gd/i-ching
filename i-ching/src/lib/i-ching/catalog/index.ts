@@ -1,12 +1,7 @@
 /** Hexagram & trigram catalog: glyphs, bit patterns, King Wen numbers, locale records. */
 
 export type { HexagramCore } from './core';
-export {
-	getAllHexagramCores,
-	getHexagramCore,
-	getHexagramCoreByBinary,
-	getHexagramCoreFromTrigrams
-} from './core';
+export { getHexagramCore, getHexagramCoreFromTrigrams } from './core';
 
 export {
 	BINARY_TO_KING_WEN,

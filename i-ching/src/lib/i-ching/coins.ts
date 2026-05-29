@@ -62,10 +62,6 @@ export function coinRowsFromLines(lines: Line[], seed?: string): CoinValue[][] {
 	return lines.map((line) => [...randomCoinsFromLine(line, rng)]);
 }
 
-export function tossHexagram(rng: () => number = Math.random): Line[] {
-	return tossHexagramWithCoins(rng).lines;
-}
-
 export function tossHexagramWithCoins(rng: () => number = Math.random): HexagramToss {
 	const lines: Line[] = [];
 	const coinRows: CoinValue[][] = [];
@@ -98,8 +94,7 @@ function line(value: LineValue, kind: LineKind): Line {
 	return { value, kind, changing: kind === 'old' };
 }
 
-/** Deterministic RNG from seed — useful for replay/debug */
-export function seededRng(seed: string): () => number {
+function seededRng(seed: string): () => number {
 	let state = hashSeed(seed);
 
 	return () => {
