@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { resolveHexagram } from '$lib/data/hexagram-db';
-	import { getRecurringMotifs } from '$lib/i-ching/journal';
+	import { getRecurringMotifs, groupJournalEntries } from '$lib/i-ching/journal';
 	import type { Casting, Hexagram } from '$lib/i-ching/types';
 	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { getLocaleDateFormat, useI18n } from '$lib/i18n';
 	import DisclosurePanel from './DisclosurePanel.svelte';
+	import HexagramFontIcon from './HexagramFontIcon.svelte';
 	import PaidFeaturePopup from './PaidFeaturePopup.svelte';
 
 	const PAGE_SIZE = 20;
@@ -30,6 +31,9 @@
 	let loadMoreEl = $state<HTMLElement | null>(null);
 
 	const visibleEntries = $derived(journal.slice(0, visibleCount));
+	const groupedEntries = $derived(
+		groupJournalEntries(visibleEntries, getLocaleDateFormat(i18n.locale))
+	);
 	const hasMore = $derived(visibleCount < journal.length);
 
 	$effect(() => {
@@ -72,21 +76,23 @@
 			}))
 	);
 
-	function formatDate(iso: string) {
-		return new Date(iso).toLocaleDateString(getLocaleDateFormat(i18n.locale), {
-			day: 'numeric',
-			month: 'short',
+	const dateLocale = $derived(getLocaleDateFormat(i18n.locale));
+
+	function formatEntryTime(iso: string): string {
+		return new Date(iso).toLocaleTimeString(dateLocale, {
 			hour: '2-digit',
 			minute: '2-digit'
 		});
 	}
-
-	function hexagramLabel(hexagram: Hexagram) {
-		return `${hexagram.number} ${hexagram.name}`;
-	}
-
-
 </script>
+
+{#snippet hexagramAnswer(hexagram: Hexagram)}
+	<span class="entry-hex-row">
+		<span class="entry-num">{hexagram.number}</span>
+		<HexagramFontIcon number={hexagram.number} label={hexagram.name} compact />
+		<span class="entry-name">{hexagram.name}</span>
+	</span>
+{/snippet}
 
 {#if journal.length > 0}
 	<aside class="journal">
@@ -117,6 +123,7 @@
 									onclick={() => onMotifSelect(hexagram.number)}
 								>
 									<span class="motif-num">{hexagram.number}</span>
+									<HexagramFontIcon number={hexagram.number} label={hexagram.name} compact />
 									<span class="motif-name">{hexagram.name}</span>
 									<span class="motif-count">×{count}</span>
 								</button>
@@ -127,31 +134,59 @@
 			</div>
 		{/if}
 
-		<ul class="entries">
-			{#each visibleEntries as entry}
-				{@const primary = resolveHexagram(entry.primaryNumber, i18n.locale)}
-				{@const relating = entry.relatingNumber ? resolveHexagram(entry.relatingNumber, i18n.locale) : null}
-				<li>
-					<button
-						type="button"
-						class="entry-btn"
-						class:active={activeCastingId === entry.id}
-						aria-label={i18n.t('journal.openEntry')}
-						onclick={() => onEntrySelect(entry)}
-					>
-						<time datetime={entry.createdAt}>{formatDate(entry.createdAt)}</time>
-						<span class="entry-hex">
-							{hexagramLabel(primary)}
-							{#if relating}
-								<span class="entry-arrow" aria-hidden="true">→</span>
-								{hexagramLabel(relating)}
-							{/if}
-						</span>
-						<span class="entry-q">{entry.question}</span>
-					</button>
-				</li>
+		<div class="entries-grouped">
+			{#each groupedEntries as year (year.key)}
+				<section class="group-year" aria-labelledby="journal-year-{year.key}">
+					<h3 class="group-year-label" id="journal-year-{year.key}">{year.label}</h3>
+					{#each year.months as month (month.key)}
+						<section class="group-month" aria-labelledby="journal-month-{month.key}">
+							<h4 class="group-month-label" id="journal-month-{month.key}">{month.label}</h4>
+							{#each month.days as day (day.key)}
+								<section class="group-day" aria-labelledby="journal-day-{day.key}">
+									<h5 class="group-day-label" id="journal-day-{day.key}">{day.label}</h5>
+									<ul class="entries">
+										{#each day.entries as entry (entry.id)}
+											{@const primary = resolveHexagram(entry.primaryNumber, i18n.locale)}
+											{@const relating = entry.relatingNumber
+												? resolveHexagram(entry.relatingNumber, i18n.locale)
+												: null}
+											<li>
+												<button
+													type="button"
+													class="entry-btn"
+													class:active={activeCastingId === entry.id}
+													aria-label={i18n.t('journal.openEntry')}
+													onclick={() => onEntrySelect(entry)}
+												>
+													<div class="entry-head">
+														<span
+															class="entry-q"
+															class:entry-q-empty={!entry.question.trim()}
+														>
+															{entry.question.trim() || '\u2014'}
+														</span>
+														<time class="entry-time" datetime={entry.createdAt}>
+															{formatEntryTime(entry.createdAt)}
+														</time>
+													</div>
+													<span class="entry-answer">
+														{@render hexagramAnswer(primary)}
+														{#if relating}
+															<span class="entry-arrow" aria-hidden="true">→</span>
+															{@render hexagramAnswer(relating)}
+														{/if}
+													</span>
+												</button>
+											</li>
+										{/each}
+									</ul>
+								</section>
+							{/each}
+						</section>
+					{/each}
+				</section>
 			{/each}
-		</ul>
+		</div>
 
 		{#if hasMore}
 			<div class="load-more" bind:this={loadMoreEl} aria-hidden="true"></div>
@@ -189,6 +224,64 @@
 		margin: 0;
 	}
 
+	.entries-grouped {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+	}
+
+	.group-year,
+	.group-month,
+	.group-day {
+		margin: 0;
+	}
+
+	.group-year-label,
+	.group-month-label,
+	.group-day-label {
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.group-year-label {
+		font-family: var(--font-serif);
+		font-size: 1.35rem;
+		color: var(--text-muted);
+		letter-spacing: 0.04em;
+		margin-bottom: 1rem;
+	}
+
+	.group-month {
+		margin-bottom: 1.25rem;
+	}
+
+	.group-month:last-child {
+		margin-bottom: 0;
+	}
+
+	.group-month-label {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--text-faint);
+		margin-bottom: 0.65rem;
+	}
+
+	.group-day {
+		margin-bottom: 1rem;
+	}
+
+	.group-day:last-child {
+		margin-bottom: 0;
+	}
+
+	.group-day-label {
+		font-family: var(--font-serif);
+		font-size: 0.95rem;
+		color: var(--text-muted);
+		margin-bottom: 0.25rem;
+	}
+
 	.motifs-list li {
 		border-bottom: 1px solid var(--border);
 	}
@@ -200,7 +293,7 @@
 	.motif-btn {
 		width: 100%;
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		gap: 0.5rem;
 		padding: 0.5rem 0;
 		border: none;
@@ -238,6 +331,7 @@
 	.motif-name {
 		flex: 1;
 		min-width: 0;
+		font-family: var(--font-serif);
 	}
 
 	.motif-count {
@@ -259,7 +353,7 @@
 		color: inherit;
 		cursor: pointer;
 		display: grid;
-		gap: 0.2rem;
+		gap: 0.35rem;
 		text-align: left;
 		transition: color 0.2s ease;
 	}
@@ -269,35 +363,76 @@
 		color: var(--text);
 	}
 
-	.entry-btn.active .entry-hex {
+	.entry-btn.active .entry-name {
 		color: var(--accent);
 	}
 
-	time {
-		font-size: 0.7rem;
+	.entry-btn.active .entry-num {
+		color: var(--accent-dim);
+	}
+
+	.entry-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 0.75rem;
+	}
+
+	.entry-q {
+		flex: 1;
+		min-width: 0;
+		text-align: left;
+		font-size: 0.85rem;
+		color: var(--text-soft);
+		line-height: 1.35;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.entry-q-empty {
 		color: var(--text-faint);
 	}
 
-	.entry-hex {
-		font-family: var(--font-serif);
-		font-size: 0.9rem;
+	.entry-time {
+		flex-shrink: 0;
+		font-size: 0.7rem;
+		color: var(--text-faint);
+		white-space: nowrap;
+	}
+
+	.entry-answer {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: baseline;
+		align-items: center;
+		gap: 0.35rem 0.5rem;
+		font-size: 0.95rem;
+		color: var(--text-muted);
+	}
+
+	.entry-hex-row {
+		display: inline-flex;
+		align-items: center;
 		gap: 0.35rem;
+		min-width: 0;
+	}
+
+	.entry-num {
+		font-family: var(--font-serif);
+		color: var(--accent-dim);
+		flex-shrink: 0;
+	}
+
+	.entry-name {
+		font-family: var(--font-serif);
+		min-width: 0;
 	}
 
 	.entry-arrow {
 		color: var(--text-faint);
-		font-size: 0.9rem;
-	}
-
-	.entry-q {
-		font-size: 0.9rem;
-		color: var(--text-muted);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		font-size: 0.85rem;
 	}
 
 	.load-more {

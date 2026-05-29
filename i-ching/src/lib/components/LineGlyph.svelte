@@ -37,7 +37,7 @@
 
 	.bar {
 		display: block;
-		height: 0.2rem;
+		height: 0.28rem;
 		border-radius: 1px;
 		background: var(--line-yang);
 	}
@@ -57,11 +57,11 @@
 	.compact {
 		width: 1.65rem;
 		height: 1rem;
-		gap: 0.2rem;
+		gap: 0.25rem;
 	}
 
 	.compact .bar {
-		height: 0.14rem;
+		height: 0.2rem;
 	}
 
 	.compact.yin .bar {

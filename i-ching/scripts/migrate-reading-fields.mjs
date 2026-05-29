@@ -6,6 +6,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const dataDir = join(__dirname, 'data');
 const root = join(__dirname, '..');
 
 function migrateReading(reading) {
@@ -70,7 +71,7 @@ for (const file of readdirSync(hexDir).filter((f) => f.endsWith('.json'))) {
 }
 
 for (const name of ['en-readings.json', 'uk-readings.json']) {
-	const p = join(__dirname, name);
+	const p = join(dataDir, name);
 	if (migrateJsonFile(p)) count++;
 }
 

@@ -19,7 +19,7 @@ Thumbs.db
 !.env.test
 
 # Generator state
-scripts/.hexagram-generation-state.json
+scripts/data/.hexagram-generation-state.json
 
 # Vite
 vite.config.js.timestamp-*

@@ -1,37 +1,24 @@
 <script lang="ts">
-	import type { Hexagram, Line, TrigramId } from '$lib/i-ching/types';
-	import {
-		staticLinesForHexagram,
-		trigramSymbols,
-		trigramsFromLines
-	} from '$lib/i-ching/hexagram';
+	import type { Hexagram } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
+	import HexagramFontIcon from './HexagramFontIcon.svelte';
 	import HelpPopup from './HelpPopup.svelte';
 	import InfoButton from './InfoButton.svelte';
 
 	interface Props {
 		hexagram: Hexagram;
-		lines?: Line[];
 		label?: string;
 		helpTitleKey?: string;
 		helpBodyKey?: string;
 	}
 
-	let { hexagram, lines, label, helpTitleKey, helpBodyKey }: Props = $props();
+	let { hexagram, label, helpTitleKey, helpBodyKey }: Props = $props();
 
 	const i18n = useI18n();
 	let helpOpen = $state(false);
 
 	const helpTitle = $derived(helpTitleKey ? i18n.t(helpTitleKey) : '');
 	const helpBody = $derived(helpBodyKey ? i18n.t(helpBodyKey) : '');
-
-	const displayTrigrams = $derived(
-		trigramsFromLines(lines ?? staticLinesForHexagram(hexagram.number))
-	);
-
-	function trigramName(id: TrigramId): string {
-		return i18n.t(`trigrams.${id}`);
-	}
 
 	function paragraphs(text: string): string[] {
 		return text
@@ -74,10 +61,7 @@
 			</p>
 			<p class="composition">{hexagram.composition}</p>
 		</div>
-		<div class="trigrams">
-			<span title={trigramName(displayTrigrams.upper)}>{trigramSymbols[displayTrigrams.upper]}</span>
-			<span title={trigramName(displayTrigrams.lower)}>{trigramSymbols[displayTrigrams.lower]}</span>
-		</div>
+		<HexagramFontIcon number={hexagram.number} label={hexagram.name} />
 	</header>
 
 	{#if classicalTexts.length > 0}
@@ -161,7 +145,7 @@
 		border-left: 2px solid var(--border);
 		background: rgba(196, 165, 116, 0.04);
 		font-family: var(--font-serif);
-		font-size: 0.875rem;
+		font-size: 0.95rem;
 		font-style: italic;
 		color: var(--text-muted);
 		line-height: 1.5;
@@ -194,7 +178,7 @@
 		font-family: var(--font-serif);
 		font-size: 2.5rem;
 		color: var(--accent-dim);
-		line-height: 1;
+		line-height: 1.5;
 	}
 
 	h2 {
@@ -211,13 +195,6 @@
 
 	.chinese {
 		font-size: 1rem;
-	}
-
-	.trigrams {
-		font-size: 2rem;
-		display: flex;
-		flex-direction: column;
-		color: var(--text-muted);
 	}
 
 	.layers {

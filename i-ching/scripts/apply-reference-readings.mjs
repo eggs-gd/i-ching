@@ -6,10 +6,11 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const dataDir = join(__dirname, 'data');
 const hexDir = join(__dirname, '../src/lib/data/hexagrams');
-const ukReadingsPath = join(__dirname, 'uk-readings.json');
+const ukReadingsPath = join(dataDir, 'uk-readings.json');
 const reference = JSON.parse(
-	readFileSync(join(__dirname, 'reference-readings-uk.json'), 'utf8')
+	readFileSync(join(dataDir, 'reference-readings-uk.json'), 'utf8')
 );
 
 const ukReadings = existsSync(ukReadingsPath)

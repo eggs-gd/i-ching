@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=Noto+Sans+Symbols+2&display=swap');
 
 :root {
 	--bg: #0e0d0b;
 	--bg-elevated: #161411;
 	--bg-paper: #1a1814;
 	--text: #e8e2d6;
+	--text-soft: #b9b1a3;
 	--text-muted: #8a8275;
 	--text-faint: #5c564c;
 	--accent: #c4a574;
@@ -15,6 +16,7 @@
 	--border: rgba(196, 165, 116, 0.12);
 	--font-serif: 'Cormorant Garamond', Georgia, serif;
 	--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+	--font-hexagram: 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', 'Hiragino Sans', sans-serif;
 }
 
 *,

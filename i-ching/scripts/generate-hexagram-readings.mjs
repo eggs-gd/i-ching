@@ -33,8 +33,9 @@ import {
 } from './lib/hexagram-generation-prompt.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const dataDir = join(__dirname, 'data');
 const hexDir = join(__dirname, '../src/lib/data/hexagrams');
-const statePath = join(__dirname, '.hexagram-generation-state.json');
+const statePath = join(dataDir, '.hexagram-generation-state.json');
 
 loadEnv();
 

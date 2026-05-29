@@ -3,8 +3,9 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const dataDir = join(__dirname, 'data');
 const hexDir = join(__dirname, '../src/lib/data/hexagrams');
-const enReadings = JSON.parse(readFileSync(join(__dirname, 'en-readings.json'), 'utf8'));
+const enReadings = JSON.parse(readFileSync(join(dataDir, 'en-readings.json'), 'utf8'));
 
 const files = readdirSync(hexDir).filter((f) => f.endsWith('.json'));
 

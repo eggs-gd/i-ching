@@ -81,7 +81,7 @@ export const DYNAMICS_PARAGRAPH_MIN = 95;
 export const DYNAMICS_PARAGRAPH_MAX = 250;
 
 const REFERENCE_UK = JSON.parse(
-	readFileSync(join(__dirname, '../reference-readings-uk.json'), 'utf8')
+	readFileSync(join(__dirname, '../data/reference-readings-uk.json'), 'utf8')
 );
 
 export const RESPONSE_SCHEMA = {

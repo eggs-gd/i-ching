@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Casting, Hexagram } from '$lib/i-ching/types';
-	import { getTransformedLines } from '$lib/i-ching/hexagram';
 	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { useI18n } from '$lib/i18n';
 	import CastExplanationPanel from './CastExplanationPanel.svelte';
@@ -26,13 +25,8 @@
 		<p class="question-echo">«{casting.question}»</p>
 	{/if}
 
-	{#if hasChangingLines}
-		<ChangingLinesPanel changingLines={casting.changingLines} lines={casting.lines} />
-	{/if}
-
 	<ReadingCard
 		hexagram={primaryHexagram}
-		lines={casting.lines}
 		label={i18n.t(hasChangingLines ? 'reading.entryHexagramLabel' : 'reading.stateHexagramLabel')}
 		helpTitleKey={hasChangingLines
 			? 'reading.primaryHexagramHelpTitle'
@@ -42,10 +36,13 @@
 			: 'reading.stateHexagramHelpBody'}
 	/>
 
+	{#if hasChangingLines}
+	<ChangingLinesPanel changingLines={casting.changingLines} lines={casting.lines} />
+	{/if}
+
 	{#if relatingHexagram}
 		<ReadingCard
 			hexagram={relatingHexagram}
-			lines={getTransformedLines(casting.lines)}
 			label={i18n.t('reading.relatingLabel')}
 			helpTitleKey="reading.relatingHexagramHelpTitle"
 			helpBodyKey="reading.relatingHexagramHelpBody"
