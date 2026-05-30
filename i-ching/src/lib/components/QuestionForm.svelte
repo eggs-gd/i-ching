@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { TossMode } from '$lib/i-ching/types';
 	import { AppButton, FieldLabel } from '$lib/components/ui';
 	import { useI18n } from '$lib/i18n';
@@ -33,10 +32,6 @@
 	export function focusInput(): void {
 		textareaEl?.focus({ preventScroll: true });
 	}
-
-	onMount(() => {
-		requestAnimationFrame(() => focusInput());
-	});
 </script>
 
 <section class="step question-step">

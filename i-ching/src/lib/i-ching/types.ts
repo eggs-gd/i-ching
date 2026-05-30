@@ -2,7 +2,7 @@ export type Locale = 'uk' | 'en';
 
 export const LOCALES: Locale[] = ['uk', 'en'];
 
-export const DEFAULT_LOCALE: Locale = 'uk';
+export const DEFAULT_LOCALE: Locale = 'en';
 
 export interface SymbolicReading {
 	/** Symbolic picture — short imagistic scene without the composition line */

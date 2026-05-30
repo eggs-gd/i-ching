@@ -18,6 +18,7 @@
 		"apply:reference-readings": "node scripts/apply-reference-readings.mjs",
 		"generate:appstore-images": "node scripts/generate-appstore-images.mjs && node scripts/generate-appstore-one-page.mjs",
 		"generate:appstore-one-page": "node scripts/generate-appstore-one-page.mjs",
+		"generate:appstore-ipad-images": "node scripts/generate-appstore-ipad-images.mjs",
 		"build:mobile": "yarn build && npx cap sync",
 		"ios": "npx cap open ios",
 		"android": "npx cap open android"
