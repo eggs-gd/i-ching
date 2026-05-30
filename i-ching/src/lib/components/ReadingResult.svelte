@@ -23,7 +23,12 @@
 
 <section class="step reading-step">
 	{#if !hexagramOnly && casting.question.trim()}
-		<p class="question-echo">«{casting.question}»</p>
+		<div class="question-block">
+			<p class="question-echo">«{casting.question}»</p>
+			<AppButton variant="text" class="new-cast-link" onclick={onReset}>
+				{i18n.t('flow.newCastLink')}
+			</AppButton>
+		</div>
 	{/if}
 
 	<ReadingCard
@@ -54,7 +59,7 @@
 		<CastExplanationPanel />
 	{/if}
 
-	<AppButton variant="secondary" fullWidth class="new-cast" onclick={onReset}>
+	<AppButton variant="primary" primaryTone="soft" fullWidth class="cast-btn new-cast" onclick={onReset}>
 		{i18n.t('flow.newCast')}
 	</AppButton>
 </section>
@@ -70,20 +75,39 @@
 		gap: var(--space-5);
 	}
 
-	.question-echo {
-		font-family: var(--font-serif);
-		font-style: italic;
-		color: var(--text-muted);
-		text-align: center;
-		margin: 0;
-		font-size: var(--text-lg);
+	.question-block {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
 	}
 
-	:global(.new-cast) {
-		margin-top: var(--space-5);
-		padding: var(--space-5) var(--space-6);
-		font-size: var(--text-base);
-		letter-spacing: var(--tracking-wide);
+	.question-echo {
+		margin: 0;
+		width: 100%;
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--text-lg);
+		color: var(--text-muted);
+		text-align: center;
+	}
+
+	.question-block :global(.btn.text.new-cast-link) {
+		align-self: flex-end;
+		padding: 0;
+		font-size: var(--text-sm);
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: normal;
+		color: var(--accent);
+	}
+
+	.question-block :global(.btn.text.new-cast-link:not(:disabled):hover) {
+		color: var(--text);
+		text-decoration: underline;
+	}
+
+	:global(.new-cast.cast-btn) {
+		margin-top: var(--space-2);
 		text-align: center;
 	}
 </style>

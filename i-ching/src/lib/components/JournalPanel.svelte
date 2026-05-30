@@ -5,6 +5,8 @@
 	import { SHOW_PAID_FEATURE_STUBS } from '$lib/config/features';
 	import { getLocaleDateFormat, useI18n } from '$lib/i18n';
 	import { trackVisible } from '$lib/analytics';
+	import { InfoButton } from '$lib/components/ui';
+	import HelpPopup from './HelpPopup.svelte';
 	import JournalEntriesGrouped from './journal/JournalEntriesGrouped.svelte';
 	import JournalMotifsPanel from './journal/JournalMotifsPanel.svelte';
 	import PaidFeaturePopup from './PaidFeaturePopup.svelte';
@@ -28,6 +30,7 @@
 	}: Props = $props();
 
 	const i18n = useI18n();
+	let journalHelpOpen = $state(false);
 	let visibleCount = $state(PAGE_SIZE);
 	let loadMoreEl = $state<HTMLElement | null>(null);
 
@@ -80,7 +83,13 @@
 
 {#if journal.length > 0}
 	<aside class="journal" use:trackVisible={{ event: 'journal_panel_viewed', threshold: 0.3 }}>
-		<h2>{i18n.t('journal.title')}</h2>
+		<div class="journal-head">
+			<h2>{i18n.t('journal.title')}</h2>
+			<InfoButton
+				label={i18n.t('journal.helpTitle')}
+				onclick={() => (journalHelpOpen = true)}
+			/>
+		</div>
 
 		{#if SHOW_PAID_FEATURE_STUBS}
 			<div class="track-form-action">
@@ -103,6 +112,14 @@
 	</aside>
 {/if}
 
+<HelpPopup
+	open={journalHelpOpen}
+	title={i18n.t('journal.helpTitle')}
+	body={i18n.t('journal.helpBody')}
+	closeLabel={i18n.t('reading.helpClose')}
+	onClose={() => (journalHelpOpen = false)}
+/>
+
 <style>
 	.journal {
 		margin-top: var(--space-7);
@@ -110,12 +127,20 @@
 		border-top: 1px solid var(--border);
 	}
 
+	.journal-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+		margin-bottom: var(--space-3);
+	}
+
 	.journal h2 {
+		margin: 0;
 		font-size: var(--text-xl);
 		text-transform: uppercase;
 		letter-spacing: var(--tracking-wide);
 		color: var(--text-muted);
-		margin-bottom: var(--space-3);
 	}
 
 	.track-form-action {

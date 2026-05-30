@@ -41,5 +41,6 @@
 		font-size: var(--text-lg);
 		line-height: var(--leading-normal);
 		color: var(--text-muted);
+		white-space: pre-line;
 	}
 </style>
