@@ -330,12 +330,19 @@ export class CastingFlow {
 	}
 
 	private async tossNextCoin(): Promise<void> {
+		await this.tossCoin(tossOneCoin());
+	}
+
+	async tossRealCoin(value: CoinValue): Promise<void> {
+		await this.tossCoin(value);
+	}
+
+	private async tossCoin(value: CoinValue): Promise<void> {
 		if (this.lines.length >= 6 || this.tossing) return;
 
 		const runId = this.runId;
 		const lineNum = this.lines.length + 1;
 		const coinNum = this.currentLineCoins.length + 1;
-		const value = tossOneCoin();
 
 		const ok = await this.spinRevealCoin(runId, lineNum, coinNum, () => {
 			this.currentLineCoins = [...this.currentLineCoins, value];

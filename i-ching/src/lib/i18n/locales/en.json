@@ -38,12 +38,15 @@
 		"clearHexagram": "Clear selection",
 		"manualQuestionRequired": "Add your question.",
 		"manualPrimaryInvalid": "Choose an entry hexagram.",
-		"manualSubmitFailed": "Could not save the cast. Check the hexagram numbers."
+		"manualSubmitFailed": "Could not save the cast. Check the hexagram numbers.",
+		"castReal": "Real coins"
 	},
 	"coins": {
 		"gridLabel": "Cast coins",
 		"yang": "Yang — heads",
+		"yangShort": "Yang",
 		"yin": "Yin — tails",
+		"yinShort": "Yin",
 		"pending": "Coin not yet tossed"
 	},
 	"reading": {

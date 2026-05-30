@@ -23,7 +23,8 @@
 	const castModeLabels: Record<TossMode, string> = {
 		single: 'flow.castSingle',
 		line: 'flow.castLine',
-		all: 'flow.castFull'
+		all: 'flow.castFull',
+		real: 'flow.castReal'
 	};
 
 	let textareaEl = $state<HTMLTextAreaElement | null>(null);
@@ -61,6 +62,15 @@
 			{/each}
 		</div>
 
+		<AppButton
+			variant="secondary"
+			fullWidth
+			disabled={!question.trim()}
+			onclick={() => onStartCast('real')}
+		>
+			{i18n.t('flow.castReal')}
+		</AppButton>
+
 		<AppButton variant="secondary" fullWidth onclick={() => (manualPopupOpen = true)}>
 			{i18n.t('flow.formReady')}
 		</AppButton>
@@ -85,10 +95,15 @@
 		margin-bottom: var(--space-5);
 	}
 
+	.casting {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+	}
+
 	.casting-options {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: var(--space-2);
-		margin-bottom: var(--space-3);
 	}
 </style>

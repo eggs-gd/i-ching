@@ -86,7 +86,7 @@ export interface Casting {
 
 export type FlowStep = 'question' | 'toss' | 'reading';
 
-export type TossMode = 'single' | 'line' | 'all';
+export type TossMode = 'single' | 'line' | 'all' | 'real';
 
 export type CastMethod = TossMode | 'manual' | 'motif';
 

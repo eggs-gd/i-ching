@@ -38,12 +38,15 @@
 		"clearHexagram": "Очистити вибір",
 		"manualQuestionRequired": "Додайте питання.",
 		"manualPrimaryInvalid": "Оберіть гексаграму входу.",
-		"manualSubmitFailed": "Не вдалося зберегти кидок. Перевірте номери гексаграм."
+		"manualSubmitFailed": "Не вдалося зберегти кидок. Перевірте номери гексаграм.",
+		"castReal": "Живі монети"
 	},
 	"coins": {
 		"gridLabel": "Монети кидка",
 		"yang": "Ян — орел",
+		"yangShort": "Ян",
 		"yin": "Інь — решка",
+		"yinShort": "Інь",
 		"pending": "Монета ще не кинута"
 	},
 	"reading": {

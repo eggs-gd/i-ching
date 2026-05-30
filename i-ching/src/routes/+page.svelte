@@ -6,7 +6,7 @@
 	import ReadingResult from '$lib/components/ReadingResult.svelte';
 	import { resolveHexagram } from '$lib/i-ching/catalog';
 	import { createCastingFlow } from '$lib/i-ching/casting-flow.svelte';
-	import type { Casting } from '$lib/i-ching/types';
+	import type { Casting, CoinValue } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
 	import { journalStore } from '$lib/state/journal.svelte';
 	import { track } from '$lib/analytics';
@@ -61,7 +61,8 @@
 		get tossing() {
 			return flow.tossing;
 		},
-		onTossNext: () => flow.tossNext()
+		onTossNext: () => flow.tossNext(),
+		onRealCoin: (value: CoinValue) => flow.tossRealCoin(value)
 	};
 
 	$effect(() => {
