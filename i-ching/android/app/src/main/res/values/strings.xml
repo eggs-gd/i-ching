@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">І-Цзин</string>
-    <string name="title_activity_main">І-Цзин</string>
+    <string name="app_name">I Ching: Shape of Momentum</string>
+    <string name="title_activity_main">I Ching: Shape of Momentum</string>
     <string name="package_name">gd.eggs.aiching</string>
     <string name="custom_url_scheme">gd.eggs.aiching</string>
 </resources>

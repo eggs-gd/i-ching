@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
 	appId: 'gd.eggs.aiching',
-	appName: 'І-Цзин',
+	appName: 'I Ching: Shape of Momentum',
 	webDir: 'build',
 	ios: {
 		preferredContentMode: 'mobile'
