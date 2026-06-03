@@ -8,6 +8,7 @@
 	"profile": {
 		"open": "Профіль",
 		"title": "Профіль",
+		"export": "Експорт архіву",
 		"clearArchive": "Очистити архів",
 		"archiveTitle": "Архів",
 		"archiveEmpty": "Записів немає",
@@ -77,6 +78,13 @@
 	},
 	"journal": {
 		"title": "Архів",
+		"export": "Експорт",
+		"exportTitle": "Експорт архіву",
+		"exportAction": "Експорт",
+		"exportShare": "Поділитися",
+		"exportDownload": "Завантажити",
+		"exportCopy": "Копіювати",
+		"exportCopied": "Скопійовано",
 		"helpTitle": "Архів",
 		"helpBody": "Тут зберігається історія ваших питань і повторювані гексаграми\n\nМожна очистити через профіль",
 		"motifs": "Відлуння",

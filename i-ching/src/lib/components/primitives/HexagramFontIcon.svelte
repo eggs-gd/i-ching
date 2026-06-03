@@ -41,12 +41,12 @@
 
 	/* Tune per context via --hex-compact-shift if needed */
 	.hex-font-icon.compact {
-		--hex-compact-shift: 0.11em;
+		--hex-compact-shift: -0.05em;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		width: 1em;
-		height: 1em;
+		height: 1.2em;
 		font-size: var(--text-lg);
 		line-height: 0;
 		vertical-align: middle;

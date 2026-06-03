@@ -3,6 +3,7 @@
 	import { journalStore } from '$lib/state/journal.svelte';
 	import { AppButton, AppPopup, FieldLabel, IconButton } from '$lib/components/ui';
 	import { track } from '$lib/analytics';
+	import JournalArchiveExport from './JournalArchiveExport.svelte';
 	import JournalArchivePopup from './JournalArchivePopup.svelte';
 	import LocaleSwitcher from './LocaleSwitcher.svelte';
 
@@ -11,10 +12,17 @@
 
 	let profileOpen = $state(false);
 	let archiveOpen = $state(false);
+	let exportOpen = $state(false);
 
 	function closeProfile(): void {
 		archiveOpen = false;
+		exportOpen = false;
 		profileOpen = false;
+	}
+
+	function openExport(): void {
+		track('archive_export_opened');
+		exportOpen = true;
 	}
 
 	function openArchive(): void {
@@ -56,11 +64,22 @@
 			<LocaleSwitcher labelledBy="profile-locale-heading" />
 		</div>
 
-		<AppButton variant="secondary" fullWidth onclick={openArchive}>
-			{i18n.t('profile.clearArchive')}
-		</AppButton>
+		<div class="profile-actions">
+			<AppButton variant="secondary" fullWidth onclick={openExport}>
+				{i18n.t('profile.export')}
+			</AppButton>
+			<AppButton variant="secondary" fullWidth onclick={openArchive}>
+				{i18n.t('profile.clearArchive')}
+			</AppButton>
+		</div>
 	{/snippet}
 </AppPopup>
+
+<JournalArchiveExport
+	open={exportOpen}
+	{journal}
+	onClose={() => (exportOpen = false)}
+/>
 
 <JournalArchivePopup
 	open={archiveOpen}
@@ -76,5 +95,11 @@
 		justify-content: space-between;
 		gap: var(--space-3);
 		margin-bottom: var(--space-4);
+	}
+
+	.profile-actions {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
 	}
 </style>

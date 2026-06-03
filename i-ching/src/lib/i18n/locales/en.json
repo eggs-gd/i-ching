@@ -8,6 +8,7 @@
 	"profile": {
 		"open": "Profile",
 		"title": "Profile",
+		"export": "Export archive",
 		"clearArchive": "Clear archive",
 		"archiveTitle": "Archive",
 		"archiveEmpty": "No entries",
@@ -77,6 +78,13 @@
 	},
 	"journal": {
 		"title": "Archive",
+		"export": "Export",
+		"exportTitle": "Export archive",
+		"exportAction": "Export",
+		"exportShare": "Share",
+		"exportDownload": "Download",
+		"exportCopy": "Copy",
+		"exportCopied": "Copied",
 		"helpTitle": "Archive",
 		"helpBody": "Your question history and recurring hexagrams are stored here.\n\nYou can clear it from your profile.",
 		"motifs": "Echoes",
