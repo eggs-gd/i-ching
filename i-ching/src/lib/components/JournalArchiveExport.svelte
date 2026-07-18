@@ -36,6 +36,8 @@
 		track('archive_exported', { entries: journal.length });
 		onClose();
 
+		// Native: system share sheet. Web/PWA: shareText is a no-op → preview
+		// with Download / Copy (Web Share is a bad fit for archive files).
 		if (await shareText({ title: filename, text: md })) return;
 
 		previewText = md;
