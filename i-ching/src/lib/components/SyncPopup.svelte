@@ -51,6 +51,14 @@
 			{#if statusLine}
 				<p class="sync-status">{statusLine}</p>
 			{/if}
+			<a
+				class="sync-privacy"
+				href="https://iching.eggs.gd/privacy"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{i18n.t('sync.privacy')}
+			</a>
 		</div>
 	{/snippet}
 
@@ -89,5 +97,18 @@
 		font-size: var(--text-sm);
 		color: var(--text-muted);
 		line-height: var(--leading-normal);
+	}
+
+	.sync-privacy {
+		align-self: flex-start;
+		margin-top: var(--space-1);
+		font-size: var(--text-sm);
+		color: var(--text-faint);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.sync-privacy:hover {
+		color: var(--text-muted);
 	}
 </style>

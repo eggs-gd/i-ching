@@ -106,6 +106,7 @@
 		"minutesAgo": "{n} min ago",
 		"hoursAgo": "{n} h ago",
 		"daysAgo": "{n} d ago",
+		"privacy": "Privacy policy",
 		"signOut": "Sign out"
 	},
 	"trigrams": {

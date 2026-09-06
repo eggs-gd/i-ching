@@ -106,6 +106,7 @@
 		"minutesAgo": "{n} хв тому",
 		"hoursAgo": "{n} год тому",
 		"daysAgo": "{n} д тому",
+		"privacy": "Політика приватності",
 		"signOut": "Вийти"
 	},
 	"trigrams": {
