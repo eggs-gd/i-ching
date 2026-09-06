@@ -84,6 +84,18 @@ export interface Casting {
 	note?: string;
 }
 
+/** Record of a deleted entry, kept so deletions propagate through sync. */
+export interface Tombstone {
+	id: string;
+	deletedAt: string;
+}
+
+/** The full journal state used for merges (local ↔ remote). */
+export interface JournalSnapshot {
+	entries: Casting[];
+	tombstones: Tombstone[];
+}
+
 export type FlowStep = 'question' | 'toss' | 'reading';
 
 export type TossMode = 'single' | 'line' | 'all' | 'real';

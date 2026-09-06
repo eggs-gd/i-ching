@@ -93,6 +93,21 @@
 		"openEntry": "Open cast reading",
 		"openMotif": "Open hexagram: {name}"
 	},
+	"sync": {
+		"title": "Sync",
+		"signIn": "Sign in to sync",
+		"signedInAs": "Signed in as {account}",
+		"blurb": "Your archive syncs to this account across your devices.",
+		"syncing": "Syncing…",
+		"error": "Sync failed — will retry",
+		"syncNow": "Sync now",
+		"lastSynced": "Last synced {when}",
+		"justNow": "just now",
+		"minutesAgo": "{n} min ago",
+		"hoursAgo": "{n} h ago",
+		"daysAgo": "{n} d ago",
+		"signOut": "Sign out"
+	},
 	"trigrams": {
 		"qian": "Heaven",
 		"kun": "Earth",

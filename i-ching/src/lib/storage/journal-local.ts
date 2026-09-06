@@ -1,5 +1,10 @@
-import type { Casting, LegacyCasting } from '$lib/i-ching/types';
-import { JOURNAL_STORAGE_KEY, type JournalRepository } from './journal-repository';
+import type { Casting, LegacyCasting, Tombstone } from '$lib/i-ching/types';
+import {
+	JOURNAL_STORAGE_KEY,
+	JOURNAL_TOMBSTONES_KEY,
+	mergeTombstones,
+	type JournalRepository
+} from './journal-repository';
 
 function normalizeCasting(raw: LegacyCasting): Casting {
 	if ('primaryNumber' in raw && typeof raw.primaryNumber === 'number') {
@@ -42,6 +47,18 @@ export class LocalJournalRepository implements JournalRepository {
 		}
 	}
 
+	async loadTombstones(): Promise<Tombstone[]> {
+		if (typeof localStorage === 'undefined') return [];
+
+		try {
+			const raw = localStorage.getItem(JOURNAL_TOMBSTONES_KEY);
+			if (!raw) return [];
+			return JSON.parse(raw) as Tombstone[];
+		} catch {
+			return [];
+		}
+	}
+
 	async save(casting: Casting): Promise<void> {
 		if (typeof localStorage === 'undefined') return;
 
@@ -53,8 +70,22 @@ export class LocalJournalRepository implements JournalRepository {
 	async deleteByIds(ids: string[]): Promise<void> {
 		if (typeof localStorage === 'undefined' || ids.length === 0) return;
 
+		const deletedAt = new Date().toISOString();
 		const remove = new Set(ids);
+
 		const journal = (await this.loadAll()).filter((entry) => !remove.has(entry.id));
 		localStorage.setItem(JOURNAL_STORAGE_KEY, JSON.stringify(journal));
+
+		const tombstones = mergeTombstones(
+			await this.loadTombstones(),
+			ids.map((id) => ({ id, deletedAt }))
+		);
+		localStorage.setItem(JOURNAL_TOMBSTONES_KEY, JSON.stringify(tombstones));
+	}
+
+	async replace(entries: Casting[], tombstones: Tombstone[]): Promise<void> {
+		if (typeof localStorage === 'undefined') return;
+		localStorage.setItem(JOURNAL_STORAGE_KEY, JSON.stringify(entries));
+		localStorage.setItem(JOURNAL_TOMBSTONES_KEY, JSON.stringify(tombstones));
 	}
 }

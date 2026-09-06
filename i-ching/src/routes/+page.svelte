@@ -3,6 +3,7 @@
 	import CastingStage from '$lib/components/CastingStage.svelte';
 	import JournalPanel from '$lib/components/JournalPanel.svelte';
 	import LocaleSwitcher from '$lib/components/LocaleSwitcher.svelte';
+	import SyncButton from '$lib/components/SyncButton.svelte';
 	import QuestionForm from '$lib/components/QuestionForm.svelte';
 	import ReadingResult from '$lib/components/ReadingResult.svelte';
 	import { resolveHexagram } from '$lib/i-ching/catalog';
@@ -157,6 +158,9 @@
 
 <main class="main" class:main--faded={mainFaded}>
 	<header class="site-header">
+		<div class="site-header__sync">
+			<SyncButton />
+		</div>
 		<div class="site-header__locale">
 			<LocaleSwitcher />
 		</div>
@@ -259,6 +263,13 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		display: flex;
+	}
+
+	.site-header__sync {
+		position: absolute;
+		top: 0;
+		left: 0;
 		display: flex;
 	}
 

@@ -4,15 +4,18 @@ import {
 	type SQLiteDBConnection
 } from '@capacitor-community/sqlite';
 import { Preferences } from '@capacitor/preferences';
-import type { Casting } from '$lib/i-ching/types';
+import type { Casting, Tombstone } from '$lib/i-ching/types';
 import { LocalJournalRepository } from './journal-local';
 import {
 	JOURNAL_MIGRATED_KEY,
 	JOURNAL_STORAGE_KEY,
+	JOURNAL_TOMBSTONES_KEY,
+	mergeTombstones,
 	type JournalRepository
 } from './journal-repository';
 
 const DB_NAME = 'i-ching';
+const DB_VERSION = 2;
 
 const CREATE_READINGS_TABLE = `
 CREATE TABLE IF NOT EXISTS readings (
@@ -27,6 +30,13 @@ CREATE TABLE IF NOT EXISTS readings (
 	lines_json TEXT NOT NULL,
 	coin_rows_json TEXT,
 	note TEXT
+);
+`;
+
+const CREATE_TOMBSTONES_TABLE = `
+CREATE TABLE IF NOT EXISTS tombstones (
+	id TEXT PRIMARY KEY NOT NULL,
+	deleted_at TEXT NOT NULL
 );
 `;
 
@@ -68,9 +78,12 @@ async function getDatabase(): Promise<SQLiteDBConnection> {
 	if (db) return db;
 
 	const connection = new SQLiteConnection(CapacitorSQLite);
-	db = await connection.createConnection(DB_NAME, false, 'no-encryption', 1, false);
+	await connection.addUpgradeStatement(DB_NAME, [
+		{ toVersion: DB_VERSION, statements: [CREATE_READINGS_TABLE, CREATE_TOMBSTONES_TABLE] }
+	]);
+	db = await connection.createConnection(DB_NAME, false, 'no-encryption', DB_VERSION, false);
 	await db.open();
-	await db.execute(CREATE_READINGS_TABLE);
+	await db.execute(`${CREATE_READINGS_TABLE}${CREATE_TOMBSTONES_TABLE}`);
 	return db;
 }
 
@@ -80,17 +93,18 @@ async function migrateFromLocalStorage(database: SQLiteDBConnection): Promise<vo
 
 	const local = new LocalJournalRepository();
 	const entries = await local.loadAll();
-	if (entries.length === 0) {
-		await Preferences.set({ key: JOURNAL_MIGRATED_KEY, value: 'true' });
-		return;
-	}
+	const tombstones = await local.loadTombstones();
 
-	for (const casting of entries.reverse()) {
+	for (const casting of [...entries].reverse()) {
 		await insertCasting(database, casting);
+	}
+	for (const tombstone of tombstones) {
+		await insertTombstone(database, tombstone);
 	}
 
 	if (typeof localStorage !== 'undefined') {
 		localStorage.removeItem(JOURNAL_STORAGE_KEY);
+		localStorage.removeItem(JOURNAL_TOMBSTONES_KEY);
 	}
 
 	await Preferences.set({ key: JOURNAL_MIGRATED_KEY, value: 'true' });
@@ -118,6 +132,13 @@ async function insertCasting(database: SQLiteDBConnection, casting: Casting): Pr
 	);
 }
 
+async function insertTombstone(database: SQLiteDBConnection, tombstone: Tombstone): Promise<void> {
+	await database.run(`INSERT OR REPLACE INTO tombstones (id, deleted_at) VALUES (?, ?)`, [
+		tombstone.id,
+		tombstone.deletedAt
+	]);
+}
+
 export class SqliteJournalRepository implements JournalRepository {
 	async ensureReady(): Promise<void> {
 		const database = await getDatabase();
@@ -137,6 +158,13 @@ export class SqliteJournalRepository implements JournalRepository {
 		return rows.map(rowToCasting);
 	}
 
+	async loadTombstones(): Promise<Tombstone[]> {
+		const database = await getDatabase();
+		const result = await database.query(`SELECT id, deleted_at FROM tombstones`);
+		const rows = (result.values ?? []) as { id: string; deleted_at: string }[];
+		return rows.map((r) => ({ id: r.id, deletedAt: r.deleted_at }));
+	}
+
 	async save(casting: Casting): Promise<void> {
 		const database = await getDatabase();
 		await insertCasting(database, casting);
@@ -146,7 +174,22 @@ export class SqliteJournalRepository implements JournalRepository {
 		if (ids.length === 0) return;
 
 		const database = await getDatabase();
+		const deletedAt = new Date().toISOString();
 		const placeholders = ids.map(() => '?').join(', ');
 		await database.run(`DELETE FROM readings WHERE id IN (${placeholders})`, ids);
+		for (const id of ids) {
+			await insertTombstone(database, { id, deletedAt });
+		}
+	}
+
+	async replace(entries: Casting[], tombstones: Tombstone[]): Promise<void> {
+		const database = await getDatabase();
+		await database.execute(`DELETE FROM readings; DELETE FROM tombstones;`);
+		for (const casting of [...entries].reverse()) {
+			await insertCasting(database, casting);
+		}
+		for (const tombstone of mergeTombstones(tombstones)) {
+			await insertTombstone(database, tombstone);
+		}
 	}
 }

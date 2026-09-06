@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
@@ -7,21 +7,39 @@
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
 	import { applySystemTextZoom } from '$lib/platform/text-scale';
 	import { track } from '$lib/analytics';
+	import { authStore } from '$lib/state/auth.svelte';
+	import { syncController } from '$lib/sync/controller.svelte';
 
 	let { children } = $props();
 
 	initI18n();
 	const i18n = useI18n();
 
+	// Start / stop sync as the user signs in and out.
+	$effect(() => {
+		const signedIn = !!authStore.user;
+		untrack(() => (signedIn ? syncController.start() : syncController.stop()));
+	});
+
 	onMount(() => {
 		track('app_open');
+		authStore.init();
 		void applySystemTextZoom();
 		void initNativePlatform(() => {
 			if (typeof history !== 'undefined' && history.length > 1) {
 				history.back();
 			}
 		});
-		return () => teardownNativePlatform();
+
+		const onVisible = () => {
+			if (document.visibilityState === 'visible') syncController.resumeSync();
+		};
+		document.addEventListener('visibilitychange', onVisible);
+
+		return () => {
+			document.removeEventListener('visibilitychange', onVisible);
+			teardownNativePlatform();
+		};
 	});
 </script>
 
