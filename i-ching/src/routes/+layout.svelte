@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import ProfileMenu from '$lib/components/ProfileMenu.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 	import { initI18n, useI18n } from '$lib/i18n';
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
@@ -37,9 +36,6 @@
 		<ScrollToTop />
 	</div>
 	{@render children()}
-	<div class="profile-bar">
-		<ProfileMenu />
-	</div>
 </div>
 
 <style>

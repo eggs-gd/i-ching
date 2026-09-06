@@ -2,6 +2,7 @@
 	import { onMount, tick } from 'svelte';
 	import CastingStage from '$lib/components/CastingStage.svelte';
 	import JournalPanel from '$lib/components/JournalPanel.svelte';
+	import LocaleSwitcher from '$lib/components/LocaleSwitcher.svelte';
 	import QuestionForm from '$lib/components/QuestionForm.svelte';
 	import ReadingResult from '$lib/components/ReadingResult.svelte';
 	import { resolveHexagram } from '$lib/i-ching/catalog';
@@ -156,6 +157,9 @@
 
 <main class="main" class:main--faded={mainFaded}>
 	<header class="site-header">
+		<div class="site-header__locale">
+			<LocaleSwitcher />
+		</div>
 		<h1 class="logo">易經</h1>
 		<p class="tagline">{i18n.t('app.tagline')}</p>
 	</header>
@@ -246,8 +250,16 @@
 	}
 
 	.site-header {
+		position: relative;
 		text-align: center;
 		margin-bottom: var(--space-7);
+	}
+
+	.site-header__locale {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
 	}
 
 	.logo {

@@ -125,7 +125,6 @@ body::before {
 	z-index: 0;
 }
 
-html.immersive-cast .profile-bar,
 html.immersive-cast .scroll-top-bar {
 	display: none;
 }
@@ -134,18 +133,6 @@ html.scroll-locked,
 html.scroll-locked body {
 	overflow: hidden;
 	overscroll-behavior: none;
-}
-
-.profile-bar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: var(--z-chrome);
-	display: flex;
-	justify-content: flex-start;
-	padding: calc(var(--space-3) + env(safe-area-inset-top, 0px)) 0 0
-		calc(var(--space-3) + env(safe-area-inset-left, 0px));
-	pointer-events: auto;
 }
 
 h1,
