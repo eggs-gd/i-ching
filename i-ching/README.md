@@ -206,7 +206,9 @@ delete, which is a hard delete with no record kept.
 | `coin_rows_json`   | JSON `coinRows`      |
 | `note`             | `note`               |
 
-Cross-device sync is under consideration — see [`docs/roadmap.md`](docs/roadmap.md).
+Optional cross-device sync (Google sign-in → Firebase Realtime Database, one-shot, no live
+listeners) — see [`docs/sync.md`](docs/sync.md). Deletes leave a tombstone so removals
+propagate.
 
 ---
 
@@ -248,7 +250,7 @@ Requires `OPENAI_API_KEY` (see `.env.example`).
 
 - Monetization — RevenueCat (subscriptions, credits), rewarded ads, an AI backend for the
   "Explanation" feature. UI stubs exist behind `SHOW_PAID_FEATURE_STUBS`.
-- Cross-device journal sync — opt-in, local-first stays the default.
+- Native sign-in for sync (`@capacitor-firebase/authentication`); optional E2E encryption.
 - Wilhelm line commentary (384 lines).
 - Note editing on archive entries.
 

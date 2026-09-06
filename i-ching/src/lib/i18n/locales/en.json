@@ -86,7 +86,7 @@
 		"exportCopy": "Copy",
 		"exportCopied": "Copied",
 		"helpTitle": "Archive",
-		"helpBody": "Your question history and recurring hexagrams are stored here.\n\nYou can clear it from your profile.",
+		"helpBody": "Your question history and recurring hexagrams live here.\n\nEntries are stored on this device. The icons alongside export or clear the archive; the cloud icon at the top turns on sync across your devices.",
 		"motifs": "Echoes",
 		"trackForm": "Track the motifs",
 		"trackFormPaidBody": "Tracking the situation's form is a paid feature.",

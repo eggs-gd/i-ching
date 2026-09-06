@@ -51,6 +51,7 @@
 			{#if statusLine}
 				<p class="sync-status">{statusLine}</p>
 			{/if}
+
 			<a
 				class="sync-privacy"
 				href="https://iching.eggs.gd/privacy"
@@ -59,19 +60,22 @@
 			>
 				{i18n.t('sync.privacy')}
 			</a>
+
+			{#if syncController.enabled}
+				<AppButton
+					variant="primary"
+					primaryTone="soft"
+					fullWidth
+					disabled={syncController.status === 'syncing'}
+					onclick={() => void syncController.syncNow()}
+				>
+					{i18n.t('sync.syncNow')}
+				</AppButton>
+			{/if}
 		</div>
 	{/snippet}
 
 	{#snippet footer()}
-		{#if syncController.enabled}
-			<AppButton
-				variant="secondary"
-				disabled={syncController.status === 'syncing'}
-				onclick={() => void syncController.syncNow()}
-			>
-				{i18n.t('sync.syncNow')}
-			</AppButton>
-		{/if}
 		<AppButton variant="danger" onclick={() => void signOut()}>
 			{i18n.t('sync.signOut')}
 		</AppButton>
@@ -83,6 +87,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-2);
+	}
+
+	.sync-body :global(.btn) {
+		margin-top: var(--space-2);
 	}
 
 	.sync-account {

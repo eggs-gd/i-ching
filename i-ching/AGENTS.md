@@ -94,6 +94,8 @@ in place of line/column; an ambiguous name returns candidates.
 - App code: `src/` — structure map in the README.
 - Journal storage abstraction: `src/lib/storage/` — `journal-local` (web),
   `journal-sqlite` (native), behind one `JournalRepository` interface.
+- Auth + journal sync: `src/lib/state/auth.svelte.ts`, `src/lib/sync/`. One-shot sync,
+  **no live listeners by design** — [`docs/sync.md`](./docs/sync.md).
 - Analytics: `src/lib/analytics.ts` + `src/lib/firebase.ts` (web-only init).
 - Content corpus and generation scripts: `src/lib/data/`, `scripts/`. Hexagram text voice
   and the "don't over-polish" rule: [`docs/editorial-style.md`](./docs/editorial-style.md).
