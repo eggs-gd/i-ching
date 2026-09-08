@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
+	import { replaceState } from '$app/navigation';
+	import { page } from '$app/state';
 	import CastingStage from '$lib/components/CastingStage.svelte';
 	import JournalPanel from '$lib/components/JournalPanel.svelte';
 	import LocaleSwitcher from '$lib/components/LocaleSwitcher.svelte';
@@ -8,6 +10,7 @@
 	import ReadingResult from '$lib/components/ReadingResult.svelte';
 	import { resolveHexagram } from '$lib/i-ching/catalog';
 	import { createCastingFlow } from '$lib/i-ching/casting-flow.svelte';
+	import { parseDeeplinkQuestion } from '$lib/i-ching/deeplink';
 	import type { Casting, CoinValue } from '$lib/i-ching/types';
 	import { useI18n } from '$lib/i18n';
 	import { journalStore } from '$lib/state/journal.svelte';
@@ -107,9 +110,38 @@
 		}
 	});
 
+	function consumeDeeplinkQuestion(): string | null {
+		const question = parseDeeplinkQuestion(page.url.searchParams);
+		if (!question) return null;
+
+		// One-shot request: drop q so a refresh does not restart the auto cast.
+		// Use SvelteKit's replaceState so page.url stays in sync with the router.
+		const next = new URL(page.url);
+		next.searchParams.delete('q');
+		replaceState(`${next.pathname}${next.search}${next.hash}`, page.state);
+
+		return question;
+	}
+
 	onMount(() => {
-		void journalStore.load();
-		return () => document.documentElement.classList.remove('immersive-cast');
+		let cancelled = false;
+
+		void (async () => {
+			await journalStore.load();
+			if (cancelled) return;
+
+			const deeplinkQuestion = consumeDeeplinkQuestion();
+			if (!deeplinkQuestion) return;
+
+			flow.setQuestion(deeplinkQuestion);
+			track('cast_started', { method: 'all' });
+			void flow.startCast('all');
+		})();
+
+		return () => {
+			cancelled = true;
+			document.documentElement.classList.remove('immersive-cast');
+		};
 	});
 
 	async function viewJournalEntry(entry: Casting) {
