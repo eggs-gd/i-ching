@@ -117,6 +117,7 @@ src/
 │   │   ├── casting-flow.svelte.ts   # CastingFlow — cast state machine
 │   │   ├── cast-timing.ts           # animation timing
 │   │   ├── coins.ts                 # three coins, sums 6–9
+│   │   ├── deeplink.ts              # PWA ?q= parse (see docs/pwa-deeplink.md)
 │   │   ├── hexagram.ts              # lines, changing, relating
 │   │   ├── journal.ts               # grouping, recurring motifs, id
 │   │   ├── export.ts                # archive → Markdown
@@ -147,6 +148,7 @@ yarn dev            # http://localhost:5173
 yarn check          # svelte-check + TypeScript
 yarn lint           # prettier --check
 yarn format         # prettier --write
+yarn test:deeplink  # node:test for ?q= parse
 yarn build          # static build → build/
 yarn preview
 
@@ -209,6 +211,9 @@ delete, which is a hard delete with no record kept.
 Optional cross-device sync (Google sign-in → Firebase Realtime Database, one-shot, no live
 listeners) — see [`docs/sync.md`](docs/sync.md). Deletes leave a tombstone so removals
 propagate.
+
+PWA `?q=` deeplink (forward a question from another PWA, auto virtual all-coins cast) —
+see [`docs/pwa-deeplink.md`](docs/pwa-deeplink.md).
 
 ---
 
