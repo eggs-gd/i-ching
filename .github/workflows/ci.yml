@@ -1,12 +1,8 @@
 name: CI
 
 on:
+  # No path filter: a required check skipped by one would block merging docs-only PRs.
   pull_request:
-    paths:
-      - 'App/**'
-      - 'Site/**'
-      - 'scripts/**'
-      - '.github/workflows/**'
 
 permissions:
   contents: read
