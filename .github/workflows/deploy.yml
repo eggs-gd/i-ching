@@ -27,14 +27,13 @@ jobs:
         uses: actions/checkout@v4
 
       # App depends on link:../../eggs.gd-kit, which sits outside this repo.
-      # The default token cannot read that private repo; EGGS_KIT_TOKEN needs contents:read on eggs-gd/eggs.gd-kit.
+      # eggs.gd-kit is public, so the default token is enough.
       - name: Checkout kit
         uses: actions/checkout@v4
         with:
           repository: eggs-gd/eggs.gd-kit
           ref: main
           path: vendor/eggs.gd-kit
-          token: ${{ secrets.EGGS_KIT_TOKEN }}
 
       - name: Link kit where App expects it
         run: ln -s "$GITHUB_WORKSPACE/vendor/eggs.gd-kit" "$(dirname "$GITHUB_WORKSPACE")/eggs.gd-kit"

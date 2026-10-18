@@ -26,8 +26,8 @@ mind first. See [docs/platform.md](./docs/platform.md).
 - From `Site/`: `yarn dev` · `yarn check` · `yarn build`.
 - Deploy: `.github/workflows/deploy.yml` runs `yarn build:pwa` in `App/` (`BASE_PATH=/pwa`),
   then `scripts/deploy-pwa.mjs` (`make pwa` locally), then builds the site. Pushes that touch
-  `App/`, `Site/`, or `scripts/` publish both. The app install needs `EGGS_KIT_TOKEN` so CI can
-  read `eggs-gd/eggs.gd-kit`.
+  `App/`, `Site/`, or `scripts/` publish both. CI checks out the public `eggs-gd/eggs.gd-kit`
+  next to the app; no secret is needed.
 - Prettier: tabs, single quotes, no trailing comma, width 100. Run `yarn format` before
   finishing.
 - Don't commit or push unless asked — propose the change, let the maintainer push.

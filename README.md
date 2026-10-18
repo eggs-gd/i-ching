@@ -66,8 +66,8 @@ with `BASE_PATH=/pwa`, copies that bundle into `Site/static/pwa`, then builds th
 page and publishes both at [iching.eggs.gd](https://iching.eggs.gd). The landing page is the
 domain root; the app is at `/pwa`.
 
-`App` depends on the private package `@eggs/kit` (`link:../../eggs.gd-kit`). The workflow
-checks that repo out with the `EGGS_KIT_TOKEN` secret (contents read on `eggs-gd/eggs.gd-kit`).
+`App` depends on the public package `@eggs/kit` (`link:../../eggs.gd-kit`). The workflow
+checks that repo out next to the app; no secret is needed.
 Locally, `yarn build:pwa` from `App/` only builds; `make pwa` copies `App/build` into
 `Site/static/pwa`.
 
