@@ -128,7 +128,13 @@
 					Google Play
 				</span>
 			</a>
-			<a class="badge pwa" href="{base}/pwa/" rel="external">
+			<a
+				class="badge pwa"
+				href="{base}/pwa/"
+				rel="external"
+				data-cta="web_app"
+				data-cta-placement="badges"
+			>
 				<svg
 					class="badge-logo"
 					viewBox="0 0 24 24"
