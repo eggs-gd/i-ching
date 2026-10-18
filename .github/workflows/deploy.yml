@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'i-ching-site/**'
+      - 'App/**'
+      - 'Site/**'
+      - 'scripts/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -24,25 +26,51 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # App depends on link:../../eggs.gd-kit, which sits outside this repo.
+      # The default token cannot read that private repo; EGGS_KIT_TOKEN needs contents:read on eggs-gd/eggs.gd-kit.
+      - name: Checkout kit
+        uses: actions/checkout@v4
+        with:
+          repository: eggs-gd/eggs.gd-kit
+          ref: main
+          path: vendor/eggs.gd-kit
+          token: ${{ secrets.EGGS_KIT_TOKEN }}
+
+      - name: Link kit where App expects it
+        run: ln -s "$GITHUB_WORKSPACE/vendor/eggs.gd-kit" "$(dirname "$GITHUB_WORKSPACE")/eggs.gd-kit"
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: yarn
-          cache-dependency-path: i-ching-site/yarn.lock
+          cache-dependency-path: |
+            App/yarn.lock
+            Site/yarn.lock
 
-      - name: Install dependencies
-        working-directory: i-ching-site
+      - name: Install app dependencies
+        working-directory: App
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        working-directory: i-ching-site
+      - name: Build app
+        working-directory: App
+        run: yarn build:pwa
+
+      - name: Copy app into the site
+        run: node scripts/deploy-pwa.mjs
+
+      - name: Install site dependencies
+        working-directory: Site
+        run: yarn install --frozen-lockfile
+
+      - name: Build site
+        working-directory: Site
         run: yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: i-ching-site/build
+          path: Site/build
 
   deploy:
     environment:
