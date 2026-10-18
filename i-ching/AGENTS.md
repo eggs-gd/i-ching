@@ -23,7 +23,7 @@ mind first. See the Platform strategy table in the README.
 - SvelteKit 2 · Svelte 5 (runes, enforced) · TypeScript (strict) · yarn.
 - `yarn dev` · `yarn check` (svelte-check) · `yarn lint` (prettier --check) · `yarn build`.
 - Deploy PWA: `yarn build:pwa` rebuilds with `BASE_PATH=/pwa` and copies `build/` into
-  `../../i-ching-site/static/pwa`; that repo's CI publishes `/pwa`.
+  `../i-ching-site/static/pwa`. Pushing this repo publishes the site and `/pwa` together.
 - Prettier: tabs, single quotes, no trailing comma, width 100. Run `yarn format` before
   finishing.
 - Don't commit or push unless asked — propose the change, let the maintainer push.

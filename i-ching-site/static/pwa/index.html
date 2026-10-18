@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover, user-scalable=no"
+		/>
+		<meta name="theme-color" content="#0e0d0b" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="I Ching" />
+		<link rel="manifest" href="/pwa/manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="/pwa/icons/apple-touch-icon.png" />
+		<link href="/pwa/_app/immutable/entry/start.BkmAWI4K.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/chunks/BHJZKZ5A.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/chunks/Dr4kgHLz.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/entry/app.CPjm_9Vl.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/nodes/0.CZK68YFr.js" rel="modulepreload">
+		<link href="/pwa/_app/immutable/chunks/Dd6bM297.js" rel="modulepreload">
+		
+		<link href="/pwa/_app/immutable/assets/controller.DGQ0O2Aw.css" rel="stylesheet">
+		<link href="/pwa/_app/immutable/assets/0.C9fpwvsv.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_bvyfha = {
+						base: "/pwa",
+						assets: "/pwa"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/pwa/_app/immutable/entry/start.BkmAWI4K.js"),
+						import("/pwa/_app/immutable/entry/app.CPjm_9Vl.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+
+					if ('serviceWorker' in navigator) {
+						const script_url = '/pwa/service-worker.js';
+						const policy = globalThis?.window?.trustedTypes?.createPolicy(
+							'sveltekit-trusted-url',
+							{ createScriptURL(url) { return url; } }
+						);
+						const sanitised = policy?.createScriptURL(script_url) ?? script_url;
+						addEventListener('load', function () {
+							navigator.serviceWorker.register(sanitised);
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

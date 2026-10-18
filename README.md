@@ -8,6 +8,10 @@ The app lives in [`i-ching/`](./i-ching/) — a SvelteKit static app shipped pri
 **PWA**, and wrapped with Capacitor for iOS / Android. See its
 [README](./i-ching/README.md) for philosophy, architecture, development, and roadmap.
 
+The landing page lives in [`i-ching-site/`](./i-ching-site/). Pushing that folder on `main`
+builds it and publishes the site and the PWA together to
+[iching.eggs.gd](https://iching.eggs.gd).
+
 The repository root holds product-cycle material around the app — App Store assets and
 copy in [`AppStore/`](./AppStore/), design notes, editorial reviews.
 

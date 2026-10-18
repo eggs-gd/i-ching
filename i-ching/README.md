@@ -96,7 +96,7 @@ When adding a feature: make it work on the PWA first, then layer the native path
 | Framework       | SvelteKit 2, Svelte 5 (runes)                                     |
 | Language        | TypeScript                                                        |
 | Package manager | yarn                                                              |
-| Deploy (web)    | `@sveltejs/adapter-static`; PWA bundle copied into `i-ching-site` |
+| Deploy (web)    | `@sveltejs/adapter-static`; PWA bundle copied into `../i-ching-site` |
 | Mobile          | Capacitor 8 (iOS / Android)                                       |
 | Storage         | `localStorage` (web) · SQLite (native)                            |
 | Analytics       | Firebase (`aiching-9bbf6`)                                        |
@@ -152,7 +152,7 @@ yarn test:deeplink  # node:test for ?q= parse
 yarn build          # static build → build/
 yarn preview
 
-yarn build:pwa      # BASE_PATH=/pwa build → copy into ../../i-ching-site/static/pwa
+yarn build:pwa      # BASE_PATH=/pwa build → copy into ../i-ching-site/static/pwa
 yarn build:mobile   # static build + cap sync
 yarn ios            # open Xcode
 yarn android        # open Android Studio
@@ -165,8 +165,9 @@ Agent instructions and MCP setup: [`AGENTS.md`](AGENTS.md) (canonical; `CLAUDE.m
 ### Deploying the PWA
 
 `yarn build:pwa` rebuilds with `BASE_PATH=/pwa` and copies `build/` into
-`i-ching-site/static/pwa`. Commit and push `i-ching-site`; its GitHub Actions workflow
-publishes `/pwa` at [iching.eggs.gd/pwa](https://iching.eggs.gd/pwa).
+`../i-ching-site/static/pwa`. Commit and push this repository; the root GitHub Actions
+workflow publishes the landing page and `/pwa` together at
+[iching.eggs.gd](https://iching.eggs.gd).
 
 ---
 
