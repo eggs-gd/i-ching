@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="SyncButton desktop states: muted unsynchronized vs active synchronized">
+	<title>SyncButton  desktop (muted vs active)</title>
+	<rect width="1280" height="720" fill="#0e0d0b"/>
+	<text x="64" y="72" fill="#e8e2d6" font-family="Georgia, serif" font-size="28">SyncButton states · desktop</text>
+	<text x="64" y="104" fill="#8a8275" font-family="system-ui, sans-serif" font-size="14">Notification-style status dot removed. Appearance follows syncController state.</text>
+
+	<!-- Muted card -->
+	<rect x="64" y="160" width="540" height="220" rx="4" fill="#161411" stroke="rgba(196,165,116,0.12)"/>
+	<text x="96" y="200" fill="#5c564c" font-family="system-ui, sans-serif" font-size="11" letter-spacing="1.5">UNSYNCHRONIZED</text>
+	<text x="96" y="232" fill="#e8e2d6" font-family="system-ui, sans-serif" font-size="18">Muted / inactive</text>
+	<text x="96" y="258" fill="#8a8275" font-family="system-ui, sans-serif" font-size="13">aria-label / title: Sign in to sync or Not synced</text>
+	<!-- muted button -->
+	<circle cx="500" cy="270" r="18" fill="rgba(22,20,17,0.45)" stroke="rgba(92,86,76,0.28)" stroke-width="1"/>
+	<g transform="translate(500 270)" fill="none" stroke="#5c564c" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M7.5 -2.5 h-1.05 A6.67 6.67 0 1 0 0 5.83 h7.5 a4.17 4.17 0 0 0 0 -8.33z" transform="translate(-7.5 -2.5) scale(1.15)"/>
+	</g>
+	<!-- cloud icon simplified -->
+	<path d="M488 268c0-4.4 3.6-8 8-8 1.2-3.5 4.5-6 8.4-6 4.9 0 8.9 4 8.9 8.9 0 .4 0 .8-.1 1.1H516c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5 0-.3 0-.6.1-.9C490.2 268.5 488.8 268.3 488 268z" fill="none" stroke="#5c564c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+	<!-- Active card -->
+	<rect x="676" y="160" width="540" height="220" rx="4" fill="#161411" stroke="rgba(196,165,116,0.12)"/>
+	<text x="708" y="200" fill="#c4a574" font-family="system-ui, sans-serif" font-size="11" letter-spacing="1.5">SYNCHRONIZED</text>
+	<text x="708" y="232" fill="#e8e2d6" font-family="system-ui, sans-serif" font-size="18">Active</text>
+	<text x="708" y="258" fill="#8a8275" font-family="system-ui, sans-serif" font-size="13">aria-label / title: Last synced &  click still opens sync popup</text>
+	<!-- active button -->
+	<circle cx="1112" cy="270" r="18" fill="rgba(196,165,116,0.14)" stroke="#c4a574" stroke-width="1"/>
+	<path d="M1100 268c0-4.4 3.6-8 8-8 1.2-3.5 4.5-6 8.4-6 4.9 0 8.9 4 8.9 8.9 0 .4 0 .8-.1 1.1H1128c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5 0-.3 0-.6.1-.9C1102.2 268.5 1100.8 268.3 1100 268z" fill="none" stroke="#e8e2d6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+	<!-- Secondary states -->
+	<text x="64" y="460" fill="#8a8275" font-family="system-ui, sans-serif" font-size="14">Also distinguishable (not a notification badge):</text>
+
+	<circle cx="120" cy="540" r="18" fill="rgba(196,165,116,0.08)" stroke="#8b7355" stroke-width="1"/>
+	<path d="M108 538c0-4.4 3.6-8 8-8 1.2-3.5 4.5-6 8.4-6 4.9 0 8.9 4 8.9 8.9 0 .4 0 .8-.1 1.1H136c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5 0-.3 0-.6.1-.9C110.2 538.5 108.8 538.3 108 538z" fill="none" stroke="#c4a574" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+	<text x="156" y="546" fill="#b9b1a3" font-family="system-ui, sans-serif" font-size="14">Syncing (pulse)</text>
+
+	<circle cx="420" cy="540" r="18" fill="rgba(201,120,90,0.14)" stroke="rgba(201,120,90,0.65)" stroke-width="1"/>
+	<path d="M408 538c0-4.4 3.6-8 8-8 1.2-3.5 4.5-6 8.4-6 4.9 0 8.9 4 8.9 8.9 0 .4 0 .8-.1 1.1H436c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5 0-.3 0-.6.1-.9C410.2 538.5 408.8 538.3 408 538z" fill="none" stroke="#c9785a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+	<text x="456" y="546" fill="#b9b1a3" font-family="system-ui, sans-serif" font-size="14">Error</text>
+
+	<text x="64" y="660" fill="#5c564c" font-family="system-ui, sans-serif" font-size="12">Source: SyncButton.svelte appearance classes · fixture: docs/sync-button-states.html</text>
+</svg>

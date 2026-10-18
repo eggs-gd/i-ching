@@ -98,7 +98,8 @@ incremental cursor: full-pull-and-merge is simpler and cheap enough at this scal
 | `src/lib/sync/snapshot.ts` | `mergeSnapshots`, `diffForRemote` — pure |
 | `src/lib/sync/remote.ts` | RTDB `pullJournal` / `pushChanges` (lazy `firebase/database`) |
 | `src/lib/sync/controller.svelte.ts` | `syncController` — status, triggers, debounce/throttle |
-| `src/lib/components/SyncButton.svelte` | header cloud button + status dot |
+| `src/lib/components/SyncButton.svelte` | header cloud button; muted when unsynced, active when synced (no status badge) |
+| `docs/sync-button-states.html` | visual fixture for muted / active / syncing / error appearances |
 | `src/lib/components/SyncPopup.svelte` | account, sync status, Sync now, sign out, privacy link |
 | `src/lib/storage/*` | tombstones + `replace` across local / sqlite |
 

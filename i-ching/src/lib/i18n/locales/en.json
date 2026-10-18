@@ -100,6 +100,7 @@
 		"blurb": "Your archive syncs to this account across your devices.",
 		"syncing": "Syncing…",
 		"error": "Sync failed — will retry",
+		"notSynced": "Not synced",
 		"syncNow": "Sync now",
 		"lastSynced": "Last synced {when}",
 		"justNow": "just now",
