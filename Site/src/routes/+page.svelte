@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Seo from '$lib/Seo.svelte';
+	import { reopenConsent } from '$lib/analytics/consent';
 	import { HOME_DESCRIPTION, HOME_TITLE, jsonLdHome } from '$lib/seo';
 
 	const screenshots = [
@@ -152,5 +153,6 @@
 		<span>© 2026 earwiG Games</span>
 		<a href="https://eggs.gd">eggs.gd</a>
 		<a href="{base}/privacy">Privacy Policy</a>
+		<button type="button" class="cookie-link" onclick={reopenConsent}>Cookie settings</button>
 	</footer>
 </main>
