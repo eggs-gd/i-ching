@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Seo from '$lib/Seo.svelte';
+	import { HOME_DESCRIPTION, HOME_TITLE, jsonLdHome } from '$lib/seo';
 
 	const screenshots = [
 		{
@@ -38,18 +40,7 @@
 	];
 </script>
 
-<svelte:head>
-	<title>I Ching: Shape of Momentum</title>
-	<meta
-		name="description"
-		content="A quiet modern reading companion for the I Ching. Cast coins, read the hexagram, and return later to see what keeps returning."
-	/>
-	<meta property="og:title" content="I Ching: Shape of Momentum" />
-	<meta
-		property="og:description"
-		content="A quiet space for difficult questions. Cast coins, read the hexagram, return later and see what keeps returning."
-	/>
-</svelte:head>
+<Seo title={HOME_TITLE} description={HOME_DESCRIPTION} path="/" jsonLd={jsonLdHome} />
 
 <main class="page">
 	<section class="intro" aria-labelledby="app-title">
@@ -158,7 +149,8 @@
 	</section>
 
 	<footer>
-		<span>Copyright 2026 eGGs.gd</span>
+		<span>© 2026 earwiG Games</span>
+		<a href="https://eggs.gd">eggs.gd</a>
 		<a href="{base}/privacy">Privacy Policy</a>
 	</footer>
 </main>
