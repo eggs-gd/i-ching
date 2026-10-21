@@ -6,7 +6,9 @@
 	import { initI18n, useI18n } from '$lib/i18n';
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
 	import { applySystemTextZoom } from '$lib/platform/text-scale';
-	import { initAnalytics, track } from '$lib/analytics';
+	import { track } from '$lib/analytics';
+	import AnalyticsConsentPopup from '$lib/components/AnalyticsConsentPopup.svelte';
+	import { analyticsConsent } from '$lib/state/analytics-consent.svelte';
 	import { authStore } from '$lib/state/auth.svelte';
 	import { syncController } from '$lib/sync/controller.svelte';
 
@@ -22,7 +24,7 @@
 	});
 
 	onMount(() => {
-		initAnalytics();
+		analyticsConsent.init();
 		track('app_open');
 		authStore.init();
 		void applySystemTextZoom();
@@ -57,6 +59,8 @@
 	<title>{i18n.t('app.title')}</title>
 	<meta name="description" content={i18n.t('app.description')} />
 </svelte:head>
+
+<AnalyticsConsentPopup />
 
 <div class="app">
 	<div class="scroll-top-bar">
