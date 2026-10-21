@@ -2,7 +2,6 @@
 	import { useI18n } from '$lib/i18n';
 	import { authStore } from '$lib/state/auth.svelte';
 	import { syncController } from '$lib/sync/controller.svelte';
-	import { analyticsConsent } from '$lib/state/analytics-consent.svelte';
 	import { AppButton, AppPopup } from '$lib/components/ui';
 
 	interface Props {
@@ -62,15 +61,6 @@
 				{i18n.t('sync.privacy')}
 			</a>
 
-			{#if analyticsConsent.granted}
-				<p class="sync-analytics">
-					{i18n.t('analytics.on')}
-					<AppButton variant="text" onclick={() => analyticsConsent.revoke()}>
-						{i18n.t('analytics.turnOff')}
-					</AppButton>
-				</p>
-			{/if}
-
 			{#if syncController.enabled}
 				<AppButton
 					variant="primary"
@@ -108,16 +98,6 @@
 		font-size: var(--text-base);
 		color: var(--text);
 		word-break: break-word;
-	}
-
-	.sync-analytics {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--space-2);
-		margin: 0;
-		font-size: var(--text-sm);
-		color: var(--text-muted);
 	}
 
 	.sync-status {

@@ -93,15 +93,6 @@
 		"openEntry": "Open cast reading",
 		"openMotif": "Open hexagram: {name}"
 	},
-	"analytics": {
-		"title": "Anonymous statistics",
-		"body": "Help improve the app by allowing usage statistics. If you decline, everything still works and only anonymous counts are sent (launches, time in the app), with no identifier stored on your device.",
-		"allow": "Allow",
-		"decline": "Decline",
-		"privacy": "Privacy policy",
-		"on": "Usage statistics: allowed",
-		"turnOff": "Turn off"
-	},
 	"sync": {
 		"title": "Sync",
 		"signIn": "Sign in to sync",
