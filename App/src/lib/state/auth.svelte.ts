@@ -2,6 +2,7 @@ import { browser } from '$app/environment';
 import { Capacitor } from '@capacitor/core';
 import { firebaseApp } from '$lib/firebase';
 import { track } from '$lib/analytics';
+import { analyticsConsent } from '$lib/state/analytics-consent.svelte';
 
 export interface AuthUser {
 	uid: string;
@@ -61,6 +62,11 @@ class AuthStore {
 
 	async signIn(): Promise<void> {
 		if (this.busy) return;
+		// Sync needs the app to be allowed to save; otherwise ask first.
+		if (!analyticsConsent.granted) {
+			analyticsConsent.ask();
+			return;
+		}
 		if (!this.available) return; // TODO: native via @capacitor-firebase/authentication
 
 		this.busy = true;

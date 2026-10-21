@@ -16,8 +16,6 @@
 		titleId?: string;
 		size?: PopupSize;
 		variant?: PopupVariant;
-		/** false: no close button, Esc or backdrop dismissal, opaque backdrop (the user must act in the popup). */
-		dismissible?: boolean;
 		/** Scrollable content area between title and footer */
 		scrollable?: boolean;
 		/** Extra class on scrollable/content body (for styles when using snippets) */
@@ -35,7 +33,6 @@
 		titleId,
 		size = 'default',
 		variant = 'default',
-		dismissible = true,
 		scrollable = false,
 		bodyClass = '',
 		children,
@@ -59,18 +56,13 @@
 	class="popup"
 	class:wide={size === 'wide'}
 	class:paid={variant === 'paid'}
-	class:blocking={!dismissible}
-	class:scrollable
+	class:scrollable={scrollable}
 	tabindex="-1"
 	aria-labelledby={titleId}
-	onclose={() => {
-		if (dismissible) handleDialogClose();
-		// A forced close (a second Esc in some browsers) brings the blocking popup back.
-		else if (open && dialog && !dialog.open) dialog.showModal();
-	}}
-	oncancel={(event) => (dismissible ? handleCancel(event) : event.preventDefault())}
+	onclose={handleDialogClose}
+	oncancel={handleCancel}
 	onclick={(event) => {
-		if (dismissible && event.target === dialog) dismiss();
+		if (event.target === dialog) dismiss();
 	}}
 >
 	<h3 id={titleId} class="popup-title">{title}</h3>
@@ -80,9 +72,7 @@
 	</div>
 
 	<footer class="popup-footer" class:has-actions={!!footer}>
-		{#if dismissible}
-			<AppButton variant="popup-close" onclick={dismiss}>{resolvedCloseLabel}</AppButton>
-		{/if}
+		<AppButton variant="popup-close" onclick={dismiss}>{resolvedCloseLabel}</AppButton>
 		{#if footer}
 			<div class="popup-footer-actions">
 				{@render footer()}
@@ -118,10 +108,6 @@
 
 	.popup::backdrop {
 		background: var(--overlay-scrim);
-	}
-
-	.popup.blocking::backdrop {
-		background: #000;
 	}
 
 	.popup.paid {
