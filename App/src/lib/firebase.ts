@@ -16,6 +16,9 @@ const firebaseConfig = {
 	measurementId: 'G-LVWYH1Y06R'
 };
 
+/** GA4 measurement ID of the web stream (used by the consent-aware tag in analytics.ts). */
+export const MEASUREMENT_ID = firebaseConfig.measurementId;
+
 /** Journal sync (Realtime Database) is inert until `databaseURL` is set. */
 export const SYNC_ENABLED = firebaseConfig.databaseURL.length > 0;
 

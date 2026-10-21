@@ -7,6 +7,8 @@
 	import { initNativePlatform, teardownNativePlatform } from '$lib/platform/native';
 	import { applySystemTextZoom } from '$lib/platform/text-scale';
 	import { track } from '$lib/analytics';
+	import AnalyticsConsentPopup from '$lib/components/AnalyticsConsentPopup.svelte';
+	import { analyticsConsent } from '$lib/state/analytics-consent.svelte';
 	import { authStore } from '$lib/state/auth.svelte';
 	import { syncController } from '$lib/sync/controller.svelte';
 
@@ -22,6 +24,7 @@
 	});
 
 	onMount(() => {
+		analyticsConsent.init();
 		track('app_open');
 		authStore.init();
 		void applySystemTextZoom();
@@ -31,8 +34,16 @@
 			}
 		});
 
+		// Time in the app, reported coarsely each time it goes to the background.
+		let visibleSince = performance.now();
 		const onVisible = () => {
-			if (document.visibilityState === 'visible') syncController.resumeSync();
+			if (document.visibilityState === 'visible') {
+				visibleSince = performance.now();
+				syncController.resumeSync();
+			} else {
+				const seconds = Math.round((performance.now() - visibleSince) / 1000);
+				if (seconds > 0) track('app_background', { engaged_s: seconds });
+			}
 		};
 		document.addEventListener('visibilitychange', onVisible);
 
@@ -48,6 +59,8 @@
 	<title>{i18n.t('app.title')}</title>
 	<meta name="description" content={i18n.t('app.description')} />
 </svelte:head>
+
+<AnalyticsConsentPopup />
 
 <div class="app">
 	<div class="scroll-top-bar">
