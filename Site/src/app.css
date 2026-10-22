@@ -188,8 +188,6 @@ h1 {
 	position: absolute;
 	z-index: 2;
 	inset-inline: 0;
-	top: 100%;
-	margin-top: 0.4rem;
 	padding: 0.85rem 1rem;
 	border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
 	border-radius: 0.6rem;
