@@ -100,6 +100,8 @@
 <svelte:window
 	onkeydown={(e) => e.key === 'Escape' && (linkHintOpen = false)}
 	onclick={(e) => {
+		// a drag that selects the hint's text can end outside it; that must not close it
+		if (window.getSelection()?.toString()) return;
 		if (!(e.target as Element).closest('.hint')) linkHintOpen = false;
 	}}
 />
