@@ -33,6 +33,7 @@
 		'Short contemporary readings',
 		'Extended classical commentary',
 		'Personal archive of questions and readings',
+		'Start a reading from a link, from any other app (web app)',
 		'English and Ukrainian localization',
 		'No accounts required',
 		'No social features',
@@ -82,6 +83,21 @@
 				<li>{feature}</li>
 			{/each}
 		</ul>
+
+		<h2>Send a question from anywhere</h2>
+
+		<p>
+			The web app takes its question from a link. Open
+			<code>https://iching.eggs.gd/pwa/?q=your+question</code>
+			and the question is filled in and the coins are tossed at once. So a note, a task or a message can
+			become a question: a link in your notes app, a shortcut on your phone, a small script. If a tool
+			can open a link, it can ask the I Ching. For most apps it takes a little setup on your side.
+		</p>
+
+		<p>
+			<a href="https://journal.eggs.gd">Attention Journal</a>, a sibling app, does exactly this with
+			one tap on any entry.
+		</p>
 
 		<p>
 			Whether the question is about work, relationships, decisions, business, a project or simply
