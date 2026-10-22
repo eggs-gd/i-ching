@@ -28,6 +28,18 @@
 	];
 
 	let linkHintOpen = $state(false);
+	let linkHintTrigger: HTMLButtonElement | undefined = $state();
+	let linkHintTop = $state(0);
+
+	// the box sits right under the line the trigger is on, however the paragraph wraps
+	function placeLinkHint() {
+		if (linkHintTrigger) linkHintTop = linkHintTrigger.offsetTop + linkHintTrigger.offsetHeight + 8;
+	}
+
+	function toggleLinkHint() {
+		placeLinkHint();
+		linkHintOpen = !linkHintOpen;
+	}
 
 	const features = [
 		'Traditional coin casting',
@@ -98,6 +110,7 @@
 {/snippet}
 
 <svelte:window
+	onresize={placeLinkHint}
 	onkeydown={(e) => e.key === 'Escape' && (linkHintOpen = false)}
 	onclick={(e) => {
 		// a drag that selects the hint's text can end outside it; that must not close it
@@ -159,7 +172,8 @@
 					class="hint-trigger"
 					aria-expanded={linkHintOpen}
 					aria-controls="link-hint"
-					onclick={() => (linkHintOpen = !linkHintOpen)}
+					bind:this={linkHintTrigger}
+					onclick={toggleLinkHint}
 				>
 					Open link
 					<svg
@@ -173,7 +187,13 @@
 						<path d="M5 7h14M5 12h14M5 17h9" />
 					</svg>
 				</button>
-				<span id="link-hint" class="hint-body" class:open={linkHintOpen} role="note">
+				<span
+					id="link-hint"
+					class="hint-body"
+					class:open={linkHintOpen}
+					style:top="{linkHintTop}px"
+					role="note"
+				>
 					Open <code>https://iching.eggs.gd/pwa/?q=your+question</code>, with your question after
 					<code>q=</code>, spaces written as <code>+</code> or <code>%20</code>, like in any link.
 					Anything else in the link is ignored.
