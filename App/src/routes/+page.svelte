@@ -200,6 +200,10 @@
 		<p class="tagline">{i18n.t('app.tagline')}</p>
 	</header>
 
+	{#if flow.step === 'question' && journalStore.loaded && journalStore.entries.length === 0}
+		<p class="first-hint">{i18n.t('firstRun.hint')}</p>
+	{/if}
+
 	{#if flow.step === 'question'}
 		<QuestionForm
 			bind:this={questionForm}
@@ -239,6 +243,15 @@
 </main>
 
 <style>
+	.first-hint {
+		margin: 0 auto var(--space-4);
+		max-width: 32rem;
+		text-align: center;
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+		color: var(--text-muted);
+	}
+
 	.cast-overlay {
 		position: fixed;
 		inset: 0;

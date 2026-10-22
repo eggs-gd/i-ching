@@ -12,6 +12,13 @@ import { track } from '$lib/analytics';
 import { hapticHexagramComplete, hapticToss } from '$lib/platform/native';
 import { COIN_SPIN_MS } from './cast-timing';
 import type { Casting, CoinValue, FlowStep, Line, Locale, TossMode } from './types';
+import { analyticsConsent } from '$lib/state/analytics-consent.svelte';
+
+/** Gives the reading a moment before the statistics popup (offered once per session). */
+const STATISTICS_OFFER_DELAY_MS = 3000;
+function offerStatisticsAfterReading(): void {
+	setTimeout(() => analyticsConsent.offer(), STATISTICS_OFFER_DELAY_MS);
+}
 
 function pause(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -147,6 +154,7 @@ export class CastingFlow {
 
 		await journalStore.save(casting);
 		track('casting_completed', { hexagram_number: primaryNumber, method: 'manual' });
+		offerStatisticsAfterReading();
 		this.casting = casting;
 		this.step = 'reading';
 		return true;
@@ -390,6 +398,7 @@ export class CastingFlow {
 
 		await journalStore.save(casting);
 		track('casting_completed', { hexagram_number: primaryNumber, method: this.tossMode });
+		offerStatisticsAfterReading();
 		this.casting = casting;
 		this.step = 'reading';
 	}

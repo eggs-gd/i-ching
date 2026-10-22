@@ -76,6 +76,9 @@
 		"helpClose": "Close",
 		"extendedOpen": "Extended"
 	},
+	"firstRun": {
+		"hint": "Write what is on your mind, then cast. Your readings are kept on this device."
+	},
 	"journal": {
 		"title": "Archive",
 		"export": "Export",

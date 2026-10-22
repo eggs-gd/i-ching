@@ -9,6 +9,8 @@ import {
 
 class JournalStore {
 	entries = $state<Casting[]>([]);
+	/** True once the saved journal has been read, so "empty" is known to be real. */
+	loaded = $state(false);
 
 	/** Set by the sync controller; fired after user-initiated mutations only. */
 	#onMutate: (() => void) | null = null;
@@ -19,6 +21,7 @@ class JournalStore {
 
 	async load(): Promise<void> {
 		this.entries = await loadJournalEntries();
+		this.loaded = true;
 	}
 
 	async save(casting: Casting): Promise<void> {
