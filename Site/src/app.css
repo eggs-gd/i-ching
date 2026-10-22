@@ -165,6 +165,10 @@ h1 {
 	margin-top: 1.75rem;
 }
 
+.intro .store-buttons {
+	justify-content: flex-start;
+}
+
 .store-buttons .badge {
 	display: flex;
 	align-items: center;
