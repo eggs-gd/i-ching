@@ -154,6 +154,59 @@ h1 {
 	color: var(--text);
 }
 
+.description .hint-host {
+	position: relative;
+}
+
+.hint-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 0;
+	border: 0;
+	border-bottom: 1px dotted var(--accent);
+	background: none;
+	color: var(--text);
+	font: inherit;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.hint-trigger svg {
+	width: 1em;
+	height: 1em;
+	color: var(--accent);
+}
+
+.hint-trigger:hover,
+.hint-trigger:focus-visible {
+	color: var(--accent);
+	outline: none;
+}
+
+.hint-body {
+	position: absolute;
+	z-index: 2;
+	inset-inline: 0;
+	top: 100%;
+	margin-top: 0.4rem;
+	padding: 0.85rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+	border-radius: 0.6rem;
+	background: var(--bg-elevated);
+	box-shadow: 0 1rem 2.5rem color-mix(in srgb, #000 50%, transparent);
+	font-size: 1rem;
+	line-height: 1.6;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.hint-body.open {
+	visibility: visible;
+	opacity: 1;
+}
+
 .description code {
 	color: var(--text);
 	font-size: 0.9em;
