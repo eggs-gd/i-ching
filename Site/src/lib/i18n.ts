@@ -27,18 +27,16 @@ export function localeInfo(locale: Locale): LocaleInfo {
 }
 
 /**
- * The path of a page in a locale: the one place that decides which of a page's addresses is
- * the real one. The default locale is served both with and without its prefix; the unprefixed
- * address is the canonical one. `path` starts with "/" ("/" for the root of the locale).
+ * The real address of a page in a locale: always with its prefix, whichever locale is the
+ * default. It is what the canonical link, hreflang, the sitemap and every link on the site
+ * use, so it does not change when the default does. `path` starts with "/" ("/" for the
+ * root of the locale).
  */
 export function canonicalPath(locale: Locale, path: string): string {
-	const rest = path === '/' ? '' : path;
-	if (locale === DEFAULT_LOCALE) return rest || '/';
-	return `/${locale}${rest}`;
+	return `/${locale}${path === '/' ? '' : path}`;
 }
 
-/** The same, for a link in a page: with the base path in front. */
+/** The real address, for a link in a page: with the base path in front. */
 export function href(locale: Locale, path: string): string {
-	const p = canonicalPath(locale, path);
-	return p === '/' ? `${base}/` : `${base}${p}`;
+	return `${base}${canonicalPath(locale, path)}`;
 }
