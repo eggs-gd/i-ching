@@ -169,7 +169,7 @@ h1 {
 	color: var(--text);
 	font: inherit;
 	font-weight: 500;
-	cursor: help;
+	cursor: pointer;
 }
 
 .hint-trigger svg {
@@ -202,25 +202,9 @@ h1 {
 	transition: opacity 0.15s ease;
 }
 
-/* keeps the hover from dropping while the pointer crosses the gap to the box */
-.hint-body::before {
-	content: '';
-	position: absolute;
-	inset-inline: 0;
-	top: -0.6rem;
-	height: 0.6rem;
-}
-
 .hint-body.open {
 	visibility: visible;
 	opacity: 1;
-}
-
-@media (hover: hover) {
-	.hint:hover .hint-body {
-		visibility: visible;
-		opacity: 1;
-	}
 }
 
 .description code {
