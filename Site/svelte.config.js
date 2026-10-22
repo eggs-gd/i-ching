@@ -15,6 +15,10 @@ const config = {
 		}),
 		paths: {
 			base: basePath
+		},
+		// The hexagram texts live with the app; the site reads them at build time.
+		alias: {
+			$content: '../App/src/lib/data'
 		}
 	}
 };

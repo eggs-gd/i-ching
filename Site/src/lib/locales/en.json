@@ -1,0 +1,18 @@
+{
+	"site": "I Ching: Shape of Momentum",
+	"hexagrams": "Hexagrams",
+	"hexagramsTitle": "The 64 hexagrams of the I Ching",
+	"hexagramsLead": "Short symbolic readings of all 64 hexagrams: the picture, the movement and where the process quietly drifts.",
+	"hexagramsDescription": "All 64 hexagrams of the I Ching with short symbolic readings: the scene, the dynamics and the vector.",
+	"hexagramTitle": "Hexagram {number}: {name} ({chinese} {pinyin})",
+	"hexagramPageTitle": "{name}, hexagram {number} of the I Ching — {chinese} {pinyin}",
+	"scene": "The scene",
+	"dynamics": "The dynamics",
+	"vector": "The vector",
+	"previous": "Previous",
+	"next": "Next",
+	"allHexagrams": "All hexagrams",
+	"cast": "Cast a reading",
+	"castLead": "Ask a question and cast the coins in the app.",
+	"language": "Language"
+}

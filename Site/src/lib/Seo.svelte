@@ -1,15 +1,30 @@
 <script lang="ts">
 	import { OG_IMAGE, SITE, SITE_NAME } from '$lib/seo';
+	import { DEFAULT_LOCALE, localeInfo, type Locale } from '$lib/i18n';
 
 	interface Props {
 		title: string;
 		description: string;
-		/** Absolute path from the site root, no trailing slash except for "/". */
+		/** Absolute path from the site root, no trailing slash except for "/". The canonical one. */
 		path: string;
 		jsonLd?: object;
+		/** The page's locale. */
+		locale?: Locale;
+		/** The other locales this page exists in, and their canonical paths (this page's too). */
+		alternates?: { locale: Locale; path: string }[];
 	}
 
-	let { title, description, path, jsonLd }: Props = $props();
+	let {
+		title,
+		description,
+		path,
+		jsonLd,
+		locale = DEFAULT_LOCALE,
+		alternates = []
+	}: Props = $props();
+
+	const others = $derived(alternates.filter((a) => a.locale !== locale));
+	const defaultAlternate = $derived(alternates.find((a) => a.locale === DEFAULT_LOCALE));
 
 	const url = $derived(`${SITE}${path}`);
 	// "<" is escaped so the JSON can never close the script element.
@@ -20,6 +35,16 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={url} />
+	{#each alternates as alternate}
+		<link rel="alternate" hreflang={alternate.locale} href="{SITE}{alternate.path}" />
+	{/each}
+	{#if defaultAlternate}
+		<link rel="alternate" hreflang="x-default" href="{SITE}{defaultAlternate.path}" />
+	{/if}
+	<meta property="og:locale" content={localeInfo(locale).og} />
+	{#each others as alternate}
+		<meta property="og:locale:alternate" content={localeInfo(alternate.locale).og} />
+	{/each}
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={SITE_NAME} />
 	<meta property="og:title" content={title} />
