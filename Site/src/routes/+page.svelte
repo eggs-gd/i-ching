@@ -27,6 +27,8 @@
 		}
 	];
 
+	let linkHintOpen = $state(false);
+
 	const features = [
 		'Traditional coin casting',
 		'Manual hexagram input',
@@ -95,6 +97,13 @@
 	</div>
 {/snippet}
 
+<svelte:window
+	onkeydown={(e) => e.key === 'Escape' && (linkHintOpen = false)}
+	onclick={(e) => {
+		if (!(e.target as Element).closest('.hint')) linkHintOpen = false;
+	}}
+/>
+
 <Seo title={HOME_TITLE} description={HOME_DESCRIPTION} path="/" jsonLd={jsonLdHome} />
 
 <main class="page">
@@ -140,9 +149,34 @@
 
 		<h2>Send a question from anywhere</h2>
 
-		<p>
-			The web app takes its question from a link. Open
-			<code>https://iching.eggs.gd/pwa/?q=your+question</code>
+		<p class="hint-host">
+			The web app takes its question from a link.
+			<span class="hint">
+				<button
+					type="button"
+					class="hint-trigger"
+					aria-expanded={linkHintOpen}
+					aria-controls="link-hint"
+					onclick={() => (linkHintOpen = !linkHintOpen)}
+				>
+					Open link
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.8"
+						stroke-linecap="round"
+						aria-hidden="true"
+					>
+						<path d="M5 7h14M5 12h14M5 17h9" />
+					</svg>
+				</button>
+				<span id="link-hint" class="hint-body" class:open={linkHintOpen} role="note">
+					Open <code>https://iching.eggs.gd/pwa/?q=your+question</code>, with your question after
+					<code>q=</code>, spaces written as <code>+</code> or <code>%20</code>, like in any link.
+					Anything else in the link is ignored.
+				</span>
+			</span>
 			and the question is filled in and the coins are tossed at once. So a note, a task or a message can
 			become a question: a link in your notes app, a shortcut on your phone, a small script. If a tool
 			can open a link, it can ask the I Ching. For most apps it takes a little setup on your side.
