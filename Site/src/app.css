@@ -12,6 +12,8 @@
 	--fill-subtle: color-mix(in srgb, var(--accent) 8%, transparent);
 	--font-serif: 'Cormorant Garamond', Georgia, serif;
 	--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+	--font-hexagram:
+		'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', 'Hiragino Sans', sans-serif;
 }
 
 *,
@@ -452,7 +454,7 @@ footer .cookie-link:hover {
 .hexagram-list a {
 	display: grid;
 	grid-template-columns: 2.4rem 2.2rem 1fr;
-	align-items: baseline;
+	align-items: center;
 	gap: 0.6rem;
 	padding: 0.35rem 0;
 	color: var(--text-soft);
@@ -465,10 +467,9 @@ footer .cookie-link:hover {
 	color: var(--text);
 }
 
-.hexagram-list .glyph {
-	color: var(--accent);
-	font-family: var(--font-serif);
-	font-size: 1.5rem;
+.hexagram-list .hexagram-glyph {
+	font-size: 2rem;
+	text-align: center;
 }
 
 .hexagram-list .number {
@@ -493,4 +494,66 @@ footer .cookie-link:hover {
 .pager a:hover,
 .pager a:focus-visible {
 	color: var(--text);
+}
+
+/* The head of a hexagram page, laid out like the reading card in the app. */
+.hexagram-head {
+	display: grid;
+	/* minmax(0, 1fr): the name may shrink and wrap instead of pushing the pictogram out */
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	gap: 1.25rem;
+	align-items: start;
+	width: 100%;
+}
+
+.hexagram-head .hex-number {
+	color: var(--accent-dim);
+	font-family: var(--font-serif);
+	font-size: 2.5rem;
+	line-height: 1.2;
+}
+
+.hexagram-head h1 {
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	line-height: 1.1;
+	overflow-wrap: anywhere;
+	hyphens: auto;
+}
+
+@media (max-width: 420px) {
+	.hexagram-head {
+		gap: 0.75rem;
+	}
+
+	.hexagram-head .hex-number {
+		font-size: 2rem;
+	}
+
+	.hexagram-head h1 {
+		font-size: 1.75rem;
+	}
+
+	.hexagram-head .hexagram-glyph {
+		font-size: 2.5rem;
+	}
+}
+
+.hexagram-head .hex-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 0.9rem;
+	margin: 0.4rem 0 0;
+	color: var(--text-muted);
+	font-size: 1.15rem;
+}
+
+.hexagram-head .hex-composition {
+	margin: 0.6rem 0 0;
+	color: var(--text-muted);
+	font-family: var(--font-serif);
+	font-size: 1.4rem;
+}
+
+.hexagram-head .hexagram-glyph {
+	font-size: 3.25rem;
 }

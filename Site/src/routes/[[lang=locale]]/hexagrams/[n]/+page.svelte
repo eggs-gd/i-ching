@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Seo from '$lib/Seo.svelte';
+	import HexagramGlyph from '$lib/HexagramGlyph.svelte';
 	import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
 	import { canonicalPath, href } from '$lib/i18n';
 	import { SITE, SITE_NAME } from '$lib/seo';
@@ -45,11 +46,18 @@
 
 <section class="intro" aria-labelledby="hexagram-title">
 	<a class="back-link" href={href(locale, '/hexagrams')}>{t(locale, 'allHexagrams')}</a>
-	<div class="title-row">
-		<p class="glyphs" aria-hidden="true">{hexagram.chinese}</p>
-		<h1 id="hexagram-title">{hexagram.number}. {hexagram.name}</h1>
+	<div class="hexagram-head">
+		<span class="hex-number">{hexagram.number}</span>
+		<div>
+			<h1 id="hexagram-title">{hexagram.name}</h1>
+			<p class="hex-meta">
+				<span>{hexagram.chinese}</span>
+				<span>{hexagram.pinyin}</span>
+			</p>
+			<p class="hex-composition">{hexagram.composition}</p>
+		</div>
+		<HexagramGlyph number={hexagram.number} label={hexagram.name} />
 	</div>
-	<p class="promo">{hexagram.pinyin} · {hexagram.composition}</p>
 	<LocaleSwitcher {locale} available={data.available} {path} />
 </section>
 
