@@ -1,0 +1,18 @@
+{
+	"site": "I Ching: Shape of Momentum",
+	"hexagrams": "Гексаграми",
+	"hexagramsTitle": "64 гексаграми І Цзін",
+	"hexagramsLead": "Короткі символічні прочитання всіх 64 гексаграм: образ, рух і те, куди процес тихо зсувається.",
+	"hexagramsDescription": "Усі 64 гексаграми І Цзін з короткими символічними прочитаннями: образ, динаміка й вектор.",
+	"hexagramTitle": "Гексаграма {number}: {name} ({chinese} {pinyin})",
+	"hexagramPageTitle": "{name}, гексаграма {number} І Цзін — {chinese} {pinyin}",
+	"scene": "Образ",
+	"dynamics": "Динаміка",
+	"vector": "Вектор",
+	"previous": "Попередня",
+	"next": "Наступна",
+	"allHexagrams": "Усі гексаграми",
+	"cast": "Кинути монети",
+	"castLead": "Постав запитання й кинь монети в застосунку.",
+	"language": "Мова"
+}

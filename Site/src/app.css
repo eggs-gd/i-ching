@@ -405,3 +405,92 @@ footer .cookie-link {
 footer .cookie-link:hover {
 	color: var(--text);
 }
+
+/* Hexagram pages and the locale switcher. */
+.intro .back-link {
+	margin-bottom: 1.25rem;
+}
+
+.locale-switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1rem;
+	margin-top: 1.1rem;
+	font-size: 0.95rem;
+	color: var(--text-muted);
+}
+
+.locale-switcher a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.locale-switcher a:hover,
+.locale-switcher a:focus-visible {
+	color: var(--text);
+}
+
+.locale-switcher [aria-current] {
+	color: var(--text);
+}
+
+.hexagram-list {
+	width: min(100%, 43rem);
+	margin: 0 auto;
+	padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(3rem, 8vw, 5rem);
+	border-top: 1px solid var(--border);
+}
+
+.hexagram-list ol {
+	display: grid;
+	gap: 0.15rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hexagram-list a {
+	display: grid;
+	grid-template-columns: 2.4rem 2.2rem 1fr;
+	align-items: baseline;
+	gap: 0.6rem;
+	padding: 0.35rem 0;
+	color: var(--text-soft);
+	font-size: 1.15rem;
+	text-decoration: none;
+}
+
+.hexagram-list a:hover,
+.hexagram-list a:focus-visible {
+	color: var(--text);
+}
+
+.hexagram-list .glyph {
+	color: var(--accent);
+	font-family: var(--font-serif);
+	font-size: 1.5rem;
+}
+
+.hexagram-list .number {
+	color: var(--text-muted);
+	font-size: 0.95rem;
+}
+
+.pager {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.75rem 1.5rem;
+	margin-top: 2.5rem;
+	font-size: 1rem;
+}
+
+.pager a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.pager a:hover,
+.pager a:focus-visible {
+	color: var(--text);
+}

@@ -104,6 +104,16 @@ in place of line/column; an ambiguous name returns candidates.
   [docs/platform.md](./docs/platform.md).
 - App code: `App/src/` — structure map in [App/README.md](./App/README.md).
 - Landing page: `Site/`.
+- Hexagram pages: `Site/src/routes/[[lang=locale]]/hexagrams/`, built from `App/src/lib/data/hexagrams/*.json`
+  (the site reads them through the `$content` alias). The real address of every page has its locale
+  prefix (`/en/hexagrams/1`, `/uk/hexagrams/1`), and `canonicalPath()` in `Site/src/lib/i18n.ts` builds
+  it; canonical, hreflang, the sitemap and all links use it. The default locale is also served without
+  the prefix (`/hexagrams/1`) as a shortcut: nothing links to it and its canonical points to the real
+  address, so changing the default changes no real address. A locale that is in a hexagram's file
+  gets a page, and an incomplete one fails the build. The rules are in the organization's
+  [localization standard](https://github.com/eggs-gd/.github/blob/main/docs/localization.md).
+  Only the own-voice `reading` is published there; `judgment`, `image` and the extended Wilhelm
+  layer are not (licence).
 - Journal storage abstraction: `App/src/lib/storage/` — `journal-local` (web),
   `journal-sqlite` (native), behind one `JournalRepository` interface.
 - Auth + journal sync: `App/src/lib/state/auth.svelte.ts`, `App/src/lib/sync/`. One-shot sync,
