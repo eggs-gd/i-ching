@@ -499,7 +499,8 @@ footer .cookie-link:hover {
 /* The head of a hexagram page, laid out like the reading card in the app. */
 .hexagram-head {
 	display: grid;
-	grid-template-columns: auto 1fr auto;
+	/* minmax(0, 1fr): the name may shrink and wrap instead of pushing the pictogram out */
+	grid-template-columns: auto minmax(0, 1fr) auto;
 	gap: 1.25rem;
 	align-items: start;
 	width: 100%;
@@ -515,6 +516,26 @@ footer .cookie-link:hover {
 .hexagram-head h1 {
 	font-size: clamp(2rem, 5vw, 2.75rem);
 	line-height: 1.1;
+	overflow-wrap: anywhere;
+	hyphens: auto;
+}
+
+@media (max-width: 420px) {
+	.hexagram-head {
+		gap: 0.75rem;
+	}
+
+	.hexagram-head .hex-number {
+		font-size: 2rem;
+	}
+
+	.hexagram-head h1 {
+		font-size: 1.75rem;
+	}
+
+	.hexagram-head .hexagram-glyph {
+		font-size: 2.5rem;
+	}
 }
 
 .hexagram-head .hex-meta {
