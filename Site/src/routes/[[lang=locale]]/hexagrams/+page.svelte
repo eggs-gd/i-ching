@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Seo from '$lib/Seo.svelte';
+	import HexagramGlyph from '$lib/HexagramGlyph.svelte';
 	import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
 	import { canonicalPath, href } from '$lib/i18n';
 	import { t } from '$lib/strings';
@@ -30,7 +31,7 @@
 		{#each data.items as item}
 			<li>
 				<a href={href(locale, `/hexagrams/${item.number}`)}>
-					<span class="glyph" aria-hidden="true">{item.chinese}</span>
+					<HexagramGlyph number={item.number} />
 					<span class="number">{item.number}</span>
 					<span class="name">{item.name}</span>
 				</a>
