@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { DEFAULT_LOCALE } from '$lib/i18n';
+import { DEFAULT_LOCALE, type Locale } from '$lib/i18n';
 import { HEXAGRAM_NUMBERS, getHexagram, hexagramLocales } from '$lib/hexagrams';
 
 export const prerender = true;
@@ -15,8 +15,8 @@ export function entries() {
 	);
 }
 
-export async function load({ parent, params }) {
-	const { locale } = await parent();
+export function load({ params }) {
+	const locale = (params.lang ?? DEFAULT_LOCALE) as Locale;
 	const number = Number(params.n);
 	const hexagram = getHexagram(number, locale);
 	if (!hexagram) error(404, 'Not found');
